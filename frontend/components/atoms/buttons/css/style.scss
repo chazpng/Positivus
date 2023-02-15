@@ -1,8 +1,26 @@
-.gl-btn-blue {
-	background-color: blue;
+@import "./mixin";
+
+.primary-button {
+
+	@include base;
 }
 
-.gl-btn-orange {
-	background-color: orange;
+.secondary-button {
+
+	@include base($padding: 8px 22px, $color: $primary-red-01, $background-color: $white, $radius: 6px, $border-color: $primary-red-01);
 }
 
+.primary-button-white {
+
+	@include base($padding: 11px 20px, $color: $primary-red-01, $background-color: $white, $radius: 2px, $border-color: $white);
+}
+
+.primary-button-white {
+
+	@include base($padding: 11px 20px, $color: $primary-red-01, $background-color: $white, $radius: 2px, $border-color: $white);
+}
+
+.primary-button-white-hollow {
+
+	@include hollow;
+}

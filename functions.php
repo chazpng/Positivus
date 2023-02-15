@@ -1,6 +1,6 @@
 <?php
 /**
- * greydientlab functions and definitions
+ * Greydientlab functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -141,21 +141,43 @@ function greydientlab_scripts() {
 	wp_enqueue_style( 'greydientlab-style', get_stylesheet_uri(), array(), _GL_VERSION );
 	wp_style_add_data( 'greydientlab-style', 'rtl', 'replace' );
 	wp_enqueue_style( 'components', get_template_directory_uri() . '/frontend/static/css/components.min.css', array(), _GL_VERSION );
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/plugins/bootstrap/dashbs.min.css', array(), _GL_VERSION );
+	wp_enqueue_style( 'slick', get_template_directory_uri() . '/plugins/slick/slick.css', array(), _GL_VERSION );
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/frontend/static/css/main.min.css', array(), _GL_VERSION );
 
 	wp_enqueue_script( 'greydientlab-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'components', get_template_directory_uri() . '/frontend/static/js/components.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'slick', get_template_directory_uri() . '/plugins/slick/slick.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/frontend/static/js/main.min.js', array(), _GL_VERSION, true );
 
-	wp_localize_script( 'main', 'ajaxVar', array(
-		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-		'nonce' => wp_create_nonce( 'ajax-nonce' )
-	) );
+	wp_localize_script(
+		'main',
+		'ajaxVar',
+		array(
+			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+			'nonce'   => wp_create_nonce( 'ajax-nonce' ),
+		)
+	);
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'greydientlab_scripts' );
+
+/**
+ * Enqueues Bootstrap on the frontend and in the block editor.
+ */
+function enqueue_bootstrap() {
+	wp_enqueue_style( 'bootstrap-styles', get_template_directory_uri() . '/plugins/bootstrap/dashbs.min.css', array(), _GL_VERSION );
+	wp_enqueue_style( 'slick', get_template_directory_uri() . '/plugins/slick/slick.css', array(), _GL_VERSION );
+
+	wp_enqueue_script( 'popper', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'slick', get_template_directory_uri() . '/plugins/slick/slick.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'popper', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'bootstrap-scripts', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', array(), _GL_VERSION, true );
+}
+add_action( 'enqueue_block_assets', 'enqueue_bootstrap' );
+
 
 /**
  * Implement the Custom Header feature.
@@ -201,22 +223,31 @@ require_once __DIR__ . '/vendor/autoload.php';
  */
 require get_template_directory() . '/acf/blocks/blocks.php';
 
-add_filter( 'loader_directories', function( $directories ){
-  $directories[] = get_template_directory() . '/frontend/components';
-  return $directories;
-});
+/**
+ * Load Frontend Components.
+ *
+ * @param array $directories array of directory.
+ */
+function load_directories( $directories ) {
+	$directories[] = get_template_directory() . '/frontend/components';
+	return $directories;
+}
+add_filter( 'loader_directories', 'load_directories' );
 
-add_filter(
-	'loader_alias',
-	function ( $alias ) {
-		$alias['atom']     = 'atoms';
-		// $alias['molecule'] = 'molecules';
-		// $alias['organism'] = 'organisms';
-		// $alias['template'] = 'templates';
-
-		return $alias;
-	}
-);
+/**
+ * Create alias for moxie-lean/loader.
+ *
+ * @param array $alias array of alias.
+ */
+function load_alias( $alias ) {
+	$alias['atom'] = 'atoms';
+	// TODO: Enable alias.
+	$alias['molecule'] = 'molecules';
+	// $alias['organism'] = 'organisms';
+	// $alias['template'] = 'templates';
+	return $alias;
+}
+add_filter( 'loader_alias', 'load_alias' );
 
 /**
  * Load acf fields.

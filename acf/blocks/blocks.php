@@ -2,6 +2,7 @@
 /**
  * Initialize ACF Custom Blocks
  * Learn more about blocks here:
+ *
  * @link https://www.advancedcustomfields.com/resources/blocks/
  *
  * @package greydientlab
@@ -24,6 +25,7 @@ add_action( 'init', 'register_acf_blocks' );
  * Register block script
  */
 function register_block_script() {
-	// wp_register_script( 'journey', get_template_directory_uri() . '/custom-blocks/journey/js/script.min.js', array( 'jquery', 'acf' ), '1.0.0', true );
+	// TODO: loop to include scripts.
+	wp_register_script( 'carousel-logo', get_template_directory_uri() . '/acf/blocks/carousel-logo/js/script.js', array( 'jquery', 'acf', 'slick' ), '1.0.0', true );
 }
-add_action( 'wp_enqueue_scripts', 'register_block_script', 999 );
+add_action( 'init', 'register_block_script' );
