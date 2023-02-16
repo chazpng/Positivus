@@ -48,6 +48,11 @@
 	<rule ref="WordPress">
 		<!-- This rule does not apply here since the _s prefix should be changed by the theme author. -->
 		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed"/>
+		<exclude name="PHPCompatibility.Operators.NewOperators.t_coalesceFound"/>
+		<exclude name="PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound"/>
+		<exclude name="PHPCompatibility.Keywords.NewKeywords.t_dirFound"/>
+		<exclude name="PHPCompatibility.Keywords.NewKeywords.t_useFound"/>
+		<exclude name="WPThemeReview.PluginTerritory.ForbiddenFunctions.editor_blocks_register_block_type"/>
 	</rule>
 	<rule ref="WPThemeReview"/>
 
@@ -61,7 +66,7 @@
 		 Multiple valid text domains can be provided as a comma-delimited list. -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="_s"/>
+			<property name="text_domain" type="array" value="greydientlab"/>
 		</properties>
 	</rule>
 
