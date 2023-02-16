@@ -170,6 +170,7 @@ add_action( 'wp_enqueue_scripts', 'greydientlab_scripts' );
 function enqueue_bootstrap() {
 	wp_enqueue_style( 'bootstrap-styles', get_template_directory_uri() . '/plugins/bootstrap/dashbs.min.css', array(), _GL_VERSION );
 	wp_enqueue_style( 'slick', get_template_directory_uri() . '/plugins/slick/slick.css', array(), _GL_VERSION );
+	wp_enqueue_style( 'components', get_template_directory_uri() . '/frontend/static/css/components.min.css', array(), _GL_VERSION );
 
 	wp_enqueue_script( 'popper', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'slick', get_template_directory_uri() . '/plugins/slick/slick.min.js', array(), _GL_VERSION, true );
