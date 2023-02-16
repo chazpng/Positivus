@@ -249,3 +249,15 @@ add_filter( 'loader_alias', 'load_alias' );
  * Load acf fields.
  */
 require get_template_directory() . '/acf/custom-fields/fields.php';
+
+/**
+ * Enable SVG and json file upload
+ *
+ * @param mimes $mimes return mime type.
+ */
+function mime_types( $mimes ) {
+	$mimes['svg']  = 'image/svg+xml';
+	$mimes['json'] = 'text/plain';
+	return $mimes;
+}
+add_filter( 'upload_mimes', 'mime_types' );
