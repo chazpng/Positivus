@@ -53,6 +53,7 @@
 		<exclude name="PHPCompatibility.Keywords.NewKeywords.t_dirFound"/>
 		<exclude name="PHPCompatibility.Keywords.NewKeywords.t_useFound"/>
 		<exclude name="WPThemeReview.PluginTerritory.ForbiddenFunctions.editor_blocks_register_block_type"/>
+		<exclude name="PHPCompatibility.LanguageConstructs.NewEmptyNonVariable.Found"/>
 	</rule>
 	<rule ref="WPThemeReview"/>
 
