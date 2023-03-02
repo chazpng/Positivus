@@ -236,11 +236,9 @@ add_filter( 'loader_directories', 'load_directories' );
  * @param array $alias array of alias.
  */
 function load_alias( $alias ) {
-	$alias['atom'] = 'atoms';
-	// TODO: Enable alias.
+	$alias['atom']     = 'atoms';
 	$alias['molecule'] = 'molecules';
-	// $alias['organism'] = 'organisms';
-	// $alias['template'] = 'templates';
+	$alias['organism'] = 'organisms';
 	return $alias;
 }
 add_filter( 'loader_alias', 'load_alias' );
