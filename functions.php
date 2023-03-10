@@ -163,12 +163,12 @@ add_action( 'wp_enqueue_scripts', 'greydientlab_scripts' );
  * Enqueues styles and script on the frontend and in the block editor.
  */
 function gl_block_assets() {
-	wp_enqueue_style( 'bootstrap-styles', get_template_directory_uri() . '/plugins/bootstrap/dashbs.min.css', array(), _GL_VERSION );
-	wp_enqueue_style( 'slick', get_template_directory_uri() . '/plugins/slick/slick.css', array(), _GL_VERSION );
+	wp_enqueue_style( 'bootstrap-styles', get_template_directory_uri() . '/libraries/bootstrap/dashbs.min.css', array(), _GL_VERSION );
+	wp_enqueue_style( 'slick', get_template_directory_uri() . '/libraries/slick/slick.css', array(), _GL_VERSION );
 	wp_enqueue_style( 'components', get_template_directory_uri() . '/frontend/static/css/components.min.css', array(), _GL_VERSION );
 
 	wp_enqueue_script( 'popper', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js', array(), _GL_VERSION, true );
-	wp_enqueue_script( 'slick', get_template_directory_uri() . '/plugins/slick/slick.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'slick', get_template_directory_uri() . '/libraries/slick/slick.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'popper', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'bootstrap-scripts', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'components', get_template_directory_uri() . '/frontend/static/js/components.min.js', array(), _GL_VERSION, true );
