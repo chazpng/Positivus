@@ -319,3 +319,34 @@ function gl_block_category( $categories, $post ) {
 	);
 }
 add_filter( 'block_categories_all', 'gl_block_category', 10, 2 );
+
+/**
+ * Get Blocks assets.
+ *
+ * @param String $block_name block folder name.
+ * @param String $filename asset filename.
+ */
+function get_block_asset( $block_name, $filename ) {
+	echo esc_url( get_template_directory_uri() . '/acf/blocks/' . $block_name . '/img/' . $filename );
+}
+
+/**
+ * Get Blocks assets url.
+ *
+ * @param String $block_name block folder name.
+ * @param String $filename asset filename.
+ */
+function get_block_asset_url( $block_name, $filename ) {
+	return get_template_directory_uri() . '/acf/blocks/' . $block_name . '/img/' . $filename;
+}
+
+/**
+ * Get Component assets.
+ *
+ * @param String $component_type component type.
+ * @param String $component_name component folder name.
+ * @param String $filename component image file name.
+ */
+function get_component_url( $component_type, $component_name, $filename ) {
+	return get_template_directory_uri() . '/frontend/components/' . $component_type . '/' . $component_name . '/img/' . $filename;
+}
