@@ -347,3 +347,19 @@ function get_block_asset_url( $block_name, $filename ) {
 function get_component_url( $component_type, $component_name, $filename ) {
 	return get_template_directory_uri() . '/frontend/components/' . $component_type . '/' . $component_name . '/img/' . $filename;
 }
+
+/**
+ * Add Custom attributes to menu link.
+ *
+ * @param Array  $atts array of attributes.
+ * @param Object $item object item.
+ * @param Object $args object arguments.
+ */
+function add_menu_link_attributes( $atts, $item, $args ) {
+
+	if ( 'menu-1' === $args->theme_location ) {
+		$atts['class'] = 'custom-class-here';
+	}
+	return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'add_menu_link_attributes', 10, 3 );
