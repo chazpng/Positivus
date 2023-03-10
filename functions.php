@@ -300,3 +300,19 @@ function editor_full_width_gutenberg() {
 	}
 }
 add_action( 'admin_head', 'editor_full_width_gutenberg' );
+
+/**
+ * Add ACF Blocks Category
+ */
+function gl_block_category( $categories, $post ) {
+	return array_merge(
+		$categories,
+		array(
+			array(
+				'slug' => 'gl-blocks',
+				'title' => 'GL Blocks',
+			),
+		)
+	);
+}
+add_filter( 'block_categories_all', 'gl_block_category', 10, 2);
