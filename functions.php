@@ -164,10 +164,10 @@ add_action( 'wp_enqueue_scripts', 'greydientlab_scripts' );
  */
 function gl_block_assets() {
 	wp_enqueue_style( 'tailwind', get_template_directory_uri() . '/tailwind/dist/output.min.css', array(), _GL_VERSION );
-	wp_enqueue_style( 'slick', get_template_directory_uri() . '/plugins/slick/slick.css', array(), _GL_VERSION );
+	wp_enqueue_style( 'slick', get_template_directory_uri() . '/libraries/slick/slick.css', array(), _GL_VERSION );
 	wp_enqueue_style( 'components', get_template_directory_uri() . '/frontend/static/css/components.min.css', array(), _GL_VERSION );
 
-	wp_enqueue_script( 'slick', get_template_directory_uri() . '/plugins/slick/slick.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'slick', get_template_directory_uri() . '/libraries/slick/slick.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'components', get_template_directory_uri() . '/frontend/static/js/components.min.js', array(), _GL_VERSION, true );
 }
 add_action( 'enqueue_block_assets', 'gl_block_assets' );
@@ -270,4 +270,80 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 			'redirect'   => false,
 		)
 	);
+}
+
+/**
+ * Add inline css editor width
+ */
+function editor_full_width_gutenberg() {
+	$is_enable = true;
+
+	if ( $is_enable ) {
+		echo '<style>
+			body.gutenberg-editor-page .editor-post-title__block, body.gutenberg-editor-page .editor-default-block-appender, body.gutenberg-editor-page .editor-block-list__block {
+				max-width: none !important;
+			}
+			.block-editor__container .wp-block {
+				max-width: none !important;
+			}
+
+			/*code editor*/
+			.edit-post-text-editor__body {
+				max-width: none !important;
+				margin-left: 2%;
+				margin-right: 2%;
+			}
+		</style>';
+	}
+}
+add_action( 'admin_head', 'editor_full_width_gutenberg' );
+
+/**
+ * Add ACF Blocks Category
+ *
+ * @param Array  $categories array of categories.
+ * @param Object $post post object.
+ */
+function gl_block_category( $categories, $post ) {
+	return array_merge(
+		$categories,
+		array(
+			array(
+				'slug'  => 'gl-blocks',
+				'title' => 'GL Blocks',
+			),
+		)
+	);
+}
+add_filter( 'block_categories_all', 'gl_block_category', 10, 2 );
+
+/**
+ * Get Blocks assets.
+ *
+ * @param String $block_name block folder name.
+ * @param String $filename asset filename.
+ */
+function get_block_asset( $block_name, $filename ) {
+	echo esc_url( get_template_directory_uri() . '/acf/blocks/' . $block_name . '/img/' . $filename );
+}
+
+/**
+ * Get Blocks assets url.
+ *
+ * @param String $block_name block folder name.
+ * @param String $filename asset filename.
+ */
+function get_block_asset_url( $block_name, $filename ) {
+	return get_template_directory_uri() . '/acf/blocks/' . $block_name . '/img/' . $filename;
+}
+
+/**
+ * Get Component assets.
+ *
+ * @param String $component_type component type.
+ * @param String $component_name component folder name.
+ * @param String $filename component image file name.
+ */
+function get_component_url( $component_type, $component_name, $filename ) {
+	return get_template_directory_uri() . '/frontend/components/' . $component_type . '/' . $component_name . '/img/' . $filename;
 }

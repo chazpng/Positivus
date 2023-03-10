@@ -1,6 +1,11 @@
 **/*min.js
 **/static/
+<<<<<<< HEAD
 **/*min.css
 gulpfile.js
 *.config.js
 tailwind/src/*.css
+=======
+**/libraries/
+gulpfile.js
+>>>>>>> main

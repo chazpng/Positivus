@@ -18,7 +18,7 @@ $description = $args['description'] ?? 'Your Description Here';
 $bli_link    = $args['link'] ?? false;
 ?>
 
-<div class="gl-button-link-info">
+<div class="gl-m-button-link-info">
 
 	<div class="container">
 		<div class="row">

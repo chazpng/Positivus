@@ -4,7 +4,7 @@
   "description": "Accordion block.",
   "style": [ "file:./css/style.min.css" ],
   "script": "accordion",
-  "category": "formatting",
+  "category": "gl-blocks",
   "icon": "welcome-widgets-menus",
   "keywords": ["accordion", "faq"],
   "acf": {

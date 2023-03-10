@@ -1,0 +1,58 @@
+{
+    "name": "acf/gl-container",
+    "title": "GL Container",
+    "description": "GL Container Block.",
+    "style": [ "file:./css/style.min.css" ],
+    "script": "gl-container",
+    "category": "gl-blocks",
+    "icon": "welcome-widgets-menus",
+    "keywords": ["gl", "container"],
+    "apiVersion": 2,
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "gl-container.php"
+    },
+    "styles": [
+        { "name": "default", "label": "Default", "isDefault": true },
+    { "name": "red", "label": "Red" },
+    { "name": "green", "label": "Green" },
+    { "name": "blue", "label": "Blue" }
+    ],
+    "supports": {
+        "align": true,
+        "anchor": true,
+        "alignContent": false,
+        "color": {
+        "text": true,
+        "background": true,
+        "link": true
+        },
+        "alignText": true,
+        "spacing": {
+            "margin": [
+                "top",
+                "bottom"
+            ],
+            "padding": true
+        },
+        "typography": {
+            "lineHeight": true,
+            "fontSize": true
+        },
+        "fullHeight": true
+    },
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "purple"
+        }
+    },
+    "example": {
+        "attributes": {
+            "data": {
+                "text": "This is an example text field",
+                "text_area": "This is an example text area field"
+            }
+        }
+    }
+}
