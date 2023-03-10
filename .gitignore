@@ -4,3 +4,4 @@ node_modules
 frontend/static/css/
 frontend/static/js/
 frontend/static/fonts/
+tailwind/dist/
