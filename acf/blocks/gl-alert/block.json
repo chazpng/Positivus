@@ -1,0 +1,51 @@
+{
+  "name": "gl/alert",
+  "title": "GL Alert",
+  "description": "GL Alert Block.",
+  "style": [ "file:./css/style.min.css" ],
+  "script": "",
+  "category": "gl-blocks",
+  "icon": "block-default",
+  "keywords": ["gl", "alert"],
+  "apiVersion": 2,
+  "acf": {
+      "mode": "preview",
+      "renderTemplate": "alert.php"
+  },
+  "supports": {
+      "align": false,
+      "anchor": false,
+      "alignContent": false,
+      "color": {
+        "text": false,
+        "background": true,
+        "link": false
+      },
+      "alignText": false,
+      "spacing": {
+          "margin": [
+              "top",
+              "bottom"
+          ],
+          "padding": true
+      },
+      "typography": {
+          "lineHeight": false,
+          "fontSize": false
+      },
+      "fullHeight": true
+  },
+  "custom": {
+    "fontWeight": true
+  },
+  "attributes": {
+  },
+  "example": {
+      "attributes": {
+          "data": {
+              "text": "This is an example text field",
+              "text_area": "This is an example text area field"
+          }
+      }
+  }
+}
