@@ -1,0 +1,40 @@
+{
+  "name": "gl/wysiwyg",
+  "title": "GL Wysiwyg",
+  "description": "GL Wysiwyg Block.",
+  "style": [ "file:./css/style.min.css" ],
+  "script": "",
+  "category": "gl-blocks",
+  "icon": "welcome-widgets-menus",
+  "keywords": ["gl", "wysiwyg"],
+  "apiVersion": 2,
+  "acf": {
+      "mode": "preview",
+      "renderTemplate": "gl-wysiwyg.php"
+  },
+  "supports": {
+      "align": false,
+      "anchor": false,
+      "alignContent": false,
+      "color": {
+        "text": false,
+        "background": true,
+        "link": false
+      },
+      "alignText": false,
+      "fullHeight": true
+  },
+  "custom": {
+    "fontWeight": true
+  },
+  "attributes": {
+  },
+  "example": {
+      "attributes": {
+          "data": {
+              "text": "This is an example text field",
+              "text_area": "This is an example text area field"
+          }
+      }
+  }
+}
