@@ -12,12 +12,6 @@
         "mode": "preview",
         "renderTemplate": "gl-container.php"
     },
-    "styles": [
-        { "name": "default", "label": "Default", "isDefault": true },
-    { "name": "red", "label": "Red" },
-    { "name": "green", "label": "Green" },
-    { "name": "blue", "label": "Blue" }
-    ],
     "supports": {
         "align": true,
         "anchor": true,
@@ -42,10 +36,6 @@
         "fullHeight": true
     },
     "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "purple"
-        }
     },
     "example": {
         "attributes": {

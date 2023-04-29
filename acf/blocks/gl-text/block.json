@@ -1,0 +1,57 @@
+{
+  "name": "gl/text",
+  "title": "GL Text",
+  "description": "GL Text Block.",
+  "style": [ "file:./css/style.min.css" ],
+  "script": "",
+  "category": "gl-blocks",
+  "icon": "welcome-widgets-menus",
+  "keywords": ["gl", "text"],
+  "apiVersion": 2,
+  "acf": {
+      "mode": "preview",
+      "renderTemplate": "gl-text.php"
+  },
+  "supports": {
+      "align": false,
+      "anchor": false,
+      "alignContent": false,
+      "color": {
+        "text": true,
+        "background": true,
+        "link": true,
+        "customProperties": {
+          "--hover-color": {
+            "value": "#FF0000",
+            "description": "The color to use when hovering over links or buttons."
+          }
+        }
+      },
+      "alignText": true,
+      "spacing": {
+          "margin": [
+              "top",
+              "bottom"
+          ],
+          "padding": true
+      },
+      "typography": {
+          "lineHeight": true,
+          "fontSize": true
+      },
+      "fullHeight": true
+  },
+  "custom": {
+    "fontWeight": true
+  },
+  "attributes": {
+  },
+  "example": {
+      "attributes": {
+          "data": {
+              "text": "This is an example text field",
+              "text_area": "This is an example text area field"
+          }
+      }
+  }
+}

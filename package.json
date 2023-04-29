@@ -19,6 +19,8 @@
   "devDependencies": {
     "@wordpress/scripts": "^19.2.2",
     "dir-archiver": "^1.1.1",
+    "node-sass": "^7.0.1",
+    "rtlcss": "^3.5.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
@@ -26,10 +28,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
-    "node-sass": "^7.0.1",
-    "npm-run-all": "^4.1.5",
-    "rtlcss": "^3.5.0",
-    "tailwindcss": "^3.2.7"
+    "npm-run-all": "^4.1.5"
   },
   "rtlcssConfig": {
     "options": {
@@ -45,9 +44,9 @@
     "map": false
   },
   "scripts": {
-    "tailwind": "npx tailwindcss -i ./tailwind/src/input.css -o ./tailwind/dist/output.min.css --minify --watch",
     "gulp": "gulp",
-    "watch": "npm-run-all --parallel tailwind gulp",
+    "build": "gulp build",
+    "watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
     "compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style frontend/resources/sass/**/*.scss",
