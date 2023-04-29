@@ -6,6 +6,6 @@ frontend/static/fonts/
 acf/blocks/**/**/style.min.css
 acf/blocks/**/**/script.min.js
 frontend/static/js/*.js
-acf/blocks/test-*
-acf/blocks/wip-*
+acf/**/test-*
+acf/**/wip-*
 tailwind/dist

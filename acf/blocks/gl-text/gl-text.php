@@ -34,7 +34,8 @@ if ( $align_text ) {
 	$style .= ' text-align: ' . $align_text . ';';
 }
 
+$text = empty( get_field( 'text' ) ) ? 'Your Text Here...' : get_field( 'text' );
 ?>
-<p class="gl-b-text <?php echo esc_attr( $class_name ); ?>" style="<?php echo esc_attr( $style ); ?>">
-	<?php the_field( 'text' ); ?>
+<p class="gl-b-text m-0 <?php echo esc_attr( $class_name ); ?>" style="<?php echo esc_attr( $style ); ?>">
+	<?php echo wp_kses_post( nl2br( $text ) ); ?>
 </p>
