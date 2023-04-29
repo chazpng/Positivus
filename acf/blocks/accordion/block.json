@@ -5,7 +5,7 @@
   "style": [ "file:./css/style.min.css" ],
   "script": "accordion",
   "category": "gl-blocks",
-  "icon": "welcome-widgets-menus",
+  "icon": "block-default",
   "keywords": ["accordion", "faq"],
   "acf": {
     "mode": "edit",

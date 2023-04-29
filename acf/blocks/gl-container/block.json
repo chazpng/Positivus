@@ -5,7 +5,7 @@
     "style": [ "file:./css/style.min.css" ],
     "script": "gl-container",
     "category": "gl-blocks",
-    "icon": "welcome-widgets-menus",
+    "icon": "block-default",
     "keywords": ["gl", "container"],
     "apiVersion": 2,
     "acf": {

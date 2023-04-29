@@ -5,7 +5,7 @@
   "style": [ "file:./css/style.min.css" ],
   "script": "",
   "category": "gl-blocks",
-  "icon": "welcome-widgets-menus",
+  "icon": "block-default",
   "keywords": ["gl", "text"],
   "apiVersion": 2,
   "acf": {
