@@ -169,6 +169,7 @@ function gl_block_assets() {
 
 	wp_enqueue_script( 'slick', get_template_directory_uri() . '/libraries/slick/slick.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'components', get_template_directory_uri() . '/frontend/static/js/components.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'tailwind-elements', get_template_directory_uri() . '/libraries/tailwind-elements/tw-elements.min.js', array(), _GL_VERSION, true );
 }
 add_action( 'enqueue_block_assets', 'gl_block_assets' );
 
