@@ -24,6 +24,7 @@ $gl_alert
 		'paragraph',
 		array(
 			'media_upload' => 0,
+			'toolbar'      => 'full'
 		)
 	)
 	->addTrueFalse(

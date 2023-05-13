@@ -10,6 +10,7 @@ $bg_image         = '';
 $dismissible_attr = '';
 $class_name       = 'm-0 rounded-lg bg-primary-100 px-6 py-5 text-base overflow-hidden';
 $array_style      = $block['style'] ?? null;
+$font_size        = $block['fontSize'] ?? null;
 $additional_class = $block['className'] ?? '';
 $background_color = $block['backgroundColor'] ?? null;
 
@@ -19,7 +20,11 @@ if ( $background_color ) {
 
 if ( $array_style ) {
 	$array_style = wp_style_engine_get_styles( $array_style );
-	$style      .= $array_style['css'];
+	$style      .= ' ' . $array_style['css'];
+}
+
+if ( $font_size ) {
+	$style .= ' font-size: var(--wp--preset--font-size--' . $font_size . ');';
 }
 
 if ( get_field( 'icon' ) || get_field( 'is_dismissible' ) ) {

@@ -13,28 +13,40 @@
       "renderTemplate": "gl-wysiwyg.php"
   },
   "supports": {
-      "align": false,
-      "anchor": false,
-      "alignContent": false,
-      "color": {
-        "text": false,
-        "background": true,
-        "link": false
-      },
-      "alignText": false,
-      "fullHeight": true
-  },
-  "custom": {
-    "fontWeight": true
-  },
-  "attributes": {
-  },
-  "example": {
-      "attributes": {
-          "data": {
-              "text": "This is an example text field",
-              "text_area": "This is an example text area field"
-          }
-      }
-  }
+    "align": true,
+    "anchor": false,
+    "alignContent": true,
+    "color": {
+      "text": true,
+      "background": true,
+      "link": true
+    },
+    "alignText": true,
+    "spacing": {
+        "margin": [
+            "top",
+            "bottom"
+        ],
+        "padding": true
+    },
+    "typography": {
+        "lineHeight": true,
+        "fontSize": true,
+        "fontWeight": true
+    },
+    "fullHeight": true
+},
+"custom": {
+  "fontWeight": true
+},
+"attributes": {
+},
+"example": {
+    "attributes": {
+        "data": {
+            "text": "This is an example text field",
+            "text_area": "This is an example text area field"
+        }
+    }
+}
 }

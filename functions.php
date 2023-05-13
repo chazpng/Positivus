@@ -163,6 +163,7 @@ add_action( 'wp_enqueue_scripts', 'greydientlab_scripts' );
  * Enqueues styles and script on the frontend and in the block editor.
  */
 function gl_block_assets() {
+	wp_enqueue_style( 'dancing-script', 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&display=swap"', array(), _GL_VERSION );
 	wp_enqueue_style( 'tailwind', get_template_directory_uri() . '/tailwind/dist/output.min.css', array(), _GL_VERSION );
 	wp_enqueue_style( 'slick', get_template_directory_uri() . '/libraries/slick/slick.css', array(), _GL_VERSION );
 	wp_enqueue_style( 'components', get_template_directory_uri() . '/frontend/static/css/components.min.css', array(), _GL_VERSION );
@@ -274,7 +275,8 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 }
 
 /**
- * Add inline css editor width
+ * Add inline css style in editor
+ * to make it full width.
  */
 function editor_full_width_gutenberg() {
 	$is_enable = true;
@@ -364,3 +366,62 @@ function add_menu_link_attributes( $atts, $item, $args ) {
 	return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'add_menu_link_attributes', 10, 3 );
+
+// ACF > WYSIWYG — Custom Toolbar
+add_filter( 'acf/fields/wysiwyg/toolbars', function ( $toolbars ) {
+
+	// Unset Basic Type Toolbar
+	unset( $toolbars['Basic']['bold'] );
+
+	// [1] formatselect. bold, italic, bullist, numlist, blockquote, alignleft, aligncenter, alignright, link, wp_more, spellchecker, fullscreen, wp_adv
+	// [2] strikethrough, hr, forecolor, pastetext, removeformat, charmap, outdent, indent, undo, redo, wp_help
+
+	// Register a basic toolbar with a single row of options
+	$toolbars['Full'][1] = [
+		// 'formatselect',
+		// 'fontsizeselect',
+		'bold',
+		'italic',
+		'alignleft',
+		'aligncenter',
+		'alignright',
+		'bullist',
+		'numlist',
+		'link',
+		'unlink',
+		'forecolor',
+		'hr',
+		'removeformat'
+	];
+	$toolbars['Full'][2] = [];
+
+	return $toolbars;
+});
+
+/**
+ * Check if key exists in non and muti dimensional array
+ *
+ * @param string $search_key search key.
+ * @param array  $array array to search for.
+ *
+ */
+function array_key_exists_recursive( $search_key, $array ) {
+	if ( ! is_array( $array ) ) {
+		return null;
+	}
+
+	foreach ( $array as $key => $value ) {
+		if ( $key === $search_key ) {
+			return $value;
+		}
+
+		if ( is_array( $value ) ) {
+			$result = array_key_exists_recursive( $search_key, $value );
+
+			if ( $result !== null ) {
+				return $result;
+			}
+		}
+	}
+	return null;
+}
