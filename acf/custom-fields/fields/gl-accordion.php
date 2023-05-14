@@ -16,6 +16,6 @@ $accordion
 	->addRepeater( 'accordion' )
 		->addText( 'label' )
 		->addWysiwyg( 'content' )
-	->setLocation( 'block', '==', 'acf/accordion' );
+	->setLocation( 'block', '==', 'gl/accordion' );
 
 return $accordion;

@@ -164,12 +164,14 @@ add_action( 'wp_enqueue_scripts', 'greydientlab_scripts' );
  */
 function gl_block_assets() {
 	wp_enqueue_style( 'dancing-script', 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&display=swap"', array(), _GL_VERSION );
-	wp_enqueue_style( 'tailwind', get_template_directory_uri() . '/tailwind/dist/output.min.css', array(), _GL_VERSION );
+	wp_enqueue_style( 'tw-elements', get_template_directory_uri() . '/libraries/tailwind-elements/tw-elements.min.css', array(), _GL_VERSION );
+	// wp_enqueue_style( 'tailwind', get_template_directory_uri() . '/tailwind/dist/output.min.css', array(), _GL_VERSION );
 	wp_enqueue_style( 'slick', get_template_directory_uri() . '/libraries/slick/slick.css', array(), _GL_VERSION );
 	wp_enqueue_style( 'components', get_template_directory_uri() . '/frontend/static/css/components.min.css', array(), _GL_VERSION );
 
 	wp_enqueue_script( 'slick', get_template_directory_uri() . '/libraries/slick/slick.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'components', get_template_directory_uri() . '/frontend/static/js/components.min.js', array(), _GL_VERSION, true );
+	// wp_enqueue_script( 'tw-3.3.0', get_template_directory_uri() . '/libraries/tailwind-elements/tw-3.3.0.min.js', array(), _GL_VERSION, false );
 	wp_enqueue_script( 'tailwind-elements', get_template_directory_uri() . '/libraries/tailwind-elements/tw-elements.min.js', array(), _GL_VERSION, true );
 }
 add_action( 'enqueue_block_assets', 'gl_block_assets' );

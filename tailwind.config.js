@@ -7,9 +7,10 @@ module.exports = {
 		"./template-parts/*.{php,html,js}",
 		"./node_modules/tw-elements/dist/js/**/*.js"
 	],
+	safelist: [],
 	theme: {
 		extend: {},
 	},
 	plugins: [require("tw-elements/dist/plugin.cjs")],
-	darkMode: "class"
+	darkMode: "class",
 }

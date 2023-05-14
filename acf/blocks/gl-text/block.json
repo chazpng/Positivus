@@ -14,30 +14,25 @@
 		"renderTemplate": "gl-text.php"
 	},
 	"supports": {
-		"align": false,
+		"align": true,
 		"anchor": false,
 		"alignContent": false,
-		"dimensions": {
-			"minHeight": true
-		},
 		"color": {
-			"text": true,
-			"background": true,
-			"link": true
+		"text": true,
+		"background": false,
+		"link": false
+		},
+		"alignText": true,
+		"spacing": {
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": true
 		},
 		"typography": {
 			"lineHeight": true,
-			"fontSize": true,
-			"fontWeight": true,
-			"fontStyle": true,
-			"fontFamilies": [
-        {
-          "fontFamily": "Dancing Script",
-          "name": "Dancing Script",
-          "slug": "dancing-script"
-        }
-      ],
-			"textTransform": true
+			"fontSize": true
 		},
 		"fullHeight": true
 	},

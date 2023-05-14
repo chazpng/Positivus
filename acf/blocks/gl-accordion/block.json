@@ -1,15 +1,15 @@
 {
-  "name": "acf/accordion",
+  "name": "gl/accordion",
   "title": "Accordion",
   "description": "Accordion block.",
   "style": [ "file:./css/style.min.css" ],
-  "script": "accordion",
+  "script": "gl-accordion",
   "category": "gl-blocks",
   "icon": "block-default",
   "keywords": ["accordion", "faq"],
   "acf": {
     "mode": "edit",
-    "renderTemplate": "accordion.php",
+    "renderTemplate": "gl-accordion.php",
     "supports": "jsx"
   },
   "example": {
