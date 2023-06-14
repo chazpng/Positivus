@@ -1392,7 +1392,7 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@popperjs/core@^2.6.0":
+"@popperjs/core@^2.11.2", "@popperjs/core@^2.6.0":
   version "2.11.7"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.7.tgz#ccab5c8f7dc557a52ca3288c10075c9ccd37fff7"
   integrity sha512-Cr4OjIkipTtcXKjAsm8agyleBuDHvxzeBoa1v543lbv1YaIwQjESsVcmjiWiPEbC1FIeHOG/Op9kdCmAmiS3Kw==
@@ -1545,6 +1545,11 @@
     "@svgr/plugin-jsx" "^5.5.0"
     "@svgr/plugin-svgo" "^5.5.0"
     loader-utils "^2.0.0"
+
+"@tailwindcss/container-queries@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/container-queries/-/container-queries-0.1.1.tgz#9a759ce2cb8736a4c6a0cb93aeb740573a731974"
+  integrity sha512-p18dswChx6WnTSaJCSGx6lTmrGzNNvm2FtXmiO6AuA1V4U5REyoqwmT6kgAsIMdjo07QdAfYXHJ4hnMtfHzWgA==
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -9478,6 +9483,13 @@ postcss@^8.4.23:
     nanoid "^3.3.6"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
+
+preline@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/preline/-/preline-1.8.0.tgz#c4a020d02db269d1041d65a929c1a9d0bbed3080"
+  integrity sha512-guttn86Fc/+AbvN9oKcr2z3zU7DL3Q5dl7nhcR4nTi5F02LXQc7WIYwgIXMR97kymCs52feiju6glXO3dUIpvA==
+  dependencies:
+    "@popperjs/core" "^2.11.2"
 
 prelude-ls@^1.2.1:
   version "1.2.1"

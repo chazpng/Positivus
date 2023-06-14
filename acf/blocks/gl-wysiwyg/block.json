@@ -1,5 +1,5 @@
 {
-  "name": "gl/wysiwyg",
+  "name": "acf/wysiwyg",
   "title": "GL Wysiwyg",
   "description": "GL Wysiwyg Block.",
   "style": [ "file:./css/style.min.css" ],
@@ -9,8 +9,8 @@
   "keywords": ["gl", "wysiwyg"],
   "apiVersion": 2,
   "acf": {
-      "mode": "preview",
-      "renderTemplate": "gl-wysiwyg.php"
+    "mode": "preview",
+    "renderTemplate": "gl-wysiwyg.php"
   },
   "supports": {
     "align": true,
@@ -23,30 +23,31 @@
     },
     "alignText": true,
     "spacing": {
-        "margin": [
-            "top",
-            "bottom"
-        ],
-        "padding": true
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": true
     },
     "typography": {
-        "lineHeight": true,
-        "fontSize": true,
-        "fontWeight": true
+      "lineHeight": true,
+      "fontSize": true,
+      "fontWeight": true
     },
     "fullHeight": true
-},
-"custom": {
-  "fontWeight": true
-},
-"attributes": {
-},
-"example": {
+  },
+  "custom": {
+    "fontWeight": true
+  },
+  "attributes": {
+  },
+  "example": {
     "attributes": {
-        "data": {
-            "text": "This is an example text field",
-            "text_area": "This is an example text area field"
-        }
+      "data": {
+        "text": "This is an example text field",
+        "text_area": "This is an example text area field"
+      }
     }
-}
+  },
+  "usesContext": ["gl/fields"]
 }

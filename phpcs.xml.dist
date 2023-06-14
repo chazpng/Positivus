@@ -54,6 +54,10 @@
 		<exclude name="PHPCompatibility.Keywords.NewKeywords.t_useFound"/>
 		<exclude name="WPThemeReview.PluginTerritory.ForbiddenFunctions.editor_blocks_register_block_type"/>
 		<exclude name="PHPCompatibility.LanguageConstructs.NewEmptyNonVariable.Found"/>
+		<exclude name="WordPress.PHP.DisallowShortTernary.Found"/>
+		<exclude name="PHPCompatibility.Operators.NewShortTernary.MiddleMissing"/>
+		<exclude name="PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ellipsisFound"/>
+		<exclude name="WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound"/>
 	</rule>
 	<rule ref="WPThemeReview"/>
 

@@ -1,0 +1,17 @@
+:root {
+	margin-top: 0 !important;
+}
+
+.page-template-block-preview {
+
+	header,
+	footer,
+	#secondary,
+	#wpadminbar {
+		display: none;
+	}
+
+	[class$="gl-b-*"] {
+		display: block;
+	}
+}

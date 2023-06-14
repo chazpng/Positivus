@@ -163,18 +163,40 @@ add_action( 'wp_enqueue_scripts', 'greydientlab_scripts' );
  * Enqueues styles and script on the frontend and in the block editor.
  */
 function gl_block_assets() {
-	wp_enqueue_style( 'dancing-script', 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&display=swap"', array(), _GL_VERSION );
-	wp_enqueue_style( 'tw-elements', get_template_directory_uri() . '/libraries/tailwind-elements/tw-elements.min.css', array(), _GL_VERSION );
-	// wp_enqueue_style( 'tailwind', get_template_directory_uri() . '/tailwind/dist/output.min.css', array(), _GL_VERSION );
+	wp_enqueue_style( 'dancing-script', 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&display=swap', array(), _GL_VERSION );
+	wp_enqueue_style( 'inter', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap', array(), _GL_VERSION );
+	wp_enqueue_style( 'tailwind', get_template_directory_uri() . '/tailwind/dist/output.min.css', array(), _GL_VERSION );
 	wp_enqueue_style( 'slick', get_template_directory_uri() . '/libraries/slick/slick.css', array(), _GL_VERSION );
 	wp_enqueue_style( 'components', get_template_directory_uri() . '/frontend/static/css/components.min.css', array(), _GL_VERSION );
+	wp_enqueue_style( 'inter', 'https://rsms.me/inter/inter.css', array(), _GL_VERSION, true );
 
-	wp_enqueue_script( 'slick', get_template_directory_uri() . '/libraries/slick/slick.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'components', get_template_directory_uri() . '/frontend/static/js/components.min.js', array(), _GL_VERSION, true );
-	// wp_enqueue_script( 'tw-3.3.0', get_template_directory_uri() . '/libraries/tailwind-elements/tw-3.3.0.min.js', array(), _GL_VERSION, false );
-	wp_enqueue_script( 'tailwind-elements', get_template_directory_uri() . '/libraries/tailwind-elements/tw-elements.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'preline', get_template_directory_uri() . '/libraries/preline/preline.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'resize-sensor', get_template_directory_uri() . '/libraries/resize-sensor/resize-sensor.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'alpine', 'https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js', array(), _GL_VERSION, true );
 }
 add_action( 'enqueue_block_assets', 'gl_block_assets' );
+
+/**
+ * Add defer attribute to script.
+ *
+ * @param String $tag script tag.
+ * @param String $handle Name of the script.
+ * @param String $src Full URL of the script, or path of the script.
+ */
+function defer_scripts( $tag, $handle, $src ) {
+	$defer = array(
+		'alpine',
+	);
+
+	if ( in_array( $handle, $defer, true ) ) {
+		return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n"; // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
+	}
+
+	return $tag;
+}
+
+add_filter( 'script_loader_tag', 'defer_scripts', 10, 3 );
 
 /**
  * Implement the Custom Header feature.
@@ -369,18 +391,18 @@ function add_menu_link_attributes( $atts, $item, $args ) {
 }
 add_filter( 'nav_menu_link_attributes', 'add_menu_link_attributes', 10, 3 );
 
-// ACF > WYSIWYG — Custom Toolbar
-add_filter( 'acf/fields/wysiwyg/toolbars', function ( $toolbars ) {
-
-	// Unset Basic Type Toolbar
+/**
+ * Customize WYSIWYG ACF Toolbars
+ *
+ * @param Array $toolbars array of ACF WYSIWYG toolbars.
+ */
+function customize_acf_wysiwyg( $toolbars ) {
+	// Unset Basic Type Toolbar.
 	unset( $toolbars['Basic']['bold'] );
 
-	// [1] formatselect. bold, italic, bullist, numlist, blockquote, alignleft, aligncenter, alignright, link, wp_more, spellchecker, fullscreen, wp_adv
-	// [2] strikethrough, hr, forecolor, pastetext, removeformat, charmap, outdent, indent, undo, redo, wp_help
-
-	// Register a basic toolbar with a single row of options
-	$toolbars['Full'][1] = [
-		// 'formatselect',
+	// Register a basic toolbar with a single row of options.
+	$toolbars['Full'][1] = array(
+		'formatselect',
 		// 'fontsizeselect',
 		'bold',
 		'italic',
@@ -392,20 +414,52 @@ add_filter( 'acf/fields/wysiwyg/toolbars', function ( $toolbars ) {
 		'link',
 		'unlink',
 		'forecolor',
-		'hr',
-		'removeformat'
-	];
-	$toolbars['Full'][2] = [];
+		// 'removeformat'
+	);
 
 	return $toolbars;
-});
+}
+add_filter( 'acf/fields/wysiwyg/toolbars', 'customize_acf_wysiwyg' );
+
+/**
+ * Remove Copy/Paste Preformatting on ACF WYSIWYG.
+ *
+ * @param array $settings array of ACF WYSIWYG Settings.
+ */
+function remove_acf_preformatting( $settings ) {
+	// Disable paste with formatting.
+	$settings['paste_as_text'] = true;
+
+	return $settings;
+}
+add_filter( 'tiny_mce_before_init', 'remove_acf_preformatting' );
+
+/**
+ * Remove All Native Block.
+ * Except blocks in the $allowed_blocks
+ *
+ * @param array $allowed_blocks array of Native Blocks.
+ */
+function allow_acf_blocks_starting_with_acf( $allowed_blocks ) {
+	// Disable all native blocks.
+	$allowed_blocks = array( 'core/paragraph' );
+
+	// Get all ACF blocks and add them to the allowed blocks list.
+	$acf_blocks = WP_Block_Type_Registry::get_instance()->get_all_registered();
+	foreach ( $acf_blocks as $acf_block ) {
+		if ( 0 === strpos( $acf_block->name, 'acf/' ) ) {
+			$allowed_blocks[] = $acf_block->name;
+		}
+	}
+	return $allowed_blocks;
+}
+add_filter( 'allowed_block_types_all', 'allow_acf_blocks_starting_with_acf' );
 
 /**
  * Check if key exists in non and muti dimensional array
  *
  * @param string $search_key search key.
  * @param array  $array array to search for.
- *
  */
 function array_key_exists_recursive( $search_key, $array ) {
 	if ( ! is_array( $array ) ) {
@@ -420,10 +474,20 @@ function array_key_exists_recursive( $search_key, $array ) {
 		if ( is_array( $value ) ) {
 			$result = array_key_exists_recursive( $search_key, $value );
 
-			if ( $result !== null ) {
+			if ( null !== $result ) {
 				return $result;
 			}
 		}
 	}
 	return null;
+}
+
+/**
+ * Get Block Path
+ *
+ * @param String $block_name block folder name.
+ * @param String $filename asset filename.
+ */
+function get_custom_block_template( $block_name, $filename ) {
+	return get_template_directory() . '/acf/blocks/' . $block_name . '/templates/' . $filename;
 }

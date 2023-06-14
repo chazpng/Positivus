@@ -30,9 +30,8 @@ function register_block_script() {
 
 	foreach ( $files as $file ) {
 		$script = dirname( __FILE__ ) . '/' . $file . '/js/script.min.js';
-
 		if ( file_exists( $script ) ) {
-			wp_register_script( $file, get_template_directory_uri() . '/acf/blocks/' . $file . '/js/script.min.js', array( 'jquery', 'acf', 'slick', 'tw-3.3.0', 'tailwind-elements' ), _GL_VERSION, true );
+			wp_register_script( $file, get_template_directory_uri() . '/acf/blocks/' . $file . '/js/script.js', array( 'jquery', 'acf' ), _GL_VERSION, true );
 		};
 	}
 }

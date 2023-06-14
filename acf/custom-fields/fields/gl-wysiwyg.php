@@ -17,6 +17,6 @@ $gl_wysiwyg
 			'media_upload' => 0,
 		)
 	)
-	->setLocation( 'block', '==', 'gl/wysiwyg' );
+	->setLocation( 'block', '==', 'acf/wysiwyg' );
 
 return $gl_wysiwyg;
