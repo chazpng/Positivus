@@ -15,8 +15,8 @@ if ( $background_color ) {
 
 $paragraph = empty( get_field( 'paragraph' ) ) ? 'Your Paragraph Here...' : get_field( 'paragraph' );
 ?>
-<div class="gl-b-wysiwyg <?php echo esc_attr( $class_name ); ?> [&_h3]:m-0 [&_p:last-child]:m-0 [&_p:nth-of-type(1)]:mt-0 container m-auto" style="<?php echo esc_attr( $style ); ?>">
-	<div class="grid grid-cols-2">
+<div class="gl-b-wysiwyg <?php echo esc_attr( $class_name ); ?> container m-auto" style="<?php echo esc_attr( $style ); ?>">
+	<div class="grid grid-cols-1">
 		<div><?php echo wp_kses_post( $paragraph ); ?></div>
 	</div>
 </div>
