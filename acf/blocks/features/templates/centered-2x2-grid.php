@@ -53,7 +53,7 @@ $description = empty( get_field( 'description' ) ) ? 'Your Description Here' : g
 					<div class="relative pl-16">
 						<dt class="text-base font-semibold leading-7 text-gray-900">
 							<div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-							<img src="<?php get_block_asset_url( 'features', 'icon-placeholder.svg' ); ?>">
+							<img src="<?php echo esc_url( get_block_asset_url( 'features', 'icon-placeholder.svg' ) ); ?>">
 							</div>
 							Your Title Here
 						</dt>
@@ -62,7 +62,7 @@ $description = empty( get_field( 'description' ) ) ? 'Your Description Here' : g
 					<div class="relative pl-16">
 						<dt class="text-base font-semibold leading-7 text-gray-900">
 							<div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-							<img src="<?php get_block_asset_url( 'features', 'icon-placeholder.svg' ); ?>">
+							<img src="<?php echo esc_url( get_block_asset_url( 'features', 'icon-placeholder.svg' ) ); ?>">
 							</div>
 							Your Title Here
 						</dt>
@@ -71,7 +71,7 @@ $description = empty( get_field( 'description' ) ) ? 'Your Description Here' : g
 					<div class="relative pl-16">
 						<dt class="text-base font-semibold leading-7 text-gray-900">
 							<div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-							<img src="<?php get_block_asset_url( 'features', 'icon-placeholder.svg' ); ?>">
+							<img src="<?php echo esc_url( get_block_asset_url( 'features', 'icon-placeholder.svg' ) ); ?>">
 							</div>
 							Your Title Here
 						</dt>
