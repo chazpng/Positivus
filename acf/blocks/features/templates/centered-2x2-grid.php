@@ -41,10 +41,11 @@ $description = empty( get_field( 'description' ) ) ? 'Your Description Here' : g
 					</div>
 					<?php endwhile; ?>
 				<?php else : ?>
+					<dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
 					<div class="relative pl-16">
 						<dt class="text-base font-semibold leading-7 text-gray-900">
 							<div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-							<img src="<?php get_block_asset_url( 'features', 'icon-placeholder.svg' ); ?>">
+							<img src="<?php echo esc_url( get_block_asset_url( 'features', 'icon-placeholder.svg' ) ); ?>">
 							</div>
 							Your Title Here
 						</dt>

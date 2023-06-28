@@ -14,14 +14,15 @@ $headers
 	->addSelect(
 		'features_style',
 		array(
-			'default_value' => 'product-screenshot',
+			'default_value' => 'simple',
 		)
 	)
 	->addChoices(
 		array( 'product-screenshot' => 'With Product Screenshot' ),
 		array( '2x2-grid' => 'Centered 2x2 Grid' ),
 		array( 'large-screenshot' => 'With Large Screenshot' ),
-		array( 'offset-feature' => 'Offset with Feature List' )
+		array( 'offset-feature' => 'Offset with Feature List' ),
+		array( 'simple' => 'Simple' )
 	)
 ->addImage(
 	'featured_image',

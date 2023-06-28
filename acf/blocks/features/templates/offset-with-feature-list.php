@@ -39,6 +39,49 @@ $description = empty( get_field( 'description' ) ) ? 'Your Description Here' : g
 						</div>
 					<?php endwhile; ?>
 					<?php else : ?>
+						<dl class="col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:gap-y-16">
+					<div class="relative pl-9">
+						<dt class="font-semibold text-gray-900">
+							<img src="<?php echo esc_url( get_block_asset_url( 'features', 'icon-placeholder.svg' ) ); ?>" class="absolute left-0 top-1 h-5 w-5 text-indigo-500">
+							Your Title Here
+						</dt>
+						<dd class="mt-2">Your Description Here</dd>
+					</div>
+					<div class="relative pl-9">
+						<dt class="font-semibold text-gray-900">
+							<img src="<?php echo esc_url( get_block_asset_url( 'features', 'icon-placeholder.svg' ) ); ?>" class="absolute left-0 top-1 h-5 w-5 text-indigo-500">
+							Your Title Here
+						</dt>
+						<dd class="mt-2">Your Description Here</dd>
+					</div>
+					<div class="relative pl-9">
+						<dt class="font-semibold text-gray-900">
+							<img src="<?php echo esc_url( get_block_asset_url( 'features', 'icon-placeholder.svg' ) ); ?>" class="absolute left-0 top-1 h-5 w-5 text-indigo-500">
+							Your Title Here
+						</dt>
+						<dd class="mt-2">Your Description Here</dd>
+					</div>
+					<div class="relative pl-9">
+						<dt class="font-semibold text-gray-900">
+							<img src="<?php echo esc_url( get_block_asset_url( 'features', 'icon-placeholder.svg' ) ); ?>" class="absolute left-0 top-1 h-5 w-5 text-indigo-500">
+							Your Title Here
+						</dt>
+						<dd class="mt-2">Your Description Here</dd>
+					</div>
+					<div class="relative pl-9">
+						<dt class="font-semibold text-gray-900">
+							<img src="<?php echo esc_url( get_block_asset_url( 'features', 'icon-placeholder.svg' ) ); ?>" class="absolute left-0 top-1 h-5 w-5 text-indigo-500">
+							Your Title Here
+						</dt>
+						<dd class="mt-2">Your Description Here</dd>
+					</div>
+					<div class="relative pl-9">
+						<dt class="font-semibold text-gray-900">
+							<img src="<?php echo esc_url( get_block_asset_url( 'features', 'icon-placeholder.svg' ) ); ?>" class="absolute left-0 top-1 h-5 w-5 text-indigo-500">
+							Your Title Here
+						</dt>
+						<dd class="mt-2">Your Description Here</dd>
+					</div>
 					<div class="relative pl-9">
 						<dt class="font-semibold text-gray-900">
 							<img src="<?php echo esc_url( get_block_asset_url( 'features', 'icon-placeholder.svg' ) ); ?>" class="absolute left-0 top-1 h-5 w-5 text-indigo-500">

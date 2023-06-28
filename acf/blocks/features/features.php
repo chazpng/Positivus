@@ -21,4 +21,7 @@ $features_style = get_field( 'features_style' );
 	<?php if ( 'offset-feature' === $features_style ) : ?>
 		<?php require get_custom_block_template( 'features', 'offset-with-feature-list.php' ); ?>
 	<?php endif; ?>
+	<?php if ( 'simple' === $features_style ) : ?>
+		<?php require get_custom_block_template( 'features', 'simple.php' ); ?>
+	<?php endif; ?>
 </div>
