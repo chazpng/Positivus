@@ -24,4 +24,7 @@ $features_style = get_field( 'features_style' );
 	<?php if ( 'simple' === $features_style ) : ?>
 		<?php require get_custom_block_template( 'features', 'simple.php' ); ?>
 	<?php endif; ?>
+	<?php if ( 'offset-2x2' === $features_style ) : ?>
+		<?php require get_custom_block_template( 'features', 'offset-2x2-grid.php' ); ?>
+	<?php endif; ?>
 </div>

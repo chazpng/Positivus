@@ -22,6 +22,7 @@ $headers
 		array( '2x2-grid' => 'Centered 2x2 Grid' ),
 		array( 'large-screenshot' => 'With Large Screenshot' ),
 		array( 'offset-feature' => 'Offset with Feature List' ),
+		array( 'offset-2x2' => 'Offset 2x2 Grid' ),
 		array( 'simple' => 'Simple' )
 	)
 ->addImage(
