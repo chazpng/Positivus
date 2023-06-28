@@ -15,4 +15,7 @@ $features_style = get_field( 'features_style' );
 	<?php if ( '2x2-grid' === $features_style ) : ?>
 		<?php require get_custom_block_template( 'features', 'centered-2x2-grid.php' ); ?>
 	<?php endif; ?>
+	<?php if ( 'large-screenshot' === $features_style ) : ?>
+		<?php require get_custom_block_template( 'features', 'large-screenshot.php' ); ?>
+	<?php endif; ?>
 </div>

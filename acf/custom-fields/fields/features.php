@@ -19,7 +19,8 @@ $headers
 	)
 	->addChoices(
 		array( 'product-screenshot' => 'With Product Screenshot' ),
-		array( '2x2-grid' => 'Centered 2x2 Grid' )
+		array( '2x2-grid' => 'Centered 2x2 Grid' ),
+		array( 'large-screenshot' => 'With Large Screenshot' )
 	)
 ->addImage(
 	'featured_image',

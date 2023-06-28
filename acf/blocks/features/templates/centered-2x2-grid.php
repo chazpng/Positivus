@@ -15,7 +15,7 @@ $description = empty( get_field( 'description' ) ) ? 'Your Description Here' : g
 
 <div class="bg-white py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
-		<div class="mx-auto max-w-2xl text-center md:text-left">
+		<div class="mx-auto max-w-2xl text-center lg:text-center">
 			<h2 class="text-base font-semibold leading-7 text-purple"><?php echo esc_html( $label ); ?></h2>
 			<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><?php echo esc_html( $main_title ); ?></p>
 			<p class="mt-6 text-lg leading-8 text-gray-600"><?php echo esc_html( $description ); ?></p>
