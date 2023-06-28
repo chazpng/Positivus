@@ -33,6 +33,13 @@ $headers
 		'return_format' => 'url',
 	)
 )
+->addTrueFalse(
+	'align_image_to_the_left?',
+	array(
+		'default_value' => 0,
+	)
+)
+->conditional( 'features_style', '==', 'product-screenshot' )
 	->addText( 'label' )
 	->addText( 'title' )
 	->addTextarea( 'description' )

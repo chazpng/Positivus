@@ -12,6 +12,7 @@ $label       = empty( get_field( 'label' ) ) ? 'Your Label Here' : get_field( 'l
 $main_title  = empty( get_field( 'title' ) ) ? 'Your Title Here' : get_field( 'title' );
 $description = empty( get_field( 'description' ) ) ? 'Your Description Here' : get_field( 'description' );
 $bg_image    = empty( get_field( 'featured_image' ) ) ? get_block_asset_url( 'features', 'img-placeholder.jpg' ) : get_field( 'featured_image' );
+$align_image = get_field('align_image_to_the_left?');
 ?>
 <div class="overflow-hidden bg-white py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -66,7 +67,9 @@ $bg_image    = empty( get_field( 'featured_image' ) ) ? get_block_asset_url( 'fe
 					<?php endif; ?>
 				</div>
 			</div>
+			<div class=" <?php if ( $align_image ) : ?> flex items-start justify-end lg:order-first <?php endif; ?>">
 			<img src="<?php echo esc_url( get_block_asset_url( 'features', 'img-placeholder.jpg' ) ); ?>" alt="Product screenshot" class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" width="2432" height="1442">
+			</div>
 		</div>
 	</div>
 </div>
