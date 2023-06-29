@@ -23,7 +23,8 @@ $headers
 		array( 'large-screenshot' => 'With Large Screenshot' ),
 		array( 'offset-feature' => 'Offset with Feature List' ),
 		array( 'offset-2x2' => 'Offset 2x2 Grid' ),
-		array( 'simple' => 'Simple' )
+		array( 'simple' => 'Simple' ),
+		array( 'three-column' => 'Simple Three Column with Small Icons' )
 	)
 ->addImage(
 	'featured_image',
