@@ -30,4 +30,7 @@ $features_style = get_field( 'features_style' );
 	<?php if ( 'three-column' === $features_style ) : ?>
 		<?php require get_custom_block_template( 'features', 'three-column-with-icons.php' ); ?>
 	<?php endif; ?>
+	<?php if ( 'with-testimonial' === $features_style ) : ?>
+		<?php require get_custom_block_template( 'features', 'with-testimonial.php' ); ?>
+	<?php endif; ?>
 </div>

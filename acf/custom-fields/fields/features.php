@@ -24,7 +24,8 @@ $headers
 		array( 'offset-feature' => 'Offset with Feature List' ),
 		array( 'offset-2x2' => 'Offset 2x2 Grid' ),
 		array( 'simple' => 'Simple' ),
-		array( 'three-column' => 'Simple Three Column with Small Icons' )
+		array( 'three-column' => 'Simple Three Column with Small Icons' ),
+		array( 'with-testimonial' => 'With Testimonial' )
 	)
 ->addImage(
 	'featured_image',
@@ -46,6 +47,13 @@ $headers
 	->addTextarea( 'description' )
 
 	->addRepeater( 'list' )
+	->conditional( 'features_style', '==', 'product-screenshot' )
+		->or( 'features_style', '==', '2x2-grid' )
+		->or( 'features_style', '==', 'large-screenshot' )
+		->or( 'features_style', '==', 'offset-2x2' )
+		->or( 'features_style', '==', 'offset-feature' )
+		->or( 'features_style', '==', 'simple' )
+		->or( 'features_style', '==', 'three-column' )
 	->addImage(
 		'list_icon',
 		array(
@@ -57,6 +65,28 @@ $headers
 	->addText( 'list_title' )
 	->addText( 'list_description' )
 	->endRepeater()
+
+	->addUrl('button_link')
+	->conditional('features_style', '==', 'with-testimonial')
+	->addText('button_name')
+	->conditional('features_style', '==', 'with-testimonial')
+
+	->addRepeater( 'testimonials',
+	array(
+		'max'  => 1,
+	))
+		->conditional('features_style', '==', 'with-testimonial')
+	->addTextarea('qoute')
+	->addText('name')
+	->addText('position')
+	->addImage(
+		'avatar',
+		array(
+			'preview_size'  => 'medium',
+			'label'         => __( 'Avatar Image', 'greydientlab' ),
+			'return_format' => 'url',
+		)
+	)
 		
 	->setLocation( 'block', '==', 'acf/features' );
 
