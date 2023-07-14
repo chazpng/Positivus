@@ -32,7 +32,7 @@ $description = empty( get_field( 'description' ) ) ? 'Your Description Here' : g
 						?>
 						<div class="relative pl-9">
 							<dt class="font-semibold text-gray-900">
-								<img src="<?php echo esc_url( $icon ); ?>" class="absolute left-0 top-1 h-5 w-5 text-indigo-500">
+							<?php echo wp_get_attachment_image( get_sub_field( 'list_icon' ), 'full', '', array( 'class' => 'h-6 w-6' ) ); ?>
 								<?php echo esc_html( $list_title ); ?>
 							</dt>
 							<dd class="mt-2"><?php echo esc_html( $list_description ); ?></dd>

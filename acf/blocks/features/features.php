@@ -33,4 +33,7 @@ $features_style = get_field( 'features_style' );
 	<?php if ( 'with-testimonial' === $features_style ) : ?>
 		<?php require get_custom_block_template( 'features', 'with-testimonial.php' ); ?>
 	<?php endif; ?>
+	<?php if ( 'three-column-large-icons' === $features_style ) : ?>
+		<?php require get_custom_block_template( 'features', 'three-column-with-large-icons.php' ); ?>
+	<?php endif; ?>
 </div>

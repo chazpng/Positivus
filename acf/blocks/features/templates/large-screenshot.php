@@ -24,7 +24,17 @@ $bg_image    = empty( get_field( 'featured_image' ) ) ? get_block_asset_url( 'fe
 	</div>
 	<div class="relative overflow-hidden pt-16">
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
-			<img src="<?php echo esc_url( $bg_image ); ?>" alt="App screenshot" class="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10" width="2432" height="1442">
+			<?php 
+			echo wp_get_attachment_image(
+				get_field( 'featured_image' ),
+				'full',
+				'',
+				array(
+					'class' => 'mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10', 
+					'alt'   => 'App screenshot',
+				) 
+			); 
+			?>
 			<div class="relative" aria-hidden="true">
 				<div class="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]"></div>
 			</div>
@@ -42,7 +52,7 @@ $bg_image    = empty( get_field( 'featured_image' ) ) ? get_block_asset_url( 'fe
 					?>
 					<div class="relative pl-9">
 						<dt class="inline font-semibold text-gray-900">
-							<img src="<?php echo esc_url( $icon ); ?>" class="absolute left-1 top-1 h-5 w-5 text-indigo-600">
+							<?php echo wp_get_attachment_image( get_sub_field( 'list_icon' ), 'full', '', array( 'class' => 'h-6 w-6' ) ); ?>
 							<?php echo esc_html( $list_title ); ?>
 						</dt>
 						<dd class="inline"><?php echo esc_html( $list_description ); ?></dd>

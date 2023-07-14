@@ -27,7 +27,7 @@ $main_title = empty( get_field( 'title' ) ) ? 'Your Title Here' : get_field( 'ti
 						<div>
 							<dt class="text-base font-semibold leading-7 text-gray-900">
 								<div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-									<img src="<?php echo esc_url( $icon ); ?>" class="h-6 w-6 text-white">
+								<?php echo wp_get_attachment_image( get_sub_field( 'list_icon' ), 'full', '', array( 'class' => 'h-6 w-6' ) ); ?>
 								</div>
 								<?php echo esc_html( $list_title ); ?>
 							</dt>

@@ -31,7 +31,7 @@ $description = empty( get_field( 'description' ) ) ? 'Your Description Here' : g
 				?>
 			<div class="flex flex-col">
 				<dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-				<img src="<?php echo esc_url( $icon ); ?>" class="h-5 w-5 flex-none text-indigo-600">
+				<?php echo wp_get_attachment_image( get_sub_field( 'list_icon' ), 'full', '', array( 'class' => 'h-5 w-5 flex-none text-indigo-600' ) ); ?>
 				<?php echo esc_url( $list_title ); ?>
 				</dt>
 				<dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">

@@ -33,7 +33,7 @@ $align_image = get_field( 'align_image_to_the_left?' );
 								?>
 								<div class="relative pl-9">
 									<dt class="inline font-semibold text-gray-900">
-										<img class="absolute left-1 top-1 h-5 w-5 text-purple" src="<?php echo esc_url( $icon ); ?>">
+										<?php echo wp_get_attachment_image( get_sub_field( 'list_icon' ), 'full', '', array( 'class' => 'absolute left-1 top-1 h-5 w-5 text-purple' ) ); ?>
 										<?php echo esc_html( $list_title ); ?>.
 									</dt>
 									<dd class="inline"><?php echo esc_html( $list_description ); ?></dd>
@@ -72,7 +72,7 @@ $align_image = get_field( 'align_image_to_the_left?' );
 			if ( $align_image ) :
 				?>
 				flex items-start justify-end lg:order-first <?php endif; ?>">
-			<img src="<?php echo esc_url( get_block_asset_url( 'features', 'img-placeholder.jpg' ) ); ?>" alt="Product screenshot" class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" width="2432" height="1442">
+			<?php echo wp_get_attachment_image( get_field( 'featured_image' ), 'full', '', array( 'class' => 'w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0' ) ); ?>
 			</div>
 		</div>
 	</div>

@@ -25,6 +25,7 @@ $headers
 		array( 'offset-2x2' => 'Offset 2x2 Grid' ),
 		array( 'simple' => 'Simple' ),
 		array( 'three-column' => 'Simple Three Column with Small Icons' ),
+		array( 'three-column-large-icons' => 'Simple Three Column with Large Icons' ),
 		array( 'with-testimonial' => 'With Testimonial' )
 	)
 ->addImage(
@@ -32,9 +33,13 @@ $headers
 	array(
 		'preview_size'  => 'medium',
 		'label'         => __( 'Featured Image', 'greydientlab' ),
-		'return_format' => 'url',
+		'return_format' => 'id',
 	)
 )
+->conditional( 'features_style', '==', 'product-screenshot' )
+->or( 'features_style', '==', '2x2-grid' )
+->or( 'features_style', '==', 'large-screenshot' )
+
 ->addTrueFalse(
 	'align_image_to_the_left?',
 	array(
@@ -54,31 +59,39 @@ $headers
 		->or( 'features_style', '==', 'offset-feature' )
 		->or( 'features_style', '==', 'simple' )
 		->or( 'features_style', '==', 'three-column' )
+		->or( 'features_style', '==', 'three-column-large-icons' )
 	->addImage(
 		'list_icon',
 		array(
 			'preview_size'  => 'medium',
 			'label'         => __( 'List Icon', 'greydientlab' ),
-			'return_format' => 'url',
+			'return_format' => 'id',
 		)
 	)
 	->addText( 'list_title' )
 	->addText( 'list_description' )
+	->addUrl( 'button_link' )
+	->conditional( 'features_style', '==', 'three-column-large-icons' )
+	->addText( 'button_name' )
+	->conditional( 'features_style', '==', 'three-column-large-icons' )
+
 	->endRepeater()
 
-	->addUrl('button_link')
-	->conditional('features_style', '==', 'with-testimonial')
-	->addText('button_name')
-	->conditional('features_style', '==', 'with-testimonial')
+	->addUrl( 'button_link' )
+	->conditional( 'features_style', '==', 'with-testimonial' )
+	->addText( 'button_name' )
+	->conditional( 'features_style', '==', 'with-testimonial' )
 
-	->addRepeater( 'testimonials',
-	array(
-		'max'  => 1,
-	))
-		->conditional('features_style', '==', 'with-testimonial')
-	->addTextarea('qoute')
-	->addText('name')
-	->addText('position')
+	->addRepeater(
+		'testimonials',
+		array(
+			'max'  => 1,
+		)
+	)
+		->conditional( 'features_style', '==', 'with-testimonial' )
+	->addTextarea( 'qoute' )
+	->addText( 'name' )
+	->addText( 'position' )
 	->addImage(
 		'avatar',
 		array(
