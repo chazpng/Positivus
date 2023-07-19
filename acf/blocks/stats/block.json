@@ -1,0 +1,16 @@
+{
+    "name": "acf/stats",
+    "title": "Stats Block",
+    "description": "Stats Block",
+    "style": [ "file:./css/style.min.css" ],
+    "script": "stats",
+    "category": "gl-blocks",
+    "icon": "block-default",
+    "keywords": ["stats"],
+    "acf": {
+      "mode": "preview",
+      "renderTemplate": "stats.php",
+      "supports": "jsx"
+    }
+  }
+  
