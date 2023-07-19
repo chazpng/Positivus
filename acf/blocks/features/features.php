@@ -36,4 +36,16 @@ $features_style = get_field( 'features_style' );
 	<?php if ( 'three-column-large-icons' === $features_style ) : ?>
 		<?php require get_custom_block_template( 'features', 'three-column-with-large-icons.php' ); ?>
 	<?php endif; ?>
+	<?php if ( 'two-column-with-icons' === $features_style ) : ?>
+		<?php require get_custom_block_template( 'features', 'two-column-with-icons.php' ); ?>
+	<?php endif; ?>
+	<?php if ( 'code-panel' === $features_style ) : ?>
+		<?php require get_custom_block_template( 'features', 'code-panel.php' ); ?>
+	<?php endif; ?>
+	<?php if ( 'contained-in-panel' === $features_style ) : ?>
+		<?php require get_custom_block_template( 'features', 'contained-in-panel.php' ); ?>
+	<?php endif; ?>
+	<?php if ( 'product-screenshot-panel' === $features_style ) : ?>
+		<?php require get_custom_block_template( 'features', 'product-screenshot-panel.php' ); ?>
+	<?php endif; ?>
 </div>

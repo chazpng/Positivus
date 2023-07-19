@@ -58,7 +58,7 @@ $button_name = empty( get_field( 'button_name' ) ) ? 'Button Name' : get_field( 
 						</figure>
 				</div>
 			</div>
-			<img src="<?php echo esc_url( $bg_image ); ?>" alt="Product screenshot" class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:ml-0" width="2432" height="1442">
+			<?php echo wp_get_attachment_image( get_field( 'featured_image' ), 'full', '', array( 'class' => 'w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0' ) ); ?>
 		</div>
 	</div>
 </div>

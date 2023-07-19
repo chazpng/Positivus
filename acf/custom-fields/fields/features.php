@@ -26,7 +26,11 @@ $headers
 		array( 'simple' => 'Simple' ),
 		array( 'three-column' => 'Simple Three Column with Small Icons' ),
 		array( 'three-column-large-icons' => 'Simple Three Column with Large Icons' ),
-		array( 'with-testimonial' => 'With Testimonial' )
+		array( 'with-testimonial' => 'With Testimonial' ),
+		array( 'two-column-with-icons' => 'Simple Two Columns with Small Icons' ),
+		array( 'code-panel' => 'With Code Panel' ),
+		array( 'product-screenshot-panel' => 'With Product Screenshot Panel' ),
+		array( 'contained-in-panel' => 'Contained in Panel' )
 	)
 ->addImage(
 	'featured_image',
@@ -39,6 +43,7 @@ $headers
 ->conditional( 'features_style', '==', 'product-screenshot' )
 ->or( 'features_style', '==', '2x2-grid' )
 ->or( 'features_style', '==', 'large-screenshot' )
+->or( 'features_style', '==', 'with-testimonial' )
 
 ->addTrueFalse(
 	'align_image_to_the_left?',
@@ -47,6 +52,15 @@ $headers
 	)
 )
 ->conditional( 'features_style', '==', 'product-screenshot' )
+
+->addTrueFalse(
+	'dark_mode?',
+	array(
+		'default_value' => 0,
+	)
+)
+->conditional( 'features_style', '==', 'two-column-with-icons' )
+
 	->addText( 'label' )
 	->addText( 'title' )
 	->addTextarea( 'description' )
@@ -60,6 +74,9 @@ $headers
 		->or( 'features_style', '==', 'simple' )
 		->or( 'features_style', '==', 'three-column' )
 		->or( 'features_style', '==', 'three-column-large-icons' )
+		->or( 'features_style', '==', 'two-column-with-icons' )
+		->or( 'features_style', '==', 'product-screenshot-panel' )
+
 	->addImage(
 		'list_icon',
 		array(
