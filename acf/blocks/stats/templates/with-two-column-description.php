@@ -1,6 +1,6 @@
 <?php
 /**
- * Split Image Stats Template.
+ * With Two COlumn Description Stats Template.
  *
  * @package greydientlab
  */
