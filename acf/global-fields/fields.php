@@ -20,6 +20,7 @@ if ( is_dir( FIELDS_DIR ) ) {
 					if ( ! is_array( $fields ) ) {
 						$fields = array( $fields );
 					}
+
 					foreach ( $fields as $field ) {
 						acf_add_local_field_group( $field->build() );
 					}

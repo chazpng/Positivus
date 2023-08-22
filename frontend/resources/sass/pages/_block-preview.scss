@@ -11,7 +11,9 @@
 		display: none;
 	}
 
-	[class$="gl-b-*"] {
+	div[class^="gl-b-"],
+	section[class^="gl-b-"] {
 		display: block;
+		border: 1px solid $grey-70;
 	}
 }

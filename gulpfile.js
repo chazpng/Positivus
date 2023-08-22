@@ -39,6 +39,12 @@ var blocks = {
 	},
 }
 
+var dashboard = {
+	styles: {
+		src: 'dashboard/*.scss',
+	}
+}
+
 var sassOptions = {
 	errLogToConsole: true,
 	outputStyle: 'expanded',
@@ -111,6 +117,16 @@ function blockScripts() {
 		}));
 }
 
+function dashboardStyles() {
+	return gulp.src( dashboard.styles.src )
+		.pipe( sass( sassOptions ).on( 'error', sass.logError ) )
+		.pipe( cleanCSS( { compatibility: 'ie8' } ) )
+		.pipe( rename( { suffix: '.min' } ) )
+		.pipe(gulp.dest(function (file) {
+			return file.base;
+		}));
+}
+
 const watch = async () => {
 	gulp.watch( paths.scripts.src, scripts );
 	gulp.watch( paths.styles.src, styles );
@@ -118,6 +134,7 @@ const watch = async () => {
 	gulp.watch( componentPaths.styles.src, componentStyles );
 	gulp.watch( blocks.scripts.src, blockScripts );
 	gulp.watch( blocks.styles.src, blockStyles );
+	gulp.watch( dashboard.styles.src, dashboardStyles );
 }
 
 /*

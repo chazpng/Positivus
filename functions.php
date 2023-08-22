@@ -174,6 +174,7 @@ function gl_block_assets() {
 	wp_enqueue_script( 'preline', get_template_directory_uri() . '/libraries/preline/preline.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'resize-sensor', get_template_directory_uri() . '/libraries/resize-sensor/resize-sensor.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'alpine', 'https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'jquery-resizable', get_template_directory_uri() . '/libraries/jquery-resizable/jquery-resizable.js', array(), _GL_VERSION, true );
 }
 add_action( 'enqueue_block_assets', 'gl_block_assets' );
 
@@ -197,6 +198,14 @@ function defer_scripts( $tag, $handle, $src ) {
 }
 
 add_filter( 'script_loader_tag', 'defer_scripts', 10, 3 );
+
+/**
+ * Enqueue a script and style in the WordPress admin.
+ */
+function load_admin_styles() {
+	wp_enqueue_style( 'admin', get_template_directory_uri() . '/dashboard/dashboard.min.css', array(), _GL_VERSION );
+}
+add_action( 'admin_enqueue_scripts', 'load_admin_styles' );
 
 /**
  * Implement the Custom Header feature.
@@ -243,6 +252,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 require get_template_directory() . '/acf/blocks/blocks.php';
 
 /**
+ * Load acf blocks.
+ */
+require get_template_directory() . '/acf/blocks/register-fields.php';
+
+/**
  * Load Frontend Components.
  *
  * @param array $directories array of directory.
@@ -269,7 +283,7 @@ add_filter( 'loader_alias', 'load_alias' );
 /**
  * Load acf fields.
  */
-require get_template_directory() . '/acf/custom-fields/fields.php';
+require get_template_directory() . '/acf/global-fields/fields.php';
 
 /**
  * Enable SVG and json file upload
@@ -491,3 +505,25 @@ function array_key_exists_recursive( $search_key, $array ) {
 function get_custom_block_template( $block_name, $filename ) {
 	return get_template_directory() . '/acf/blocks/' . $block_name . '/templates/' . $filename;
 }
+
+
+/**
+ * Hide Admin Bar in the frontend.
+ */
+add_filter( 'show_admin_bar', '__return_false' );
+
+
+/**
+ * Add Custom class to nav li
+ *
+ * @param Array    $classes Array of the CSS classes that are applied to the menu item's <li> element.
+ * @param WP_post  $item The current menu item object.
+ * @param stdClass $args An object of wp_nav_menu() arguments.
+ */
+function add_additional_class_on_li( $classes, $item, $args ) {
+	if ( isset( $args->add_li_class ) ) {
+		$classes[] = $args->add_li_class;
+	}
+	return $classes;
+}
+add_filter( 'nav_menu_css_class', 'add_additional_class_on_li', 1, 3 );

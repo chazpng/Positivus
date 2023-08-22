@@ -1,0 +1,20 @@
+.wp-block-acf-header {
+  width: 100%;
+}
+
+.block-editor__container img {
+  max-width: initial;
+}
+
+html :where(.editor-styles-wrapper) div[class^="gl-b-"] {
+
+  p.text-base,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: inherit;
+  }
+}

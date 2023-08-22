@@ -9,8 +9,8 @@
  * @package greydientlab
  */
 
-$headers = new StoutLogic\AcfBuilder\FieldsBuilder( 'features' );
-$headers
+$features = new StoutLogic\AcfBuilder\FieldsBuilder( 'features' );
+$features
 	->addSelect(
 		'features_style',
 		array(
@@ -46,7 +46,7 @@ $headers
 ->or( 'features_style', '==', 'with-testimonial' )
 
 ->addTrueFalse(
-	'align_image_to_the_left?',
+	'align_image_to_the_left',
 	array(
 		'default_value' => 0,
 	)
@@ -117,7 +117,7 @@ $headers
 			'return_format' => 'url',
 		)
 	)
-		
+
 	->setLocation( 'block', '==', 'acf/features' );
 
-return $headers;
+return $features;

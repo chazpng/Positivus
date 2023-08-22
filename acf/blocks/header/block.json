@@ -11,5 +11,12 @@
     "mode": "preview",
     "renderTemplate": "header.php",
     "supports": "jsx"
-  }
+  },
+  "supports": {
+    "jsx": false
+  },
+  "styles": [
+    { "name": "light", "label": "light", "isDefault": true },
+    { "name": "dark", "label": "Dark" }
+  ]
 }

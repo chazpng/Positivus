@@ -1,25 +1,35 @@
 /* global jQuery ResizeSensor */
 ( function( $ ) {
 	const initializeResizableBlock = function( $block ) {
-		let $iframe = $( '.gl-b-resizable iframe' );
-		let $resizable = $( '.gl-b-resizable .resize-x' );
+		let $resizable = $( '.gl-b-resizable' );
+		// let $copyCode = $( '.copy-code' );
 
 		if ( $block ) {
-			$iframe = $block.find( '.gl-b-resizable iframe' );
-			$resizable = $block.find( '.gl-b-resizable .resize-x' );
+			$resizable = $block.find( '.gl-b-resizable' );
+			// $copyCode = $block.find( '.copy-code' );
 		}
 
-		$iframe.on( 'load', function() {
-			const id = $( this ).data( 'id' );
-			this.style.height = this.contentDocument.body.scrollHeight + 'px';
-			$( '.gl-b-resizable' ).find( '.screen-size' ).text( 'width: ' + $resizable.width() + 'px' );
+		$resizable.each( function() {
+			$( this ).find( 'iframe' ).on( 'load', function() {
+				const id = $( this ).data( 'id' );
+				const $this = $( this );
+				this.style.height = this.contentDocument.body.scrollHeight + 'px';
+				$( '#' + id ).find( '.screen-size' ).text( 'width: ' + $this.width() + 'px' );
 
-			new ResizeSensor( $( '#' + id ).find( '.resize-x' ), function() {
-				const iframeHeight = $( '#' + id ).find( 'iframe' )[ 0 ].contentDocument.body.scrollHeight;
-				$( '#' + id ).find( 'iframe' ).css( 'height', iframeHeight + 'px' );
-				$( '#' + id ).find( '.screen-size' ).text( 'width: ' + $resizable.width() + 'px' );
+				new ResizeSensor( $( '#' + id ).find( '.resize-x' ), function() {
+					const iframeHeight = $( '#' + id ).find( 'iframe' )[ 0 ].contentDocument.body.scrollHeight;
+					$( '#' + id ).find( 'iframe' ).css( 'height', iframeHeight + 'px' );
+					$( '#' + id ).find( '.screen-size' ).text( 'width: ' + $this.width() + 'px' );
+				} );
 			} );
 		} );
+
+		// $copyCode.on( 'click', function() {
+		// 	const id = $( this ).data( 'id' );
+		// 	const el = $( '#' + id + ' iframe' ).contents().find( '.gl-b-header' ).html();
+		// 	$( 'svg g', this ).removeClass( 'opacity-0' );
+		// 	console.log( el );
+		// } );
 	};
 
 	$( document ).ready( function() {
