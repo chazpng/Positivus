@@ -58,6 +58,8 @@
 		<exclude name="PHPCompatibility.Operators.NewShortTernary.MiddleMissing"/>
 		<exclude name="PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ellipsisFound"/>
 		<exclude name="WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound"/>
+		<exclude name="PSR2.ControlStructures.SwitchDeclaration.TerminatingComment"/>
+		<exclude name="WPThemeReview.PluginTerritory.AdminBarRemoval.RemovalDetected"/>
 	</rule>
 	<rule ref="WPThemeReview"/>
 
