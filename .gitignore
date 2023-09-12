@@ -9,3 +9,4 @@ frontend/static/js/*.js
 acf/**/test-*
 acf/**/wip-*
 tailwind/dist
+dashboard/*.min.css
