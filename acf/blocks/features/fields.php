@@ -18,55 +18,66 @@ $features
 		)
 	)
 	->addChoices(
-		array( 'product-screenshot' => 'With Product Screenshot' ),
-		array( '2x2-grid' => 'Centered 2x2 Grid' ),
-		array( 'large-screenshot' => 'With Large Screenshot' ),
-		array( 'offset-feature' => 'Offset with Feature List' ),
-		array( 'offset-2x2' => 'Offset 2x2 Grid' ),
-		array( 'simple' => 'Simple' ),
-		array( 'three-column' => 'Simple Three Column with Small Icons' ),
-		array( 'three-column-large-icons' => 'Simple Three Column with Large Icons' ),
-		array( 'with-testimonial' => 'With Testimonial' ),
-		array( 'two-column-with-icons' => 'Simple Two Columns with Small Icons' ),
-		array( 'code-panel' => 'With Code Panel' ),
-		array( 'product-screenshot-panel' => 'With Product Screenshot Panel' ),
-		array( 'contained-in-panel' => 'Contained in Panel' )
+		array( 'product' => 'Product' ),
+		array( 'simple' => 'Simple' )
 	)
-->addImage(
-	'featured_image',
-	array(
-		'preview_size'  => 'medium',
-		'label'         => __( 'Featured Image', 'greydientlab' ),
-		'return_format' => 'id',
-	)
-)
-->conditional( 'features_style', '==', 'product-screenshot' )
-->or( 'features_style', '==', '2x2-grid' )
-->or( 'features_style', '==', 'large-screenshot' )
-->or( 'features_style', '==', 'with-testimonial' )
 
-->addTrueFalse(
-	'align_image_to_the_left',
-	array(
-		'default_value' => 0,
+	->addSelect(
+		'panel_type',
+		array(
+			'default_value' => 'none',
+		)
 	)
-)
-->conditional( 'features_style', '==', 'product-screenshot' )
+		->conditional( 'features_style', '==', 'product' )
+		->addChoices(
+			array( 'none' => 'None' ),
+			array( 'contained-panel' => 'Contained in Panel' ),
+			array( 'featured-panel' => 'Featured in Panel' )
+		)
 
-->addTrueFalse(
-	'dark_mode?',
-	array(
-		'default_value' => 0,
+	->addTrueFalse(
+		'dark_mode?',
+		array(
+			'default_value' => 0,
+		)
 	)
-)
-->conditional( 'features_style', '==', 'two-column-with-icons' )
+		->conditional( 'features_style', '==', 'two-column-with-icons' )
 
 	->addText( 'label' )
 	->addText( 'title' )
 	->addTextarea( 'description' )
 
+	->addImage(
+		'featured_image',
+		array(
+			'preview_size'  => 'medium',
+			'label'         => __( 'Featured Image', 'greydientlab' ),
+			'return_format' => 'id',
+		)
+	)
+		->conditional( 'features_style', '==', 'product' )
+			->and( 'use_wysiwyg', '==', 0 )
+		->or( 'features_style', '==', 'simple' )
+		->or( 'features_style', '==', 'large-screenshot' )
+		->or( 'features_style', '==', 'with-testimonial' )
+
+	->addSelect(
+		'list_column_style',
+		array(
+			'default_value' => '2',
+		)
+	)
+		->conditional( 'features_style', '!=', 'product' )
+		->addChoices(
+			array( 'two-inline' => 'Two (Inline Layout)' ),
+			array( 'two-block' => 'Two (Block Layout)' ),
+			array( 'three-inline' => 'Three (Inline Layout)' ),
+			array( 'three-block' => 'Three (Block Layout)' ),
+			array( 'three-icon-block' => 'Three (Icon Block)' )
+		)
+
 	->addRepeater( 'list' )
-	->conditional( 'features_style', '==', 'product-screenshot' )
+		->conditional( 'features_style', '==', 'product' )
 		->or( 'features_style', '==', '2x2-grid' )
 		->or( 'features_style', '==', 'large-screenshot' )
 		->or( 'features_style', '==', 'offset-2x2' )
@@ -77,27 +88,38 @@ $features
 		->or( 'features_style', '==', 'two-column-with-icons' )
 		->or( 'features_style', '==', 'product-screenshot-panel' )
 
-	->addImage(
-		'list_icon',
-		array(
-			'preview_size'  => 'medium',
-			'label'         => __( 'List Icon', 'greydientlab' ),
-			'return_format' => 'id',
+		->addImage(
+			'list_icon',
+			array(
+				'preview_size'  => 'medium',
+				'label'         => __( 'List Icon', 'greydientlab' ),
+				'return_format' => 'id',
+			)
 		)
-	)
-	->addText( 'list_title' )
-	->addText( 'list_description' )
-	->addUrl( 'button_link' )
-	->conditional( 'features_style', '==', 'three-column-large-icons' )
-	->addText( 'button_name' )
-	->conditional( 'features_style', '==', 'three-column-large-icons' )
+		->addText( 'list_title' )
+		->addTextArea( 'list_description' )
 
+		->addTrueFalse(
+			'is_external_link',
+			array(
+				'default_value' => 0,
+			)
+		)
+		->addText( 'link_text' )
+		->addUrl( 'url' )
+			->conditional( 'is_external_link', '==', 1 )
+		->addPageLink( 'page_link' )
+			->conditional( 'is_external_link', '==', 0 )
+
+		->addText( 'button_name' )
+			->conditional( 'features_style', '==', 'three-column-large-icons' )
 	->endRepeater()
 
 	->addUrl( 'button_link' )
-	->conditional( 'features_style', '==', 'with-testimonial' )
+		->conditional( 'features_style', '==', 'with-testimonial' )
+
 	->addText( 'button_name' )
-	->conditional( 'features_style', '==', 'with-testimonial' )
+		->conditional( 'features_style', '==', 'with-testimonial' )
 
 	->addRepeater(
 		'testimonials',
@@ -106,17 +128,45 @@ $features
 		)
 	)
 		->conditional( 'features_style', '==', 'with-testimonial' )
-	->addTextarea( 'qoute' )
-	->addText( 'name' )
-	->addText( 'position' )
-	->addImage(
-		'avatar',
+
+		->addTextarea( 'qoute' )
+		->addText( 'name' )
+		->addText( 'position' )
+		->addImage(
+			'avatar',
+			array(
+				'preview_size'  => 'medium',
+				'label'         => __( 'Avatar Image', 'greydientlab' ),
+				'return_format' => 'url',
+			)
+		)
+	->endRepeater()
+
+	->addTrueFalse(
+		'use_wysiwyg',
 		array(
-			'preview_size'  => 'medium',
-			'label'         => __( 'Avatar Image', 'greydientlab' ),
-			'return_format' => 'url',
+			'default_value' => 0,
 		)
 	)
+		->conditional( 'features_style', '!=', 'simple' )
+
+	->addWysiwyg(
+		'html_code',
+		array(
+			'media_upload' => 0,
+			'tabs'         => 'text',
+			'toolbar'      => 'basic',
+		)
+	)
+		->conditional( 'use_wysiwyg', '==', 1 )
+
+	->addTrueFalse(
+		'align_image_to_the_left',
+		array(
+			'default_value' => 0,
+		)
+	)
+		->conditional( 'features_style', '==', 'product' )
 
 	->setLocation( 'block', '==', 'acf/features' );
 

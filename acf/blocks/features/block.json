@@ -11,5 +11,9 @@
       "mode": "preview",
       "renderTemplate": "features.php",
       "supports": "jsx"
-    }
+    },
+    "styles": [
+      { "name": "light", "label": "light", "isDefault": true },
+      { "name": "dark", "label": "Dark" }
+    ]
   }
