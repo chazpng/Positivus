@@ -6,6 +6,33 @@
   max-width: initial;
 }
 
+html :where(.wp-block)[data-align=left]>*,
+html :where(.wp-block)[data-align=right]>* {
+  float: none;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.block-editor__container {
+
+  div[class*="gl-b-"],
+  section [class*="gl-b-"] {
+
+    img {
+      height: 100%;
+
+      &.absolute {
+        height: initial;
+      }
+    }
+  }
+}
+
+html :where(.wp-block)[data-align=left],
+html :where(.wp-block)[data-align=right] {
+  height: auto;
+}
+
 html :where(.editor-styles-wrapper) div[class^="gl-b-"] {
 
   p.text-base,
