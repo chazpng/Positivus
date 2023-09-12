@@ -252,7 +252,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 require get_template_directory() . '/acf/blocks/blocks.php';
 
 /**
- * Load acf blocks.
+ * Load Register blocks.
  */
 require get_template_directory() . '/acf/blocks/register-fields.php';
 
@@ -506,12 +506,10 @@ function get_custom_block_template( $block_name, $filename ) {
 	return get_template_directory() . '/acf/blocks/' . $block_name . '/templates/' . $filename;
 }
 
-
 /**
  * Hide Admin Bar in the frontend.
  */
 add_filter( 'show_admin_bar', '__return_false' );
-
 
 /**
  * Add Custom class to nav li
@@ -527,3 +525,21 @@ function add_additional_class_on_li( $classes, $item, $args ) {
 	return $classes;
 }
 add_filter( 'nav_menu_css_class', 'add_additional_class_on_li', 1, 3 );
+
+/**
+ * Remove empty p tag on wysiwyg.
+ *
+ * @param Html   $value html value.
+ * @param Number $post_id The current menu item object.
+ * @param Array  $field The field array containing all settings.
+ */
+function my_acf_load_value( $value, $post_id, $field ) {
+	$content = apply_filters( 'the_content', $value );
+	$content = force_balance_tags( $content );
+	$content = preg_replace( '#<p>\s*+(<br\s*/*>)?\s*</p>#i', '', $content );
+	$content = preg_replace( '~\s?<p>(\s| )+</p>\s?~', '', $content );
+
+	return $content;
+}
+
+add_filter( 'acf/load_value/type=wysiwyg', 'my_acf_load_value', 10, 3 );
