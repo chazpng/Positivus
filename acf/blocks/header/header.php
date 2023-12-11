@@ -10,5 +10,5 @@ $header_type = get_field( 'header_type' );
 $align       = $block['align'];
 ?>
 <div class="gl-b-header <?php echo esc_attr( $align ); ?>">
-	<?php require get_custom_block_template( 'header', 'header.php' ); ?>
+	<?php require gl_get_custom_block_template( 'header', 'header.php' ); ?>
 </div>

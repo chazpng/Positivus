@@ -47,6 +47,17 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 							<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-2 text-3xl font-bold tracking-tight sm:text-4xl"><?php echo esc_html( $main_title ); ?></p>
 							<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-6 text-lg leading-8"><?php echo esc_html( $description ); ?></p>
 
+							<?php if ( get_field( 'add_link' ) ) : ?>
+								<?php
+									$link_text = get_field( 'page' ) ?: 'Your Link Text';
+								?>
+								<div class="mt-8">
+									<a href="<?php the_field( 'page_link' ); ?>" target="_blank" class="inline-flex rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+										<?php echo esc_html( $link_text ); ?>
+									</a>
+								</div>
+							<?php endif; ?>
+
 							<?php if ( have_rows( 'list' ) ) : ?>
 								<dl class="mt-10 max-w-xl space-y-8 text-base leading-7 lg:max-w-none">
 									<?php
@@ -99,6 +110,17 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 							<h2 class="<?php echo esc_attr( $text_color_primary ); ?> text-base font-semibold leading-7"><?php echo esc_html( $label ); ?></h2>
 							<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-2 text-3xl font-bold tracking-tight sm:text-4xl"><?php echo esc_html( $main_title ); ?></p>
 							<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-6 text-lg leading-8"><?php echo esc_html( $description ); ?></p>
+
+							<?php if ( get_field( 'add_link' ) ) : ?>
+								<?php
+									$link_text = get_field( 'page' ) ?: 'Your Link Text';
+								?>
+								<div class="mt-8">
+									<a href="<?php the_field( 'page_link' ); ?>" target="_blank" class="inline-flex rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+										<?php echo esc_html( $link_text ); ?>
+									</a>
+								</div>
+							<?php endif; ?>
 						</div>
 
 						<div class="relative -z-20 min-w-full max-w-xl rounded-xl shadow-xl ring-1 ring-white/10 lg:row-span-4 lg:w-[64rem] lg:max-w-none">
@@ -153,6 +175,17 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 						<h2 class="<?php echo esc_attr( $text_color_primary ); ?> text-base font-semibold leading-7"><?php echo esc_html( $label ); ?></h2>
 						<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-2 text-3xl font-bold tracking-tight sm:text-4xl"><?php echo esc_html( $main_title ); ?></p>
 						<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-6 text-lg leading-8"><?php echo esc_html( $description ); ?></p>
+
+						<?php if ( get_field( 'add_link' ) ) : ?>
+							<?php
+								$link_text = get_field( 'page' ) ?: 'Your Link Text';
+							?>
+							<div class="mt-8">
+								<a href="<?php the_field( 'page_link' ); ?>" target="_blank" class="inline-flex rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+									<?php echo esc_html( $link_text ); ?>
+								</a>
+							</div>
+						<?php endif; ?>
 
 						<?php if ( have_rows( 'list' ) ) : ?>
 							<dl class="mt-10 max-w-xl space-y-8 text-base leading-7 lg:max-w-none">

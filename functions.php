@@ -185,7 +185,7 @@ add_action( 'enqueue_block_assets', 'gl_block_assets' );
  * @param String $handle Name of the script.
  * @param String $src Full URL of the script, or path of the script.
  */
-function defer_scripts( $tag, $handle, $src ) {
+function gl_defer_scripts( $tag, $handle, $src ) {
 	$defer = array(
 		'alpine',
 	);
@@ -197,15 +197,15 @@ function defer_scripts( $tag, $handle, $src ) {
 	return $tag;
 }
 
-add_filter( 'script_loader_tag', 'defer_scripts', 10, 3 );
+add_filter( 'script_loader_tag', 'gl_defer_scripts', 10, 3 );
 
 /**
  * Enqueue a script and style in the WordPress admin.
  */
-function load_admin_styles() {
+function gl_load_admin_styles() {
 	wp_enqueue_style( 'admin', get_template_directory_uri() . '/dashboard/dashboard.min.css', array(), _GL_VERSION );
 }
-add_action( 'admin_enqueue_scripts', 'load_admin_styles' );
+add_action( 'admin_enqueue_scripts', 'gl_load_admin_styles' );
 
 /**
  * Implement the Custom Header feature.
@@ -261,24 +261,24 @@ require get_template_directory() . '/acf/blocks/register-fields.php';
  *
  * @param array $directories array of directory.
  */
-function load_directories( $directories ) {
+function gl_load_directories( $directories ) {
 	$directories[] = get_template_directory() . '/frontend/components';
 	return $directories;
 }
-add_filter( 'loader_directories', 'load_directories' );
+add_filter( 'loader_directories', 'gl_load_directories' );
 
 /**
  * Create alias for moxie-lean/loader.
  *
  * @param array $alias array of alias.
  */
-function load_alias( $alias ) {
+function gl_load_alias( $alias ) {
 	$alias['atom']     = 'atoms';
 	$alias['molecule'] = 'molecules';
 	$alias['organism'] = 'organisms';
 	return $alias;
 }
-add_filter( 'loader_alias', 'load_alias' );
+add_filter( 'loader_alias', 'gl_load_alias' );
 
 /**
  * Load acf fields.
@@ -290,12 +290,12 @@ require get_template_directory() . '/acf/global-fields/fields.php';
  *
  * @param mimes $mimes return mime type.
  */
-function mime_types( $mimes ) {
+function gl_mime_types( $mimes ) {
 	$mimes['svg']  = 'image/svg+xml';
 	$mimes['json'] = 'text/plain';
 	return $mimes;
 }
-add_filter( 'upload_mimes', 'mime_types' );
+add_filter( 'upload_mimes', 'gl_mime_types' );
 
 /**
  * Enable ACF Option page.
@@ -316,7 +316,7 @@ if ( function_exists( 'acf_add_options_page' ) ) {
  * Add inline css style in editor
  * to make it full width.
  */
-function editor_full_width_gutenberg() {
+function gl_editor_full_width_gutenberg() {
 	$is_enable = true;
 
 	if ( $is_enable ) {
@@ -337,7 +337,7 @@ function editor_full_width_gutenberg() {
 		</style>';
 	}
 }
-add_action( 'admin_head', 'editor_full_width_gutenberg' );
+add_action( 'admin_head', 'gl_editor_full_width_gutenberg' );
 
 /**
  * Add ACF Blocks Category
@@ -364,7 +364,7 @@ add_filter( 'block_categories_all', 'gl_block_category', 10, 2 );
  * @param String $block_name block folder name.
  * @param String $filename asset filename.
  */
-function get_block_asset( $block_name, $filename ) {
+function gl_get_block_asset( $block_name, $filename ) {
 	echo esc_url( get_template_directory_uri() . '/acf/blocks/' . $block_name . '/img/' . $filename );
 }
 
@@ -374,7 +374,7 @@ function get_block_asset( $block_name, $filename ) {
  * @param String $block_name block folder name.
  * @param String $filename asset filename.
  */
-function get_block_asset_url( $block_name, $filename ) {
+function gl_get_block_asset_url( $block_name, $filename ) {
 	return get_template_directory_uri() . '/acf/blocks/' . $block_name . '/img/' . $filename;
 }
 
@@ -385,7 +385,7 @@ function get_block_asset_url( $block_name, $filename ) {
  * @param String $component_name component folder name.
  * @param String $filename component image file name.
  */
-function get_component_url( $component_type, $component_name, $filename ) {
+function gl_get_component_url( $component_type, $component_name, $filename ) {
 	return get_template_directory_uri() . '/frontend/components/' . $component_type . '/' . $component_name . '/img/' . $filename;
 }
 
@@ -396,21 +396,21 @@ function get_component_url( $component_type, $component_name, $filename ) {
  * @param Object $item object item.
  * @param Object $args object arguments.
  */
-function add_menu_link_attributes( $atts, $item, $args ) {
+function gl_add_menu_link_attributes( $atts, $item, $args ) {
 
 	if ( 'menu-1' === $args->theme_location ) {
 		$atts['class'] = 'custom-class-here';
 	}
 	return $atts;
 }
-add_filter( 'nav_menu_link_attributes', 'add_menu_link_attributes', 10, 3 );
+add_filter( 'nav_menu_link_attributes', 'gl_add_menu_link_attributes', 10, 3 );
 
 /**
  * Customize WYSIWYG ACF Toolbars
  *
  * @param Array $toolbars array of ACF WYSIWYG toolbars.
  */
-function customize_acf_wysiwyg( $toolbars ) {
+function gl_customize_acf_wysiwyg( $toolbars ) {
 	// Unset Basic Type Toolbar.
 	unset( $toolbars['Basic']['bold'] );
 
@@ -433,20 +433,20 @@ function customize_acf_wysiwyg( $toolbars ) {
 
 	return $toolbars;
 }
-add_filter( 'acf/fields/wysiwyg/toolbars', 'customize_acf_wysiwyg' );
+add_filter( 'acf/fields/wysiwyg/toolbars', 'gl_customize_acf_wysiwyg' );
 
 /**
  * Remove Copy/Paste Preformatting on ACF WYSIWYG.
  *
  * @param array $settings array of ACF WYSIWYG Settings.
  */
-function remove_acf_preformatting( $settings ) {
+function gl_remove_acf_preformatting( $settings ) {
 	// Disable paste with formatting.
 	$settings['paste_as_text'] = true;
 
 	return $settings;
 }
-add_filter( 'tiny_mce_before_init', 'remove_acf_preformatting' );
+add_filter( 'tiny_mce_before_init', 'gl_remove_acf_preformatting' );
 
 /**
  * Remove All Native Block.
@@ -454,7 +454,7 @@ add_filter( 'tiny_mce_before_init', 'remove_acf_preformatting' );
  *
  * @param array $allowed_blocks array of Native Blocks.
  */
-function allow_acf_blocks_starting_with_acf( $allowed_blocks ) {
+function gl_allow_acf_blocks_starting_with_acf( $allowed_blocks ) {
 	// Disable all native blocks.
 	$allowed_blocks = array( 'core/paragraph' );
 
@@ -467,7 +467,7 @@ function allow_acf_blocks_starting_with_acf( $allowed_blocks ) {
 	}
 	return $allowed_blocks;
 }
-add_filter( 'allowed_block_types_all', 'allow_acf_blocks_starting_with_acf' );
+add_filter( 'allowed_block_types_all', 'gl_allow_acf_blocks_starting_with_acf' );
 
 /**
  * Check if key exists in non and muti dimensional array
@@ -475,7 +475,7 @@ add_filter( 'allowed_block_types_all', 'allow_acf_blocks_starting_with_acf' );
  * @param string $search_key search key.
  * @param array  $array array to search for.
  */
-function array_key_exists_recursive( $search_key, $array ) {
+function gl_array_key_exists_recursive( $search_key, $array ) {
 	if ( ! is_array( $array ) ) {
 		return null;
 	}
@@ -486,7 +486,7 @@ function array_key_exists_recursive( $search_key, $array ) {
 		}
 
 		if ( is_array( $value ) ) {
-			$result = array_key_exists_recursive( $search_key, $value );
+			$result = gl_array_key_exists_recursive( $search_key, $value );
 
 			if ( null !== $result ) {
 				return $result;
@@ -502,7 +502,7 @@ function array_key_exists_recursive( $search_key, $array ) {
  * @param String $block_name block folder name.
  * @param String $filename asset filename.
  */
-function get_custom_block_template( $block_name, $filename ) {
+function gl_get_custom_block_template( $block_name, $filename ) {
 	return get_template_directory() . '/acf/blocks/' . $block_name . '/templates/' . $filename;
 }
 
@@ -518,13 +518,13 @@ add_filter( 'show_admin_bar', '__return_false' );
  * @param WP_post  $item The current menu item object.
  * @param stdClass $args An object of wp_nav_menu() arguments.
  */
-function add_additional_class_on_li( $classes, $item, $args ) {
+function gl_add_additional_class_on_li( $classes, $item, $args ) {
 	if ( isset( $args->add_li_class ) ) {
 		$classes[] = $args->add_li_class;
 	}
 	return $classes;
 }
-add_filter( 'nav_menu_css_class', 'add_additional_class_on_li', 1, 3 );
+add_filter( 'nav_menu_css_class', 'gl_add_additional_class_on_li', 1, 3 );
 
 /**
  * Remove empty p tag on wysiwyg.
@@ -533,7 +533,7 @@ add_filter( 'nav_menu_css_class', 'add_additional_class_on_li', 1, 3 );
  * @param Number $post_id The current menu item object.
  * @param Array  $field The field array containing all settings.
  */
-function my_acf_load_value( $value, $post_id, $field ) {
+function gl_my_acf_load_value( $value, $post_id, $field ) {
 	$content = apply_filters( 'the_content', $value );
 	$content = force_balance_tags( $content );
 	$content = preg_replace( '#<p>\s*+(<br\s*/*>)?\s*</p>#i', '', $content );
@@ -542,4 +542,4 @@ function my_acf_load_value( $value, $post_id, $field ) {
 	return $content;
 }
 
-add_filter( 'acf/load_value/type=wysiwyg', 'my_acf_load_value', 10, 3 );
+add_filter( 'acf/load_value/type=wysiwyg', 'gl_my_acf_load_value', 10, 3 );

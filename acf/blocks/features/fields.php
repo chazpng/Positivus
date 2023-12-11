@@ -36,12 +36,18 @@ $features
 		)
 
 	->addTrueFalse(
-		'dark_mode?',
+		'add_link',
 		array(
 			'default_value' => 0,
 		)
 	)
-		->conditional( 'features_style', '==', 'two-column-with-icons' )
+		->conditional( 'features_style', '==', 'product' )
+
+	->addText( 'link_text' )
+		->conditional( 'add_link', '==', 1 )
+
+		->addPageLink( 'page_link' )
+			->conditional( 'add_link', '==', 1 )
 
 	->addText( 'label' )
 	->addText( 'title' )
@@ -58,8 +64,6 @@ $features
 		->conditional( 'features_style', '==', 'product' )
 			->and( 'use_wysiwyg', '==', 0 )
 		->or( 'features_style', '==', 'simple' )
-		->or( 'features_style', '==', 'large-screenshot' )
-		->or( 'features_style', '==', 'with-testimonial' )
 
 	->addSelect(
 		'list_column_style',
@@ -78,15 +82,7 @@ $features
 
 	->addRepeater( 'list' )
 		->conditional( 'features_style', '==', 'product' )
-		->or( 'features_style', '==', '2x2-grid' )
-		->or( 'features_style', '==', 'large-screenshot' )
-		->or( 'features_style', '==', 'offset-2x2' )
-		->or( 'features_style', '==', 'offset-feature' )
 		->or( 'features_style', '==', 'simple' )
-		->or( 'features_style', '==', 'three-column' )
-		->or( 'features_style', '==', 'three-column-large-icons' )
-		->or( 'features_style', '==', 'two-column-with-icons' )
-		->or( 'features_style', '==', 'product-screenshot-panel' )
 
 		->addImage(
 			'list_icon',
@@ -110,25 +106,14 @@ $features
 			->conditional( 'is_external_link', '==', 1 )
 		->addPageLink( 'page_link' )
 			->conditional( 'is_external_link', '==', 0 )
-
-		->addText( 'button_name' )
-			->conditional( 'features_style', '==', 'three-column-large-icons' )
 	->endRepeater()
 
-	->addUrl( 'button_link' )
-		->conditional( 'features_style', '==', 'with-testimonial' )
-
-	->addText( 'button_name' )
-		->conditional( 'features_style', '==', 'with-testimonial' )
-
-	->addRepeater(
-		'testimonials',
-		array(
-			'max'  => 1,
-		)
+	->addTrueFalse(
+		'add_testimonial'
 	)
-		->conditional( 'features_style', '==', 'with-testimonial' )
 
+	->addGroup( 'testimonial' )
+		->conditional( 'add_testimonial', '==', 1 )
 		->addTextarea( 'qoute' )
 		->addText( 'name' )
 		->addText( 'position' )
@@ -140,7 +125,6 @@ $features
 				'return_format' => 'url',
 			)
 		)
-	->endRepeater()
 
 	->addTrueFalse(
 		'use_wysiwyg',
