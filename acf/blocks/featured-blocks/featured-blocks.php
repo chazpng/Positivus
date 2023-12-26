@@ -36,7 +36,7 @@ $features_style = get_field( 'features_style' );
 							'full',
 							'',
 							array(
-								'class' => 'featured-image',
+								'class' => 'featured-image w-full object-cover',
 								'alt'   => 'Featured',
 							)
 						);
