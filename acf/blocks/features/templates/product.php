@@ -11,7 +11,7 @@
 $label              = get_field( 'label' ) ?: 'Your Label Here';
 $main_title         = get_field( 'title' ) ?: 'Your Title Here';
 $description        = get_field( 'description' ) ?: 'Your Description Here';
-$bg_image           = get_field( 'featured_image' ) ?: get_block_asset_url( 'features', 'img-placeholder.jpg' );
+$bg_image           = get_field( 'featured_image' ) ?: gl_get_block_asset_url( 'features', 'img-placeholder.jpg' );
 $align_image        = get_field( 'align_image_to_the_left' ) ? 'flex items-start justify-end lg:order-first' : 'w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 overflow-hidden';
 $bg_color           = 'bg-white';
 $text_color_primary = '';
@@ -63,7 +63,7 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 									<?php
 									while ( have_rows( 'list' ) ) :
 										the_row();
-										$icon             = empty( get_sub_field( 'list_icon' ) ) ? get_block_asset_url( 'features', 'icon-placeholder.svg' ) : get_sub_field( 'list_icon' );
+										$icon             = empty( get_sub_field( 'list_icon' ) ) ? gl_get_block_asset_url( 'features', 'icon-placeholder.svg' ) : get_sub_field( 'list_icon' );
 										$list_title       = empty( get_sub_field( 'list_title' ) ) ? 'Your Title Here' : get_sub_field( 'list_title' );
 										$list_description = empty( get_sub_field( 'list_description' ) ) ? 'Your Description Here' : get_sub_field( 'list_description' );
 										?>
@@ -72,7 +72,7 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 												<?php if ( get_sub_field( 'list_icon' ) ) : ?>
 													<?php echo wp_get_attachment_image( get_sub_field( 'list_icon' ), 'full', '', array( 'class' => 'absolute left-1 top-1 h-5 w-5' ) ); ?>
 												<?php else : ?>
-													<img class="absolute left-1 top-1 h-5 w-5" src="<?php get_block_asset( 'features', 'icon-placeholder.svg' ); ?>" alt="Placeholder">
+													<img class="absolute left-1 top-1 h-5 w-5" src="<?php gl_get_block_asset( 'features', 'icon-placeholder.svg' ); ?>" alt="Placeholder">
 												<?php endif; ?>
 												<?php echo esc_html( $list_title ); ?>
 											</dt>
@@ -130,7 +130,7 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 								<?php if ( get_field( 'featured_image' ) ) : ?>
 									<?php echo wp_get_attachment_image( get_field( 'featured_image' ), 'full', '', array( 'class' => 'relative -z-20 min-w-full max-w-xl rounded-xl shadow-xl ring-1 ring-white/10 lg:row-span-4 lg:w-[64rem] lg:max-w-none' ) ); ?>
 								<?php else : ?>
-									<img class="relative -z-20 min-w-full max-w-xl rounded-xl shadow-xl ring-1 ring-white/10 lg:row-span-4 lg:w-[64rem] lg:max-w-none" src="<?php get_block_asset( 'features', '2432x1442.svg' ); ?>" alt="Placeholder">
+									<img class="relative -z-20 min-w-full max-w-xl rounded-xl shadow-xl ring-1 ring-white/10 lg:row-span-4 lg:w-[64rem] lg:max-w-none" src="<?php gl_get_block_asset( 'features', '2432x1442.svg' ); ?>" alt="Placeholder">
 								<?php endif; ?>
 							<?php endif; ?>
 						</div>
@@ -141,7 +141,7 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 									<?php
 									while ( have_rows( 'list' ) ) :
 										the_row();
-										$icon             = empty( get_sub_field( 'list_icon' ) ) ? get_block_asset_url( 'features', 'icon-placeholder.svg' ) : get_sub_field( 'list_icon' );
+										$icon             = empty( get_sub_field( 'list_icon' ) ) ? gl_get_block_asset_url( 'features', 'icon-placeholder.svg' ) : get_sub_field( 'list_icon' );
 										$list_title       = empty( get_sub_field( 'list_title' ) ) ? 'Your Title Here' : get_sub_field( 'list_title' );
 										$list_description = empty( get_sub_field( 'list_description' ) ) ? 'Your Description Here' : get_sub_field( 'list_description' );
 										?>
@@ -150,7 +150,7 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 												<?php if ( get_sub_field( 'list_icon' ) ) : ?>
 													<?php echo wp_get_attachment_image( get_sub_field( 'list_icon' ), 'full', '', array( 'class' => 'absolute left-1 top-1 h-5 w-5 text-indigo-500' ) ); ?>
 												<?php else : ?>
-													<img class="absolute left-1 top-1 h-5 w-5 text-indigo-500" src="<?php get_block_asset( 'features', 'icon-placeholder.svg' ); ?>" alt="Placeholder">
+													<img class="absolute left-1 top-1 h-5 w-5 text-indigo-500" src="<?php gl_get_block_asset( 'features', 'icon-placeholder.svg' ); ?>" alt="Placeholder">
 												<?php endif; ?>
 												<?php echo esc_html( $list_title ); ?>
 											</dt>
@@ -192,7 +192,7 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 								<?php
 								while ( have_rows( 'list' ) ) :
 									the_row();
-									$icon             = empty( get_sub_field( 'list_icon' ) ) ? get_block_asset_url( 'features', 'icon-placeholder.svg' ) : get_sub_field( 'list_icon' );
+									$icon             = empty( get_sub_field( 'list_icon' ) ) ? gl_get_block_asset_url( 'features', 'icon-placeholder.svg' ) : get_sub_field( 'list_icon' );
 									$list_title       = empty( get_sub_field( 'list_title' ) ) ? 'Your Title Here' : get_sub_field( 'list_title' );
 									$list_description = empty( get_sub_field( 'list_description' ) ) ? 'Your Description Here' : get_sub_field( 'list_description' );
 									?>
@@ -201,7 +201,7 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 											<?php if ( get_sub_field( 'list_icon' ) ) : ?>
 												<?php echo wp_get_attachment_image( get_sub_field( 'list_icon' ), 'full', '', array( 'class' => 'absolute left-1 top-1 h-5 w-5' ) ); ?>
 											<?php else : ?>
-												<img class="absolute left-1 top-1 h-5 w-5" src="<?php get_block_asset( 'features', 'icon-placeholder.svg' ); ?>" alt="Placeholder">
+												<img class="absolute left-1 top-1 h-5 w-5" src="<?php gl_get_block_asset( 'features', 'icon-placeholder.svg' ); ?>" alt="Placeholder">
 											<?php endif; ?>
 											<?php echo esc_html( $list_title ); ?>
 										</dt>
@@ -227,7 +227,7 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 						<?php if ( get_field( 'featured_image' ) ) : ?>
 							<?php echo wp_get_attachment_image( get_field( 'featured_image' ), 'full', '', array( 'class' => 'w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0' ) ); ?>
 						<?php else : ?>
-							<img class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" src="<?php get_block_asset( 'features', '2432x1442.svg' ); ?>" alt="Placeholder">
+							<img class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" src="<?php gl_get_block_asset( 'features', '2432x1442.svg' ); ?>" alt="Placeholder">
 						<?php endif; ?>
 					</div>
 				<?php endif; ?>
