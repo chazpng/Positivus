@@ -60,6 +60,8 @@
 		<exclude name="WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound"/>
 		<exclude name="PSR2.ControlStructures.SwitchDeclaration.TerminatingComment"/>
 		<exclude name="WPThemeReview.PluginTerritory.AdminBarRemoval.RemovalDetected"/>
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found"/>
+		<exclude name="PHPCompatibility.Syntax.NewShortArray.Found"/>
 	</rule>
 	<rule ref="WPThemeReview"/>
 
