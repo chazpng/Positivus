@@ -94,6 +94,9 @@ module.exports = {
       borderRadius: {
         '4xl': '2rem',
       },
+      minHeight: (theme) => ({
+        ...theme('spacing'),
+      }),
     }
 	},
 	plugins: [
