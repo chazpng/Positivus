@@ -59,7 +59,7 @@
     "lint:js": "wp-scripts lint-js frontend/resources/js/*.js",
     "lint:blockjs": "wp-scripts lint-js acf/blocks/**/**/*.js --quiet",
     "lint:componentjs": "wp-scripts lint-js frontend/components/**/**/*.js --quiet",
-    "lint:php": "php vendor/bin/phpcs",
+    "lint:php": "php vendor/bin/phpcs -d error_reporting=24575",
     "lint": "npm-run-all lint:*",
     "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
   },
