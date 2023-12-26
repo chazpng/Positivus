@@ -9,7 +9,7 @@
 
 if ( ! defined( '_GL_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_GL_VERSION', '1.0.0' );
+	define( '_GL_VERSION', '1.0.2' );
 }
 
 /**
@@ -247,16 +247,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 /**
- * Load acf blocks.
- */
-require get_template_directory() . '/acf/blocks/blocks.php';
-
-/**
- * Load Register blocks.
- */
-require get_template_directory() . '/acf/blocks/register-fields.php';
-
-/**
  * Load Frontend Components.
  *
  * @param array $directories array of directory.
@@ -279,6 +269,16 @@ function gl_load_alias( $alias ) {
 	return $alias;
 }
 add_filter( 'loader_alias', 'gl_load_alias' );
+
+/**
+ * Load acf blocks.
+ */
+require get_template_directory() . '/acf/blocks/blocks.php';
+
+/**
+ * Load Register blocks.
+ */
+require get_template_directory() . '/acf/blocks/register-fields.php';
 
 /**
  * Load acf fields.
