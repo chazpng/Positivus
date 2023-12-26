@@ -1,0 +1,15 @@
+{
+  "name": "acf/php-code",
+  "title": "PHP Code Embed",
+  "description": "PHP Code Embed",
+  "style": [ "file:./css/style.min.css" ],
+  "script": "",
+  "category": "gl-blocks",
+  "icon": "block-default",
+  "keywords": ["php", "code", "embed"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "template.php",
+    "supports": "jsx"
+  }
+}
