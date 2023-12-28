@@ -1,4 +1,5 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 function rem2px(input, fontSize = 16) {
   if (input == null) {
@@ -44,40 +45,15 @@ module.exports = {
     }
 	],
 	theme: {
-		colors: {
-      "white": "#FFF",
-      gray: {
-        30: "#B3B9C6",
-        70: "#0E0E14",
-        300: "#C4C8D0",
-        400: '#676F7D',
-        600: '#4b5563',
-        900: '#111827'
-      },
-      emerald: {
-        300: '#6DE5B6',
-      },
-      indigo: {
-        100: '#f4e7ff',
-        400: '#818CF8',
-        500: '#6366F1',
-        600: '#4f46e5',
-      },
-      'blue': '#1fb6ff',
-      'purple': '#7e5bef',
-      'pink': '#ff49db',
-      'orange': '#ff7849',
-      'green': '#13ce66',
-      'yellow': '#ffc82c',
-      'gray-dark': '#273444',
-      'gray-light': '#d3dce6',
-    },
 		fontFamily: {
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
       sans: ['Inter', ...defaultTheme.fontFamily.sans],
     },
     extend: {
+      colors: {
+        ...colors,
+      },
       fontSize: {
         'fluid-1': 'clamp(20px, calc(1.48rem + 2.03vw), 60px)',
         'fluid-2': 'clamp(3.27rem, calc(2.31rem + 4.79vw), 5.72rem)',
