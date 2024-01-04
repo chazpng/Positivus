@@ -1,0 +1,29 @@
+{
+    "name": "acf/cta",
+    "title": "CTA Sections",
+    "description": "CTA Sections block.",
+    "style": [ "file:./css/style.min.css" ],
+    "script": "cta-sections",
+    "category": "gl-blocks",
+    "icon": "block-default",
+    "keywords": ["cta"],
+    "acf": {
+      "mode": "preview",
+      "renderTemplate": "cta-section.php",
+      "supports": "jsx"
+    },
+    "supports": {
+      "jsx": false
+    },
+    "styles": [
+      { "name": "light", "label": "light", "isDefault": true },
+      { "name": "dark", "label": "Dark" }
+    ],
+    "align": [
+        { "name": "Left", "label": "Left", "isDefault": true },
+        { "name": "Centered", "label": "Centered" },
+        { "name": "Right", "label": "Right" },
+        { "name": "Justify", "label": "Justify" }
+      ]
+  }
+  

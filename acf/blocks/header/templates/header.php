@@ -74,7 +74,7 @@ if ( get_field( 'background_image' ) || 'is-style-dark' === $style ) {
 				<p class="<?php echo esc_attr( $text_color_primary ); ?> text-base font-semibold leading-7"><?php the_field( 'subtitle' ); ?></p>
 			<?php endif; ?>
 
-			<h2 class="<?php echo esc_attr( $text_color_primary ); ?> text-4xl font-bold tracking-tight sm:text-6xl <?php echo esc_attr( $container_size ); ?>">
+			<h2 class="<?php echo esc_attr( $text_color_primary ); ?> lg:text-fluid-desktop md:text-fluid-tablet text-fluid-mobile font-bold tracking-tight <?php echo esc_attr( $container_size ); ?>">
 				<?php echo esc_html( $header_title ); ?>
 			</h2>
 
