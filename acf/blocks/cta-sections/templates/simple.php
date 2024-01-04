@@ -22,8 +22,8 @@ $text_color_primary   = 'text-gray-900';
 $text_color_secondary = 'text-gray-600';
 $img_gradient_class   = 'absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]';
 
-$cta_container = 'mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8';
-$button_container     = 'mt-10 flex items-center gap-x-6';
+$cta_container = 'mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8';
+$button_container     = 'mt-10 flex items-center justify-center gap-x-6 lg:justify-start';
 
 switch ($align) {
     case 'center':
@@ -46,18 +46,45 @@ if ('is-style-dark' === $style) { //add get_field('background_image) || later.
 }
 ?>
 
-<div class="<?php echo esc_attr($bg_color); ?> py-24 sm:py-32">
+<div class="<?php echo esc_attr($bg_color); ?>">
     <div class="<?php echo esc_attr($cta_container); ?>">
-        <?php if (get_field('subtitle')) : ?>
-            <h2 class="text-base font-semibold leading-7 text-indigo-600"><?php echo esc_html($label); ?></h2>
-        <?php endif; ?>
-        <p class="<?php echo esc_attr( $text_color_primary ); ?> text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><?php echo esc_html($main_title); ?></p>
-        <?php if (get_field('description')) : ?>
-            <p class="<?php echo esc_attr($text_color_secondary); ?> mt-6 text-lg leading-8"><?php echo esc_html($description); ?></p>
-        <?php endif; ?>
-        <div class="<?php echo esc_attr( $button_container )?>">
-            <a href="<?php echo esc_url($page_link_1); ?>" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><?php echo esc_html($button_1) ?></a>
-            <a href="<?php echo esc_url($page_link_2); ?>" class="text-sm font-semibold leading-6 <?php echo esc_attr($text_color_primary); ?>"><?php echo esc_html($button_2) ?> <span aria-hidden="true">→</span></a>
-        </div>
+        <?php if (get_field('featured_image')) : 
+                        $main_title  = get_field('title') ?: 'Boost your productivity. Start using our app today.';
+            ?>
+
+
+            <div class="bg-gray-900 relative isolate overflow-hidden px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+                <div class="mx-auto my-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-52 lg:text-left">
+                    <?php if (get_field('subtitle')) : ?>
+                        <h2 class="text-base font-semibold leading-7 text-indigo-600"><?php echo esc_html($label); ?></h2>
+                    <?php endif; ?>
+                    <p class="text-3xl font-bold tracking-tight text-white sm:text-4xl text-left"><?php echo esc_html($main_title);?></p>
+                    <?php if (get_field('description')) : ?>
+                        <p class="mt-6 text-lg leading-8 text-gray-300"><?php echo esc_html($description); ?></p>
+                    <?php endif; ?>
+                    <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+                        <a href="<?php echo esc_url($page_link_1); ?>" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><?php echo esc_html($button_1) ?></a>
+                        <a href="<?php echo esc_url($page_link_2); ?>" class="text-sm font-semibold leading-6 text-white"><?php echo esc_html($button_2) ?> <span aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+                <div class="relative mt-16 h-80 lg:mt-8">
+                    <?php echo wp_get_attachment_image(get_field('featured_image'), 'full', '', array('class' => 'absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/1')); ?>
+                </div>
+            </div>
+
+        <?php else : ?>
+
+            <?php if (get_field('subtitle')) : ?>
+                <h2 class="text-base font-semibold leading-7 text-indigo-600"><?php echo esc_html($label); ?></h2>
+            <?php endif; ?>
+            <p class="<?php echo esc_attr($text_color_primary); ?> text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><?php echo esc_html($main_title); ?></p>
+            <?php if (get_field('description')) : ?>
+                <p class="<?php echo esc_attr($text_color_secondary); ?> mt-6 text-lg leading-8"><?php echo esc_html($description); ?></p>
+            <?php endif; ?>
+            <div class="<?php echo esc_attr($button_container) ?>">
+                <a href="<?php echo esc_url($page_link_1); ?>" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><?php echo esc_html($button_1) ?></a>
+                <a href="<?php echo esc_url($page_link_2); ?>" class="text-sm font-semibold leading-6 <?php echo esc_attr($text_color_primary); ?>"><?php echo esc_html($button_2) ?> <span aria-hidden="true">→</span></a>
+            </div>
     </div>
+<?php endif; ?>
 </div>

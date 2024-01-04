@@ -13,14 +13,14 @@ $cta = new StoutLogic\AcfBuilder\FieldsBuilder( 'cta' );
 $cta
 
 ->addSelect(
-    'cta_style',
-    array(
-        'default_value' => 'simple',
-    )
+	'cta_style',
+	array(
+		'default_value' => 'simple',
+	)
 )
 ->addChoices(
-    array( 'two-columns' => 'Two Columns with Photo on dark' ),
-    array( 'simple' => 'Simple' )
+	array( 'two-columns' => 'Two Columns with Photo on dark' ),
+	array( 'simple' => 'Simple' )
 )
 	->addImage(
 		'background_image',
@@ -29,20 +29,31 @@ $cta
 			'return_format' => 'id',
 		)
 	)
-    ->addRepeater('list',
-        array(
-			'max'  => '8',
-		))
-    ->conditional( 'cta_style', '==', 'two-columns' )
-        ->addText('title')
-    ->endRepeater()
+    ->addImage(
+		'featured_image',
+		array(
+			'preview_size'  => 'medium',
+			'return_format' => 'id',
+		)
+	)
 	->addText( 'subtitle' )
 	->addText( 'title' )
 	->addTextarea( 'description' )
+    ->addRepeater(
+		'list',
+		array(
+			'max'  => '8',
+		)
+	)
+	->conditional( 'cta_style', '==', 'two-columns' )
+		->addText( 'list_title' )
+	->endRepeater()
 	->addText( 'link_text' )
 	->addPageLink( 'page_link' )
-    ->addText( 'link_text_2' )
+	->addText( 'link_text_2' )
+    ->conditional( 'cta_style', '==', 'simple' )
 	->addPageLink( 'page_link_2' )
+    ->conditional( 'cta_style', '==', 'simple' )
 
 
 	->setLocation( 'block', '==', 'acf/cta' );

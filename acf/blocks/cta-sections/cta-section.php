@@ -10,7 +10,7 @@ $cta_style = get_field( 'cta_style' );
 $align          = $block['align'];
 ?>
 <div class="gl-b-cta-section">
-	<?php if ( 'split' === $cta_style ) : ?>
+	<?php if ( 'two-columns' === $cta_style ) : ?>
 		<?php require gl_get_custom_block_template( 'cta-sections', 'two-columns.php' ); ?>
 	<?php endif; ?>
 
