@@ -83,13 +83,13 @@ if (get_field('background_image')) {
                     <?php if (get_field('description')) : ?>
                         <p class="mt-6 text-lg leading-8 text-gray-300"><?php echo esc_html($description); ?></p>
                     <?php endif; ?>
-                    <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+                    <div class="<?php echo esc_attr($button_container); ?>">
                         <a href="<?php echo esc_url($page_link_1); ?>" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><?php echo esc_html($button_1) ?></a>
                         <a href="<?php echo esc_url($page_link_2); ?>" class="text-sm font-semibold leading-6 text-white"><?php echo esc_html($button_2) ?> <span aria-hidden="true">→</span></a>
                     </div>
                 </div>
                 <div class="relative mt-16 h-80 lg:mt-8">
-                    <?php echo wp_get_attachment_image(get_field('featured_image'), 'full', '', array('class' => 'absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/1')); ?>
+                    <?php echo wp_get_attachment_image(get_field('featured_image'), 'full', '', array('class' => 'absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10', 'width' => 1824,'height' => 1000,)); ?>
                 </div>
             </div>
         <?php else : ?>
