@@ -18,11 +18,27 @@ $cta
 		'default_value' => 'simple',
 	)
 )
+
+
+
 ->addChoices(
 	array( 'simple' => 'Simple' ),
 	array( 'two-columns' => 'Two Columns with Photo on dark' ),
 	array( 'with-panel' => 'With Panel on dark' ),
+	array( 'split-with-image' => 'Split with Image' ),
 )
+->addCheckbox(
+	'checkbox_field',
+	array(
+		'label'         => 'On Brand',
+		'choices'       => array( 'is Background on brand?' ),
+		'default_value' => array( 0 ),
+		'return_format' => 'value',
+	)
+)
+->conditional( 'cta_style', '==', 'simple' )
+->addColorPicker( 'background_color' )
+->conditional( 'checkbox_field', '==', 'is Background on brand?' )
     ->addImage(
 		'featured_image',
 		array(
