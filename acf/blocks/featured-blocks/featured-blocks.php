@@ -9,8 +9,8 @@ $style          = $block['className'] ?? '';
 $features_style = get_field( 'features_style' );
 ?>
 <div class="gl-b-featured-block">
-	<div class="container m-auto flex py-12">
-		<div class="w-64">
+	<div class="container m-auto flex py-12 flex-col lg:flex-row">
+		<div class="w-full lg:w-64 shrink-0 text-xl">
 			<?php the_field( 'label' ); ?>
 		</div>
 
