@@ -54,21 +54,27 @@ if ('is-style-justify' === $style) {
     $button_container   = 'mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0 text-indigo-600';
 }
 
-$on_brand_color = empty( get_field('background_color') ) ? $bg_color : 'bg-[' . get_field('background_color') . ']' ;
+$on_brand_color = empty( get_field('background_color') ) ? $bg_color :  get_field('background_color') ;
+
+if (get_field('background_color')) {
+    $button_style = 'rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white';
+    $text_color_secondary = 'text-gray-300';
+    $text_color_primary   = 'text-white';
+}
 
 ?>
 
-<div class="<?php echo esc_attr($on_brand_color); ?>">
+<div class="<?php echo esc_attr($bg_color); ?>" style="background-color: <?php echo esc_attr($on_brand_color); ?>">
     <div class="<?php echo esc_attr($cta_container); ?>">
         <?php if (get_field('subtitle')) : ?>
             <h2 class="text-base font-semibold leading-7 text-indigo-600"><?php echo esc_html($label); ?></h2>
         <?php endif; ?>
-        <p class="<?php echo esc_attr($text_color_primary); ?> text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><?php echo esc_html($main_title); ?></p>
+        <p class="<?php echo esc_attr($text_color_primary); ?> text-3xl font-bold tracking-tight  sm:text-4xl"><?php echo esc_html($main_title); ?></p>
         <?php if (get_field('description')) : ?>
             <p class="<?php echo esc_attr($text_color_secondary); ?> mt-6 text-lg leading-8"><?php echo esc_html($description); ?></p>
         <?php endif; ?>
         <div class="<?php echo esc_attr($button_container) ?>">
-            <a href="<?php echo esc_url($page_link_1); ?>" class="<?php echo esc_attr($button_style) ?>"><?php echo esc_html($button_1) ?></a>
+            <a href="<?php echo esc_url($page_link_1); ?>" class="<?php echo esc_attr($button_style) ?>" style="color : <?php echo esc_attr($on_brand_color); ?>"><?php echo esc_html($button_1) ?></a>
             <a href="<?php echo esc_url($page_link_2); ?>" class="text-sm font-semibold leading-6 <?php echo esc_attr($text_color_primary); ?>"><?php echo esc_html($button_2) ?> <span aria-hidden="true">→</span></a>
         </div>
     </div>
