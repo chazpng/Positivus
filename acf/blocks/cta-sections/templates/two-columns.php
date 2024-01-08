@@ -23,7 +23,7 @@ $button_text_color = 'text-indigo-600';
 
 $content_container = 'mx-auto max-w-7xl sm:px-6 lg:px-8';
 
-if ('is-style-dark' === $style) { //add get_field('background_image) || later.
+if ('is-style-dark' === $style ) { //add get_field('background_image) || later.
     $text_color_primary   = 'text-white';
     $text_color_secondary = 'text-gray-300';
     $button_text_color = 'text-indigo-400';
@@ -36,7 +36,7 @@ if ('is-style-dark' === $style) { //add get_field('background_image) || later.
     <div class="relative isolate">
         <div class="<?php echo esc_attr($content_container); ?>">
             <div class="mx-auto flex max-w-2xl flex-col gap-16 bg-white/10 px-6 py-16 ring-1 ring-white/10 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
-                <?php echo wp_get_attachment_image( get_field( 'featured_image' ), 'full', '', array( 'class' => 'h-96 w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square ' ) ); ?>
+                <?php echo wp_get_attachment_image( get_field( 'featured_image' ), 'full', '', array( 'class' => 'h-96 w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square  ' ) ); ?>
                 <div class="w-full flex-auto">
                     <h2 class="text-3xl font-bold tracking-tight <?php echo esc_attr($text_color_primary); ?> sm:text-4xl"><?php echo esc_html($main_title); ?></h2>
                     <p class="mt-6 text-lg leading-8 <?php echo esc_attr($text_color_secondary); ?>"><?php echo esc_html($description); ?></p>

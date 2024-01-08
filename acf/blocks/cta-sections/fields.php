@@ -19,16 +19,10 @@ $cta
 	)
 )
 ->addChoices(
+	array( 'simple' => 'Simple' ),
 	array( 'two-columns' => 'Two Columns with Photo on dark' ),
-	array( 'simple' => 'Simple' )
+	array( 'with-panel' => 'With Panel on dark' ),
 )
-	->addImage(
-		'background_image',
-		array(
-			'preview_size'  => 'medium',
-			'return_format' => 'id',
-		)
-	)
     ->addImage(
 		'featured_image',
 		array(

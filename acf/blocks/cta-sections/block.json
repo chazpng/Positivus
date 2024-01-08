@@ -17,13 +17,8 @@
     },
     "styles": [
       { "name": "light", "label": "light", "isDefault": true },
-      { "name": "dark", "label": "Dark" }
-    ],
-    "align": [
-        { "name": "Left", "label": "Left", "isDefault": true },
-        { "name": "Centered", "label": "Centered" },
-        { "name": "Right", "label": "Right" },
-        { "name": "Justify", "label": "Justify" }
-      ]
+      { "name": "dark", "label": "Dark" },
+      { "name": "justify", "label": "Justify" }
+    ]
   }
   

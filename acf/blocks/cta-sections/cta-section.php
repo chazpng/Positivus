@@ -14,6 +14,10 @@ $align          = $block['align'];
 		<?php require gl_get_custom_block_template( 'cta-sections', 'two-columns.php' ); ?>
 	<?php endif; ?>
 
+	<?php if ( 'with-panel' === $cta_style ) : ?>
+		<?php require gl_get_custom_block_template( 'cta-sections', 'with-panel.php' ); ?>
+	<?php endif; ?>
+
 	<?php if ( 'simple' === $cta_style ) : ?>
 		<?php require gl_get_custom_block_template( 'cta-sections', 'simple.php' ); ?>
 	<?php endif; ?>
