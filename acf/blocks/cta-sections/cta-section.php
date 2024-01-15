@@ -10,7 +10,9 @@ $cta_style = get_field( 'cta_style' );
 $align     = $block['align'];
 ?>
 <div class="gl-b-cta-section">
-
+	<?php if ( 'with-image-tiles' === $cta_style ) : ?>
+		<?php require gl_get_custom_block_template( 'cta-sections', 'with-image-tiles.php' ); ?>
+	<?php endif; ?>
 	<?php if ( 'split-with-image' === $cta_style ) : ?>
 		<?php require gl_get_custom_block_template( 'cta-sections', 'split-with-image.php' ); ?>
 	<?php endif; ?>

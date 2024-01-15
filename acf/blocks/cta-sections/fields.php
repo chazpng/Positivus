@@ -21,7 +21,8 @@ $cta->addSelect(
 		array( 'simple' => 'Simple' ),
 		array( 'two-columns' => 'Two Columns with Photo on dark' ),
 		array( 'with-panel' => 'With Panel on dark' ),
-		array( 'split-with-image' => 'Split with Image' )
+		array( 'split-with-image' => 'Split with Image' ),
+		array( 'with-image-tiles' => 'With Image Tiles' )
 	)
 
 	->addCheckbox(
@@ -45,6 +46,39 @@ $cta->addSelect(
 				'return_format' => 'id',
 			)
 		)
+		->conditional( 'cta_style', '!==', 'with-image-tiles' )
+		->addImage(
+			'image_1',
+			array(
+				'preview_size'  => 'medium',
+				'return_format' => 'id',
+			)
+		)
+		->conditional( 'cta_style', '==', 'with-image-tiles' )
+		->addImage(
+			'image_2',
+			array(
+				'preview_size'  => 'medium',
+				'return_format' => 'id',
+			)
+		)
+		->conditional( 'cta_style', '==', 'with-image-tiles' )
+		->addImage(
+			'image_3',
+			array(
+				'preview_size'  => 'medium',
+				'return_format' => 'id',
+			)
+		)
+		->conditional( 'cta_style', '==', 'with-image-tiles' )
+		->addImage(
+			'image_4',
+			array(
+				'preview_size'  => 'medium',
+				'return_format' => 'id',
+			)
+		)
+		->conditional( 'cta_style', '==', 'with-image-tiles' )
 		->addText( 'subtitle' )
 		->addText( 'title' )
 		->addTextarea( 'description' )
