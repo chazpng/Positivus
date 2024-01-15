@@ -8,24 +8,11 @@
 ?>
 
 <?php
-<<<<<<< HEAD
-$label        = get_field( 'subtitle' ) ?: 'Award winning support';
-$main_title   = get_field( 'title' ) ?: 'We are here to help';
-$description  = get_field( 'description' ) ?: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat quisque ut interdum tincidunt duis.';
-$button       = get_field( 'link_text' ) ?: 'Visit the help center';
-$page_link    = get_field( 'page_link' ) ?: '#';
-$button_style = 'rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600';
-
-$cta_container    = '';
-$button_container = 'mt-8';
-
-=======
 $label       = get_field( 'subtitle' ) ?: 'Award winning support';
 $main_title  = get_field( 'title' ) ?: 'We are here to help';
 $description = get_field( 'description' ) ?: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat quisque ut interdum tincidunt duis.';
 $button      = get_field( 'link_text' ) ?: 'Visit the help center';
 $page_link   = get_field( 'page_link' ) ?: '#';
->>>>>>> fb573ce0fb45efa5e251f6ef1c9a8bcfe10c5401
 ?>
 
 <div class="relative bg-gray-900 ">

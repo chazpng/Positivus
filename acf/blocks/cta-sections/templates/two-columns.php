@@ -41,11 +41,7 @@ if ( 'is-style-dark' === $style ) { // add get_field('background_image) || later
 					<p class="mt-6 text-lg leading-8 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $description ); ?></p>
 					<?php if ( have_rows( 'list' ) ) : ?>
 						<ul role="list" class="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base leading-7 <?php echo esc_attr( $text_color_primary ); ?> sm:grid-cols-2">
-<<<<<<< HEAD
-							<?php 
-=======
 							<?php
->>>>>>> fb573ce0fb45efa5e251f6ef1c9a8bcfe10c5401
 							while ( have_rows( 'list' ) ) :
 								the_row();
 								$list_title = get_sub_field( 'list_title' ) ?: 'Your Title Here';

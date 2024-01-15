@@ -1,10 +1,6 @@
 <?php
 /**
-<<<<<<< HEAD
- * With Panel Image Template.
-=======
  * With Panel.
->>>>>>> fb573ce0fb45efa5e251f6ef1c9a8bcfe10c5401
  *
  * @package greydientlab
  */
@@ -64,13 +60,8 @@ if ( get_field( 'background_image' ) ) {
 
 <div class="<?php echo esc_attr( $bg_color ); ?>">
 	<div class="<?php echo esc_attr( $cta_container ); ?>">
-<<<<<<< HEAD
-		<?php 
-		if ( get_field( 'featured_image' ) ) : 
-=======
 		<?php
 		if ( get_field( 'featured_image' ) ) :
->>>>>>> fb573ce0fb45efa5e251f6ef1c9a8bcfe10c5401
 			$main_title = get_field( 'title' ) ?: 'Boost your productivity. Start using our app today.';
 			?>
 			<div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
@@ -88,11 +79,7 @@ if ( get_field( 'background_image' ) ) {
 					</div>
 				</div>
 				<div class="relative mt-16 h-80 lg:mt-8">
-<<<<<<< HEAD
-					<?php 
-=======
 					<?php
->>>>>>> fb573ce0fb45efa5e251f6ef1c9a8bcfe10c5401
 					echo wp_get_attachment_image(
 						get_field( 'featured_image' ),
 						'full',
@@ -101,13 +88,8 @@ if ( get_field( 'background_image' ) ) {
 							'class'  => 'absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10',
 							'width'  => 1824,
 							'height' => 1000,
-<<<<<<< HEAD
-						) 
-					); 
-=======
 						)
 					);
->>>>>>> fb573ce0fb45efa5e251f6ef1c9a8bcfe10c5401
 					?>
 				</div>
 			</div>
