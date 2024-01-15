@@ -13,10 +13,7 @@ $main_title    = get_field( 'title' ) ?: 'Our people';
 $paragraph     = get_field( 'paragraph' ) ?: 'Quasi est quaerat. Sit molestiae et. Provident ad dolorem occaecati eos iste. Soluta rerum quidem minus ut molestiae velit error quod. Excepturi quidem expedita molestias quas.';
 $button        = get_field( 'link_text' ) ?: 'Join our team';
 $page_link     = get_field( 'page_link' ) ?: '#';
-$bg_color      = '';
 $cta_container = 'mx-auto max-w-7xl px-6 lg:flex lg:px-8';
-$button_style  = 'rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600';
-
 ?>
 
 

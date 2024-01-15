@@ -22,11 +22,10 @@ $button_text_color    = 'text-indigo-600';
 
 $content_container = 'mx-auto max-w-7xl sm:px-6 lg:px-8';
 
-if ( 'is-style-dark' === $style ) { // add get_field('background_image) || later.
+if ( 'is-style-dark' === $style ) {
 	$text_color_primary   = 'text-white';
 	$text_color_secondary = 'text-gray-300';
 	$button_text_color    = 'text-indigo-400';
-	$gradient_background  = 'from-[#ff4694] to-[#776fff]';
 	$bg_color             = 'bg-gray-900';
 }
 ?>

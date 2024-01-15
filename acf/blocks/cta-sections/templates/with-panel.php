@@ -19,13 +19,11 @@ $page_link_2 = get_field( 'page_link_2' ) ?: '#';
 $bg_color             = '';
 $text_color_primary   = 'text-gray-900';
 $text_color_secondary = 'text-gray-600';
-$img_gradient_class   = 'absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]';
 
 $cta_container         = 'mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8';
 $button_container      = 'mt-10 flex items-center justify-center gap-x-6 lg:justify-start';
 $title_container       = 'max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl text-left';
 $description_container = 'mt-6 text-lg leading-8 text-gray-300 text-left';
-$subtitle_container    = 'mt-10 flex items-center justify-center gap-x-6 text-left';
 
 switch ( $align ) {
 	case 'center':
@@ -33,7 +31,6 @@ switch ( $align ) {
 		$button_container      = 'mt-10 flex items-center justify-center gap-x-6';
 		$title_container       = 'mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl';
 		$description_container = 'mt-6 text-lg leading-8 text-gray-300';
-		$subtitle_container    = 'mt-10 flex items-center justify-center gap-x-6';
 		break;
 
 	case 'right':
@@ -43,17 +40,15 @@ switch ( $align ) {
 		break;
 }
 
-if ( 'is-style-dark' === $style ) { // add get_field('background_image' ) || later.
+if ( 'is-style-dark' === $style ) {
 	$text_color_primary   = 'text-white';
 	$text_color_secondary = 'text-gray-300';
-	$gradient_background  = 'from-[#ff4694] to-[#776fff]';
 	$bg_color             = 'bg-gray-900';
 }
 
 if ( get_field( 'background_image' ) ) {
 	$text_color_primary   = 'text-white';
 	$text_color_secondary = 'text-gray-300';
-	$gradient_background  = 'from-[#ff4694] to-[#776fff]';
 	$bg_color             = 'bg-gray-900';
 }
 ?>
