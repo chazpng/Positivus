@@ -60,6 +60,13 @@ $stats
 		)
 	)
 	->conditional( 'stats_style', '==', 'simple' )
+	->addDatePicker(
+		'event_date',
+		array(
+			'label' => 'Event Date',
+		)
+	)
+		->conditional( 'simple_type', '==', 'timeline' )
 	->addText( 'stat_heading' )
 	->addText( 'stat_label' )
 	->endRepeater()

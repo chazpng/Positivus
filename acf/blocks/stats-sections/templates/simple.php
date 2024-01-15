@@ -11,6 +11,8 @@
 $bg_color               = '';
 $text_color_primary     = 'text-gray-900';
 $text_color_secondary   = 'text-gray-600';
+$text_color_label       = 'text-indigo-600';
+$line_color             = 'bg-gray-900/10';
 $description            = get_field( 'description' ) ?: 'Lorem ipsum dolor sit amet consect adipisicing possimus.';
 $main_title             = get_field( 'title' ) ?: 'Trusted by creators worldwide';
 $paragraph              = get_field( 'paragraph' ) ?: 'Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget. Eleifend egestas fringilla sapien. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id.';
@@ -20,6 +22,8 @@ $stats_background_color = 'bg-gray-400/5';
 if ( 'is-style-dark' === $style ) {
 	$text_color_primary     = 'text-white';
 	$text_color_secondary   = 'text-gray-300';
+	$text_color_label       = 'text-indigo-400';
+	$line_color             = 'bg-gray-600';
 	$gradient_background    = 'from-[#ff4694] to-[#776fff]';
 	$bg_color               = 'bg-gray-900';
 	$stats_background_color = 'bg-white/5';
@@ -148,5 +152,75 @@ if ( 'is-style-dark' === $style ) {
 				</div>
 			</div>
 		<?php endif; ?>
+		<?php if ( 'timeline' === get_field( 'simple_type' ) ) : ?>
+			<div class="mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-4">
+				<?php if ( have_rows( 'stat' ) ) : ?>
+					<?php 
+					while ( have_rows( 'stat' ) ) :
+						the_row();
+						$stat_heading = get_sub_field( 'stat_heading' ) ?: 'Value';
+						$stat_label   = get_sub_field( 'stat_label' ) ?: 'label';
+						$date_string  = get_sub_field( 'event_date' );    
+						?>
+						<div>
+							<time datetime="2021-08" class="flex items-center text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_label ); ?>">
+								<svg viewBox="0 0 4 4" class="mr-4 h-1 w-1 flex-none" aria-hidden="true">
+									<circle cx="2" cy="2" r="2" fill="currentColor" />
+								</svg>
+								<?php echo esc_html( $date_string ); ?>
+								<div class="absolute -ml-2 h-px w-screen -translate-x-full <?php echo esc_attr( $line_color ); ?> sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0" aria-hidden="true"></div>
+							</time>
+							<p class="mt-6 text-lg font-semibold leading-8 tracking-tight <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $stat_heading ); ?></p>
+							<p class="mt-1 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $stat_label ); ?></p>
+						</div>
+					<?php endwhile; ?>
+				<?php else : ?>
+					<div>
+						<time datetime="2021-08" class="flex items-center text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_label ); ?>">
+							<svg viewBox="0 0 4 4" class="mr-4 h-1 w-1 flex-none" aria-hidden="true">
+								<circle cx="2" cy="2" r="2" fill="currentColor" />
+							</svg>
+							Aug 2021
+							<div class="absolute -ml-2 h-px w-screen -translate-x-full <?php echo esc_attr( $line_color ); ?> sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0" aria-hidden="true"></div>
+						</time>
+						<p class="mt-6 text-lg font-semibold leading-8 tracking-tight <?php echo esc_attr( $text_color_primary ); ?>">Founded company</p>
+						<p class="mt-1 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">Nihil aut nam. Dignissimos a pariatur et quos omnis. Aspernatur asperiores et dolorem dolorem optio voluptate repudiandae.</p>
+					</div>
+					<div>
+						<time datetime="2021-12" class="flex items-center text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_label ); ?>">
+							<svg viewBox="0 0 4 4" class="mr-4 h-1 w-1 flex-none" aria-hidden="true">
+								<circle cx="2" cy="2" r="2" fill="currentColor" />
+							</svg>
+							Dec 2021
+							<div class="absolute -ml-2 h-px w-screen -translate-x-full <?php echo esc_attr( $line_color ); ?> sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0" aria-hidden="true"></div>
+						</time>
+						<p class="mt-6 text-lg font-semibold leading-8 tracking-tight <?php echo esc_attr( $text_color_primary ); ?>">Secured $65m in funding</p>
+						<p class="mt-1 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">Provident quia ut esse. Vero vel eos repudiandae aspernatur. Cumque minima impedit sapiente a architecto nihil.</p>
+					</div>
+					<div>
+						<time datetime="2022-02" class="flex items-center text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_label ); ?>">
+							<svg viewBox="0 0 4 4" class="mr-4 h-1 w-1 flex-none" aria-hidden="true">
+								<circle cx="2" cy="2" r="2" fill="currentColor" />
+							</svg>
+							Feb 2022
+							<div class="absolute -ml-2 h-px w-screen -translate-x-full <?php echo esc_attr( $line_color ); ?> sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0" aria-hidden="true"></div>
+						</time>
+						<p class="mt-6 text-lg font-semibold leading-8 tracking-tight <?php echo esc_attr( $text_color_primary ); ?>">Released beta</p>
+						<p class="mt-1 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">Sunt perspiciatis incidunt. Non necessitatibus aliquid. Consequatur ut officiis earum eum quia facilis. Hic deleniti dolorem quia et.</p>
+					</div>
+					<div>
+						<time datetime="2022-12" class="flex items-center text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_label ); ?>">
+							<svg viewBox="0 0 4 4" class="mr-4 h-1 w-1 flex-none" aria-hidden="true">
+								<circle cx="2" cy="2" r="2" fill="currentColor" />
+							</svg>
+							Dec 2022
+							<div class="absolute -ml-2 h-px w-screen -translate-x-full <?php echo esc_attr( $line_color ); ?> sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0" aria-hidden="true"></div>
+						</time>
+						<p class="mt-6 text-lg font-semibold leading-8 tracking-tight <?php echo esc_attr( $text_color_primary ); ?>">Global launch of product</p>
+						<p class="mt-1 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">Ut ipsa sint distinctio quod itaque nam qui. Possimus aut unde id architecto voluptatem hic aut pariatur velit.</p>
+					</div>
+			</div>
+		<?php endif; ?>
+	<?php endif; ?>
 	</div>
 </div>
