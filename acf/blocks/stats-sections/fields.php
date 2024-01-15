@@ -36,6 +36,8 @@ $stats
 		array( 'two-column' => 'Two Column with Description' )
 	)
 
+	->addText( 'label' )
+	->conditional( 'simple_type', '==', 'two-column' )
 	->addText( 'title' )
 	->conditional( 'simple_type', '==', 'grid' )
 	->or( 'simple_type', '==', 'description' )
@@ -43,7 +45,6 @@ $stats
 
 	->addTextarea( 'description' )
 	->conditional( 'simple_type', '==', 'grid' )
-	->or( 'simple_type', '==', 'two-column' )
 
 	->addWysiwyg(
 		'paragraph',
@@ -52,6 +53,20 @@ $stats
 		)
 	)
 	->conditional( 'simple_type', '==', 'description' )
+	->addWysiwyg(
+		'first_column_paragraph',
+		array(
+			'media_upload' => 0,
+		)
+	)
+	->conditional( 'simple_type', '==', 'two-column' )
+	->addWysiwyg(
+		'second_column_paragraph',
+		array(
+			'media_upload' => 0,
+		)
+	)
+	->conditional( 'simple_type', '==', 'two-column' )
 	->addRepeater(
 		'stat',
 		array(
