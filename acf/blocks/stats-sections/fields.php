@@ -37,16 +37,21 @@ $stats
 	)
 
 	->addText( 'title' )
-		->conditional( 'simple_type', '==', 'grid' )
-		->or( 'simple_type', '==', 'description' ) 
-		->or( 'simple_type', '==', 'two-column' ) 
+	->conditional( 'simple_type', '==', 'grid' )
+	->or( 'simple_type', '==', 'description' )
+	->or( 'simple_type', '==', 'two-column' )
 
 	->addTextarea( 'description' )
-		->conditional( 'simple_type', '==', 'grid' )
-		->or( 'simple_type', '==', 'description' ) 
-		->or( 'simple_type', '==', 'two-column' ) 
+	->conditional( 'simple_type', '==', 'grid' )
+	->or( 'simple_type', '==', 'two-column' )
 
-
+	->addWysiwyg(
+		'paragraph',
+		array(
+			'media_upload' => 0,
+		)
+	)
+	->conditional( 'simple_type', '==', 'description' )
 	->addRepeater(
 		'stat',
 		array(
