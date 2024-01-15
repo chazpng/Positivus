@@ -35,6 +35,18 @@ $stats
 		array( 'description' => 'With Description' ),
 		array( 'two-column' => 'Two Column with Description' )
 	)
+
+	->addText( 'title' )
+		->conditional( 'simple_type', '==', 'grid' )
+		->or( 'simple_type', '==', 'description' ) 
+		->or( 'simple_type', '==', 'two-column' ) 
+
+	->addTextarea( 'description' )
+		->conditional( 'simple_type', '==', 'grid' )
+		->or( 'simple_type', '==', 'description' ) 
+		->or( 'simple_type', '==', 'two-column' ) 
+
+
 	->addRepeater(
 		'stat',
 		array(
