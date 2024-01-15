@@ -1,0 +1,23 @@
+{
+    "name": "acf/stats",
+    "title": "Stats Sections",
+    "description": "Stats Sections block.",
+    "style": [ "file:./css/style.min.css" ],
+    "script": "stats-sections",
+    "category": "gl-blocks",
+    "icon": "block-default",
+    "keywords": ["stats"],
+    "acf": {
+      "mode": "preview",
+      "renderTemplate": "stats-section.php",
+      "supports": "jsx"
+    },
+    "supports": {
+      "jsx": false
+    },
+    "styles": [
+      { "name": "light", "label": "light", "isDefault": true },
+      { "name": "dark", "label": "dark" }
+    ]
+  }
+  
