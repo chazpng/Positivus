@@ -82,6 +82,7 @@ $cta->addSelect(
 		->addText( 'subtitle' )
 		->addText( 'title' )
 		->addTextarea( 'description' )
+		->conditional( 'cta_style', '!==', 'with-image-tiles' )
 			->addRepeater(
 				'list',
 				array(
@@ -92,6 +93,13 @@ $cta->addSelect(
 				->addText( 'list_title' )
 		->endRepeater()
 
+		->addWysiwyg(
+			'paragraph',
+			array(
+				'media_upload' => 0,
+			)
+		)
+		->conditional( 'cta_style', '==', 'with-image-tiles' )
 	->addText( 'link_text' )
 	->addPageLink( 'page_link' )
 	->addText( 'link_text_2' )

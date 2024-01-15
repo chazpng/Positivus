@@ -8,19 +8,19 @@
 ?>
 
 <?php
-$label                = get_field( 'subtitle' ) ?: 'Award winning support';
-$main_title           = get_field( 'title' ) ?: 'Better Work Flow';
-$description          = get_field( 'description' ) ?: 'Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.';
-$button_1             = get_field( 'link_text' ) ?: 'Get Started';
-$button_2             = get_field( 'link_text_2' ) ?: 'Learn More';
-$page_link_1          = get_field( 'page_link' ) ?: '#';
-$page_link_2          = get_field( 'page_link_2' ) ?: '#';
-$bg_color             = '';
-$button_style         = 'rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600';
+$label       = get_field( 'subtitle' ) ?: 'Award winning support';
+$main_title  = get_field( 'title' ) ?: 'Better Work Flow';
+$description = get_field( 'description' ) ?: 'Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.';
+$button_1    = get_field( 'link_text' ) ?: 'Get Started';
+$button_2    = get_field( 'link_text_2' ) ?: 'Learn More';
+$page_link_1 = get_field( 'page_link' ) ?: '#';
+$page_link_2 = get_field( 'page_link_2' ) ?: '#';
+$bg_color    = '';
+$button_style = 'rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600';
 $text_color_primary   = 'text-gray-900';
 $text_color_secondary = 'text-gray-600';
-$cta_container        = 'mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8';
-$button_container     = 'mt-10 flex items-center gap-x-6';
+$cta_container    = 'mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8';
+$button_container = 'mt-10 flex items-center gap-x-6';
 
 switch ( $align ) {
 	case 'center':
