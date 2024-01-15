@@ -36,15 +36,37 @@ $stats
 		array( 'two-column' => 'Two Column with Description' )
 	)
 
+	->addSelect(
+		'with_image_type',
+		array(
+			'default_value' => 'split-image',
+		)
+	)
+	->conditional( 'stats_style', '==', 'with-image' )
+	->addChoices(
+		array( 'split-image' => 'Split with Image' ),
+		array( 'background' => 'with Background Image' )
+	)
+	->addImage(
+		'featured_image',
+		array(
+			'preview_size'  => 'medium',
+			'return_format' => 'id',
+		)
+	)
+	->conditional( 'stats_style', '==', 'with-image' )
 	->addText( 'label' )
 	->conditional( 'simple_type', '==', 'two-column' )
+	->or( 'stats_style', '==', 'with-image' )
 	->addText( 'title' )
 	->conditional( 'simple_type', '==', 'grid' )
 	->or( 'simple_type', '==', 'description' )
 	->or( 'simple_type', '==', 'two-column' )
+	->or( 'stats_style', '==', 'with-image' )
 
 	->addTextarea( 'description' )
 	->conditional( 'simple_type', '==', 'grid' )
+	->or( 'stats_style', '==', 'with-image' )
 
 	->addWysiwyg(
 		'paragraph',
@@ -74,7 +96,6 @@ $stats
 			'label' => 'Add Stat',
 		)
 	)
-	->conditional( 'stats_style', '==', 'simple' )
 	->addDatePicker(
 		'event_date',
 		array(
