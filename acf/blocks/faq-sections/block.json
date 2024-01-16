@@ -1,0 +1,23 @@
+{
+    "name": "acf/faq",
+    "title": "FAQ Sections",
+    "description": "FAQ Sections block.",
+    "style": [ "file:./css/style.min.css" ],
+    "script": "faq-sections",
+    "category": "gl-blocks",
+    "icon": "block-default",
+    "keywords": ["faq","question"],
+    "acf": {
+      "mode": "preview",
+      "renderTemplate": "faq-section.php",
+      "supports": "jsx"
+    },
+    "supports": {
+      "jsx": false
+    },
+    "styles": [
+      { "name": "light", "label": "light", "isDefault": true },
+      { "name": "dark", "label": "dark" }
+    ]
+  }
+  

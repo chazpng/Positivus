@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ACF stats Section.
  *
@@ -7,7 +8,7 @@
  * @package greydientlab
  */
 
-$stats = new StoutLogic\AcfBuilder\FieldsBuilder( 'stats' );
+$stats = new StoutLogic\AcfBuilder\FieldsBuilder('stats');
 $stats
 	->addSelect(
 		'stats_style',
@@ -17,8 +18,9 @@ $stats
 	)
 
 	->addChoices(
-		array( 'simple' => 'Simple' ),
-		array( 'with-image' => 'With Images' )
+		array('simple' => 'Simple'),
+		array('with-image' => 'With Images'),
+		array('stepped' => "Stepped")
 	)
 
 	->addSelect(
@@ -27,13 +29,13 @@ $stats
 			'default_value' => 'default',
 		)
 	)
-	->conditional( 'stats_style', '==', 'simple' )
+	->conditional('stats_style', '==', 'simple')
 	->addChoices(
-		array( 'default' => 'Default' ),
-		array( 'grid' => 'Grid' ),
-		array( 'timeline' => 'Timeline' ),
-		array( 'description' => 'With Description' ),
-		array( 'two-column' => 'Two Column with Description' )
+		array('default' => 'Default'),
+		array('grid' => 'Grid'),
+		array('timeline' => 'Timeline'),
+		array('description' => 'With Description'),
+		array('two-column' => 'Two Column with Description')
 	)
 
 	->addSelect(
@@ -42,10 +44,10 @@ $stats
 			'default_value' => 'split-image',
 		)
 	)
-	->conditional( 'stats_style', '==', 'with-image' )
+	->conditional('stats_style', '==', 'with-image')
 	->addChoices(
-		array( 'split-image' => 'Split with Image' ),
-		array( 'background' => 'with Background Image' )
+		array('split-image' => 'Split with Image'),
+		array('background' => 'with Background Image')
 	)
 	->addImage(
 		'featured_image',
@@ -54,19 +56,21 @@ $stats
 			'return_format' => 'id',
 		)
 	)
-	->conditional( 'stats_style', '==', 'with-image' )
-	->addText( 'label' )
-	->conditional( 'simple_type', '==', 'two-column' )
-	->or( 'stats_style', '==', 'with-image' )
-	->addText( 'title' )
-	->conditional( 'simple_type', '==', 'grid' )
-	->or( 'simple_type', '==', 'description' )
-	->or( 'simple_type', '==', 'two-column' )
-	->or( 'stats_style', '==', 'with-image' )
+	->conditional('stats_style', '==', 'with-image')
+	->addText('label')
+	->conditional('simple_type', '==', 'two-column')
+	->or('stats_style', '==', 'with-image')
+	->addText('title')
+	->conditional('simple_type', '==', 'grid')
+	->or('simple_type', '==', 'description')
+	->or('simple_type', '==', 'two-column')
+	->or('stats_style', '==', 'with-image')
+	->or('stats_style', '==', 'stepped')
 
-	->addTextarea( 'description' )
-	->conditional( 'simple_type', '==', 'grid' )
-	->or( 'stats_style', '==', 'with-image' )
+	->addTextarea('description')
+	->conditional('simple_type', '==', 'grid')
+	->or('stats_style', '==', 'with-image')
+	->or('stats_style', '==', 'stepped')
 
 	->addWysiwyg(
 		'paragraph',
@@ -74,21 +78,21 @@ $stats
 			'media_upload' => 0,
 		)
 	)
-	->conditional( 'simple_type', '==', 'description' )
+	->conditional('simple_type', '==', 'description')
 	->addWysiwyg(
 		'first_column_paragraph',
 		array(
 			'media_upload' => 0,
 		)
 	)
-	->conditional( 'simple_type', '==', 'two-column' )
+	->conditional('simple_type', '==', 'two-column')
 	->addWysiwyg(
 		'second_column_paragraph',
 		array(
 			'media_upload' => 0,
 		)
 	)
-	->conditional( 'simple_type', '==', 'two-column' )
+	->conditional('simple_type', '==', 'two-column')
 	->addRepeater(
 		'stat',
 		array(
@@ -102,11 +106,13 @@ $stats
 			'label' => 'Event Date',
 		)
 	)
-		->conditional( 'simple_type', '==', 'timeline' )
-	->addText( 'stat_heading' )
-	->addText( 'stat_label' )
+	->conditional('simple_type', '==', 'timeline')
+	->addText('stat_heading')
+	->addText('stat_label')
+	->addTextarea('stat_description')
+	->conditional('stats_style', '==', 'stepped')
 	->endRepeater()
 
-	->setLocation( 'block', '==', 'acf/stats' );
+	->setLocation('block', '==', 'acf/stats');
 
 return $stats;
