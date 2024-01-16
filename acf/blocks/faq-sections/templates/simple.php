@@ -71,8 +71,8 @@ switch ( $align ) {
 								<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
 							</div>
 							<div>
-								<dt class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>">What's the best thing about Switzerland?</dt>
-								<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+								<dt class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>">What&#039;s the best thing about Switzerland?</dt>
+								<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
 							</div>
 							<div>
 								<dt class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>">What do you call someone with no body and no nose?</dt>
@@ -80,7 +80,7 @@ switch ( $align ) {
 							</div>
 							<div>
 								<dt class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>">Why do you never see elephants hiding in trees?</dt>
-								<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">Because they're so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+								<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">Because they&#039;re so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
 							</div>
 						</dl>
 					<?php endif; ?>
@@ -126,24 +126,24 @@ if ( 'two-column' === get_field( 'simple_type' ) || 'three-column' === get_field
 							<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
 						</div>
 						<div>
-							<dt class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>">What&#039;s the best thing about Switzerland?</dt>
-							<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+							<dt class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>">Why do you never see elephants hiding in trees?</dt>
+							<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">Because they&#039;re so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
 						</div>
 						<div>
-							<dt class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>">What&#039;s the best thing about Switzerland?</dt>
-							<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+							<dt class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>">Why can&#039;t you hear a pterodactyl go to the bathroom?</dt>
+							<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">Because the pee is silent. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
 						</div>
 						<div>
-							<dt class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>">What&#039;s the best thing about Switzerland?</dt>
-							<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+							<dt class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>">How do you make holy water?</dt>
+							<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
 						</div>
 						<div>
-							<dt class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>">What&#039;s the best thing about Switzerland?</dt>
-							<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+							<dt class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>">What do you call someone with no body and no nose?</dt>
+							<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
 						</div>
 						<div>
-							<dt class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>">What&#039;s the best thing about Switzerland?</dt>
-							<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+							<dt class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>">Why did the invisible man turn down the job offer?</dt>
+							<dd class="mt-2 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>">He couldn&#039;t see himself doing it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
 						</div>
 					</dl>
 				<?php endif; ?>
