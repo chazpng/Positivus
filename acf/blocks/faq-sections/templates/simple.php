@@ -13,8 +13,8 @@ $text_color_primary           = 'text-gray-900';
 $text_color_secondary         = 'text-gray-600';
 $description                  = get_field( 'description' ) ?: 'Lorem ipsum dolor sit amet consect adipisicing possimus.';
 $main_title                   = get_field( 'title' ) ?: 'Frequently asked questions';
-$intro_container_two_column   = '';
-$intro_container_three_column = '';
+$intro_container_two_column   = 'max-w-2xl';
+$intro_container_three_column = 'max-w-2xl';
 
 
 
@@ -101,7 +101,7 @@ if ( 'two-column' === get_field( 'simple_type' ) || 'three-column' === get_field
 	<div class="<?php echo esc_attr( $bg_color ); ?>">
 		<div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
 			<div class="<?php echo esc_attr( $intro_container ); ?>">
-				<h2 class="text-2xl font-bold leading-10 tracking-tight <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $main_title ); ?></h2>
+				<h2 class="text-2xl font-bold leading-10 tracking-tight mb-6 <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $main_title ); ?></h2>
 				<div><?php echo wp_kses_post( get_field( 'description' ) ); ?></div>
 			</div>
 			<div class="mt-20">
