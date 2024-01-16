@@ -1,13 +1,13 @@
 <?php
 /**
- * CTA Section Template.
+ * FAQ Section Template.
  *
  * @package circles_x
  */
 
-$style       = $block['className'] ?? '';
+$style     = $block['className'] ?? '';
 $faq_style = get_field( 'faq_style' );
-$align       = $block['align'];
+$align     = $block['align'];
 ?>
 <div class="gl-b-faq-section">
 	<?php if ( 'accordion' === $faq_style ) : ?>

@@ -32,4 +32,3 @@ if ( 'is-style-dark' === $style ) {
 	$stats_background_color = 'bg-white/5';
 	$button_style           = 'rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold <?php echo esc_attr($text_color_primary); ?> shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white';
 }
-?>
