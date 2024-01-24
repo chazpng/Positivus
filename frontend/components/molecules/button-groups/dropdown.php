@@ -49,7 +49,7 @@ if ( $gl_has_checkbox ) {
 	<?php if ( $gl_has_checkbox ) : ?>
 		<span class="inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2">
 			<label for="select-all" class="sr-only">Select all</label>
-			<input id="select-all" type="checkbox" name="select-all" class="h-4 w-4 rounded ytççborder-gray-300 text-indigo-600 focus:ring-indigo-600">
+			<input id="select-all" type="checkbox" name="select-all" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
 		</span>
 	<?php endif; ?>
 	<button type="button" class="<?php echo esc_attr( $btn_class ); ?>">
@@ -71,7 +71,7 @@ if ( $gl_has_checkbox ) {
 			aria-labelledby="option-menu-button"
 			tabindex="-1"
 			x-show="open"
-			x-transition x-transition.duration.500ms
+			x-transition x-transition.duration.50ms
 		>
 			<div class="py-1" role="none">
 				<?php foreach ( $gl_dropdown_items as $value ) : ?>
