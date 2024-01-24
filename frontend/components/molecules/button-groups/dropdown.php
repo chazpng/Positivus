@@ -26,20 +26,33 @@ $dummy = [
 	],
 ];
 
-$gl_bg_color   = $args['gl_bg_color'] ?? 'bg-white';
-$gl_btn_label  = $args['gl_btn_label'] ?? 'Save changes';
-$gl_text_color = $args['gl_text_color'] ?? 'text-gray-900';
-$gl_left_link  = $args['gl_left_link'] ?? '#';
-$gl_right_link = $args['gl_right_link'] ?? '#';
+$gl_bg_color     = $args['gl_bg_color'] ?? 'bg-white';
+$gl_btn_label    = $args['gl_btn_label'] ?? 'Save changes';
+$gl_text_color   = $args['gl_text_color'] ?? 'text-gray-900';
+$gl_left_link    = $args['gl_left_link'] ?? '#';
+$gl_right_link   = $args['gl_right_link'] ?? '#';
+$gl_has_checkbox = $args['gl_has_checkbox'] ?? false;
 
 $gl_dropdown_items = $args['gl_dropdown_items'] ?? $dummy;
 
 $default_classes  = 'relative inline-flex items-center bg-white px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10';
 $btn_first_class  = sprintf( '%s %s %s %s', $gl_bg_color, $gl_text_color, $default_classes, 'rounded-l-md' );
 $btn_second_class = sprintf( '%s %s %s %s', $gl_bg_color, $gl_text_color, $default_classes, 'rounded-r-md -ml-px' );
+
+$btn_class = 'relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10';
+
+if ( $gl_has_checkbox ) {
+	$btn_class = '-ml-px block w-full rounded-l-none rounded-r-none border-0 bg-white py-1.5 pl-3 pr-9 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 sm:text-sm sm:leading-6 font-semibold text-sm';
+}
 ?>
 <div class="inline-flex rounded-md shadow-sm">
-	<button type="button" class="relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">
+	<?php if ( $gl_has_checkbox ) : ?>
+		<span class="inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2">
+			<label for="select-all" class="sr-only">Select all</label>
+			<input id="select-all" type="checkbox" name="select-all" class="h-4 w-4 rounded ytççborder-gray-300 text-indigo-600 focus:ring-indigo-600">
+		</span>
+	<?php endif; ?>
+	<button type="button" class="<?php echo esc_attr( $btn_class ); ?>">
 		<?php echo esc_html( $gl_btn_label ); ?>
 	</button>
 
