@@ -39,11 +39,7 @@ module.exports = {
 		"./template-parts/*.{php,html,js}"
 	],
 	darkMode: 'class',
-	safelist: [
-		{
-      pattern: /./, // the "." means "everything"
-    }
-	],
+	safelist: [],
 	theme: {
 		fontFamily: {
       sans: ['Graphik', 'sans-serif'],
