@@ -39,7 +39,11 @@ module.exports = {
 		"./template-parts/*.{php,html,js}"
 	],
 	darkMode: 'class',
-	safelist: [],
+	safelist: [
+		{
+      pattern: /(bg|text|border|m|p|font|underline|hover|justify)-./
+    }
+	],
 	theme: {
 		fontFamily: {
       sans: ['Graphik', 'sans-serif'],
