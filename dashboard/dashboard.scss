@@ -45,3 +45,11 @@ html :where(.editor-styles-wrapper) div[class^="gl-b-"] {
     margin: inherit;
   }
 }
+
+.acf-block-component {
+
+  .gl-b-featured-block .grid img {
+    height: auto;
+    width: 100%;
+  }
+}

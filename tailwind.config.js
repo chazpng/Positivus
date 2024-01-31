@@ -40,9 +40,9 @@ module.exports = {
 	],
 	darkMode: 'class',
 	safelist: [
-		// {
-    //   pattern: /./, // the "." means "everything"
-    // }
+		{
+      pattern: /(bg|text|border|m|p|font|underline|hover|justify)-./
+    }
 	],
 	theme: {
 		fontFamily: {
