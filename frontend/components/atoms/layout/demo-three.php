@@ -1,0 +1,68 @@
+<?php
+/**
+ * Card with dividers, full-width on mobile
+ *
+ * Note: this is for demo purposes only. Copy the HTML Code and use it directly to your component/page.
+ *
+ * Usage:
+ * add use Lean\Load; at the start of the php file then
+ * Load::atom( 'layout/demo-three' );
+ *
+ * @package greydientlab
+ */
+
+?>
+<div class="bg-gray-100 py-8">
+	<div class="mx-auto max-w-2xl sm:px-6">
+		<div class="overflow-hidden bg-white shadow sm:rounded-md">
+			<ul role="list" class="divide-y divide-gray-200">
+				<!-- Replace with real content start -->
+				<li class="px-4 py-4 sm:px-6">
+					<x-placeholder>
+						<div class="relative h-16 overflow-hidden rounded border border-dashed border-gray-400 opacity-75">
+							<svg class="absolute inset-0 h-full w-full stroke-gray-900/10" fill="none">
+								<defs>
+									<pattern id="pattern-e3123247-9c6d-4692-b66f-f24621fac002" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+										<path d="M-3 13 15-5M-5 5l18-18M-1 21 17 3"></path>
+									</pattern>
+								</defs>
+								<rect stroke="none" fill="url(#pattern-e3123247-9c6d-4692-b66f-f24621fac002)" width="100%" height="100%"></rect>
+							</svg>
+						</div>
+					</x-placeholder>
+				</li>
+
+				<li class="px-4 py-4 sm:px-6">
+					<x-placeholder>
+						<div class="relative h-16 overflow-hidden rounded border border-dashed border-gray-400 opacity-75">
+							<svg class="absolute inset-0 h-full w-full stroke-gray-900/10" fill="none">
+								<defs>
+									<pattern id="pattern-e3123247-9c6d-4692-b66f-f24621fac002" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+										<path d="M-3 13 15-5M-5 5l18-18M-1 21 17 3"></path>
+									</pattern>
+								</defs>
+								<rect stroke="none" fill="url(#pattern-e3123247-9c6d-4692-b66f-f24621fac002)" width="100%" height="100%"></rect>
+							</svg>
+						</div>
+					</x-placeholder>
+				</li>
+
+				<li class="px-4 py-4 sm:px-6">
+					<x-placeholder>
+						<div class="relative h-16 overflow-hidden rounded border border-dashed border-gray-400 opacity-75">
+							<svg class="absolute inset-0 h-full w-full stroke-gray-900/10" fill="none">
+								<defs>
+									<pattern id="pattern-e3123247-9c6d-4692-b66f-f24621fac002" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+										<path d="M-3 13 15-5M-5 5l18-18M-1 21 17 3"></path>
+									</pattern>
+								</defs>
+								<rect stroke="none" fill="url(#pattern-e3123247-9c6d-4692-b66f-f24621fac002)" width="100%" height="100%"></rect>
+							</svg>
+						</div>
+					</x-placeholder>
+				</li>
+				<!-- Replace with real content end -->
+			</ul>
+		</div>
+	</div>
+</div>
