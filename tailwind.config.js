@@ -41,7 +41,7 @@ module.exports = {
 	darkMode: 'class',
 	safelist: [
 		{
-      pattern: /(bg|text|border|m|p|font|underline|hover|justify)-./
+      pattern: /(bg|text|border|m|p|font|underline|hover|justify|space)-./
     }
 	],
 	theme: {
