@@ -1,0 +1,23 @@
+{
+    "name": "acf/logos",
+    "title": "Logos",
+    "description": "Logos block.",
+    "style": [ "file:./css/style.min.css" ],
+    "script": "logos",
+    "category": "gl-blocks",
+    "icon": "block-default",
+    "keywords": ["logos"],
+    "acf": {
+      "mode": "preview",
+      "renderTemplate": "logos.php",
+      "supports": "jsx"
+    },
+    "supports": {
+      "jsx": false
+    },
+    "styles": [
+      { "name": "light", "label": "Light", "isDefault": true },
+      { "name": "dark", "label": "Dark" }
+    ]
+  }
+  
