@@ -1,0 +1,51 @@
+<?php
+/**
+ * Card with gray body
+ *
+ * Note: this is for demo purposes only. Copy the HTML Code and use it directly to your component/page.
+ *
+ * Usage:
+ * add use Lean\Load; at the start of the php file then
+ * Load::atom( 'panels/demo-seven' );
+ *
+ * @package greydientlab
+ */
+
+?>
+<div class="bg-gray-100">
+	<div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+		<div class="mx-auto max-w-2xl">
+			<div class="overflow-hidden rounded-lg bg-white shadow">
+				<div class="px-4 py-5 sm:px-6">
+					<div class="relative h-8 overflow-hidden rounded border border-dashed border-gray-400 opacity-75">
+						<!-- Replace with real content header start -->
+							<svg class="absolute inset-0 h-full w-full stroke-gray-900/10" fill="none">
+								<defs>
+									<pattern id="pattern-57612c12-8fdc-4b25-bc76-5e7218d42f53" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+										<path d="M-3 13 15-5M-5 5l18-18M-1 21 17 3"></path>
+									</pattern>
+								</defs>
+								<rect stroke="none" fill="url(#pattern-57612c12-8fdc-4b25-bc76-5e7218d42f53)" width="100%" height="100%"></rect>
+							</svg>
+						<!-- Replace with real content header end -->
+					</div>
+				</div>
+
+				<div class="bg-gray-50 px-4 py-5 sm:p-6">
+					<div class="relative h-48 overflow-hidden rounded border border-dashed border-gray-400 opacity-75">
+						<!-- Replace with real content body start -->
+							<svg class="absolute inset-0 h-full w-full stroke-gray-900/10" fill="none">
+								<defs>
+									<pattern id="pattern-9b025616-e6a3-4e1b-8e8a-1d585db135d2" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+										<path d="M-3 13 15-5M-5 5l18-18M-1 21 17 3"></path>
+									</pattern>
+								</defs>
+								<rect stroke="none" fill="url(#pattern-9b025616-e6a3-4e1b-8e8a-1d585db135d2)" width="100%" height="100%"></rect>
+							</svg>
+						<!-- Replace with real content body start -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
