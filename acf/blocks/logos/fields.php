@@ -20,25 +20,25 @@ $logos->addSelect(
 	->addChoices(
 		array( 'simple' => 'Simple' ),
 		array( 'split' => 'Two Column' ),
-		array( 'grid' => 'Grid Layout' ),
+		array( 'grid' => 'Grid Layout' )
 	)
-    ->addText( 'heading' )
-    ->addSelect( 
-        'heading_alignment',
-        array(
-            'default_value' => 'left',
-        )
-    )
-        ->addChoices(
-            array( 'left' => 'Left' ),
-            array( 'center' => 'Center' )
-        )
+	->addText( 'heading' )
+	->addSelect(
+		'heading_alignment',
+		array(
+			'default_value' => 'left',
+		)
+	)
+		->addChoices(
+			array( 'left' => 'Left' ),
+			array( 'center' => 'Center' )
+		)
 
 
 	->conditional( 'logos_style', '==', 'simple' )
 		->addColorPicker( 'background_color' )
-        ->addRepeater( 'images' )
-            ->addImage( 'image' )
+		->addRepeater( 'images' )
+			->addImage( 'image' )
 
 ->setLocation( 'block', '==', 'acf/logos' );
 

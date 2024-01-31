@@ -5,9 +5,9 @@
  * @package circles_x
  */
 
-$style     = $block['className'] ?? '';
+$style       = $block['className'] ?? '';
 $logos_style = get_field( 'logos_style' );
-$align     = $block['align'];
+$align       = $block['align'];
 ?>
 <div class="gl-b-logos-section">
 	<?php if ( 'simple' === $logos_style ) : ?>
