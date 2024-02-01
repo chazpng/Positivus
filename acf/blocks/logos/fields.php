@@ -23,6 +23,7 @@ $logos->addSelect(
 		array( 'grid' => 'Grid Layout' )
 	)
 	->addText( 'heading' )
+		->conditional( 'logos_style', '!==', 'grid' )
 	->addSelect(
 		'heading_alignment',
 		array(
@@ -36,7 +37,6 @@ $logos->addSelect(
 
 
 	->conditional( 'logos_style', '==', 'simple' )
-		->addColorPicker( 'background_color' )
 		->addRepeater( 'images' )
 			->addImage( 'image' )
 
