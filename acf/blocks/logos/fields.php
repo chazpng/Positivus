@@ -23,7 +23,17 @@ $logos->addSelect(
 		array( 'grid' => 'Grid Layout' )
 	)
 	->addText( 'heading' )
-		->conditional( 'logos_style', '!==', 'grid' )
+		->conditional( 'logos_style', '!=', 'grid' )
+
+	->addTextArea( 'description' )
+		->conditional( 'logos_style', '==', 'split' )
+	
+	->addLink( 'cta_button_link' )
+		->conditional( 'logos_style', '==', 'split' )
+	->addLink( 'cta_button_link_secondary' )
+		->conditional( 'logos_style', '==', 'split' )
+			
+
 	->addSelect(
 		'heading_alignment',
 		array(
