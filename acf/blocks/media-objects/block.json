@@ -1,0 +1,17 @@
+{
+  "name": "acf/media-objects",
+  "title": "Media Objects",
+  "description": "Media Objects block.",
+  "style": [ "file:./css/style.min.css" ],
+  "script": "",
+  "category": "gl-blocks",
+  "icon": "block-default",
+  "keywords": ["media", "object"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "template.php"
+  },
+  "supports": {
+    "jsx": false
+  }
+}
