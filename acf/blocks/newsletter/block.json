@@ -1,0 +1,25 @@
+{
+    "name": "acf/newsletter",
+    "title": "Newsletter Sections",
+    "description": "Newsletter block.",
+    "style": [ "file:./css/style.min.css" ],
+    "script": "newsletter",
+    "category": "gl-blocks",
+    "icon": "block-default",
+    "keywords": ["news","newsletter"],
+    "acf": {
+      "mode": "preview",
+      "renderTemplate": "newsletter.php",
+      "supports": "jsx"
+    },
+    "supports": {
+      "jsx": false
+    },
+    "styles": [
+      { "name": "light", "label": "light", "isDefault": true },
+      { "name": "dark", "label": "dark" },
+      { "name": "side", "label": "Side by Side" },
+      { "name": "darkside", "label": "Side by Side Dark" }
+    ]
+  }
+  
