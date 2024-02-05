@@ -551,7 +551,7 @@ add_filter( 'acf/load_value/type=wysiwyg', 'gl_my_acf_load_value', 10, 3 );
  * @param string $tag Form Details.
  */
 function cf7_prevent_duplicate_email( $result, $tag ) {
-	$email_field_name = 'newsletter-email';
+	$email_field_name = 'email-no-duplicate';
 	$submission       = WPCF7_Submission::get_instance();
 	$wpcf7            = WPCF7_ContactForm::get_current();
 	$form_id          = $wpcf7->id();
@@ -559,7 +559,7 @@ function cf7_prevent_duplicate_email( $result, $tag ) {
 
 	if ( $submission ) {
 
-		if ('newsletter' === $form_name ) {
+		if ( 'no-event-form' === $form_name || 'newsletter-form' === $form_name || 'newsletter' === $form_name ) {
 			$email = $submission->get_posted_data( $email_field_name );
 			global $wpdb;
 
