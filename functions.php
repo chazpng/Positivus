@@ -559,7 +559,7 @@ function cf7_prevent_duplicate_email( $result, $tag ) {
 
 	if ( $submission ) {
 
-		if ('newsletter' === $form_name ) {
+		if ('Newsletter' === $form_name ) {
 			$email = $submission->get_posted_data( $email_field_name );
 			global $wpdb;
 
