@@ -28,6 +28,10 @@ $logos->addSelect(
 	->addTextArea( 'description' )
 		->conditional( 'logos_style', '==', 'split' )
 	
+	->addText( 'cta_text' )
+		->conditional( 'logos_style', '==', 'simple' )
+	->addLink( 'cta_link' )
+		->conditional( 'logos_style', '==', 'simple' )
 	->addLink( 'cta_button_link' )
 		->conditional( 'logos_style', '==', 'split' )
 	->addLink( 'cta_button_link_secondary' )
