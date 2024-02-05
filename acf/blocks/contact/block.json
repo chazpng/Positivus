@@ -1,0 +1,25 @@
+{
+    "name": "acf/contact",
+    "title": "Contact Sections",
+    "description": "contact block.",
+    "style": [ "file:./css/style.min.css" ],
+    "script": "contact",
+    "category": "gl-blocks",
+    "icon": "block-default",
+    "keywords": ["news","contact"],
+    "acf": {
+      "mode": "preview",
+      "renderTemplate": "contact.php",
+      "supports": "jsx"
+    },
+    "supports": {
+      "jsx": false
+    },
+    "styles": [
+      { "name": "light", "label": "light", "isDefault": true },
+      { "name": "dark", "label": "dark" },
+      { "name": "side", "label": "Side by Side" },
+      { "name": "darkside", "label": "Side by Side Dark" }
+    ]
+  }
+  

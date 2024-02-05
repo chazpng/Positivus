@@ -96,7 +96,7 @@ $stats
 		'stat',
 		array(
 			'max'   => '4',
-			'label' => 'Add Stat',
+			'label' => 'Stat',
 		)
 	)
 	->addDatePicker(
@@ -115,7 +115,7 @@ $stats
 		'stepped_stats_1',
 		array(
 			'max'   => '1',
-			'label' => 'Add Stat_',
+			'label' => 'Stat',
 		)
 	)
 
