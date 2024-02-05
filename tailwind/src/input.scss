@@ -2,28 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-.default #emailaddress > input  {
-	@apply min-w-0 flex-auto max-w-[338.46px] rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ;
+.default #emailaddress>input {
+  @apply min-w-0 flex-auto max-w-[338.46px] rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
 }
 
-.dark  #emailaddress > input  {
-	@apply min-w-0 flex-auto max-w-[338.46px] rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6;
+.dark #emailaddress>input {
+  @apply min-w-0 flex-auto max-w-[338.46px] rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6;
 }
 
-.default #submitbtn > input {
+.icon-style #emailaddress>input {
+  @apply min-w-0 flex-auto w-[100%] rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6;
+}
+
+.default #submitbtn>input {
   @apply flex-none rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
 }
 
-.dark #submitbtn > input {
+.dark #submitbtn>input {
   @apply flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
 }
 
+.icon-style #submitbtn>input {
+  @apply flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500;
+}
+
+.oncard-center .es-form-field-container {
+  @apply justify-center;
+}
+
 .es-form-field-container {
-	@apply flex gap-x-4;
+  @apply flex gap-x-4;
+  .gjs-row {
+    &:first-child {
+      @apply !hidden;
+    }
+  }
 }
 
 
+
+
+
 @layer base {
+
   h1,
   h2,
   h3,
@@ -47,4 +68,3 @@
     font-size: 24px;
   }
 }
-

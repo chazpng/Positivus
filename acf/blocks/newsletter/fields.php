@@ -32,6 +32,20 @@ $newsletter
 		array( 'default' => 'Stacked' ),
 		array( 'icon' => 'With Icon List' )
 	)
+	->addCheckbox(
+		'checkbox_field',
+		array(
+			'label'         => 'On Brand',
+			'choices'       => array( 'is Background on brand?' ),
+			'default_value' => array( 0 ),
+			'return_format' => 'value',
+		)
+	)
+	->conditional( 'simple_type', '==', 'default' )
+
+	->addColorPicker( 'background_color' )
+	->conditional( 'checkbox_field', '==', 'is Background on brand?' )
+
 	->addText( 'title' )
 	->addTextArea( 'description' )
 	->addWysiwyg(
@@ -40,6 +54,25 @@ $newsletter
 			'media_upload' => 0,
 		)
 	)
+	->conditional( 'simple_type', '!=', 'icon' )
+	->addRepeater(
+		'list',
+		array(
+			'max'   => '2',
+			'label' => 'Add Stat',
+		)
+	)
+	->conditional( 'simple_type', '==', 'icon' )
+	->addImage(
+		'list_icon',
+		array(
+			'preview_size'  => 'medium',
+			'return_format' => 'id',
+		)
+	)
+	->addText( 'list_label' )
+	->addText( 'list_description' )
+	->endRepeater()
 
 	->addTextArea( 'shortcode' )
 
