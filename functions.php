@@ -543,3 +543,39 @@ function gl_my_acf_load_value( $value, $post_id, $field ) {
 }
 
 add_filter( 'acf/load_value/type=wysiwyg', 'gl_my_acf_load_value', 10, 3 );
+
+/**
+ * Function for cf7 newsletter
+ *
+ * @param string $result Form.
+ * @param string $tag Form Details.
+ */
+function cf7_prevent_duplicate_email( $result, $tag ) {
+	$email_field_name = 'newsletter-email';
+	$submission       = WPCF7_Submission::get_instance();
+	$wpcf7            = WPCF7_ContactForm::get_current();
+	$form_id          = $wpcf7->id();
+	$form_name        = $wpcf7->name();
+
+	if ( $submission ) {
+
+		if ('newsletter' === $form_name ) {
+			$email = $submission->get_posted_data( $email_field_name );
+			global $wpdb;
+
+			// Check if the email already exists in the database.
+			$existing_submission = $wpdb->get_results( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.DirectQuery
+				$wpdb->prepare( 'SELECT * FROM wp_cf7_vdata_entry WHERE name LIKE %s AND value=%s AND cf7_id=%d', $email_field_name, $email, $form_id )
+			);
+
+			if ( $existing_submission ) {
+				$result->invalidate( $tag, 'Email Address already exists!' );
+			}
+		}
+	}
+
+	return $result;
+}
+
+add_filter( 'wpcf7_validate_email*', 'cf7_prevent_duplicate_email', 10, 2 );
+add_filter( 'wpcf7_validate_email', 'cf7_prevent_duplicate_email', 10, 2 );
