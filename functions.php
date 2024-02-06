@@ -579,3 +579,5 @@ function cf7_prevent_duplicate_email( $result, $tag ) {
 
 add_filter( 'wpcf7_validate_email*', 'cf7_prevent_duplicate_email', 10, 2 );
 add_filter( 'wpcf7_validate_email', 'cf7_prevent_duplicate_email', 10, 2 );
+
+add_filter('wpcf7_autop_or_not', '__return_false');
