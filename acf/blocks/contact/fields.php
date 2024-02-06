@@ -1,5 +1,4 @@
 <?php
-
 /**
  * ACF Contact Section.
  *
@@ -8,7 +7,7 @@
  * @package greydientlab
  */
 
-$contact = new StoutLogic\AcfBuilder\FieldsBuilder('contact');
+$contact = new StoutLogic\AcfBuilder\FieldsBuilder( 'contact' );
 $contact
 	->addSelect(
 		'contact_style',
@@ -18,8 +17,8 @@ $contact
 	)
 
 	->addChoices(
-		array('without-form' => 'Without Form'),
-		array('with-form' => 'With Form')
+		array( 'without-form' => 'Without Form' ),
+		array( 'with-form' => 'With Form' )
 	)
 
 	->addSelect(
@@ -28,11 +27,11 @@ $contact
 			'default_value' => 'simple',
 		)
 	)
-	->conditional('contact_style', '==', 'without-form')
+	->conditional( 'contact_style', '==', 'without-form' )
 	->addChoices(
-		array('simple' => 'Simple Centered'),
-		array('side' => 'Side-by-side Grid'),
-		array('column' => 'Simple four-column')
+		array( 'simple' => 'Simple Centered' ),
+		array( 'side' => 'Side-by-side Grid' ),
+		array( 'column' => 'Simple four-column' )
 	)
 
 	->addSelect(
@@ -41,16 +40,16 @@ $contact
 			'default_value' => 'simple',
 		)
 	)
-	->conditional('contact_style', '==', 'with-form')
+	->conditional( 'contact_style', '==', 'with-form' )
 	->addChoices(
-		array('simple' => 'Centered'),
-		array('split-pattern' => 'Split with Pattern'),
-		array('split-image' => 'Split Image'),
-		array('testimonial' => 'with Testimonial')
+		array( 'simple' => 'Centered' ),
+		array( 'split-pattern' => 'Split with Pattern' ),
+		array( 'split-image' => 'Split Image' ),
+		array( 'testimonial' => 'with Testimonial' )
 	)
 
-	->addText('title')
-	->addTextArea('description')
+	->addText( 'title' )
+	->addTextArea( 'description' )
 
 	->addRepeater(
 		'contact_list',
@@ -59,23 +58,23 @@ $contact
 			'label' => 'Contact List',
 		)
 	)
-	->conditional('without_form_type', '==', 'simple')
-	->or('without_form_type', '==', 'column')
-	->addText('country')
-	->conditional('without_form_type', '==', 'column')
-	->addText('address_1')
-	->conditional('without_form_type', '==', 'column')
-	->addText('address_2')
-	->conditional('without_form_type', '==', 'column')
+	->conditional( 'without_form_type', '==', 'simple' )
+	->or( 'without_form_type', '==', 'column' )
+	->addText( 'country' )
+	->conditional( 'without_form_type', '==', 'column' )
+	->addText( 'address_1' )
+	->conditional( 'without_form_type', '==', 'column' )
+	->addText( 'address_2' )
+	->conditional( 'without_form_type', '==', 'column' )
 
-	->addText('label')
-	->conditional('without_form_type', '==', 'simple')
-	->addText('description')
-	->conditional('without_form_type', '==', 'simple')
-	->addText('button_name')
-	->conditional('without_form_type', '==', 'simple')
-	->addUrl('link')
-	->conditional('without_form_type', '==', 'simple')
+	->addText( 'label' )
+	->conditional( 'without_form_type', '==', 'simple' )
+	->addText( 'description' )
+	->conditional( 'without_form_type', '==', 'simple' )
+	->addText( 'button_name' )
+	->conditional( 'without_form_type', '==', 'simple' )
+	->addUrl( 'link' )
+	->conditional( 'without_form_type', '==', 'simple' )
 	->addImage(
 		'contact_icon',
 		array(
@@ -83,7 +82,7 @@ $contact
 			'return_format' => 'id',
 		)
 	)
-	->conditional('without_form_type', '!=', 'column')
+	->conditional( 'without_form_type', '!=', 'column' )
 	->endRepeater()
 
 	->addRepeater(
@@ -93,11 +92,11 @@ $contact
 			'label' => 'Container',
 		)
 	)
-	->conditional('without_form_type', '==', 'side')
+	->conditional( 'without_form_type', '==', 'side' )
 
 
-	->addText('title')
-	->addTextArea('description')
+	->addText( 'title' )
+	->addTextArea( 'description' )
 	->addRepeater(
 		'contact_list',
 		array(
@@ -105,9 +104,9 @@ $contact
 			'label' => 'Contact List',
 		)
 	)
-	->addText('contact_list_label')
-	->addEmail('contact_list_email')
-	->addText('contact_list_tel')
+	->addText( 'contact_list_label' )
+	->addEmail( 'contact_list_email' )
+	->addText( 'contact_list_tel' )
 	->endRepeater()
 	->endRepeater()
 
@@ -118,7 +117,7 @@ $contact
 			'label' => 'Address List',
 		)
 	)
-	->conditional('with_form_type', '==', 'split-pattern')
+	->conditional( 'with_form_type', '==', 'split-pattern' )
 	->addImage(
 		'contact_icon',
 		array(
@@ -141,7 +140,7 @@ $contact
 			'return_format' => 'id',
 		)
 	)
-	->conditional('with_form_type', '==', 'split-image')
+	->conditional( 'with_form_type', '==', 'split-image' )
 
 	->addImage(
 		'company_logo',
@@ -150,18 +149,18 @@ $contact
 			'return_format' => 'id',
 		)
 	)
-	->conditional('with_form_type', '==', 'testimonial')
+	->conditional( 'with_form_type', '==', 'testimonial' )
 	->addTextArea(
 		'qoute',
 		array(
 			'new_lines' => 'br',
 		)
 	)
-	->conditional('with_form_type', '==', 'testimonial')
-	->addText('avatar_name')
-	->conditional('with_form_type', '==', 'testimonial')
-	->addText('avatar_job')
-	->conditional('with_form_type', '==', 'testimonial')
+	->conditional( 'with_form_type', '==', 'testimonial' )
+	->addText( 'avatar_name' )
+	->conditional( 'with_form_type', '==', 'testimonial' )
+	->addText( 'avatar_job' )
+	->conditional( 'with_form_type', '==', 'testimonial' )
 	->addImage(
 		'avatar_icon',
 		array(
@@ -169,10 +168,10 @@ $contact
 			'return_format' => 'id',
 		)
 	)
-	->conditional('with_form_type', '==', 'testimonial')
+	->conditional( 'with_form_type', '==', 'testimonial' )
 
 
-	->addTextArea('shortcode')
-	->setLocation('block', '==', 'acf/contact');
+	->addTextArea( 'shortcode' )
+	->setLocation( 'block', '==', 'acf/contact' );
 
 return $contact;
