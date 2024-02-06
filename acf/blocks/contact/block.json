@@ -17,9 +17,7 @@
     },
     "styles": [
       { "name": "light", "label": "light", "isDefault": true },
-      { "name": "dark", "label": "dark" },
-      { "name": "side", "label": "Side by Side" },
-      { "name": "darkside", "label": "Side by Side Dark" }
+      { "name": "dark", "label": "dark" }
     ]
   }
   
