@@ -59,7 +59,7 @@ $newsletter
 		'list',
 		array(
 			'max'   => '2',
-			'label' => 'Add Stat',
+			'label' => 'List',
 		)
 	)
 	->conditional( 'simple_type', '==', 'icon' )
