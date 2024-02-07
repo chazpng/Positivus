@@ -582,15 +582,16 @@ add_filter( 'wpcf7_validate_email*', 'cf7_prevent_duplicate_email', 10, 2 );
 add_filter( 'wpcf7_validate_email', 'cf7_prevent_duplicate_email', 10, 2 );
 
 add_filter( 'wpcf7_autop_or_not', '__return_false' );
+/**
  *
- * Add navbar item descriptions to the menu output.
+ * Add navbar item descriptions to the menu output .
  *
- * @param string   $item_output The HTML output for the menu item.
- * @param WP_Post  $item        The menu item object.
- * @param int      $depth       Depth of menu item. Used for padding.
- * @param stdClass $args        An object of wp_nav_menu() arguments.
+ * @param string   $item_output The HTML output for the menu item .
+ * @param WP_Post  $item        The menu item object .
+ * @param int      $depth       Depth of menu item . Used for padding .
+ * @param stdClass $args        An object of wp_nav_menu() arguments .
  *
- * @return string  The modified HTML output for the menu item.
+ * @return string  The modified HTML output for the menu item .
  */
 function add_menu_description( $item_output, $item, $depth, $args ) {
 

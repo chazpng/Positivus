@@ -22,7 +22,7 @@ $testimonial = new StoutLogic\AcfBuilder\FieldsBuilder( 'testimonial' );
 			array( 'simple' => 'Simple' ),
 			array( 'large_avatar' => 'Large Avatar' ),
 			array( 'overlapping_image' => 'Overlapping' ),
-			array( 'background_image' => 'With Background Image' ),
+			array( 'background_image' => 'With Background Image' )
 		)
 		
 		->addImage( 'background_image' )
