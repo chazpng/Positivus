@@ -172,6 +172,7 @@ $contact
 
 
 	->addTextArea( 'shortcode' )
+	->conditional( 'contact_style', '==', 'with-form' )
 	->setLocation( 'block', '==', 'acf/contact' );
 
 return $contact;

@@ -139,7 +139,7 @@ if ( 'testimonial' === get_field( 'with_form_type' ) ) :
 
 
 	?>
-	<div class="relative isolate <?php echo esc_html( $bg_color ); ?> px-6 py-24 sm:py-32 lg:px-8">
+	<div class="relative isolate <?php echo esc_html( $bg_color ); ?> px-6 py-24 sm:py-32 lg:px-8 testimonial">
 		<?php if ( 'is-style-light' === $style ) : ?>
 			<svg class="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
 				<defs>
