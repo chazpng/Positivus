@@ -5,6 +5,9 @@
     "selector-class-pattern": null,
     "max-empty-lines": 1,
     "declaration-empty-line-before": "never",
-    "color-no-hex": true
+    "color-no-hex": true,
+    "declaration-colon-space-after": "always",
+    "declaration-block-trailing-semicolon": "always",
+    "no-extra-semicolons": true
   }
 }
