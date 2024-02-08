@@ -49,7 +49,8 @@ function greydientlab_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'greydientlab' ),
+			'menu-1'              => esc_html__( 'Primary', 'greydientlab' ),
+			'stacked-flyout-menu' => esc_html__( 'With stacked flyout menu', 'greydientlab' ),
 		)
 	);
 
@@ -581,3 +582,40 @@ add_filter( 'wpcf7_validate_email*', 'cf7_prevent_duplicate_email', 10, 2 );
 add_filter( 'wpcf7_validate_email', 'cf7_prevent_duplicate_email', 10, 2 );
 
 add_filter( 'wpcf7_autop_or_not', '__return_false' );
+
+/**
+ *
+ * Add navbar item descriptions to the menu output .
+ *
+ * @param string   $item_output The HTML output for the menu item .
+ * @param WP_Post  $item        The menu item object .
+ * @param int      $depth       Depth of menu item . Used for padding .
+ * @param stdClass $args        An object of wp_nav_menu() arguments .
+ *
+ * @return string  The modified HTML output for the menu item .
+ */
+
+function add_menu_description( $item_output, $item, $depth, $args ) {
+
+	if ( ! empty( $item->description ) ) {
+		$item_output = str_replace( '>' . $item->title, '><span><span class="title">' . $item->title . '</span><span class="menu-item-description">' . $item->description . '</span></span>', $item_output );
+	} else {
+		$item_output = str_replace( '>' . $item->title, '><span><span class="title">' . $item->title . '</span>', $item_output );
+	}
+	return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'add_menu_description', 10, 4 );
+
+/**
+ *
+ * Add custom class to sub menu
+ *
+ * @param string[] $classes Array of the CSS classes that are applied to the menu <ul> element.
+ *
+ * @return string[] $classes array of classes
+ */
+function my_nav_menu_submenu_css_class( $classes ) {
+	$classes[] = 'ring-1 shadow-lg bg-white overflow-hidden max-w-md w-screen mt-3 top-10 absolute ring-gray-900/5 p-4 rounded-3xl';
+	return $classes;
+}
+add_filter( 'nav_menu_submenu_css_class', 'my_nav_menu_submenu_css_class' );

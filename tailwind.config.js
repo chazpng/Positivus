@@ -38,10 +38,17 @@ module.exports = {
 		"./frontend/**/*.{php,html,js}",
 		"./template-parts/*.{php,html,js}"
 	],
-	darkMode: 'class',
+	mode: 'jit',
 	safelist: [
+    'lg:hidden',
+    'basis-full',
+    'lg:basis-unset',
+    'lg:px-8',
+    'inset-y-0',
+    'sm:ring-1',
+    'sm:ring-gray-900/10',
 		{
-      pattern: /(bg|text|border|m|p|font|underline|hover|justify|space)-./
+      pattern: /(bg|text|border|m|p|font|underline|hover|justify|space|h)-./
     }
 	],
 	theme: {
@@ -61,6 +68,7 @@ module.exports = {
       },
       spacing: {
         ...rem2px(defaultTheme.spacing),
+        '600': '600px',
         '8xl': '96rem',
         '9xl': '128rem',
       },
@@ -74,8 +82,10 @@ module.exports = {
       minHeight: (theme) => ({
         ...theme('spacing'),
       }),
+      flexBasis: {
+        'unset': 'unset'
+      }
     }
 	},
-	plugins: [
-	],
+	plugins: ['postcss-import', 'tailwindcss'],
 }
