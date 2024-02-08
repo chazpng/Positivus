@@ -1,0 +1,48 @@
+.geshi {
+	border: none;
+	$light-blue: #7dd3fc; /* stylelint-disable-line */
+	$light-violet: #818cf8; /* stylelint-disable-line */
+	$light-green: #6ee7b7; /* stylelint-disable-line */
+	$white : #fff; /* stylelint-disable-line */
+
+	/* methods		*/
+	.me0,
+	.me1,
+	.me2 {
+		color: $light-blue;
+	}
+
+	/* brackets */
+	.kw5 {
+		color: $light-blue;
+	}
+
+	/* keywords		*/
+	.kw1,
+	.kw2,
+	.kw3,
+	.kw4 {
+		color: $light-violet;
+	}
+
+	/* operators		*/
+	.sy0 {
+		color: $white;
+	}
+
+	/* strings		*/
+	.st0,
+	.st-h {
+		color: $light-green;
+	}
+
+	/* variables		*/
+	.re0,
+	.re1,
+	.re2,
+	.re3,
+	.re4,
+	.re5 {
+		color: $light-violet;
+	}
+}
