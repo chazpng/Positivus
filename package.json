@@ -64,14 +64,10 @@
     "lint:componentjs": "wp-scripts lint-js frontend/components/**/**/*.js --quiet",
     "lint:php": "php vendor/bin/phpcs -d error_reporting=24575",
     "lint": "npm-run-all lint:*",
-    "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
+    "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock",
+    "prepare": "husky"
   },
   "dependencies": {
     "@tailwindcss/container-queries": "^0.1.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm-run-all lint:*"
-    }
   }
 }
