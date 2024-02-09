@@ -1,3 +1,6 @@
+@import "../frontend/resources/sass/variables/colors";
+@import "../frontend/resources/sass/mixins/mixins";
+
 .wp-block-acf-header {
   width: 100%;
 }
@@ -51,4 +54,9 @@ html :where(.editor-styles-wrapper) div[class^="gl-b-"] {
     height: auto;
     width: 100%;
   }
+}
+
+.stacked-flyout-menu-header {
+
+	@include stacked-flyout-menu-header;
 }
