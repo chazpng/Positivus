@@ -592,7 +592,7 @@ add_filter( 'wpcf7_autop_or_not', '__return_false' );
  * @param stdClass $args        An object of wp_nav_menu() arguments .
  *
  * @return string  The modified HTML output for the menu item .
- */ 
+ */
 function add_menu_description( $item_output, $item, $depth, $args ) {
 
 	if ( ! empty( $item->description ) ) {
@@ -603,17 +603,3 @@ function add_menu_description( $item_output, $item, $depth, $args ) {
 	return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'add_menu_description', 10, 4 );
-
-/**
- *
- * Add custom class to sub menu
- *
- * @param string[] $classes Array of the CSS classes that are applied to the menu <ul> element.
- *
- * @return string[] $classes array of classes
- */
-function my_nav_menu_submenu_css_class( $classes ) {
-	$classes[] = 'ring-1 shadow-lg bg-white overflow-hidden max-w-md w-screen mt-3 top-10 absolute ring-gray-900/5 p-4 rounded-3xl';
-	return $classes;
-}
-add_filter( 'nav_menu_submenu_css_class', 'my_nav_menu_submenu_css_class' );
