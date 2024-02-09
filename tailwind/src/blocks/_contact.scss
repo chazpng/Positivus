@@ -25,12 +25,12 @@
 			@apply mt-16 flex-col;
 		}
 
-		.light #sicf-option label {
+		.light #sicfoption label {
 
 			@apply block text-sm font-semibold leading-6 text-gray-900;
 		}
 
-		.dark #sicf-option label {
+		.dark #sicfoption label {
 
 			@apply block text-sm font-semibold leading-6 text-white;
 		}

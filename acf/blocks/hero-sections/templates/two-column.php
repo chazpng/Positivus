@@ -26,6 +26,11 @@ $secondary_eyebrow_label = get_field( 'eyebrow_secondary_label' ) ?: 'Just shipp
 $main_container          = 'relative isolate overflow-hidden';
 $outer_container         = 'mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40';
 $inner_container         = 'mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8';
+$fill_container          = 'fill-white';
+$gradient_color          = 'from-white';
+$gradient_color_2        = 'from-indigo-100/20';
+$shadow_color            = 'shadow-indigo-600/10';
+$ring_color              = 'ring-indigo-50';
 
 $code     = get_field( 'code' ) ?: 'Your Code Here';
 $language = get_field( 'language' );
@@ -36,6 +41,10 @@ $geshi->enable_line_numbers( GESHI_FANCY_LINE_NUMBERS );
 
 
 if ( 'is-style-dark' === $style ) {
+	$gradient_color       = 'from-gray-900';
+	$gradient_color_2     = 'from-indigo-100/10';
+	$shadow_color         = 'shadow-indigo-600';
+	$ring_color           = 'ring-gray-900';
 	$backgrond_drop_color = 'from-[#80caff] to-[#4f46e5]';
 	$eyebrow_link_ring    = 'ring-1 ring-white/10 hover:ring-white/20';
 	$text_color_primary   = 'text-white';
@@ -47,6 +56,7 @@ if ( 'is-style-dark' === $style ) {
 	$bg_color             = 'bg-gray-900';
 	$image_icon_bg        = 'bg-indigo-400';
 	$primary_button_color = 'bg-indigo-500 hover:bg-indigo-400 focus-visible:outline-indigo-500 ';
+	$fill_container       = 'fill-gray-900';
 }
 
 if ( 'phone' === get_field( 'two_column_type' ) ) {
@@ -113,7 +123,7 @@ if ( 'image' === get_field( 'two_column_type' ) ) {
 							<span class="h-4 w-px bg-gray-900/10" aria-hidden="true"></span>
 							<a href="<?php the_field( 'primary_eyebrow_link' ); ?>" class="flex items-center gap-x-1">
 								<span class="absolute inset-0" aria-hidden="true"></span>
-								<?php echo esc_html( $primary_secondary_label ); ?>
+								<?php echo esc_html( $secondary_eyebrow_label ); ?>
 								<svg class="-mr-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 									<path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
 								</svg>
@@ -161,7 +171,7 @@ if ( 'image' === get_field( 'two_column_type' ) ) {
 
 <?php if ( 'code' === get_field( 'two_column_type' ) ) : ?>
 	<div class="<?php echo esc_attr( $bg_color ); ?>">
-		<div class="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20">
+		<div class="relative isolate overflow-hidden bg-gradient-to-b <?php echo esc_attr( $gradient_color_2 ); ?> ">
 			<div class="mx-auto max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-40">
 				<div class="px-6 lg:px-0 lg:pt-4">
 					<div class="mx-auto max-w-2xl">
@@ -177,7 +187,7 @@ if ( 'image' === get_field( 'two_column_type' ) ) {
 									</span>
 								</a>
 							</div>
-							<h1 class="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"><?php echo esc_html( $main_title ); ?></h1>
+							<h1 class="mt-10 text-4xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> sm:text-6xl"><?php echo esc_html( $main_title ); ?></h1>
 							<p class="mt-6 text-lg leading-8 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $main_description ); ?></p>
 							<div class="mt-10 flex items-center gap-x-6">
 								<a href="<?php the_field( 'primary_button_link' ); ?>" class="rounded-md px-3.5 py-2.5 text-sm font-semibold text-white <?php echo esc_attr( $primary_button_color ); ?> shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "><?php echo esc_html( $primary_button ); ?></a>
@@ -187,7 +197,7 @@ if ( 'image' === get_field( 'two_column_type' ) ) {
 					</div>
 				</div>
 				<div class="mt-20 sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen">
-					<div class="absolute inset-y-0 right-1/2 -z-10 -mr-10 w-[200%] skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 md:-mr-20 lg:-mr-36" aria-hidden="true"></div>
+					<div class="absolute inset-y-0 right-1/2 -z-10 -mr-10 w-[200%] skew-x-[-30deg] <?php echo esc_attr( $bg_color ); ?> shadow-xl <?php echo esc_attr( $shadow_color ); ?> ring-1 <?php echo esc_attr( $shadow_color ); ?> md:-mr-20 lg:-mr-36" aria-hidden="true"></div>
 					<div class="shadow-lg md:rounded-3xl">
 						<div class="bg-indigo-500 [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))]">
 							<div class="absolute -inset-y-px left-1/2 -z-10 ml-10 w-[200%] skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-inset ring-white md:ml-20 lg:ml-36" aria-hidden="true"></div>
@@ -211,7 +221,7 @@ if ( 'image' === get_field( 'two_column_type' ) ) {
 					</div>
 				</div>
 			</div>
-			<div class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32"></div>
+			<div class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t <?php echo esc_attr( $gradient_color ); ?>  sm:h-32"></div>
 		</div>
 	</div>
 <?php endif; ?>
@@ -242,33 +252,145 @@ if ( 'image' === get_field( 'two_column_type' ) ) {
 <?php endif; ?>
 
 <?php if ( 'angled' === get_field( 'two_column_type' ) ) : ?>
-	<div class="relative">
-		<div class="mx-auto max-w-7xl">
-			<div class="relative z-10 pt-14 lg:w-full lg:max-w-2xl">
-				<svg class="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-white lg:block" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-					<polygon points="0,0 90,0 50,100 0,100" />
-				</svg>
-
-				<div class="relative px-6 py-32 sm:py-40 lg:px-8 lg:py-56 lg:pr-0">
-					<div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
-						<div class="hidden sm:mb-10 sm:flex">
-							<div class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-								Anim aute id magna aliqua ad ad non deserunt sunt. <a href="#" class="whitespace-nowrap font-semibold text-indigo-600"><span class="absolute inset-0" aria-hidden="true"></span>Read more <span aria-hidden="true">&rarr;</span></a>
+	<div class="<?php echo esc_attr( $bg_color ); ?>">
+		<div class="relative">
+			<div class="mx-auto max-w-7xl">
+				<div class="relative z-10 pt-14 lg:w-full lg:max-w-2xl">
+					<svg class="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform <?php echo esc_attr( $fill_container ); ?> lg:block" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+						<polygon points="0,0 90,0 50,100 0,100" />
+					</svg>
+					<div class="relative px-6 py-32 sm:py-40 lg:px-8 lg:py-56 lg:pr-0">
+						<div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
+							<div class="hidden sm:mb-10 sm:flex">
+								<div class="relative rounded-full px-3 py-1 text-sm leading-6 <?php echo esc_attr( $text_color_secondary ); ?> <?php echo esc_attr( $eyebrow_link_ring ); ?> ">
+									<div><?php echo wp_kses_post( get_field( 'eyebrow_link' ) ); ?></div>
+								</div>
 							</div>
-						</div>
-						<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Data to enrich your online business</h1>
-						<p class="mt-6 text-lg leading-8 text-gray-600">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
-						<div class="mt-10 flex items-center gap-x-6">
-							<a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
-							<a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more <span aria-hidden="true">→</span></a>
+							<h1 class="mt-24 text-4xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> sm:mt-10 sm:text-6xl"><?php echo esc_html( $main_title ); ?></h1>
+							<p class="mt-6 text-lg leading-8 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $main_description ); ?></p>
+							<div class="mt-10 flex items-center gap-x-6">
+								<a href="<?php the_field( 'primary_button_link' ); ?>" class="rounded-md px-3.5 py-2.5 text-sm font-semibold text-white <?php echo esc_attr( $primary_button_color ); ?> shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "><?php echo esc_html( $primary_button ); ?></a>
+								<a href="<?php the_field( 'secondary_button_link' ); ?>" class="text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_attr( $secondary_button ); ?> <span aria-hidden="true">→</span></a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-			<img class="aspect-[3/2] object-cover lg:aspect-auto lg:h-full lg:w-full" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80" alt="">
+			<div class="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+				<?php echo wp_get_attachment_image( get_field( 'featured_image' ), 'full', '', array( 'class' => 'aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full' ) ); ?>
+			</div>
 		</div>
 	</div>
+<?php endif; ?>
+<?php if ( 'offset' === get_field( 'two_column_type' ) ) : ?>
+	<div class="<?php echo esc_attr( $bg_color ); ?>">
+		<div class="relative isolate overflow-hidden bg-gradient-to-b <?php echo esc_attr( $gradient_color_2 ); ?> pt-14">
+			<div class="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] <?php echo esc_attr( $bg_color ); ?> shadow-xl <?php echo esc_attr( $shadow_color ); ?> ring-1 <?php echo esc_attr( $ring_color ); ?> sm:-mr-80 lg:-mr-96" aria-hidden="true"></div>
+			<div class="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
+				<div class="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
+					<h1 class="max-w-2xl text-4xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> sm:text-6xl lg:col-span-2 xl:col-auto"><?php echo esc_html( $main_title ); ?></h1>
+					<div class="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
+						<p class="text-lg leading-8 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $main_description ); ?></p>
+						<div class="mt-10 flex items-center gap-x-6">
+							<a href="<?php the_field( 'primary_button_link' ); ?>" class="rounded-md px-3.5 py-2.5 text-sm font-semibold text-white <?php echo esc_attr( $primary_button_color ); ?> shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "><?php echo esc_html( $primary_button ); ?></a>
+							<a href="<?php the_field( 'secondary_button_link' ); ?>" class="text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_attr( $secondary_button ); ?> <span aria-hidden="true">→</span></a>
+						</div>
+					</div>
+					<?php echo wp_get_attachment_image( get_field( 'featured_image' ), 'full', '', array( 'class' => 'mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36' ) ); ?>
+				</div>
+			</div>
+			<div class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t <?php echo esc_attr( $gradient_color ); ?> sm:h-32"></div>
+		</div>
+	</div>
+<?php endif; ?>
+<?php if ( 'tiles' === get_field( 'two_column_type' ) ) : ?>
+	<div class="<?php echo esc_attr( $bg_color ); ?>">
+		<main>
+			<div class="relative isolate">
+				<?php if ( 'is-style-light' === $style ) : ?>
+					<svg class="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
+						<defs>
+							<pattern id="0787a7c5-978c-4f66-83c7-11c213f99cb7" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+								<path d="M.5 200V.5H200" fill="none" />
+							</pattern>
+						</defs>
+						<rect width="100%" height="100%" stroke-width="0" fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" />
+					</svg>
+				<?php endif; ?>
+				<?php if ( 'is-style-dark' === $style ) : ?>
+					<svg class="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
+						<defs>
+							<pattern id="983e3e4c-de6d-4c3f-8d64-b9761d1534cc" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+								<path d="M.5 200V.5H200" fill="none" />
+							</pattern>
+						</defs>
+						<svg x="50%" y="-1" class="overflow-visible fill-gray-800/20">
+							<path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z" stroke-width="0" />
+						</svg>
+						<rect width="100%" height="100%" stroke-width="0" fill="url(#983e3e4c-de6d-4c3f-8d64-b9761d1534cc)" />
+					</svg>
+					<div class="absolute left-[calc(50%-4rem)] top-10 -z-10 transform-gpu blur-3xl sm:left-[calc(50%-18rem)] lg:left-48 lg:top-[calc(50%-30rem)] xl:left-[calc(50%-24rem)]" aria-hidden="true">
+						<div class="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-20" style="clip-path: polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)"></div>
+					</div>
+				<?php endif; ?>
+				<div class="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48" aria-hidden="true">
+					<div class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)"></div>
+				</div>
+				<div class="overflow-hidden">
+					<div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
+						<div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
+							<div class="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
+								<h1 class="text-4xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> sm:text-6xl"><?php echo esc_attr( $main_title ); ?></h1>
+								<p class="mt-6 text-lg leading-8 <?php echo esc_attr( $text_color_secondary ); ?> sm:max-w-md lg:max-w-none"><?php echo esc_attr( $main_description ); ?></p>
+								<div class="mt-10 flex items-center gap-x-6">
+									<a href="<?php the_field( 'primary_button_link' ); ?>" class="rounded-md px-3.5 py-2.5 text-sm font-semibold text-white <?php echo esc_attr( $primary_button_color ); ?> shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "><?php echo esc_html( $primary_button ); ?></a>
+									<a href="<?php the_field( 'secondary_button_link' ); ?>" class="text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_attr( $secondary_button ); ?> <span aria-hidden="true">→</span></a>
+								</div>
+							</div>
+							<div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
+								<div class="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
+									<div class="relative">
+										<?php echo wp_get_attachment_image( get_field( 'image_one' ), 'full', '', array( 'class' => 'aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg' ) ); ?>
+										<div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
+									</div>
+								</div>
+								<div class="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
+									<?php if ( have_rows( 'image_two_and_image_three' ) ) : ?>
+										<?php 
+										while ( have_rows( 'image_two_and_image_three' ) ) :
+											the_row();
+											?>
+											<div class="image-<?php get_row_index(); ?>">
+												<div class="relative">
+													<?php echo wp_get_attachment_image( get_sub_field( 'image' ), 'full', '', array( 'class' => 'aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg' ) ); ?>
+													<div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
+												</div>
+											</div>
+										<?php endwhile; ?>
+									<?php else : ?>
+									<?php endif; ?>
+								</div>
+								<div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
+									<?php if ( have_rows( 'image_four_and_image_five' ) ) : ?>
+										<?php 
+										while ( have_rows( 'image_four_and_image_five' ) ) :
+											the_row();
+											?>
+											<div class="image-<?php get_row_index(); ?>">
+												<div class="relative">
+												<?php echo wp_get_attachment_image( get_sub_field( 'image' ), 'full', '', array( 'class' => 'aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg' ) ); ?>
+													<div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
+												</div>
+											</div>
+										<?php endwhile; ?>
+									<?php else : ?>
+									<?php endif; ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
 	</div>
 <?php endif; ?>

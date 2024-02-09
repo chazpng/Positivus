@@ -35,7 +35,7 @@ $hero_sections
 		array( 'image' => 'Split with image' ),
 		array( 'angled' => 'With angled image on right' ),
 		array( 'tiles' => 'With image tiles' ),
-		array( 'offset' => 'With offset tiles' )
+		array( 'offset' => 'With offset image' )
 	)
 	->addImage(
 		'background_image',
@@ -46,33 +46,26 @@ $hero_sections
 	)
 	->conditional( 'hero_style', '==', 'simple' )
 
-	->addSelect(
-		'eyebrow_style',
-		array(
-			'default_value' => 'simple',
-		)
-	)
+	->addText( 'eyebrow_primary_label' )
 	->conditional( 'hero_style', '==', 'column' )
 	->conditional( 'two_column_type', '==', 'default' )
 	->or( 'two_column_type', '==', 'code' )
 	->or( 'two_column_type', '==', 'phone' )
 
-	->addChoices(
-		array( 'simple' => 'Simple' ),
-		array( 'label' => 'Two Label' )
-	)
-
-	->addText( 'eyebrow_primary_label' )
-	->conditional( 'hero_style', '==', 'column' )
-	->conditional( 'eyebrow_style', '==', 'label' )
 
 	->addText( 'eyebrow_secondary_label' )
 	->conditional( 'hero_style', '==', 'column' )
-	->conditional( 'eyebrow_style', '==', 'label' )
+	->conditional( 'two_column_type', '==', 'default' )
+	->or( 'two_column_type', '==', 'code' )
+	->or( 'two_column_type', '==', 'phone' )
+
 
 	->addUrl( 'primary_eyebrow_link' )
 	->conditional( 'hero_style', '==', 'column' )
-	->conditional( 'eyebrow_style', '==', 'label' )
+	->conditional( 'two_column_type', '==', 'default' )
+	->or( 'two_column_type', '==', 'code' )
+	->or( 'two_column_type', '==', 'phone' )
+
 
 
 	->addWysiwyg(
@@ -95,6 +88,7 @@ $hero_sections
 			'return_format' => 'id',
 		)
 	)
+	->conditional( 'two_column_type', '!=', 'tiles' )
 	->addSelect(
 		'language',
 		array(
@@ -367,6 +361,51 @@ $hero_sections
 	)
 
 	->addTextArea( 'code' )
+	->conditional( 'hero_style', '==', 'column' )
+	->conditional( 'two_column_type', '==', 'code' )
+	
+
+	->addImage(
+		'image_one',
+		array(
+			'preview_size'  => 'medium',
+			'return_format' => 'id',
+		)
+	)
+	->conditional( 'two_column_type', '==', 'tiles' )
+	->addRepeater(
+		'image_two_and_image_three',
+		array(
+			'max'   => '2',
+			'label' => 'Image',
+		)
+	)
+	->conditional( 'two_column_type', '==', 'tiles' )
+	->addImage(
+		'image',
+		array(
+			'preview_size'  => 'medium',
+			'return_format' => 'id',
+		)
+	)
+	->endRepeater()
+	->addRepeater(
+		'image_four_and_image_five',
+		array(
+			'max'   => '2',
+			'label' => 'Image',
+		)
+	)
+	->conditional( 'two_column_type', '==', 'tiles' )
+	->addImage(
+		'image',
+		array(
+			'preview_size'  => 'medium',
+			'return_format' => 'id',
+		)
+	)
+	->endRepeater()
+	
 
 
 	->addText( 'primary_button_text' )
