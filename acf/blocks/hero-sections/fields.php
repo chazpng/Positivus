@@ -75,7 +75,7 @@ $hero_sections
 		)
 	)
 	->conditional( 'hero_style', '==', 'simple' )
-	->conditional( 'two_column_type', '==', 'image' )
+	->or( 'two_column_type', '==', 'image' )
 	->or( 'two_column_type', '==', 'angled' )
 
 
