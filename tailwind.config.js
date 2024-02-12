@@ -49,6 +49,7 @@ module.exports = {
     'sm:ring-gray-900/10',
     'px-6',
     'py-8',
+    'py-6',
 		{
       pattern: /(bg|text|border|m|p|font|underline|hover|justify|space|h)-./
     }
