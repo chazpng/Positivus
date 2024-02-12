@@ -50,6 +50,9 @@ module.exports = {
     'px-6',
     'py-8',
     'py-6',
+    'sm:ring-white/10',
+    'divide-gray-500/25',
+    'divide-gray-500/10',
 		{
       pattern: /(bg|text|border|m|p|font|underline|hover|justify|space|h)-./
     }
