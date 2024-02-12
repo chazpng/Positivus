@@ -1,7 +1,7 @@
 /* global jQuery */
 
 jQuery( function( $ ) {
-	$( '#stacked-flyout-menu .menu-item-has-children' ).click( function( e ) {
+	$( '.gl-site-header .menu-item-has-children' ).click( function( e ) {
 		e.preventDefault();
 		$( '.sub-menu', this ).toggleClass( 'show-sub-menu' );
 	} );
@@ -13,16 +13,16 @@ jQuery( function( $ ) {
 		}
 	} );
 
-	$( '#mobile-stacked-flyout-menu .menu-item-has-children' ).click( function( e ) {
+	$( '.gl-site-header .menu-item-has-children' ).click( function( e ) {
 		e.preventDefault();
 		$( '.sub-menu', this ).toggle();
 	} );
 
-	$( '.stacked-flyout-menu-header .drawer-toggle' ).click( function() {
-		$( '.stacked-flyout-menu-header .drawer' ).toggle();
+	$( '.gl-site-header .drawer-toggle' ).click( function() {
+		$( '.gl-site-header .drawer' ).toggle();
 	} );
 
 	$( window ).resize( function() {
-		$( '.stacked-flyout-menu-header .drawer' ).hide();
+		$( '.gl-site-header .drawer' ).hide();
 	} );
 } );
