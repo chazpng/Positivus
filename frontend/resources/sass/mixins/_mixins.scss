@@ -247,19 +247,19 @@
 			margin-left: -0.75rem;
 			margin-right: -0.75rem;
 		}
-	}
-
-	@media screen and (max-width: 640px) {
-
-		.mobile-menu-container li .menu-image-title-before.menu-image-title {
-			padding: 0;
-		}
 
 		.mobile-menu-container .sub-menu li {
 
 			&.footer {
 				display: none !important;
 			}
+		}
+	}
+
+	@media screen and (max-width: 640px) {
+
+		.mobile-menu-container li .menu-image-title-before.menu-image-title {
+			padding: 0;
 		}
 	}
 }
