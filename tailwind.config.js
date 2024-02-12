@@ -53,6 +53,7 @@ module.exports = {
     'sm:ring-white/10',
     'divide-gray-500/25',
     'divide-gray-500/10',
+    'text-gray-900',
 		{
       pattern: /(bg|text|border|m|p|font|underline|hover|justify|space|h)-./
     }
