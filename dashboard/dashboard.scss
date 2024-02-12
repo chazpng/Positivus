@@ -58,5 +58,10 @@ html :where(.editor-styles-wrapper) div[class^="gl-b-"] {
 
 .stacked-flyout-menu-header {
 
-	@include stacked-flyout-menu-header;
+	@include gl-menu-style;
+}
+
+.constrained {
+
+	@include gl-menu-style;
 }

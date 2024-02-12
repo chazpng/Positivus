@@ -1,4 +1,9 @@
 .stacked-flyout-menu-header {
 
-	@include stacked-flyout-menu-header;
+	@include gl-menu-style;
+}
+
+.constrained {
+
+	@include gl-menu-style;
 }

@@ -4,7 +4,7 @@
 	transform: translateY(-50%);
 }
 
-@mixin stacked-flyout-menu-header {
+@mixin gl-menu-style {
 	position: relative;
 
 	.drawer {
@@ -16,7 +16,7 @@
 		}
 	}
 
-	#stacked-flyout-menu {
+	.menu-container {
 		column-gap: 3rem;
 		display: flex;
 
@@ -164,7 +164,7 @@
 		}
 	}
 
-	#mobile-stacked-flyout-menu {
+	.mobile-menu-container {
 
 		li {
 			--tw-text-opacity: 1;
@@ -198,8 +198,11 @@
 				display: block;
 			}
 
-			.menu-image-title-before.menu-image-title {
+			> span {
 				padding: 0;
+			}
+
+			.menu-image-title-before.menu-image-title {
 				display: flex;
 				justify-content: space-between;
 			}
@@ -234,6 +237,25 @@
 				&:first-child {
 					margin-top: 0;
 				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 640px) {
+
+		.flow-root {
+			margin-left: -0.75rem;
+			margin-right: -0.75rem;
+		}
+
+		.mobile-menu-container li .menu-image-title-before.menu-image-title {
+			padding: 0;
+		}
+
+		.mobile-menu-container .sub-menu li {
+
+			&.footer {
+				display: none !important;
 			}
 		}
 	}
