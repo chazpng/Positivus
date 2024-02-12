@@ -241,12 +241,15 @@
 		}
 	}
 
-	@media screen and (max-width: 640px) {
+	@media screen and (max-width: 1023px) {
 
 		.flow-root {
 			margin-left: -0.75rem;
 			margin-right: -0.75rem;
 		}
+	}
+
+	@media screen and (max-width: 640px) {
 
 		.mobile-menu-container li .menu-image-title-before.menu-image-title {
 			padding: 0;
