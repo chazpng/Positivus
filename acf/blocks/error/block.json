@@ -1,0 +1,23 @@
+{
+    "name": "acf/error",
+    "title": "404 Sections",
+    "description": "404 block.",
+    "style": [ "file:./css/style.min.css" ],
+    "script": "404",
+    "category": "gl-blocks",
+    "icon": "block-default",
+    "keywords": ["error","404"],
+    "acf": {
+      "mode": "preview",
+      "renderTemplate": "error.php",
+      "supports": "jsx"
+    },
+    "supports": {
+      "jsx": false
+    },
+    "styles": [
+      { "name": "light", "label": "light", "isDefault": true },
+      { "name": "dark", "label": "dark" }
+    ]
+  }
+  
