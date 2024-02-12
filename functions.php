@@ -51,6 +51,7 @@ function greydientlab_setup() {
 		array(
 			'menu-1'              => esc_html__( 'Primary', 'greydientlab' ),
 			'stacked-flyout-menu' => esc_html__( 'With stacked flyout menu', 'greydientlab' ),
+			'constrained'         => esc_html__( 'Constrained', 'greydientlab' ),
 		)
 	);
 
