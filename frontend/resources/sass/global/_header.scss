@@ -9,28 +9,11 @@
 }
 
 header.dark {
-	background-color: $dark-bg;
 
-	li,
-	a {
-		color: $white;
-	}
-
-	.drawer .content {
-		background-color: $dark-bg;
-	}
-
-	.mobile-menu-container {
-
-		li a:hover {
-			background-color: $dark-hover;
-		}
-	}
+	@include header-on-background($dark, $dark, $white, $white, $dark-hover);
 }
 
-@media screen and (max-width: 1023px) {
+header.brand {
 
-	header.dark a:hover {
-		background-color: $dark-hover;
-	}
+	@include header-on-background($brand-color, $white, $white, $dark, $gray-50);
 }

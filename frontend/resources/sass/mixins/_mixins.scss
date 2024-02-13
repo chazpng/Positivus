@@ -263,3 +263,35 @@
 		}
 	}
 }
+
+@mixin header-on-background($bg-color: transparent, $drawer-bg: $white, $font-color: $white, $drawer-font-color: $dark-bg, $hover-color: $dark-hover) {
+	background-color: $bg-color;
+
+	li,
+	a {
+		color: $font-color;
+	}
+
+	.drawer .content {
+		background-color: $drawer-bg;
+
+		li,
+		a {
+			color: $drawer-font-color;
+		}
+	}
+
+	.mobile-menu-container {
+
+		li a:hover {
+			background-color: $hover-color;
+		}
+	}
+
+	@media screen and (max-width: 1023px) {
+
+		a:hover {
+			background-color: $hover-color;
+		}
+	}
+}

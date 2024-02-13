@@ -56,6 +56,10 @@ html :where(.editor-styles-wrapper) div[class^="gl-b-"] {
   }
 }
 
+/*
+ * Optional styles
+ */
+
 .stacked-flyout-menu-header {
 
 	@include gl-menu-style;
@@ -65,3 +69,15 @@ html :where(.editor-styles-wrapper) div[class^="gl-b-"] {
 
 	@include gl-menu-style;
 }
+
+header.dark {
+
+	@include header-on-background($dark, $dark, $white, $white, $dark-hover);
+}
+
+header.brand {
+
+	@include header-on-background($brand-color, $white, $white, $dark, $gray-50);
+}
+
+// End of Optional styles
