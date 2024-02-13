@@ -46,12 +46,18 @@ function greydientlab_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	/*
+	 * This theme uses wp_nav_menu() in one location.
+	 * Dont forget to remove unused menu
+	 */
+
 	register_nav_menus(
 		array(
-			'menu-1'              => esc_html__( 'Primary', 'greydientlab' ),
-			'stacked-flyout-menu' => esc_html__( 'With stacked flyout menu', 'greydientlab' ),
-			'constrained'         => esc_html__( 'Constrained', 'greydientlab' ),
+			'menu-1'                 => esc_html__( 'Primary', 'greydientlab' ),
+			'stacked-flyout-menu'    => esc_html__( 'With stacked flyout menu', 'greydientlab' ),
+			'constrained'            => esc_html__( 'Constrained', 'greydientlab' ),
+			'full-width-flyout-menu' => esc_html__( 'Full width flyout menu', 'greydientlab' ),
+			'multiple-flyout-menus'  => esc_html__( 'Multiple flyout menus', 'greydientlab' ),
 		)
 	);
 
