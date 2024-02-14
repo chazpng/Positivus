@@ -65,6 +65,12 @@ html :where(.editor-styles-wrapper) div[class^="gl-b-"] {
 	@include gl-menu-style;
 }
 
+.full-width-flyout-menu-header {
+
+	@include gl-menu-full-width;
+}
+
+
 .constrained {
 
 	@include gl-menu-style;
