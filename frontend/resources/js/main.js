@@ -13,11 +13,6 @@ jQuery( function( $ ) {
 		}
 	} );
 
-	$( '.gl-site-header .menu-item-has-children' ).click( function( e ) {
-		e.preventDefault();
-		$( '.sub-menu', this ).toggle();
-	} );
-
 	$( '.gl-site-header .drawer-toggle' ).click( function() {
 		$( '.gl-site-header .drawer' ).toggle();
 	} );
