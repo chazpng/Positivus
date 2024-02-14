@@ -1,11 +1,16 @@
 .stacked-flyout-menu-header {
 
-	@include gl-menu-style;
+	@include gl-menu-style(relative);
 }
 
 .constrained {
 
-	@include gl-menu-style;
+	@include gl-menu-style(relative);
+}
+
+.full-width-flyout-menu-header {
+
+	@include gl-menu-full-width;
 }
 
 header.dark {
