@@ -1,16 +1,22 @@
 {
-    "name": "acf/team",
-    "title": "Team Section",
-    "description": "Team Section",
-    "style": [ "file:./css/style.min.css" ],
-    "script": "team",
-    "category": "gl-blocks",
-    "icon": "block-default",
-    "keywords": ["team"],
-    "acf": {
-      "mode": "preview",
-      "renderTemplate": "team.php",
-      "supports": "jsx"
-    }
-  }
-  
+  "name": "acf/team",
+  "title": "Team Sections",
+  "description": "Team Sections block.",
+  "style": [ "file:./css/style.min.css" ],
+  "script": "team",
+  "category": "gl-blocks",
+  "icon": "block-default",
+  "keywords": ["team"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "team.php",
+    "supports": "jsx"
+  },
+  "supports": {
+    "jsx": false
+  },
+  "styles": [
+    { "name": "light", "label": "light", "isDefault": true },
+    { "name": "dark", "label": "dark" }
+  ]
+}
