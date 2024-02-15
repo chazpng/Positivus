@@ -171,6 +171,11 @@
 				margin-top: 0;
 			}
 
+			.menu-image-title-before.menu-image-title,
+			.menu-image-title-before.menu-image-not-hovered {
+				padding: 0;
+			}
+
 			a {
 				padding-right: 0.875rem;
 				padding-left: 0.75rem;
@@ -185,10 +190,6 @@
 					--tw-bg-opacity: 1;
 					background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 				}
-			}
-
-			.menu-image-title-before.menu-image-not-hovered {
-				display: block;
 			}
 
 			> span {
@@ -243,7 +244,7 @@
 
 		.mobile-menu-container .sub-menu li {
 
-			&.footer {
+			&.footer > a {
 				display: none !important;
 			}
 		}
