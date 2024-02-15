@@ -13,6 +13,10 @@ jQuery( function( $ ) {
 		}
 	} );
 
+	$( '.mobile-menu-container .menu-item' ).click( function() {
+		$( '.sub-menu', this ).toggle();
+	} );
+
 	$( '.gl-site-header .drawer-toggle' ).click( function() {
 		$( '.gl-site-header .drawer' ).toggle();
 	} );
