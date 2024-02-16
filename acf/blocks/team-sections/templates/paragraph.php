@@ -21,7 +21,7 @@ if ( 'is-style-dark' === $style ) {
 	$bg_color             = 'bg-gray-900';
 }
 ?>
-<?php if ( 'with-para' === get_field( 'simple_type' ) ) : ?>
+
 <div class="<?php echo esc_attr( $bg_color ); ?> py-24 md:py-32 lg:py-40">
 	<div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
 		<div class="mx-auto max-w-2xl lg:mx-0">
@@ -63,4 +63,4 @@ if ( 'is-style-dark' === $style ) {
 				<?php endif; ?>
 	</div>
 </div>
-<?php endif; ?>
+

@@ -7,7 +7,7 @@
  * @package greydientlab
  */
 
-$team = new StoutLogic\AcfBuilder\FieldsBuilder( 'team' );
+$team = new StoutLogic\AcfBuilder\FieldsBuilder( 'team_sections' );
 $team
 	->addSelect(
 		'team_style',
@@ -70,6 +70,8 @@ $team
 	)
 	->addText( 'avatar_name' )
 	->addText( 'job_position' )
+	->addText( 'avatar_address' )
+	->conditional( 'simple_type', '==', 'medium-dark' )
 	->addTextArea( 'paragraph' )
 	->conditional( 'team_style', '==', 'paragraph' )
 
@@ -79,6 +81,7 @@ $team
 			'label' => 'Social Link',
 		)
 	)
+	->conditional( 'simple_type', '!=', 'simple' )
 	->addImage(
 		'social_icon',
 		array(
@@ -88,7 +91,8 @@ $team
 	)
 	->addUrl( 'social_link' )
 	->endRepeater()
+	->endRepeater()
 
-	->setLocation( 'block', '==', 'acf/team' );
+	->setLocation( 'block', '==', 'acf/team-sections' );
 
 return $team;

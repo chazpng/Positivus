@@ -1,0 +1,23 @@
+{
+    "name": "acf/team-sections",
+    "title": "Team Sections",
+    "description": "Team Sections block.",
+    "style": [ "file:./css/style.min.css" ],
+    "script": "team-sections",
+    "category": "gl-blocks",
+    "icon": "block-default",
+    "keywords": ["team"],
+    "acf": {
+      "mode": "preview",
+      "renderTemplate": "team-sections.php",
+      "supports": "jsx"
+    },
+    "supports": {
+      "jsx": false
+    },
+    "styles": [
+      { "name": "light", "label": "light", "isDefault": true },
+      { "name": "dark", "label": "dark" }
+    ]
+  }
+  
