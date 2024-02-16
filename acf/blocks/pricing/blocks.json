@@ -1,0 +1,23 @@
+{
+    "name": "acf/pricing",
+    "title": "pricing Sections",
+    "description": "pricing Sections block.",
+    "style": [ "file:./css/style.min.css" ],
+    "script": "pricing-sections",
+    "category": "gl-blocks",
+    "icon": "block-default",
+    "keywords": ["pricing"],
+    "acf": {
+      "mode": "preview",
+      "renderTemplate": "pricing-section.php",
+      "supports": "jsx"
+    },
+    "supports": {
+      "jsx": false
+    },
+    "styles": [
+      { "name": "light", "label": "light", "isDefault": true },
+      { "name": "dark", "label": "dark" }
+    ]
+  }
+  
