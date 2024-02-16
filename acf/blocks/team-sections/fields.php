@@ -33,7 +33,6 @@ $team
 		array( 'simple' => 'With small images' ),
 		array( 'large-image' => 'With large images' ),
 		array( 'round-image' => 'Grid with round images' ),
-		array( 'dark-large' => 'Dark version with large images' ),
 		array( 'large-round' => 'Grid with large round images' ),
 		array( 'medium-dark' => 'With medium images on dark' )
 	)
@@ -48,7 +47,7 @@ $team
 
 	->addChoices(
 		array( 'with-para' => 'With image and short paragraph' ),
-		array( 'verical-image' => 'With vertical images' ),
+		array( 'vertical-image' => 'With vertical images' ),
 		array( 'full-vertical' => 'Full width with vertical images' )
 	)
 
@@ -81,7 +80,10 @@ $team
 			'label' => 'Social Link',
 		)
 	)
-	->conditional( 'simple_type', '!=', 'simple' )
+	->conditional( 'simple_type', '==', 'large-image' )
+	->or( 'simple_type', '==', 'large-round' )
+	->or( 'paragraph_type', '==', 'with-para' )
+	->or( 'paragraph_type', '==', 'vertical-image' )
 	->addImage(
 		'social_icon',
 		array(
