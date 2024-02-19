@@ -22,3 +22,8 @@ header.brand {
 
 	@include header-on-background($brand-color, $white, $white, $dark, $gray-50);
 }
+
+.mobile-icons-in-mobile-menu {
+
+	@include mobile-menu-with-icons;
+}

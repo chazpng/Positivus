@@ -54,6 +54,9 @@ module.exports = {
     'sm:ring-1',
     'sm:ring-gray-900/10',
     'sm:ring-white/10',
+    'lg:justify-normal',
+    'grow',
+    '-mx-3',
 		{
       pattern: /(bg|text|border|m|p|font|underline|hover|justify|space|h)-./
     }
