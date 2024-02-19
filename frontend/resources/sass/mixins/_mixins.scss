@@ -365,3 +365,112 @@
 		}
 	}
 }
+
+@mixin mobile-menu-with-icons {
+
+	.content {
+		padding-bottom: 0;
+	}
+
+	li {
+		margin-left: -0.75rem;
+		margin-right: -0.75rem;
+
+		&:first-child a {
+			margin-top: 0;
+		}
+
+		a {
+			padding: 0.75rem;
+			--tw-space-y-reverse: 0;
+			margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+			margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+			border-radius: 0.5rem;
+
+			&:hover {
+				--tw-bg-opacity: 1;
+				background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+			}
+		}
+
+		&.separator::before {
+			content: "";
+			height: 1px;
+			display: block;
+			--tw-divide-y-reverse: 0;
+			margin-top: 1.5rem;
+			margin-bottom: 1.5rem;
+			background-color: rgb(107 114 128 / 0.1);
+		}
+
+		&.menu-item.menu-item-type-custom {
+
+			a {
+				padding: 0.75rem;
+				display: block;
+				font-weight: 600;
+			}
+		}
+
+		a.menu-image-title-after.menu-image-not-hovered {
+			display: flex;
+			align-items: center;
+			column-gap: 1.5rem;
+			font-weight: 600;
+
+			.menu-image.menu-image-title-after {
+				width: 24px;
+				padding: 0;
+			}
+
+			.menu-image-title-after.menu-image-title {
+				padding: 0;
+			}
+		}
+
+		&.footer {
+			position: sticky;
+			bottom: 0;
+			padding: 0;
+			--tw-bg-opacity: 1;
+			padding-top: 20px;
+
+			> a {
+				display: none !important;
+			}
+
+			.sub-menu {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				margin-left: -12px;
+				margin-right: -12px;
+				--tw-bg-opacity: 1;
+				background-color: rgb(249 250 251/var(--tw-bg-opacity));
+
+				li {
+					padding: 0;
+					margin: 0;
+					border-color: rgb(17 24 39 / 0.05);
+					--tw-divide-x-reverse: 0;
+					border-right-width: calc(1px * var(--tw-divide-x-reverse));
+					border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+
+					&:first-child {
+						border: 0;
+					}
+
+					a {
+						display: block;
+						padding: 0.75rem;
+						text-align: center;
+						margin: 0;
+
+						&:hover {
+							background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+						}
+					}
+				}
+			}
+		}
+	}
+}
