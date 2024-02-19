@@ -48,4 +48,28 @@
 
 	}
 
+	.two-tier .two-tier-class {
+
+		@apply rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 bg-white relative shadow-2xl ;
+
+	}
+
+	.two-tier .two-tier-class:last-child {
+
+		@apply rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 bg-white/60 sm:mx-8 lg:mx-0 sm:rounded-t-none lg:rounded-tr-3xl lg:rounded-bl-none ;
+
+	}
+
+	.two-tier .two-tier-class.dark {
+
+		@apply rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 bg-gray-900 relative shadow-2xl ;
+
+	}
+
+	.two-tier .two-tier-class.dark:last-child {
+
+		@apply rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 bg-gray-800/80 sm:mx-8 lg:mx-0 sm:rounded-t-none lg:rounded-tr-3xl lg:rounded-bl-none ;
+
+	}
+
 }

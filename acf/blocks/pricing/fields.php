@@ -118,6 +118,30 @@ $pricing
 	->addUrl( 'price_link' )
 	->endRepeater()
 
+	->addRepeater(
+		'two_tier_price_list',
+		array(
+			'label' => 'Tier',
+			'max'   => '2',
+		)
+	)
+	->addText( 'tier_price_title' )
+	->addTextArea( 'tier_price_description' )
+	->addText( 'tier_price' )
+	->addText( 'tier_price_date' )
+	->addRepeater(
+		'tier_feature_list',
+		array(
+			'label' => 'Tier',
+		)
+	)
+	->addText( 'tier_features' )
+	->endRepeater()
+	->addText( 'price_button_text' )
+	->addUrl( 'price_link' )
+	->endRepeater()
+
+
 	->setLocation( 'block', '==', 'acf/pricing' );
 
 return $pricing;
