@@ -12,112 +12,87 @@ $pricing
 	->addSelect(
 		'pricing_style',
 		array(
+			'default_value' => 'without-tiers',
+		)
+	)
+
+	->addChoices(
+		array( 'without-tiers' => 'Without Tiers' ),
+		array( 'with-tiers' => 'With Tiers' ),
+		array( 'with-toggle' => 'With Toggle' )
+	)
+
+	->addSelect(
+		'without_tiers_type',
+		array(
 			'default_value' => 'simple',
 		)
 	)
-
+	->conditional( 'pricing_style', '==', 'without-tiers' )
 	->addChoices(
 		array( 'simple' => 'Simple' ),
-		array( 'with-image' => 'With Images' ),
-		array( 'stepped' => 'Stepped' )
+		array( 'comparison' => 'With Comparison' )
 	)
 
 	->addSelect(
-		'simple_type',
+		'with_tiers_type',
 		array(
-			'default_value' => 'default',
+			'default_value' => 'two-tiers',
 		)
 	)
-	->conditional( 'pricing_style', '==', 'simple' )
+	->conditional( 'pricing_style', '==', 'with-tiers' )
 	->addChoices(
-		array( 'default' => 'Default' ),
-		array( 'grid' => 'Grid' ),
-		array( 'timeline' => 'Timeline' ),
-		array( 'description' => 'With Description' ),
-		array( 'two-column' => 'Two Column with Description' )
+		array( 'two-tiers' => 'Two tiers' ),
+		array( 'two-tiers-emp' => 'Two tiers with emphasized tier' ),
+		array( 'two-tiers-extra' => 'Two tiers with extra tier' ),
+		array( 'three-tiers' => 'Three tiers' ),
+		array( 'three-tiers-divider' => 'Three tiers with divider' )
 	)
 
 	->addSelect(
-		'with_image_type',
+		'with_toggle_type',
 		array(
-			'default_value' => 'split-image',
+			'default_value' => 'three-tiers-with-toggle',
 		)
 	)
-	->conditional( 'pricing_style', '==', 'with-image' )
+	->conditional( 'pricing_style', '==', 'with-toggle' )
 	->addChoices(
-		array( 'split-image' => 'Split with Image' ),
-		array( 'background' => 'with Background Image' )
+		array( 'three-tiers-toggle' => 'Three tiers with toggle' ),
+		array( 'three-tiers-emp' => 'Three tiers with emphasized tier' ),
+		array( 'three-tiers-feature' => 'Three tiers with feature comparison' ),
+		array( 'four-tiers' => 'Four tiers with toggle' )
 	)
-	->addImage(
-		'featured_image',
-		array(
-			'preview_size'  => 'medium',
-			'return_format' => 'id',
-		)
-	)
-	->conditional( 'pricing_style', '==', 'with-image' )
-	->addText( 'label' )
-	->conditional( 'simple_type', '==', 'two-column' )
-	->or( 'pricing_style', '==', 'with-image' )
+
+	->addText( 'eyebrow_label' )
 	->addText( 'title' )
-	->conditional( 'simple_type', '==', 'grid' )
-	->or( 'simple_type', '==', 'description' )
-	->or( 'simple_type', '==', 'two-column' )
-	->or( 'pricing_style', '==', 'with-image' )
-	->or( 'pricing_style', '==', 'stepped' )
+	->addTextArea( 'description' )
 
-	->addTextarea( 'description' )
-	->conditional( 'simple_type', '==', 'grid' )
-	->or( 'pricing_style', '==', 'with-image' )
-	->or( 'pricing_style', '==', 'stepped' )
-
-	->addWysiwyg(
-		'paragraph',
-		array(
-			'media_upload' => 0,
-		)
-	)
-	->conditional( 'simple_type', '==', 'description' )
-	->addWysiwyg(
-		'first_column_paragraph',
-		array(
-			'media_upload' => 0,
-		)
-	)
-	->conditional( 'simple_type', '==', 'two-column' )
-	->addWysiwyg(
-		'second_column_paragraph',
-		array(
-			'media_upload' => 0,
-		)
-	)
-	->conditional( 'simple_type', '==', 'two-column' )
+	->addText( 'price_title' )
+	->addText( 'price_description' )
+	->addText( 'price_list_title' )
 	->addRepeater(
-		'stat',
+		'price_features_list',
 		array(
+			'label' => 'Features',
 			'max'   => '4',
-			'label' => 'Stat',
 		)
 	)
-	->addDatePicker(
-		'event_date',
-		array(
-			'label' => 'Event Date',
-		)
-	)
-	->conditional( 'simple_type', '==', 'timeline' )
-	->addText( 'stat_heading' )
-	->addText( 'stat_label' )
-	->addTextarea( 'stat_description' )
-	->conditional( 'pricing_style', '==', 'stepped' )
+	->addText( 'price_features' )
 	->endRepeater()
+
 	->addRepeater(
-		'stepped_pricing_1',
+		'price_list',
 		array(
+			'label' => 'Price',
 			'max'   => '1',
-			'label' => 'Stat',
 		)
 	)
+	->addText( 'price_label' )
+	->addText( 'price' )
+	->addText( 'price_button_text' )
+	->addUrl( 'price_link' )
+	->addText( 'price_footer' )
+	->endRepeater()
 
 	->setLocation( 'block', '==', 'acf/pricing' );
 
