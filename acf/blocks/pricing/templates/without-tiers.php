@@ -35,79 +35,167 @@ if ( 'is-style-dark' === $style ) {
 }
 
 ?>
-<div class="<?php echo esc_attr( $bg_color ); ?> py-24 sm:py-32">
-	<div class="mx-auto max-w-7xl px-6 lg:px-8">
-		<div class="mx-auto max-w-2xl sm:text-center">
-			<h2 class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_label ); ?>"><?php echo esc_html( $main_label ); ?></h2>
-			<h2 class="text-3xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> sm:text-4xl"><?php echo esc_html( $main_title ); ?></h2>
-			<p class="mt-6 text-lg leading-8 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $main_description ); ?></p>
-		</div>
-		<div class="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 <?php echo esc_attr( $ring_color ); ?> sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
-			<div class="p-8 sm:p-10 lg:flex-auto">
-				<h3 class="text-2xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $price_title ); ?></h3>
-				<p class="mt-6 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $price_description ); ?></p>
-				<div class="mt-10 flex items-center gap-x-4">
-					<h4 class="flex-none text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_label ); ?>"><?php echo esc_html( $price_list_title ); ?></h4>
-					<div class="h-px flex-auto <?php echo esc_attr( $divider_color ); ?>"></div>
-				</div>
-				<ul role="list" class="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 <?php echo esc_attr( $text_color_secondary ); ?> sm:grid-cols-2 sm:gap-6">
-					<?php if ( have_rows( 'price_features_list' ) ) : ?>
-						<?php 
-						while ( have_rows( 'price_features_list' ) ) :
-							the_row();
-							$features_list = get_sub_field( 'price_features' ) ?: 'Your Features Here';
-							?>
+<?php if ( 'simple' === get_field( 'without_tiers_type' ) ) : ?>
+	<div class="<?php echo esc_attr( $bg_color ); ?> py-24 sm:py-32">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="mx-auto max-w-2xl sm:text-center">
+				<h2 class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_label ); ?>"><?php echo esc_html( $main_label ); ?></h2>
+				<h2 class="text-3xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> sm:text-4xl"><?php echo esc_html( $main_title ); ?></h2>
+				<p class="mt-6 text-lg leading-8 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $main_description ); ?></p>
+			</div>
+			<div class="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 <?php echo esc_attr( $ring_color ); ?> sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+				<div class="p-8 sm:p-10 lg:flex-auto">
+					<h3 class="text-2xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $price_title ); ?></h3>
+					<p class="mt-6 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $price_description ); ?></p>
+					<div class="mt-10 flex items-center gap-x-4">
+						<h4 class="flex-none text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_label ); ?>"><?php echo esc_html( $price_list_title ); ?></h4>
+						<div class="h-px flex-auto <?php echo esc_attr( $divider_color ); ?>"></div>
+					</div>
+					<ul role="list" class="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 <?php echo esc_attr( $text_color_secondary ); ?> sm:grid-cols-2 sm:gap-6">
+						<?php if ( have_rows( 'price_features_list' ) ) : ?>
+							<?php
+							while ( have_rows( 'price_features_list' ) ) :
+								the_row();
+								$features_list = get_sub_field( 'price_features' ) ?: 'Your Features Here';
+								?>
+								<li class="flex gap-x-3">
+									<svg class="h-6 w-5 flex-none <?php echo esc_attr( $text_color_label ); ?>" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+										<path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+									</svg>
+									<?php echo esc_html( $features_list ); ?>
+								</li>
+							<?php endwhile; ?>
+						<?php else : ?>
 							<li class="flex gap-x-3">
 								<svg class="h-6 w-5 flex-none <?php echo esc_attr( $text_color_label ); ?>" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 									<path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
 								</svg>
-								<?php echo esc_html( $features_list ); ?>
+								Private forum access
 							</li>
-						<?php endwhile; ?>
-					<?php else : ?>
-						<li class="flex gap-x-3">
-							<svg class="h-6 w-5 flex-none <?php echo esc_attr( $text_color_label ); ?>" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-								<path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-							</svg>
-							Private forum access
-						</li>
-					<?php endif; ?>
-				</ul>
-			</div>
-			<div class="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
-				<div class="rounded-2xl <?php echo esc_attr( $price_container_color ); ?> py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
-					<?php if ( have_rows( 'price_list' ) ) : ?>
-						<?php 
-						while ( have_rows( 'price_list' ) ) :
-							the_row();
-							$price_label       = get_sub_field( 'price_label' ) ?: 'Pay once, own it forever';
-							$price             = get_sub_field( 'price' ) ?: '$349';
-							$price_button_text = get_sub_field( 'price_button_text' ) ?: 'Get access';
-							$price_footer      = get_sub_field( 'price_footer' ) ?: 'Invoices and receipts available for easy company reimbursement';
-							?>
+						<?php endif; ?>
+					</ul>
+				</div>
+				<div class="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+					<div class="rounded-2xl <?php echo esc_attr( $price_container_color ); ?> py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+						<?php if ( have_rows( 'price_list' ) ) : ?>
+							<?php
+							while ( have_rows( 'price_list' ) ) :
+								the_row();
+								$price_label       = get_sub_field( 'price_label' ) ?: 'Pay once, own it forever';
+								$price             = get_sub_field( 'price' ) ?: '$349';
+								$price_button_text = get_sub_field( 'price_button_text' ) ?: 'Get access';
+								$price_footer      = get_sub_field( 'price_footer' ) ?: 'Invoices and receipts available for easy company reimbursement';
+								?>
+								<div class="mx-auto max-w-xs px-8">
+									<p class="text-base font-semibold <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $price_label ); ?></p>
+									<p class="mt-6 flex items-baseline justify-center gap-x-2">
+										<span class="text-5xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $price ); ?></span>
+										<span class="text-sm font-semibold leading-6 tracking-wide <?php echo esc_attr( $text_color_secondary ); ?>">USD</span>
+									</p>
+									<a href="<?php the_sub_field( 'price_link' ); ?>" class="mt-10 block w-full rounded-md <?php echo esc_attr( $price_button_color ); ?>  px-3 py-2 text-center text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "><?php echo esc_html( $price_button_text ); ?></a>
+									<p class="mt-6 text-xs leading-5 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $price_footer ); ?></p>
+								</div>
+							<?php endwhile; ?>
+						<?php else : ?>
 							<div class="mx-auto max-w-xs px-8">
-								<p class="text-base font-semibold <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $price_label ); ?></p>
+								<p class="text-base font-semibold <?php echo esc_attr( $text_color_secondary ); ?>">Pay once, own it forever</p>
 								<p class="mt-6 flex items-baseline justify-center gap-x-2">
-									<span class="text-5xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $price ); ?></span>
+									<span class="text-5xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?>">$349</span>
 									<span class="text-sm font-semibold leading-6 tracking-wide <?php echo esc_attr( $text_color_secondary ); ?>">USD</span>
 								</p>
-								<a href="<?php the_sub_field( 'price_link' ); ?>" class="mt-10 block w-full rounded-md <?php echo esc_attr( $price_button_color ); ?>  px-3 py-2 text-center text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "><?php echo esc_html( $price_button_text ); ?></a>
-								<p class="mt-6 text-xs leading-5 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $price_footer ); ?></p>
+								<a href="#" class="mt-10 block w-full rounded-md <?php echo esc_attr( $price_button_color ); ?>  px-3 py-2 text-center text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ">Get access</a>
+								<p class="mt-6 text-xs leading-5 <?php echo esc_attr( $text_color_secondary ); ?>">Invoices and receipts available for easy company reimbursement</p>
 							</div>
-						<?php endwhile; ?>
-					<?php else : ?>
-						<div class="mx-auto max-w-xs px-8">
-							<p class="text-base font-semibold <?php echo esc_attr( $text_color_secondary ); ?>">Pay once, own it forever</p>
-							<p class="mt-6 flex items-baseline justify-center gap-x-2">
-								<span class="text-5xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?>">$349</span>
-								<span class="text-sm font-semibold leading-6 tracking-wide <?php echo esc_attr( $text_color_secondary ); ?>">USD</span>
-							</p>
-							<a href="#" class="mt-10 block w-full rounded-md <?php echo esc_attr( $price_button_color ); ?>  px-3 py-2 text-center text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ">Get access</a>
-							<p class="mt-6 text-xs leading-5 <?php echo esc_attr( $text_color_secondary ); ?>">Invoices and receipts available for easy company reimbursement</p>
-						</div>
-					<?php endif; ?>
+						<?php endif; ?>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+<?php endif; ?>
+<?php if ( 'comparison' === get_field( 'without_tiers_type' ) ) : ?>
+	<div class="bg-white py-24 sm:py-32">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="mx-auto max-w-4xl text-center">
+				<h2 class="text-base font-semibold leading-7 text-indigo-600">Pricing</h2>
+				<p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Plans for teams of&nbsp;all&nbsp;sizes</p>
+			</div>
+			<p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in. Explicabo id ut laborum.</p>
+
+			<!-- lg+ -->
+			<div class="isolate mt-20 hidden lg:block">
+				<div class="relative -mx-8">
+					<div class="absolute inset-x-4 inset-y-0 -z-10 flex">
+						<div class="flex w-1/3 px-4" style="margin-left: 50%" aria-hidden="true">
+							<div class="w-full rounded-t-xl border-x border-t border-gray-900/10 bg-gray-400/5"></div>
+						</div>
+					</div>
+					<table class="w-full table-fixed border-separate border-spacing-x-8 text-left">
+						<caption class="sr-only">
+							Pricing plan comparison
+						</caption>
+						<colgroup>
+							<col class="w-1/4">
+							<col class="w-1/4">
+							<col class="w-1/4">
+							<col class="w-1/4">
+						</colgroup>
+						<thead>
+							<tr>
+								<td></td>
+								<!-- REPEATER  -->
+
+								<th scope="col" class="px-6 pt-6 xl:px-8 xl:pt-8">
+									<div class="text-sm font-semibold leading-7 text-gray-900">Basic</div><!-- REPEATER TITLE -->
+								</th>
+							<!-- REPEATER  -->
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row"><span class="sr-only">Price</span></th>
+								<!-- REPEATER  -->
+								<td class="px-6 pt-2 xl:px-8">
+									<div class="flex items-baseline gap-x-1 text-gray-900">
+										<span class="text-4xl font-bold">$9</span> <!-- REPEATER Price -->
+										<span class="text-sm font-semibold leading-6">/month</span> <!-- REPEATER Price Description -->
+									</div>
+									<a href="#" class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300">Buy plan</a>
+									<!-- REPEATER button -->
+								</td>
+								<!-- REPEATER  -->
+							</tr>
+
+							<tr>
+								<th scope="colgroup" colspan="4" class="pb-4 text-sm font-semibold leading-6 text-gray-900 pt-8">
+									Features <!-- REPEATER Features Title -->
+									<div class="absolute inset-x-8 mt-4 h-px bg-gray-900/10"></div>
+								</th>
+							</tr>
+							<tr>
+								<th scope="row" class="py-4 text-sm font-normal leading-6 text-gray-900">
+									Importing and exporting
+									<div class="absolute inset-x-8 mt-4 h-px bg-gray-900/5"></div>
+								</th>
+								<td class="px-6 py-4 xl:px-8">
+									<svg class="mx-auto h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+										<path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" />
+									</svg>
+									<span class="sr-only">Not included in Basic</span>
+								</td>
+								<td class="px-6 py-4 xl:px-8">
+									<svg class="mx-auto h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+										<path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+									</svg>
+									<span class="sr-only">Included in Essential</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<?php endif; ?>
