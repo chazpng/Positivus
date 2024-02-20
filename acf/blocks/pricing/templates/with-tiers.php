@@ -24,6 +24,15 @@ $label_bg_color        = 'bg-indigo-600/10';
 $divider_color         = 'bg-gray-100';
 $price_button_color    = 'bg-indigo-600 hover:bg-indigo-500 focus-visible:outline-indigo-600';
 $card_class            = 'bg-white/60';
+$card_style            = '';
+
+
+if ( get_field( 'checkbox_field' ) ) {
+	$card_style           = 'emp';
+	$text_color_primary   = 'text-color-primary';
+	$text_color_secondary = 'text-color-secondary';
+	$text_color_label     = 'text-color-label';
+}
 
 if ( 'is-style-dark' === $style ) {
 	$text_color_primary    = 'text-white';
@@ -36,6 +45,14 @@ if ( 'is-style-dark' === $style ) {
 	$price_button_color    = 'bg-indigo-500 hover:bg-indigo-400 focus-visible:outline-indigo-500';
 	$label_bg_color        = 'bg-indigo-500/10';
 	$card_class            = 'bg-gray-800/80';
+	$card_style            = 'dark';
+
+	if ( get_field( 'checkbox_field' ) ) {
+		$card_style           = 'empdark';
+		$text_color_primary   = 'text-color-primary';
+		$text_color_secondary = 'text-color-secondary';
+		$text_color_label     = 'text-color-label';
+	}
 }
 
 ?>
@@ -123,14 +140,11 @@ if ( 'is-style-dark' === $style ) {
 					$tier_price_description = get_sub_field( 'tier_price_description' ) ?: 'The essentials to provide your best work for clients.';
 					$tier_price             = get_sub_field( 'tier_price' ) ?: '$2';
 					$tier_price_date        = get_sub_field( 'tier_price_date' ) ?: '/month';
+					$tier_price_button      = get_sub_field( 'price_button_text' ) ?: 'Get started today';
 
 					?>
-					<div class="two-tier-class 
-					<?php 
-					if ( 'is-style-dark' === $style ) :
-						?>
-						dark<?php endif; ?>">
-						<h3 id="tier-personal" class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_label ); ?>"><?php echo esc_html( $tier_price_title ); ?></h3>
+					<div class="two-tier-class <?php echo esc_attr( $card_style ); ?>">
+						<h3 id="tier-personal" class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_label ); ?> "><?php echo esc_html( $tier_price_title ); ?></h3>
 						<p class="mt-4 flex items-baseline gap-x-2">
 							<span class="text-5xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $tier_price ); ?></span>
 							<span class="text-base <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $tier_price_date ); ?></span>
@@ -159,7 +173,7 @@ if ( 'is-style-dark' === $style ) {
 									</li>
 							<?php endif; ?>
 						</ul>
-						<a href="#" aria-describedby="tier-personal" class="mt-8 block rounded-md py-2.5 px-3.5 text-center text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:mt-10 bg-indigo-600 text-white shadow hover:bg-indigo-500">Get started today</a>
+						<a href="<?php the_sub_field( 'price_link' ); ?>" aria-describedby="tier-personal" class="mt-8 block rounded-md py-2.5 px-3.5 text-center text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 button-classes"><?php echo esc_html( $tier_price_button ); ?></a>
 					</div>
 				<?php endwhile; ?>
 			<?php else : ?>

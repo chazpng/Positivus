@@ -141,6 +141,17 @@ $pricing
 	->addUrl( 'price_link' )
 	->endRepeater()
 
+	->addCheckbox(
+		'checkbox_field',
+		array(
+			'label'         => 'Emphasized Tier',
+			'choices'       => array( 'emphasized tier?' ),
+			'default_value' => array( 0 ),
+			'return_format' => 'value',
+		)
+	)
+	->conditional( 'with_tiers_type', '==', 'two-tiers' )
+
 
 	->setLocation( 'block', '==', 'acf/pricing' );
 
