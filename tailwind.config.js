@@ -48,15 +48,17 @@ module.exports = {
     'text-gray-900',
     'divide-gray-500/25',
     'divide-gray-500/10',
+    'grow',
+    '-mx-3',
+    'px-4',
     'lg:basis-unset',
     'lg:px-8',
     'lg:hidden',
+    'lg:flex-1',
     'sm:ring-1',
     'sm:ring-gray-900/10',
     'sm:ring-white/10',
     'lg:justify-normal',
-    'grow',
-    '-mx-3',
 		{
       pattern: /(bg|text|border|m|p|font|underline|hover|justify|space|h)-./
     }
