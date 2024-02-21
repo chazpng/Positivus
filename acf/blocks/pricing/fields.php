@@ -101,6 +101,7 @@ $pricing
 			'max'   => '3',
 		)
 	)
+	->conditional( 'with_tiers_type', '==', 'three-tiers' )
 	->addText( 'tier_price_title' )
 	->addText( 'tier_price_label' )
 	->addTextArea( 'tier_price_description' )
@@ -125,6 +126,7 @@ $pricing
 			'max'   => '2',
 		)
 	)
+	->conditional( 'with_tiers_type', '==', 'two-tiers' )
 	->addText( 'tier_price_title' )
 	->addTextArea( 'tier_price_description' )
 	->addText( 'tier_price' )
@@ -151,6 +153,46 @@ $pricing
 		)
 	)
 	->conditional( 'with_tiers_type', '==', 'two-tiers' )
+
+	->addRepeater(
+		'pricing_structure_list',
+		array(
+			'label' => 'Subscription',
+		)
+	)
+	->addText( 'pricing_subscription' )
+	->addRepeater(
+		'with_toggle_repeater',
+		array(
+			'label' => 'Tier',
+			'max'   => '4',
+		)
+	)
+	->addCheckbox(
+		'checkbox_highlight',
+		array(
+			'label'         => 'Highlight Card',
+			'choices'       => array( 'Highlight Card?' ),
+			'default_value' => array( 0 ),
+			'return_format' => 'value',
+		)
+	)
+	->addText( 'tier_price_title' )
+	->addTextArea( 'tier_price_description' )
+	->addText( 'tier_price_1' )
+	->addText( 'tier_price_subscription' )
+	->addRepeater(
+		'tier_feature_list',
+		array(
+			'label' => 'Features',
+		)
+	)
+	->addText( 'tier_features' )
+	->endRepeater()
+	->addText( 'price_button_text' )
+	->addUrl( 'price_link' )
+	->endRepeater()
+	->endRepeater()
 
 
 	->setLocation( 'block', '==', 'acf/pricing' );

@@ -59,7 +59,7 @@
 
 	}
 
-	.two-tier .two-tier-class:last-child {
+	.two-tier .two-tier-class:nth-child(2) {
 
 		@apply rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 bg-white/60 sm:mx-8 lg:mx-0 sm:rounded-t-none lg:rounded-tr-3xl lg:rounded-bl-none ;
 
@@ -81,7 +81,7 @@
 
 	}
 
-	.two-tier .two-tier-class.dark:last-child {
+	.two-tier .two-tier-class.dark:nth-child(2) {
 
 		@apply rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 bg-gray-800/80 sm:mx-8 lg:mx-0 sm:rounded-t-none lg:rounded-tr-3xl lg:rounded-bl-none ;
 
@@ -111,7 +111,6 @@
 			@apply text-indigo-600;
 		}
 
-
 		.button-classes {
 
 			@apply mt-8 block rounded-md py-2.5 px-3.5 text-center text-sm font-semibold focus-visible:outline focus-visible:outline-2 bg-white/60 focus-visible:outline-offset-2 sm:mt-10 text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline-indigo-600;
@@ -119,7 +118,7 @@
 
 	}
 
-	.two-tier .two-tier-class.emp:last-child {
+	.two-tier .two-tier-class.emp:nth-child(2) {
 
 		@apply rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 relative bg-gray-900 shadow-2xl ;
 
@@ -164,7 +163,6 @@
 			@apply text-indigo-500;
 		}
 
-
 		.button-classes {
 
 			@apply mt-8 block rounded-md py-2.5 px-3.5 text-center text-sm font-semibold focus-visible:outline focus-visible:outline-2 bg-gray-800/80 focus-visible:outline-offset-2 sm:mt-10 text-indigo-500 ring-1 ring-inset ring-indigo-300 hover:ring-indigo-400 focus-visible:outline-indigo-500;
@@ -172,7 +170,7 @@
 
 	}
 
-	.two-tier .two-tier-class.empdark:last-child {
+	.two-tier .two-tier-class.empdark:nth-child(2) {
 
 		@apply rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 relative bg-white shadow-2xl ;
 

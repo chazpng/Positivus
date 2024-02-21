@@ -25,6 +25,7 @@ $divider_color         = 'bg-gray-100';
 $price_button_color    = 'bg-indigo-600 hover:bg-indigo-500 focus-visible:outline-indigo-600';
 $card_class            = 'bg-white/60';
 $card_style            = '';
+$total_columns         = count( get_field( 'two_tier_price_list' ) );
 
 
 if ( get_field( 'checkbox_field' ) ) {
@@ -85,7 +86,8 @@ if ( 'is-style-dark' === $style ) {
 								</div>
 								<p class="mt-4 text-sm leading-6 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $tier_price_description ); ?></p>
 								<p class="mt-6 flex items-baseline gap-x-1">
-									<span class="text-4xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $tier_price ); ?></span>
+									<span class="text-4xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> "><?php echo esc_html( $tier_price_1 ); ?></span>
+									<span class="text-4xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> hidden"><?php echo esc_html( $tier_price_2 ); ?></span>
 									<span class="text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $tier_price_date ); ?></span>
 								</p>
 								<ul role="list" class="mt-8 space-y-3 text-sm leading-6 <?php echo esc_attr( $text_color_secondary ); ?>">
@@ -131,7 +133,7 @@ if ( 'is-style-dark' === $style ) {
 			<p class="mt-2 text-4xl font-bold tracking-tight sm:text-5xl <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $main_title ); ?></p>
 		</div>
 		<p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $main_description ); ?></p>
-		<div class="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
+		<div class="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-<?php echo esc_attr( $total_columns ); ?>">
 			<?php if ( have_rows( 'two_tier_price_list' ) ) : ?>
 				<?php
 				while ( have_rows( 'two_tier_price_list' ) ) :
@@ -142,6 +144,7 @@ if ( 'is-style-dark' === $style ) {
 					$tier_price_date        = get_sub_field( 'tier_price_date' ) ?: '/month';
 					$tier_price_button      = get_sub_field( 'price_button_text' ) ?: 'Get started today';
 
+
 					?>
 					<div class="two-tier-class <?php echo esc_attr( $card_style ); ?>">
 						<h3 id="tier-personal" class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_label ); ?> "><?php echo esc_html( $tier_price_title ); ?></h3>
@@ -151,26 +154,26 @@ if ( 'is-style-dark' === $style ) {
 						</p>
 						<p class="mt-6 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $tier_price_description ); ?></p>
 						<ul role="list" class="mt-8 space-y-3 text-sm leading-6 <?php echo esc_attr( $text_color_secondary ); ?> sm:mt-10">
-						<?php if ( have_rows( 'tier_feature_list' ) ) : ?>
-										<?php
-										while ( have_rows( 'tier_feature_list' ) ) :
-											the_row();
-											$tier_features = get_sub_field( 'tier_features' ) ?: '25 products';
-											?>
+							<?php if ( have_rows( 'tier_feature_list' ) ) : ?>
+								<?php
+								while ( have_rows( 'tier_feature_list' ) ) :
+									the_row();
+									$tier_features = get_sub_field( 'tier_features' ) ?: '25 products';
+									?>
 									<li class="flex gap-x-3">
 										<svg class="h-6 w-5 flex-none <?php echo esc_attr( $text_color_label ); ?>" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 											<path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
 										</svg>
-											<?php echo esc_html( $tier_features ); ?>
+										<?php echo esc_html( $tier_features ); ?>
 									</li>
 								<?php endwhile; ?>
 							<?php else : ?>
 								<li class="flex gap-x-3">
-										<svg class="h-6 w-5 flex-none <?php echo esc_attr( $text_color_label ); ?>" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-											<path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-										</svg>
-										25 products
-									</li>
+									<svg class="h-6 w-5 flex-none <?php echo esc_attr( $text_color_label ); ?>" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+										<path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+									</svg>
+									25 products
+								</li>
 							<?php endif; ?>
 						</ul>
 						<a href="<?php the_sub_field( 'price_link' ); ?>" aria-describedby="tier-personal" class="mt-8 block rounded-md py-2.5 px-3.5 text-center text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 button-classes"><?php echo esc_html( $tier_price_button ); ?></a>
