@@ -59,6 +59,7 @@ function greydientlab_setup() {
 			'full-width-flyout-menu' => esc_html__( 'Full width flyout menu', 'greydientlab' ),
 			'multiple-flyout-menus'  => esc_html__( 'Multiple flyout menus', 'greydientlab' ),
 			'icons-in-mobile-menu'   => esc_html__( 'Icons in mobile menu', 'greydientlab' ),
+			'footer-social-menu'     => esc_html__( 'Footer Social Menu', 'greydientlab' ),
 		)
 	);
 
