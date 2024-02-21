@@ -32,7 +32,10 @@ if ( get_field( 'checkbox_field' ) ) {
 	$text_color_primary   = 'text-color-primary';
 	$text_color_secondary = 'text-color-secondary';
 	$text_color_label     = 'text-color-label';
+
 }
+
+
 
 if ( 'is-style-dark' === $style ) {
 	$text_color_primary    = 'text-white';
@@ -49,6 +52,14 @@ if ( 'is-style-dark' === $style ) {
 
 	if ( get_field( 'checkbox_field' ) ) {
 		$card_style           = 'empdark';
+		$text_color_primary   = 'text-color-primary';
+		$text_color_secondary = 'text-color-secondary';
+		$text_color_label     = 'text-color-label';
+
+	}
+
+	if ( 'emphasized' === get_field( 'highlight_type' ) ) {
+		$card_style           = 'emp';
 		$text_color_primary   = 'text-color-primary';
 		$text_color_secondary = 'text-color-secondary';
 		$text_color_label     = 'text-color-label';
@@ -69,7 +80,7 @@ if ( 'is-style-dark' === $style ) {
 			$total_buttons = count( get_field( 'pricing_structure_list' ) );
 			?>
 			<div class="mt-16 flex justify-center">
-				<fieldset class="grid grid-cols-<?php echo esc_attr( $total_buttons ); ?> gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200">
+				<fieldset class="grid grid-cols-<?php echo esc_attr( $total_buttons ); ?> gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset <?php echo esc_attr( $ring_color ); ?>">
 					<legend class="sr-only">Payment frequency</legend>
 					<?php 
 					while ( have_rows( 'pricing_structure_list' ) ) :
@@ -104,7 +115,7 @@ if ( 'is-style-dark' === $style ) {
 							$tier_price_title       = get_sub_field( 'tier_price_title' ) ?: 'Freelancer';
 							$tier_price_label       = get_sub_field( 'tier_price_label' ) ?: 'Most popular';
 							$tier_price_description = get_sub_field( 'tier_price_description' ) ?: 'The essentials to provide your best work for clients.';
-							$tier_price             = get_sub_field( 'tier_price_1' ) ?: '$2';
+							$tier_price             = get_sub_field( 'tier_price' ) ?: '$2';
 							$tier_price_date        = get_sub_field( 'tier_price_subscription' ) ?: '/month';
 							$tier_price_button      = get_sub_field( 'price_button_text' ) ?: 'Buy plan';
 							$card_ring              = 'ring-1 ring-gray-200';
@@ -119,6 +130,14 @@ if ( 'is-style-dark' === $style ) {
 								$text_color_secondary = 'text-gray-600';
 								$text_color_label     = 'text-indigo-600';
 								$button_color         = 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white shadow-sm hover:bg-indigo-500';
+
+								if ( 'emphasized' === get_sub_field( 'highlight_type' ) ) {
+									$card_ring            = 'bg-gray-800 ring-2 ring-gray-200';
+									$text_color_primary   = 'text-white';
+									$text_color_secondary = 'text-gray-300';
+									$text_color_label     = 'text-white';
+									$button_color         = 'bg-indigo-500 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline-indigo-500';
+								}
 							}
 
 							if ( 'is-style-dark' === $style ) {
@@ -135,6 +154,14 @@ if ( 'is-style-dark' === $style ) {
 									$text_color_label     = 'text-white';
 									$button_color         = 'bg-indigo-500 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline-indigo-500';
 								}
+
+								if ( 'emphasized' === get_sub_field( 'highlight_type' ) ) {
+									$card_ring            = 'ring-1 ring-white/10 bg-white';
+									$text_color_primary   = 'text-indigo-600';
+									$text_color_secondary = 'text-gray-600';
+									$text_color_label     = 'text-indigo-600';
+									$button_color         = 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white shadow-sm hover:bg-indigo-500';
+								}
 							}
 							?>
 
@@ -142,16 +169,14 @@ if ( 'is-style-dark' === $style ) {
 							<div class="rounded-3xl p-8 xl:p-10  <?php echo esc_attr( $card_ring ); ?>">
 								<div class="flex items-center justify-between gap-x-4">
 									<h3 id="tier-freelancer" class="text-lg font-semibold leading-8 <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $tier_price_title ); ?></h3>
-									<?php if ( 3 >= $total_cards && get_sub_field( 'checkbox_highlight' ) ) : ?>
-										<p class="rounded-full bg-indigo-500 px-2.5 py-1 text-xs font-semibold leading-5 <?php echo esc_attr( $text_color_label ); ?>"><?php echo esc_html( $tier_price_label ); ?></p>
+									<?php if ( 3 >= $total_cards && get_sub_field( 'checkbox_highlight' ) && get_sub_field( 'tier_price_label' ) ) : ?>
+										<p class="rounded-full bg-indigo-500 px-2.5 py-1 text-xs font-semibold leading-5 text-white"><?php echo esc_html( $tier_price_label ); ?></p>
 									<?php endif; ?>
 								</div>
 								<p class="mt-4 text-sm leading-6 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $tier_price_description ); ?>.</p>
 								<p class="mt-6 flex items-baseline gap-x-1">
-									<!-- Price, update based on frequency toggle state -->
-									<span class="text-4xl font-bold tracking-tight text-gray-900"><?php echo esc_html( $tier_price ); ?></span>
-									<!-- Payment frequency, update based on frequency toggle state -->
-									<span class="text-sm font-semibold leading-6 text-gray-600"><?php echo esc_html( $tier_price_date ); ?></span>
+									<span class="text-4xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $tier_price ); ?></span>
+									<span class="text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $tier_price_date ); ?></span>
 								</p>
 								<a href="#" aria-describedby="tier-freelancer" class="mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 <?php echo esc_attr( $button_color ); ?>"><?php echo esc_html( $tier_price_button ); ?></a>
 
@@ -182,3 +207,5 @@ if ( 'is-style-dark' === $style ) {
 		<?php endif; ?>
 	</div>
 </div>
+
+

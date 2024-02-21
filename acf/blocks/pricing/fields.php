@@ -177,9 +177,22 @@ $pricing
 			'return_format' => 'value',
 		)
 	)
+	->addSelect(
+		'highlight_type',
+		array(
+			'default_value' => 'bordered',
+		)
+	)
+	->conditional( 'checkbox_highlight', '!=', 0 )
+	->addChoices(
+		array( 'bordered' => 'Border' ),
+		array( 'emphasized' => 'Emphasized' )
+	)
+	
 	->addText( 'tier_price_title' )
+	->addText( 'tier_price_label' )
 	->addTextArea( 'tier_price_description' )
-	->addText( 'tier_price_1' )
+	->addText( 'tier_price' )
 	->addText( 'tier_price_subscription' )
 	->addRepeater(
 		'tier_feature_list',
