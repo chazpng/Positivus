@@ -54,12 +54,19 @@ function greydientlab_setup() {
 	register_nav_menus(
 		array(
 			'menu-1'                 => esc_html__( 'Primary', 'greydientlab' ),
+
+			// Demo Menu.
 			'stacked-flyout-menu'    => esc_html__( 'With stacked flyout menu', 'greydientlab' ),
 			'constrained'            => esc_html__( 'Constrained', 'greydientlab' ),
 			'full-width-flyout-menu' => esc_html__( 'Full width flyout menu', 'greydientlab' ),
 			'multiple-flyout-menus'  => esc_html__( 'Multiple flyout menus', 'greydientlab' ),
 			'icons-in-mobile-menu'   => esc_html__( 'Icons in mobile menu', 'greydientlab' ),
 			'footer-social-menu'     => esc_html__( 'Footer Social Menu', 'greydientlab' ),
+			'solutions'              => esc_html__( 'Solutions Menu', 'greydientlab' ),
+			'support'                => esc_html__( 'Support Menu', 'greydientlab' ),
+			'company'                => esc_html__( 'Company Menu', 'greydientlab' ),
+			'legal'                  => esc_html__( 'Legal Menu', 'greydientlab' ),
+			'simple-footer'          => esc_html__( 'Simple Footer Menu', 'greydientlab' ),
 		)
 	);
 
@@ -606,8 +613,6 @@ function add_menu_description( $item_output, $item, $depth, $args ) {
 
 	if ( ! empty( $item->description ) ) {
 		$item_output = str_replace( '>' . $item->title, '><span><span class="title">' . $item->title . '</span><span class="menu-item-description">' . $item->description . '</span></span>', $item_output );
-	} else {
-		$item_output = str_replace( '>' . $item->title, '><span><span class="title">' . $item->title . '</span>', $item_output );
 	}
 	return $item_output;
 }
