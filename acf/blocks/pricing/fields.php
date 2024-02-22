@@ -19,7 +19,7 @@ $pricing
 
 	->addChoices(
 		array( 'without-tiers' => 'Without Tiers' ),
-		array( 'with-tiers' => 'With Tiers' ),
+		array( 'with-tiers' => 'Without Toggle' ),
 		array( 'with-toggle' => 'With Toggle' )
 	)
 	
@@ -101,13 +101,15 @@ $pricing
 		'without_toggle_repeater',
 		array(
 			'label' => 'Card',
-			'max'   => '4',
+			'max'   => '6',
 		)
 	)
 	->conditional( 'pricing_style', '==', 'with-tiers' )
 	->addText( 'tier_price_title' )
 	->addTextArea( 'tier_price_description' )
 	->addText( 'tier_price' )
+	->addText( 'tier_label' )
+	->conditional( 'with_tiers_type', '==', 'three-tiers-divider' )
 	->addText( 'tier_price_subscription' )
 	->addRepeater(
 		'tier_feature_list',
@@ -131,6 +133,7 @@ $pricing
 		)
 	)
 	->conditional( 'pricing_style', '==', 'with-tiers' )
+	->and( 'with_tiers_type', '==', 'two-tiers-extra' )
 	->addText( 'tier_price_title' )
 	->addTextArea( 'tier_price_description' )
 	->addText( 'price_button_text' )
@@ -143,6 +146,7 @@ $pricing
 			'label' => 'Subscription',
 		)
 	)
+	->conditional( 'pricing_style', '==', 'with-toggle' )
 	->addText( 'pricing_subscription' )
 	->addRepeater(
 		'with_toggle_repeater',
