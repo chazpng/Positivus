@@ -23,6 +23,10 @@
 		li {
 			display: inline-block;
 
+			.menu-image-title-before.menu-image-not-hovered {
+				display: flex;
+			}
+
 			.menu-image-title-before.menu-image-title {
 				padding: 0;
 				display: flex;
@@ -31,6 +35,12 @@
 			&.menu-item img {
 				width: 25px;
 				padding: 0;
+			}
+
+			&.small-sub-menu .sub-menu {
+				max-width: 14rem;
+				padding: 0.5rem;
+				border-radius: 0.75rem;
 			}
 		}
 
@@ -171,6 +181,11 @@
 				margin-top: 0;
 			}
 
+			.menu-image-title-before.menu-image-not-hovered {
+				display: flex;
+				justify-content: space-between;
+			}
+
 			.menu-image-title-before.menu-image-title,
 			.menu-image-title-before.menu-image-not-hovered span {
 				padding: 0;
@@ -226,6 +241,10 @@
 
 				a {
 					font-size: 0.875rem;
+				}
+
+				a:not(.menu-image-title-after) {
+					padding-left: 22px;
 				}
 
 				&:first-child {
