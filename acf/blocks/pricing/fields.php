@@ -9,6 +9,7 @@
 
 $pricing = new StoutLogic\AcfBuilder\FieldsBuilder( 'pricing' );
 $pricing
+
 	->addSelect(
 		'pricing_style',
 		array(
@@ -21,7 +22,7 @@ $pricing
 		array( 'with-tiers' => 'With Tiers' ),
 		array( 'with-toggle' => 'With Toggle' )
 	)
-
+	
 	->addSelect(
 		'without_tiers_type',
 		array(
@@ -57,19 +58,19 @@ $pricing
 	)
 	->conditional( 'pricing_style', '==', 'with-toggle' )
 	->addChoices(
-		array( 'three-tiers-toggle' => 'Three tiers with toggle' ),
-		array( 'three-tiers-emp' => 'Three tiers with emphasized tier' ),
-		array( 'three-tiers-feature' => 'Three tiers with feature comparison' ),
-		array( 'four-tiers' => 'Four tiers with toggle' )
+		array( 'four-tiers-toggle' => 'Four tiers with toggle' ),
+		array( 'three-tiers-feature' => 'Three tiers with feature comparison' )
 	)
 
 	->addText( 'eyebrow_label' )
 	->addText( 'title' )
 	->addTextArea( 'description' )
-
 	->addText( 'price_title' )
+	->conditional( 'pricing_style', '==', 'without-tiers' )
 	->addText( 'price_description' )
+	->conditional( 'pricing_style', '==', 'without-tiers' )
 	->addText( 'price_list_title' )
+	->conditional( 'pricing_style', '==', 'without-tiers' )
 	->addRepeater(
 		'price_features_list',
 		array(
@@ -77,6 +78,7 @@ $pricing
 			'max'   => '4',
 		)
 	)
+	->conditional( 'pricing_style', '==', 'without-tiers' )
 	->addText( 'price_features' )
 	->endRepeater()
 
@@ -87,6 +89,7 @@ $pricing
 			'max'   => '1',
 		)
 	)
+	->conditional( 'pricing_style', '==', 'without-tiers' )
 	->addText( 'price_label' )
 	->addText( 'price' )
 	->addText( 'price_button_text' )
@@ -95,22 +98,21 @@ $pricing
 	->endRepeater()
 
 	->addRepeater(
-		'tier_price_list',
+		'without_toggle_repeater',
 		array(
-			'label' => 'Tier',
-			'max'   => '3',
+			'label' => 'Card',
+			'max'   => '4',
 		)
 	)
-	->conditional( 'with_tiers_type', '==', 'three-tiers' )
+	->conditional( 'pricing_style', '==', 'with-tiers' )
 	->addText( 'tier_price_title' )
-	->addText( 'tier_price_label' )
 	->addTextArea( 'tier_price_description' )
 	->addText( 'tier_price' )
-	->addText( 'tier_price_date' )
+	->addText( 'tier_price_subscription' )
 	->addRepeater(
 		'tier_feature_list',
 		array(
-			'label' => 'Tier',
+			'label' => 'Features',
 		)
 	)
 	->addText( 'tier_features' )
@@ -119,41 +121,22 @@ $pricing
 	->addUrl( 'price_link' )
 	->endRepeater()
 
+
+
 	->addRepeater(
-		'two_tier_price_list',
+		'extra_tier_repeater',
 		array(
-			'label' => 'Tier',
-			'max'   => '2',
+			'label' => 'Extra Tier',
+			'max'   => '4',
 		)
 	)
-	->conditional( 'with_tiers_type', '==', 'two-tiers' )
+	->conditional( 'pricing_style', '==', 'with-tiers' )
 	->addText( 'tier_price_title' )
 	->addTextArea( 'tier_price_description' )
-	->addText( 'tier_price' )
-	->addText( 'tier_price_date' )
-	->addRepeater(
-		'tier_feature_list',
-		array(
-			'label' => 'Tier',
-		)
-	)
-	->addText( 'tier_features' )
-	->endRepeater()
 	->addText( 'price_button_text' )
 	->addUrl( 'price_link' )
 	->endRepeater()
-
-	->addCheckbox(
-		'checkbox_field',
-		array(
-			'label'         => 'Emphasized Tier',
-			'choices'       => array( 'emphasized tier?' ),
-			'default_value' => array( 0 ),
-			'return_format' => 'value',
-		)
-	)
-	->conditional( 'with_tiers_type', '==', 'two-tiers' )
-
+	
 	->addRepeater(
 		'pricing_structure_list',
 		array(
@@ -188,7 +171,7 @@ $pricing
 		array( 'bordered' => 'Border' ),
 		array( 'emphasized' => 'Emphasized' )
 	)
-	
+
 	->addText( 'tier_price_title' )
 	->addText( 'tier_price_label' )
 	->addTextArea( 'tier_price_description' )
@@ -206,8 +189,6 @@ $pricing
 	->addUrl( 'price_link' )
 	->endRepeater()
 	->endRepeater()
-
-
 	->setLocation( 'block', '==', 'acf/pricing' );
 
 return $pricing;
