@@ -86,4 +86,10 @@ header.brand {
 	@include header-on-background($brand-color, $white, $white, $dark, $gray-50);
 }
 
+footer {
+
+	@include footer-style;
+}
+
+
 // End of Optional styles

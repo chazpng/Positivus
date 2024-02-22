@@ -474,3 +474,58 @@
 		}
 	}
 }
+
+@mixin footer-style {
+
+	#footer-social-menu {
+		display: flex;
+
+		li {
+			width: 24px;
+			height: 24px;
+			margin-left: 24px;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			.menu-image-title-hide.menu-image-title {
+				display: none;
+			}
+		}
+	}
+
+	.footer-menu {
+		margin-top: 1.5rem;
+
+		li {
+			margin-top: 16px;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			a {
+				font-size: 0.875rem;
+			}
+		}
+	}
+
+	&.dark {
+		background-color: $dark;
+
+		#footer-social-menu li {
+
+			&:hover img {
+				filter: brightness(1.4);
+			}
+		}
+
+		.footer-menu li {
+
+			a {
+				color: $white;
+			}
+		}
+	}
+}
