@@ -172,7 +172,7 @@ if ( 'is-style-dark' === $style ) {
 							$tier_price_title       = get_sub_field( 'tier_price_title' ) ?: 'Basic';
 							$tier_price_description = get_sub_field( 'tier_price_description' ) ?: 'Everything necessary to get started.';
 							$tier_price             = get_sub_field( 'tier_price' ) ?: '$15';
-							$tier_price_label       = get_sub_field( 'tier_price_label' ) ?: '$12 per month if paid annually';
+							$tier_price_label       = get_sub_field( 'tier_label' ) ?: '$12 per month if paid annually';
 							$tier_price_date        = get_sub_field( 'tier_price_subscription' ) ?: '/month';
 							$tier_price_button      = get_sub_field( 'price_button_text' ) ?: 'Buy plan';
 

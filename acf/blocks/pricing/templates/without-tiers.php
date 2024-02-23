@@ -135,10 +135,9 @@ if ( 'is-style-dark' === $style ) {
 							Pricing plan comparison
 						</caption>
 						<colgroup>
-							<col class="w-1/4">
-							<col class="w-1/4">
-							<col class="w-1/4">
-							<col class="w-1/4">
+							<col class="w-1/3">
+							<col class="w-1/3">
+							<col class="w-1/3">
 						</colgroup>
 						<thead>
 							<tr>
@@ -167,7 +166,7 @@ if ( 'is-style-dark' === $style ) {
 							</tr>
 
 							<tr>
-								<th scope="colgroup" colspan="4" class="pb-4 text-sm font-semibold leading-6 text-gray-900 pt-8">
+								<th scope="colgroup" colspan="3" class="pb-4 text-sm font-semibold leading-6 text-gray-900 pt-8">
 									Features <!-- REPEATER Features Title -->
 									<div class="absolute inset-x-8 mt-4 h-px bg-gray-900/10"></div>
 								</th>
