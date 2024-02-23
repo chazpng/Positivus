@@ -25,9 +25,15 @@ $card_classes         = 'bg-white';
 $extra_tier_border    = 'ring-gray-900/10';
 $divider_color        = 'divide-gray-100';
 $label_style          = 'text-gray-500';
+$background_color     = 'light';
+
+if ( 'two-tiers-emp' === get_field( 'with_tiers_type' ) ) {
+	$background_color = 'emp-light';
+}
 
 
 if ( 'is-style-dark' === $style ) {
+	$background_color     = 'dark';
 	$text_color_primary   = 'text-white';
 	$text_color_secondary = 'text-gray-300';
 	$text_color_label     = 'text-indigo-400';
@@ -42,6 +48,10 @@ if ( 'is-style-dark' === $style ) {
 	$extra_tier_border    = 'ring-white/10';
 	$divider_color        = 'divide-white/10';
 	$label_style          = 'text-gray-400';
+
+	if ( 'two-tiers-emp' === get_field( 'with_tiers_type' ) ) {
+		$background_color = 'emp-dark';
+	}
 }
 
 ?>
@@ -150,7 +160,7 @@ if ( 'is-style-dark' === $style ) {
 			</div>
 			<p class="mx-auto mt-6 max-w-2xl text-lg leading-8 <?php echo esc_attr( $text_color_secondary ); ?> sm:text-center"><?php echo esc_html( $main_description ); ?></p>
 			<div class="mt-20 flow-root">
-				<?php 
+				<?php
 				if ( have_rows( 'without_toggle_repeater' ) ) :
 					$grid_col = count( get_field( 'without_toggle_repeater' ) );
 					$index    = ( 3 >= $grid_col ) ? $grid_col : '3';
@@ -165,7 +175,7 @@ if ( 'is-style-dark' === $style ) {
 							$tier_price_label       = get_sub_field( 'tier_price_label' ) ?: '$12 per month if paid annually';
 							$tier_price_date        = get_sub_field( 'tier_price_subscription' ) ?: '/month';
 							$tier_price_button      = get_sub_field( 'price_button_text' ) ?: 'Buy plan';
-								
+
 							?>
 							<div class="pt-16 lg:px-8 lg:pt-0 xl:px-14">
 								<h3 id="tier-basic" class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $tier_price_title ); ?></h3>
@@ -187,7 +197,7 @@ if ( 'is-style-dark' === $style ) {
 												<svg class="h-6 w-5 flex-none <?php echo esc_attr( $text_color_label ); ?>" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 													<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
 												</svg>
-											<?php echo esc_html( $tier_features ); ?>
+												<?php echo esc_html( $tier_features ); ?>
 											</li>
 										<?php endwhile; ?>
 									<?php else : ?>
@@ -199,6 +209,75 @@ if ( 'is-style-dark' === $style ) {
 				<?php else : ?>
 				<?php endif; ?>
 			</div>
+		</div>
+	</div>
+<?php endif; ?>
+<?php if ( 'two-tiers' === get_field( 'with_tiers_type' ) || 'two-tiers-emp' === get_field( 'with_tiers_type' ) ) : ?>
+	<div class="relative isolate <?php echo esc_attr( $bg_color ); ?> px-6 py-24 sm:py-32 lg:px-8 two-tier <?php echo esc_attr( $background_color ); ?>">
+		<div class="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl" aria-hidden="true">
+			<?php if ( 'is-style-light' === $style ) : ?> 
+			<div class="mx-auto aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+			<?php endif; ?>
+			<?php if ( 'is-style-dark' === $style ) : ?> 
+			<div class="mx-auto aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#80caff] to-[#4f46e5] opacity-30" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+			<?php endif; ?>
+		</div>
+		<div class="mx-auto max-w-2xl text-center lg:max-w-4xl">
+			<h2 class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_label ); ?>"><?php echo esc_html( $main_label ); ?></h2>
+			<p class="mt-2 text-4xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> sm:text-5xl"><?php echo esc_html( $main_title ); ?></p>
+		</div>
+		<p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $main_description ); ?></p>
+		<div class="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2 ">
+			<?php
+			if ( have_rows( 'two_tier_repeater' ) ) :
+				$prev_row_count = 0;
+
+				while ( have_rows( 'two_tier_repeater' ) ) :
+					the_row();
+					$tier_price_title       = get_sub_field( 'tier_price_title' ) ?: 'Basic';
+					$tier_price_description = get_sub_field( 'tier_price_description' ) ?: 'Everything necessary to get started.';
+					$tier_price             = get_sub_field( 'tier_price' ) ?: '$15';
+					$tier_price_date        = get_sub_field( 'tier_price_subscription' ) ?: '/month';
+					$tier_price_button      = get_sub_field( 'price_button_text' ) ?: 'Buy plan';
+					$feature_index          = get_sub_field( 'tier_feature_list' );
+					$feature_indexes        = $feature_index ? count( $feature_index ) : 0;
+					$index_class            = ( 1 === get_row_index() ) ? 'lg:rounded-tl-3xl lg:rounded-r-none' : 'lg:rounded-tr-3xl lg:rounded-l-none';
+					
+				
+					?>
+					<div class="two-tier-class " data-value="<?php echo esc_html( $feature_indexes ); ?>">
+						<h3 id="tier-personal" class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_label ); ?> label-color"><?php echo esc_html( $tier_price_title ); ?></h3>
+						<p class="mt-4 flex items-baseline gap-x-2">
+							<span class="text-5xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> primary-color"><?php echo esc_html( $tier_price ); ?></span>
+							<span class="text-base text-gray-500"><?php echo esc_html( $tier_price_date ); ?></span>
+						</p>
+						<p class="mt-6 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?> secondary-color"><?php echo esc_html( $tier_price_description ); ?></p>
+						<ul role="list" class="mt-8 space-y-3 text-sm leading-6 <?php echo esc_attr( $text_color_secondary ); ?> sm:mt-10 secondary-color">
+							<?php if ( have_rows( 'tier_feature_list' ) ) : ?>
+								<?php
+								while ( have_rows( 'tier_feature_list' ) ) :
+									the_row();
+									$tier_features = get_sub_field( 'tier_features' ) ?: '25 products';
+									?>
+									<li class="flex gap-x-3">
+										<svg class="h-6 w-5 flex-none <?php echo esc_attr( $text_color_label ); ?> label-color" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+											<path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+										</svg>
+										<?php echo esc_html( $tier_features ); ?>
+									</li>
+								<?php endwhile; ?>
+							<?php else : ?>
+							<?php endif; ?>
+						</ul>
+						<a href="<?php echo esc_url( the_sub_field( 'price_link' ) ); ?>" aria-describedby="tier-personal" class="mt-8 text-white block rounded-md py-2.5 px-3.5 text-center text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 <?php echo esc_attr( $price_button_color ); ?> button-color"><?php echo esc_html( $tier_price_button ); ?></a>
+					</div>
+					<?php 
+					$prev_row_count++;
+endwhile; 
+				?>
+			<?php else : ?>
+			<?php endif; ?>
+
 		</div>
 	</div>
 <?php endif; ?>

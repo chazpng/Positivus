@@ -17,12 +17,29 @@
 			} );
 		} );
 	};
+	const initializePricingStyle = function() {
+		const firstVal = $( '.two-tier-class:first-child' ).data( 'value' );
+		const secondVal = $( '.two-tier-class:last-child' ).data( 'value' );
+
+		if ( firstVal > secondVal ) {
+			$( '.two-tier-class:last-child' ).addClass( 'normal-style' );
+			$( '.two-tier-class:first-child' ).addClass( 'highlighted-style' );
+		} else if ( firstVal === secondVal ) {
+			$( '.two-tier-class:first-child' ).addClass( 'default-1' );
+			$( '.two-tier-class:last-child' ).addClass( 'default-2' );
+		} else {
+			$( '.two-tier-class:first-child' ).addClass( 'normal-style' );
+			$( '.two-tier-class:last-child' ).addClass( 'highlighted-style' );
+		}
+	};
 
 	$( document ).ready( function() {
 		initializePricing();
+		initializePricingStyle();
 	} );
 
 	if ( window.acf ) {
 		window.acf.addAction( 'render_block_preview/type=pricing', initializePricing );
+		window.acf.addAction( 'render_block_preview/type=pricing', initializePricingStyle );
 	}
 }( jQuery ) );
