@@ -124,6 +124,42 @@ $pricing
 	->endRepeater()
 
 	->addRepeater(
+		'three_tier_repeater',
+		array(
+			'label' => 'Tier',
+			'max'   => '3',
+		)
+	)
+	->conditional( 'with_tiers_type', '==', 'three-tiers' )
+	->or( 'with_tiers_type', '==', 'two-tiers-emp' )
+	->addCheckbox(
+		'checkbox_highlight',
+		array(
+			'label'         => 'Highlight Card',
+			'choices'       => array( 'Highlight Card?' ),
+			'default_value' => array( 0 ),
+			'return_format' => 'value',
+		)
+	)
+	->addText( 'tier_price_label' )
+	->conditional( 'checkbox_highlight', '!=', 0 )
+	->addText( 'tier_price_title' )
+	->addTextArea( 'tier_price_description' )
+	->addText( 'tier_price' )
+	->addText( 'tier_price_subscription' )
+	->addRepeater(
+		'tier_feature_list',
+		array(
+			'label' => 'Features',
+		)
+	)
+	->addText( 'tier_features' )
+	->endRepeater()
+	->addText( 'price_button_text' )
+	->addUrl( 'price_link' )
+	->endRepeater()
+
+	->addRepeater(
 		'without_toggle_repeater',
 		array(
 			'label' => 'Card',
@@ -131,6 +167,8 @@ $pricing
 		)
 	)
 	->conditional( 'pricing_style', '==', 'with-tiers' )
+	->conditional( 'with_tiers_type', '==', 'three-tiers-divider' )
+	->or( 'with_tiers_type', '==', 'two-tiers-extra' )
 	->addText( 'tier_price_title' )
 	->addTextArea( 'tier_price_description' )
 	->addText( 'tier_price' )
