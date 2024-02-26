@@ -22,6 +22,7 @@ $price_container_color = 'bg-gray-50';
 $ring_color            = 'ring-gray-200';
 $divider_color         = 'bg-gray-100';
 $price_button_color    = 'bg-indigo-600 hover:bg-indigo-500 focus-visible:outline-indigo-600';
+$divider_comparison_1  = 'gray-900/10';
 
 if ( 'is-style-dark' === $style ) {
 	$text_color_primary    = 'text-white';
@@ -32,6 +33,7 @@ if ( 'is-style-dark' === $style ) {
 	$ring_color            = 'ring-white/10';
 	$divider_color         = 'bg-white/10';
 	$price_button_color    = 'bg-indigo-500 hover:bg-indigo-400 focus-visible:outline-indigo-500';
+	$divider_comparison_1  = 'white/5';
 }
 
 ?>
@@ -114,81 +116,206 @@ if ( 'is-style-dark' === $style ) {
 	</div>
 <?php endif; ?>
 <?php if ( 'comparison' === get_field( 'without_tiers_type' ) ) : ?>
-	<div class="bg-white py-24 sm:py-32">
+	<div class="<?php echo esc_attr( $bg_color ); ?> py-24 sm:py-32">
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
 			<div class="mx-auto max-w-4xl text-center">
-				<h2 class="text-base font-semibold leading-7 text-indigo-600">Pricing</h2>
-				<p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Plans for teams of&nbsp;all&nbsp;sizes</p>
+				<h2 class="text-base font-semibold leading-7 <?php echo esc_attr( $text_color_label ); ?>">Pricing</h2>
+				<p class="mt-2 text-4xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> sm:text-5xl">Plans for teams of&nbsp;all&nbsp;sizes</p>
 			</div>
 			<p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in. Explicabo id ut laborum.</p>
 
 			<!-- lg+ -->
 			<div class="isolate mt-20 hidden lg:block">
 				<div class="relative -mx-8">
-					<div class="absolute inset-x-4 inset-y-0 -z-10 flex">
-						<div class="flex w-1/3 px-4" style="margin-left: 50%" aria-hidden="true">
-							<div class="w-full rounded-t-xl border-x border-t border-gray-900/10 bg-gray-400/5"></div>
-						</div>
-					</div>
 					<table class="w-full table-fixed border-separate border-spacing-x-8 text-left">
 						<caption class="sr-only">
 							Pricing plan comparison
 						</caption>
 						<colgroup>
-							<col class="w-1/3">
-							<col class="w-1/3">
-							<col class="w-1/3">
+							<?php if ( have_rows( 'main_container' ) ) : ?>
+								<?php
+								while ( have_rows( 'main_container' ) ) :
+									the_row();
+									?>
+									<?php
+									if ( have_rows( 'price_list_repeater' ) ) :
+										$grid_col = get_sub_field( 'price_list_repeater' ) ? count( get_sub_field( 'price_list_repeater' ) ) : 1;
+										?>
+										<col class="w-1/<?php echo esc_attr( $grid_col + 1 ); ?>">
+										<?php
+										while ( have_rows( 'price_list_repeater' ) ) :
+											the_row();
+											?>
+											<col class="w-1/<?php echo esc_attr( $grid_col + 1 ); ?>">
+										<?php endwhile; ?>
+									<?php endif; ?>
+								<?php endwhile; ?>
+							<?php else : ?>
+							<?php endif; ?>
 						</colgroup>
 						<thead>
 							<tr>
 								<td></td>
 								<!-- REPEATER  -->
-
-								<th scope="col" class="px-6 pt-6 xl:px-8 xl:pt-8">
-									<div class="text-sm font-semibold leading-7 text-gray-900">Basic</div><!-- REPEATER TITLE -->
-								</th>
-							<!-- REPEATER  -->
+								<?php if ( have_rows( 'main_container' ) ) : ?>
+									<?php
+									while ( have_rows( 'main_container' ) ) :
+										the_row();
+										?>
+										<?php if ( have_rows( 'price_list_repeater' ) ) : ?>
+											<?php
+											while ( have_rows( 'price_list_repeater' ) ) :
+												the_row();
+												$product_title = get_sub_field( 'tier_price_title' ) ?: 'Basic';
+												?>
+												<th scope="col" class="px-6 pt-6 xl:px-8 xl:pt-8">
+													<div class="text-sm font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $product_title ); ?></div><!-- REPEATER TITLE -->
+												</th>
+											<?php endwhile; ?>
+										<?php else : ?>
+										<?php endif; ?>
+									<?php endwhile; ?>
+								<?php else : ?>
+								<?php endif; ?>
+								<!-- REPEATER  -->
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<th scope="row"><span class="sr-only">Price</span></th>
-								<!-- REPEATER  -->
-								<td class="px-6 pt-2 xl:px-8">
-									<div class="flex items-baseline gap-x-1 text-gray-900">
-										<span class="text-4xl font-bold">$9</span> <!-- REPEATER Price -->
-										<span class="text-sm font-semibold leading-6">/month</span> <!-- REPEATER Price Description -->
-									</div>
-									<a href="#" class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300">Buy plan</a>
-									<!-- REPEATER button -->
-								</td>
-								<!-- REPEATER  -->
+								<?php if ( have_rows( 'main_container' ) ) : ?>
+									<?php
+									while ( have_rows( 'main_container' ) ) :
+										the_row();
+										?>
+										<?php if ( have_rows( 'price_list_repeater' ) ) : ?>
+											<?php
+											while ( have_rows( 'price_list_repeater' ) ) :
+												the_row();
+												$product_price  = get_sub_field( 'tier_price' ) ?: '$9';
+												$product_date   = get_sub_field( 'tier_price_subscription' ) ?: '/month';
+												$product_button = get_sub_field( 'price_button_text' ) ?: 'hello';
+												?>
+												<td class="px-6 pt-2 xl:px-8">
+													<div class="flex items-baseline gap-x-1 <?php echo esc_attr( $text_color_primary ); ?>">
+														<span class="text-4xl font-bold"><?php echo esc_html( $product_price ); ?></span>
+														<span class="text-sm font-semibold leading-6"><?php echo esc_html( $product_date ); ?></span>
+													</div>
+													<a href="#" class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 <?php echo esc_attr( $text_color_label ); ?> ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300"><?php echo esc_html( $product_button ); ?></a>
+												</td>
+											<?php endwhile; ?>
+										<?php else : ?>
+										<?php endif; ?>
+									<?php endwhile; ?>
+								<?php else : ?>
+								<?php endif; ?>
 							</tr>
+							<?php if ( have_rows( 'main_container' ) ) : ?>
+								<?php
+								while ( have_rows( 'main_container' ) ) :
+									the_row();
+									?>
+									<?php if ( have_rows( 'feature_list' ) ) : ?>
+										<?php
+										while ( have_rows( 'feature_list' ) ) :
+											the_row();
 
-							<tr>
-								<th scope="colgroup" colspan="3" class="pb-4 text-sm font-semibold leading-6 text-gray-900 pt-8">
-									Features <!-- REPEATER Features Title -->
-									<div class="absolute inset-x-8 mt-4 h-px bg-gray-900/10"></div>
-								</th>
-							</tr>
-							<tr>
-								<th scope="row" class="py-4 text-sm font-normal leading-6 text-gray-900">
-									Importing and exporting
-									<div class="absolute inset-x-8 mt-4 h-px bg-gray-900/5"></div>
-								</th>
-								<td class="px-6 py-4 xl:px-8">
-									<svg class="mx-auto h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-										<path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" />
-									</svg>
-									<span class="sr-only">Not included in Basic</span>
-								</td>
-								<td class="px-6 py-4 xl:px-8">
-									<svg class="mx-auto h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-										<path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-									</svg>
-									<span class="sr-only">Included in Essential</span>
-								</td>
-							</tr>
+											$features_list = get_sub_field( 'feature_title' ) ?: 'Feature Title';
+											?>
+
+											<tr>
+												<th scope="colgroup" colspan="3" class="pb-4 text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_primary ); ?> pt-8">
+													<?php echo esc_html( $features_list ); ?>
+													<div class="absolute inset-x-8 mt-4 h-px bg-<?php echo esc_attr( $divider_comparison_1 ); ?>"></div>
+												</th>
+											</tr>
+
+											<?php if ( have_rows( 'specs' ) ) : ?>
+												<?php
+												while ( have_rows( 'specs' ) ) :
+													the_row();
+
+													$specs_name = get_sub_field( 'spec_name' ) ?: 'Feature Title';
+													?>
+													<tr>
+														<th scope="row" class="py-4 text-sm font-normal leading-6 <?php echo esc_attr( $text_color_primary ); ?> border-b-<?php echo esc_html( $divider_comparison_1 ); ?> border-b">
+															<?php echo esc_html( $specs_name ); ?>
+														<?php if ( have_rows( 'tier_specs' ) ) : ?>
+															<?php
+															while ( have_rows( 'tier_specs' ) ) :
+																the_row();
+
+																?>
+																<?php if ( have_rows( 'content' ) ) : ?>
+																	<?php
+																	while ( have_rows( 'content' ) ) :
+																		the_row();
+																		$layout = get_row_layout( 'content' );
+																		?>
+																		<td class="px-6 py-4 xl:px-8 text-center mx-auto <?php echo esc_attr( $text_color_primary ); ?> border-b-<?php echo esc_html( $divider_comparison_1 ); ?> border-b">
+																			<?php if ( 'text' === $layout ) : ?>
+																				<?php echo esc_html( get_sub_field( 'spec' ) ); ?>
+																			<?php endif; ?>
+																			<?php if ( 'checkmark' === $layout ) : ?>
+																				<?php if ( get_sub_field( 'enable' ) ) : ?>
+																					<svg class="h-6 w-5 mx-auto flex-none <?php echo esc_attr( $text_color_label ); ?>" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+																						<path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+																					</svg>
+																				<?php else : ?>
+																					<svg class="mx-auto h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+																						<path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" />
+																					</svg>
+																				<?php endif; ?>
+																			<?php endif; ?>
+																			<?php if ( 'textarea' === $layout ) : ?>
+																				<?php echo esc_html( get_sub_field( 'content' ) ); ?>
+																			<?php endif; ?>
+																			<?php if ( 'bullets' === $layout ) : ?>
+																				<?php if ( have_rows( 'bullet' ) ) : ?>
+																					<ul>
+																						<?php
+																						while ( have_rows( 'bullet' ) ) :
+																							the_row();
+																							?>
+																							<li><?php echo esc_html( get_sub_field( 'value' ) ); ?></li>
+
+																						<?php endwhile; ?>
+																					</ul>
+																				<?php else : ?>
+																				<?php endif; ?>
+																			<?php endif; ?>
+																			<?php if ( 'icons' === $layout ) : ?>
+																				<?php if ( have_rows( 'icon' ) ) : ?>
+																					<ul class="flex gap-x-4">
+																						<?php
+																						while ( have_rows( 'icon' ) ) :
+																							the_row();
+																							?>
+
+																							<li><img src="<?php echo esc_url( get_sub_field( 'icon_image' ) ); ?>" class="h-8 w-8"></li>
+
+																						<?php endwhile; ?>
+																					</ul>
+																				<?php else : ?>
+																				<?php endif; ?>
+																			<?php endif; ?>
+																		<?php endwhile; ?>
+																	<?php else : ?>
+																	<?php endif; ?>
+																		</td>
+																	<?php endwhile; ?>
+																<?php else : ?>
+																<?php endif; ?>
+													</tr>
+												<?php endwhile; ?>
+											<?php else : ?>
+											<?php endif; ?>
+										<?php endwhile; ?>
+									<?php else : ?>
+									<?php endif; ?>
+								<?php endwhile; ?>
+							<?php else : ?>
+							<?php endif; ?>
 						</tbody>
 					</table>
 				</div>

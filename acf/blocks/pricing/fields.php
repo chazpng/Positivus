@@ -22,7 +22,7 @@ $pricing
 		array( 'with-tiers' => 'Without Toggle' ),
 		array( 'with-toggle' => 'With Toggle' )
 	)
-	
+
 	->addSelect(
 		'without_tiers_type',
 		array(
@@ -203,7 +203,7 @@ $pricing
 	->addText( 'price_button_text' )
 	->addUrl( 'price_link' )
 	->endRepeater()
-	
+
 	->addRepeater(
 		'pricing_structure_list',
 		array(
@@ -257,6 +257,90 @@ $pricing
 	->addUrl( 'price_link' )
 	->endRepeater()
 	->endRepeater()
+
+	->addRepeater(
+		'main_container',
+		array(
+			'layout' => 'block',
+			'min'    => '1',
+			'max'    => '1',
+		)
+	)
+
+		->addRepeater(
+			'price_list_repeater',
+			array(
+				'layout' => 'block',
+			)
+		)
+		->addText( 'tier_price_title' )
+		->addText( 'tier_price' )
+		->addText( 'tier_price_subscription' )
+		->addText( 'price_button_text' )
+		->addUrl( 'price_link' )
+		->endRepeater()
+
+		->addRepeater(
+			'feature_list',
+			array(
+				'layout' => 'block',
+			)
+		)
+		->addText( 'feature_title' )
+		->addRepeater(
+			'specs',
+			array(
+				'layout' => 'block',
+			)
+		)
+			->addText( 'spec_name' )
+			->addRepeater(
+				'tier_specs',
+				array(
+					'layout' => 'block',
+				)
+			)
+			->addFlexibleContent(
+				'content',
+				array(
+					'max' => 1,
+				)
+			)
+			->addLayout( 'text' )
+				->addText( 'spec' )
+			->addLayout( 'checkmark' )
+				->addTrueFalse( 'enable' )
+			->addLayout( 'bullets' )
+				->addRepeater( 'bullet' )
+					->addText( 'value' )
+				->endRepeater()
+			->addLayout( 'textarea' )
+				->addTextArea(
+					'content',
+					array(
+						'new_lines' => 'br',
+					)
+				)
+			->addLayout( 'icons' )
+				->addRepeater(
+					'icon',
+					array(
+						'layout' => 'block',
+					)
+				)
+					->addImage(
+						'icon_image',
+						array(
+							'return_format' => 'url',
+						)
+					)
+				->endRepeater()
+		->endRepeater()
+	->endRepeater()
+
+
+
+
 	->setLocation( 'block', '==', 'acf/pricing' );
 
 return $pricing;
