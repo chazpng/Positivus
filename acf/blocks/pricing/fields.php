@@ -371,6 +371,65 @@ $pricing
 	->endRepeater()
 	->endRepeater()
 
+	->addRepeater(
+		'toggle_comparison_mb_repeater',
+		array(
+			'layout' => 'block',
+			'label'  => 'Card',
+		)
+	)
+	->conditional( 'pricing_style', '==', 'with-toggle' )
+	->and( 'with_toggle_type', '==', 'three-tiers-feature' )
+	->addCheckbox(
+		'checkbox_highlight',
+		array(
+			'label'         => 'Highlight Card',
+			'choices'       => array( 'Highlight Card?' ),
+			'default_value' => array( 0 ),
+			'return_format' => 'value',
+		)
+	)
+	->addText( 'title' )
+	->addTextArea( 'description' )
+	->addRepeater(
+		'cards_list',
+		array(
+			'layout' => 'block',
+		)
+	)
+	->addText( 'card_title' )
+	->addRepeater(
+		'features',
+		array(
+			'layout' => 'block',
+		)
+	)
+	->addText( 'feature' )
+	->addCheckbox(
+		'checkmark',
+		array(
+			'label'         => 'Use Checkmark?',
+			'choices'       => array( 'Use Checkmark?' ),
+			'default_value' => array( 0 ),
+			'return_format' => 'value',
+		)
+	)
+	->addCheckbox(
+		'enabled',
+		array(
+			'label'         => 'Enable Check',
+			'choices'       => array( 'Enable Check?' ),
+			'default_value' => array( 0 ),
+			'return_format' => 'value',
+		)
+	)
+	->conditional( 'checkmark', '!=', 0 )
+	->addText( 'custom_text' )
+	->conditional( 'checkmark', '==', 0 )
+	->endRepeater()
+	->endRepeater()
+	->endRepeater()
+
 
 
 

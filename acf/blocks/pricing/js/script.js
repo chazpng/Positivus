@@ -17,6 +17,7 @@
 			} );
 		} );
 	};
+
 	const initializePricingStyle = function() {
 		const firstVal = $( '.two-tier-class:first-child' ).data( 'value' );
 		const secondVal = $( '.two-tier-class:last-child' ).data( 'value' );

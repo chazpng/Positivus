@@ -347,7 +347,7 @@ if ( 'is-style-dark' === $style ) {
 							}
 						}
 
-						
+
 						?>
 						<section class="p-8 <?php echo esc_attr( $bg_color ); ?>">
 							<h3 id="tier-basic" class="text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $tier_title ); ?></h3>
