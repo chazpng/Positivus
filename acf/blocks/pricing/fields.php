@@ -267,75 +267,108 @@ $pricing
 		)
 	)
 
-		->addRepeater(
-			'price_list_repeater',
-			array(
-				'layout' => 'block',
-			)
+	->addRepeater(
+		'price_list_repeater',
+		array(
+			'layout' => 'block',
 		)
-		->addText( 'tier_price_title' )
-		->addText( 'tier_price' )
-		->addText( 'tier_price_subscription' )
-		->addText( 'price_button_text' )
-		->addUrl( 'price_link' )
-		->endRepeater()
+	)
+	->addText( 'tier_price_title' )
+	->addText( 'tier_price' )
+	->addText( 'tier_price_subscription' )
+	->addText( 'price_button_text' )
+	->addUrl( 'price_link' )
+	->endRepeater()
 
-		->addRepeater(
-			'feature_list',
-			array(
-				'layout' => 'block',
-			)
+	->addRepeater(
+		'feature_list',
+		array(
+			'layout' => 'block',
 		)
-		->addText( 'feature_title' )
-		->addRepeater(
-			'specs',
-			array(
-				'layout' => 'block',
-			)
+	)
+	->addText( 'feature_title' )
+	->addRepeater(
+		'specs',
+		array(
+			'layout' => 'block',
 		)
-			->addText( 'spec_name' )
-			->addRepeater(
-				'tier_specs',
-				array(
-					'layout' => 'block',
-				)
-			)
-			->addFlexibleContent(
-				'content',
-				array(
-					'max' => 1,
-				)
-			)
-			->addLayout( 'text' )
-				->addText( 'spec' )
-			->addLayout( 'checkmark' )
-				->addTrueFalse( 'enable' )
-			->addLayout( 'bullets' )
-				->addRepeater( 'bullet' )
-					->addText( 'value' )
-				->endRepeater()
-			->addLayout( 'textarea' )
-				->addTextArea(
-					'content',
-					array(
-						'new_lines' => 'br',
-					)
-				)
-			->addLayout( 'icons' )
-				->addRepeater(
-					'icon',
-					array(
-						'layout' => 'block',
-					)
-				)
-					->addImage(
-						'icon_image',
-						array(
-							'return_format' => 'url',
-						)
-					)
-				->endRepeater()
-		->endRepeater()
+	)
+	->addText( 'spec_name' )
+	->addRepeater(
+		'tier_specs',
+		array(
+			'layout' => 'block',
+		)
+	)
+	->addFlexibleContent(
+		'content',
+		array(
+			'max' => 1,
+		)
+	)
+	->addLayout( 'text' )
+	->addText( 'spec' )
+	->addLayout( 'checkmark' )
+	->addTrueFalse( 'enable' )
+	->addLayout( 'bullets' )
+	->addRepeater( 'bullet' )
+	->addText( 'value' )
+	->endRepeater()
+	->addLayout( 'textarea' )
+	->addTextArea(
+		'content',
+		array(
+			'new_lines' => 'br',
+		)
+	)
+	->addLayout( 'icons' )
+	->addRepeater(
+		'icon',
+		array(
+			'layout' => 'block',
+		)
+	)
+	->addImage(
+		'icon_image',
+		array(
+			'return_format' => 'url',
+		)
+	)
+	->endRepeater()
+	->endRepeater()
+	->endRepeater()
+	->endRepeater()
+	->endRepeater()
+
+	->addRepeater(
+		'mobile_repeater',
+		array(
+			'layout' => 'block',
+		)
+	)
+	->addCheckbox(
+		'checkbox_highlight',
+		array(
+			'label'         => 'Highlight Card',
+			'choices'       => array( 'Highlight Card?' ),
+			'default_value' => array( 0 ),
+			'return_format' => 'value',
+		)
+	)
+	->addText( 'tier_title' )
+	->addText( 'tier_price' )
+	->addText( 'tier_subscription' )
+	->addText( 'tier_button' )
+	->addUrl( 'tier_link' )
+	->addRepeater(
+		'featured_list_repeater',
+		array(
+			'layout' => 'block',
+		)
+	)
+	->addText( 'features' )
+	->addText( 'features_label' )
+	->endRepeater()
 	->endRepeater()
 
 
