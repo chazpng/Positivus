@@ -676,8 +676,3 @@ if ( 'is-style-dark' === $style ) {
 	</div>
 <?php endif; ?>
 
-
-<div class="sidebar cursor-pointer">
-hello
-</div>
-<div class="button cursor-pointer" id="close-button ">world</div>
