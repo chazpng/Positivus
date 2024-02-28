@@ -349,8 +349,8 @@ $pricing
 	->addCheckbox(
 		'checkbox_highlight',
 		array(
-			'label'         => 'Highlight Card',
-			'choices'       => array( 'Highlight Card?' ),
+			'label'         => 'Highlight Header',
+			'choices'       => array( 'Highlight Header?' ),
 			'default_value' => array( 0 ),
 			'return_format' => 'value',
 		)
@@ -370,7 +370,88 @@ $pricing
 	->addText( 'features_label' )
 	->endRepeater()
 	->endRepeater()
+	
 
+	->addRepeater(
+		'toggle_comparison_repeater',
+		array(
+			'layout' => 'block',
+			'label'  => 'Toggle Comparison Repeater',
+			'min'    => '1',
+			'max'    => '1',
+		)
+	)
+	->conditional( 'pricing_style', '==', 'with-toggle' )
+	->and( 'with_toggle_type', '==', 'three-tiers-feature' )
+
+	->addRepeater(
+		'header',
+		array(
+			'layout' => 'block',
+			'label'  => 'Head',
+		)
+	)
+	->addCheckbox(
+		'checkbox_highlight',
+		array(
+			'label'         => 'Highlight Card',
+			'choices'       => array( 'Highlight Card?' ),
+			'default_value' => array( 0 ),
+			'return_format' => 'value',
+		)
+	)
+	->addText( 'title' )
+	->addTextArea( 'description' )
+	->endRepeater()
+	->addRepeater(
+		'main_feature',
+		array(
+			'layout' => 'block',
+			'label'  => 'Feature',
+		)
+	)
+	->addText( 'title' )
+
+	->addRepeater(
+		'feature',
+		array(
+			'layout' => 'block',
+			'label'  => 'Content',
+		)
+	)
+	->addText( 'features' )
+	->addRepeater(
+		'checkmark_list',
+		array(
+			'layout' => 'block',
+		)
+	)
+	->addCheckbox(
+		'checkmark',
+		array(
+			'label'         => 'Use Checkmark?',
+			'choices'       => array( 'Use Checkmark?' ),
+			'default_value' => array( 0 ),
+			'return_format' => 'value',
+		)
+	)
+	->addCheckbox(
+		'enabled',
+		array(
+			'label'         => 'Enable Check',
+			'choices'       => array( 'Enable Check?' ),
+			'default_value' => array( 0 ),
+			'return_format' => 'value',
+		)
+	)
+	->conditional( 'checkmark', '!=', 0 )
+	->addText( 'custom_text' )
+	->conditional( 'checkmark', '==', 0 )
+	->endRepeater()
+	->endRepeater()
+	->endRepeater()
+
+	->endRepeater()
 	->addRepeater(
 		'toggle_comparison_mb_repeater',
 		array(

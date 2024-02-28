@@ -16,6 +16,18 @@
 				}
 			} );
 		} );
+
+		$( '.header-border' ).each( function( index, element ) {
+			if ( $( element ).hasClass( 'border-indigo-600' ) ) {
+				$( '.body-border-' + index ).removeClass( 'ring-1 ring-gray-900/10' ).addClass( 'ring-2 ring-indigo-600' );
+			} else if ( $( element ).hasClass( 'border-indigo-500' ) && $( element ).hasClass( 'dark' ) ) {
+				$( '.body-border-' + index ).removeClass( 'ring-1 ring-gray-900/10' ).addClass( 'ring-1 ring-indigo-400' );
+			} else if ( $( element ).hasClass( 'dark' ) ) {
+				$( '.body-border-' + index ).removeClass( 'ring-2 ring-indigo-500' ).addClass( 'ring-1 ring-white/5' );
+			} else {
+				$( '.body-border-' + index ).removeClass( 'ring-2 ring-indigo-600' ).addClass( 'ring-1 ring-gray-900/10' );
+			}
+		} );
 	};
 
 	const initializePricingStyle = function() {
