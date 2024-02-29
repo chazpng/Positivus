@@ -262,7 +262,8 @@ if ( 'is-style-dark' === $style ) {
 							?>
 							<div class="cards card-<?php echo esc_attr( get_row_index() ); ?> relative mx-auto mt-10 grid max-w-md grid-cols-1 gap-y-8 lg:mx-0 lg:-mb-14 lg:max-w-none lg:grid-cols-<?php echo esc_html( $total_cards ); ?> hidden" id="<?php echo esc_attr( $subscription ); ?>">
 
-										<div class="hidden lg:absolute lg:inset-x-px lg:bottom-0 lg:top-4 <?php echo esc_attr( $total_cards ); ?> lg:rounded-t-2xl lg:bg-gray-800/80 lg:ring-1 lg:ring-white/10 mb-14" aria-hidden="true"></div>
+								<div class="hidden lg:absolute lg:inset-x-px lg:bottom-0 lg:top-4 <?php echo esc_attr( $hidden ); ?> lg:rounded-t-2xl lg:bg-gray-800/80 lg:ring-1 lg:ring-white/10 mb-14" aria-hidden="true"></div>
+
 								<?php
 								while ( have_rows( 'with_toggle_repeater' ) ) :
 									the_row();
@@ -508,6 +509,18 @@ if ( 'is-style-dark' === $style ) {
 						if ( $header ) {
 							$total_col = count( $header );
 						}
+						$bg_color               = 'bg-white';
+						$feature_title          = get_sub_field( 'title' ) ?: 'Freelancer';
+						$feature_description    = get_sub_field( 'description' ) ?: 'Most popular';
+						$bg_color_2             = 'bg-gray-50';
+						$text_color_label       = 'text-indigo-600';
+						$divide_color           = 'divide-gray-200';
+						$text_highlight_primary = 'text-gray-900';
+						$border_color           = 'border-transparent';
+						$border_color_2         = 'border-gray-900/10';
+						$ring_color             = ' ring-1 ring-gray-900/10';
+						$text_color_primary     = 'text-gray-900';
+						$text_color_secondary   = 'text-gray-600';
 
 						?>
 						<section aria-labelledby="comparison-heading" class="hidden lg:block">
@@ -583,12 +596,11 @@ if ( 'is-style-dark' === $style ) {
 														<thead>
 															<tr class="text-left">
 																<?php
-																for ( $i = 0; $i < $total_col; $i++ ) :
+																for ( $i = 0; $i < $total_col + 1; $i++ ) :
 																	?>
 																	<th scope="col">
 																	</th>
 																<?php endfor; ?>
-																<th scope="col">
 															</tr>
 														</thead>
 														<tbody>
@@ -627,7 +639,7 @@ if ( 'is-style-dark' === $style ) {
 																								<span class="sr-only">No</span>
 																							<?php endif; ?>
 																						<?php else : ?>
-																							<span class="<?php echo esc_attr( $text_highlight_primary ); ?>"><?php echo esc_html( $custom ); ?></span>
+																							<span class="text-sm leading-6 li-text-<?php echo esc_attr( get_row_index() ); ?>"><?php echo esc_html( $custom ); ?></span>
 																						<?php endif; ?>
 																					</span>
 																				</td>

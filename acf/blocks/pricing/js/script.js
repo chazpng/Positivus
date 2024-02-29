@@ -20,12 +20,16 @@
 		$( '.header-border' ).each( function( index, element ) {
 			if ( $( element ).hasClass( 'border-indigo-600' ) ) {
 				$( '.body-border-' + index ).removeClass( 'ring-1 ring-gray-900/10' ).addClass( 'ring-2 ring-indigo-600' );
+				$( '.li-text-' + ( index + 1 ) ).removeClass( 'text-gray-600 font-normal' ).addClass( 'text-indigo-600 font-semibold' );
 			} else if ( $( element ).hasClass( 'border-indigo-500' ) && $( element ).hasClass( 'dark' ) ) {
 				$( '.body-border-' + index ).removeClass( 'ring-1 ring-gray-900/10' ).addClass( 'ring-1 ring-indigo-400' );
+				$( '.li-text-' + ( index + 1 ) ).removeClass( 'text-gray-300 font-normal' ).addClass( 'text-indigo-500 font-semibold' );
 			} else if ( $( element ).hasClass( 'dark' ) ) {
 				$( '.body-border-' + index ).removeClass( 'ring-2 ring-indigo-500' ).addClass( 'ring-1 ring-white/5' );
+				$( '.li-text-' + ( index + 1 ) ).removeClass( 'text-indigo-500 font-semibold' ).addClass( ' text-gray-300 font-normal' );
 			} else {
 				$( '.body-border-' + index ).removeClass( 'ring-2 ring-indigo-600' ).addClass( 'ring-1 ring-gray-900/10' );
+				$( '.li-text-' + ( index + 1 ) ).removeClass( 'text-indigo-600 font-semibold' ).addClass( 'text-gray-600 font-normal' );
 			}
 		} );
 	};
