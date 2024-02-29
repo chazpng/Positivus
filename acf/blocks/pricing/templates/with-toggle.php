@@ -9,6 +9,7 @@
 
 <?php
 $bg_color              = '';
+$bg_color_2            = 'bg-gray-50';
 $text_color_primary    = 'text-gray-900';
 $text_color_secondary  = 'text-gray-600';
 $text_color_label      = 'text-indigo-600';
@@ -23,7 +24,6 @@ $ring_color            = 'ring-gray-200';
 $price_button_color    = 'bg-indigo-600 hover:bg-indigo-500 focus-visible:outline-indigo-600';
 $card_class            = 'bg-white/60';
 $card_style            = '';
-
 
 
 if ( get_field( 'checkbox_field' ) ) {
@@ -255,18 +255,14 @@ if ( 'is-style-dark' === $style ) {
 						<?php
 						if ( $with_toggle_repeater ) :
 							$total_cards = count( $with_toggle_repeater );
+
+							if ( 3 === $total_cards ) {
+								$hidden = 'lg:block';
+							}
 							?>
 							<div class="cards card-<?php echo esc_attr( get_row_index() ); ?> relative mx-auto mt-10 grid max-w-md grid-cols-1 gap-y-8 lg:mx-0 lg:-mb-14 lg:max-w-none lg:grid-cols-<?php echo esc_html( $total_cards ); ?> hidden" id="<?php echo esc_attr( $subscription ); ?>">
-								<!-- show this part if the highlighted card is in the middle, else hide it. -->
-								<?php if ( 3 === $total_cards ) : ?>
-									<?php if ( 'is-style-light' === $style ) : ?>
-										<div class="hidden lg:absolute lg:inset-x-px lg:bottom-0 lg:top-4 lg:block lg:rounded-t-2xl lg:bg-gray-800/80 lg:ring-1 lg:ring-white/10 mb-14" aria-hidden="true"></div>
-									<?php endif; ?>
-									<?php if ( 'is-style-dark' === $style ) : ?>
-										<div class="hidden lg:absolute lg:inset-x-px lg:bottom-0 lg:top-4 lg:block lg:rounded-t-2xl lg:bg-white/60 lg:ring-1 lg:ring-white/10 mb-14" aria-hidden="true"></div>
-									<?php endif; ?>
-								<?php endif; ?>
-								<!-- show this part if the highlighted card is in the middle, else hide it. -->
+
+										<div class="hidden lg:absolute lg:inset-x-px lg:bottom-0 lg:top-4 <?php echo esc_attr( $total_cards ); ?> lg:rounded-t-2xl lg:bg-gray-800/80 lg:ring-1 lg:ring-white/10 mb-14" aria-hidden="true"></div>
 								<?php
 								while ( have_rows( 'with_toggle_repeater' ) ) :
 									the_row();
@@ -333,12 +329,10 @@ if ( 'is-style-dark' === $style ) {
 											<h3 id="tier-starter" class="text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $tier_price_title ); ?></h3>
 											<div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between lg:flex-col lg:items-stretch">
 												<div class="mt-2 flex items-center gap-x-4">
-													<!-- Price, update based on frequency toggle state -->
-													<p class="text-4xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?>">$15</p>
+													<p class="text-4xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $tier_price ); ?></p>
 													<div class="text-sm leading-5">
-														<p class="<?php echo esc_attr( $text_color_primary ); ?>">USD</p>
-														<!-- Payment frequency, update based on frequency toggle state -->
-														<p class="text-gray-400">Billed monthly</p>
+														<p class="<?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $tier_price_label ); ?></p>
+														<p class="text-gray-400"><?php echo esc_html( $tier_price_description ); ?></p>
 													</div>
 												</div>
 												<a href="#" aria-describedby="tier-starter" class="rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 <?php echo esc_attr( $button_color ); ?>">Buy this plan</a>
@@ -375,15 +369,14 @@ if ( 'is-style-dark' === $style ) {
 			</div>
 		</div>
 
-		<div class="relative <?php echo esc_attr( $bg_color ); ?> lg:pt-14">
+		<div class="relative <?php echo esc_attr( $bg_color_2 ); ?> lg:pt-14">
 			<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
 				<!-- Feature comparison (up to lg) -->
-				<!-- Repeater Starts Here -->
 				<?php if ( have_rows( 'toggle_comparison_mb_repeater' ) ) : ?>
 					<?php
 					while ( have_rows( 'toggle_comparison_mb_repeater' ) ) :
 						the_row();
-
+						$bg_color               = 'bg-white';
 						$feature_title          = get_sub_field( 'title' ) ?: 'Freelancer';
 						$feature_description    = get_sub_field( 'description' ) ?: 'Most popular';
 						$bg_color_2             = 'bg-gray-50';
@@ -393,11 +386,12 @@ if ( 'is-style-dark' === $style ) {
 						$border_color           = 'border-transparent';
 						$border_color_2         = 'border-gray-900/10';
 						$ring_color             = ' ring-1 ring-gray-900/10';
+						$text_color_primary     = 'text-gray-900';
+						$text_color_secondary   = 'text-gray-600';
 
 						if ( get_sub_field( 'checkbox_highlight' ) ) {
 							$card_ring              = 'ring-2 ring-indigo-600';
 							$text_highlight_primary = 'font-semibold text-indigo-600';
-							$text_color_primary     = 'text-gray-900';
 							$text_color_secondary   = 'text-gray-600';
 							$text_color_label       = 'text-indigo-600';
 							$label_bg_color         = 'bg-indigo-600 text-white';
@@ -414,6 +408,7 @@ if ( 'is-style-dark' === $style ) {
 							$text_highlight_primary = 'text-white';
 							$border_color           = 'border-transparent';
 							$ring_color             = ' ring-2 ring-white/10';
+							$text_color_primary     = 'text-gray-900';
 
 							if ( get_sub_field( 'checkbox_highlight' ) ) {
 								$card_ring              = 'ring-2 ring-indigo-400';
@@ -438,7 +433,6 @@ if ( 'is-style-dark' === $style ) {
 									</div>
 
 									<div class="mt-10 space-y-10">
-										<!--Another Repeater Starts Here -->
 										<?php if ( have_rows( 'cards_list' ) ) : ?>
 											<?php
 											while ( have_rows( 'cards_list' ) ) :
@@ -449,10 +443,9 @@ if ( 'is-style-dark' === $style ) {
 												<div>
 													<h4 class="text-sm font-semibold leading-6 <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $main_feature ); ?></h4>
 													<div class="relative mt-6">
-														<!-- Fake card background. Change  -->
-														<div aria-hidden="true" class="absolute inset-y-0 right-0 hidden w-1/2 rounded-lg <?php echo esc_attr( $bg_color_2 ); ?> shadow-sm sm:block"></div>
+														<div aria-hidden="true" class="absolute inset-y-0 right-0 hidden w-1/2 rounded-lg <?php echo esc_attr( $bg_color ); ?> shadow-sm sm:block"></div>
 
-														<div class="relative rounded-lg <?php echo esc_attr( $bg_color_2 ); ?> shadow-sm sm:rounded-none sm:bg-transparent sm:shadow-none sm:ring-0 <?php echo esc_attr( $ring_color ); ?>">
+														<div class="relative rounded-lg <?php echo esc_attr( $bg_color ); ?> shadow-sm sm:rounded-none sm:bg-transparent sm:shadow-none sm:ring-0 <?php echo esc_attr( $ring_color ); ?>">
 															<dl class="divide-y <?php echo esc_attr( $divide_color ); ?> text-sm leading-6">
 																<?php if ( have_rows( 'features' ) ) : ?>
 																	<?php
@@ -491,14 +484,12 @@ if ( 'is-style-dark' === $style ) {
 																<?php endif; ?>
 															</dl>
 														</div>
-														<!-- Fake card border -->
 														<div aria-hidden="true" class="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 rounded-lg sm:block <?php echo esc_attr( $ring_color ); ?>"></div>
 													</div>
 												</div>
 											<?php endwhile; ?>
 										<?php else : ?>
 										<?php endif; ?>
-										<!--Another Repeater Ends Here -->
 									</div>
 								</div>
 							</div>
@@ -517,8 +508,6 @@ if ( 'is-style-dark' === $style ) {
 						if ( $header ) {
 							$total_col = count( $header );
 						}
-
-
 
 						?>
 						<section aria-labelledby="comparison-heading" class="hidden lg:block">
@@ -586,7 +575,7 @@ if ( 'is-style-dark' === $style ) {
 														<?php
 														for ( $i = 0; $i < $total_col; $i++ ) :
 															?>
-															<div class="h-full w-full rounded-lg <?php echo esc_attr( $bg_color_2 ); ?> shadow-sm"></div>
+															<div class="h-full w-full rounded-lg <?php echo esc_attr( $bg_color ); ?> shadow-sm"></div>
 														<?php endfor; ?>
 													</div>
 
@@ -623,11 +612,11 @@ if ( 'is-style-dark' === $style ) {
 																				$main_feature = get_sub_field( 'title' ) ?: 'Main Feature';
 																				$custom       = get_sub_field( 'custom_text' ) ?: '25 Products';
 																				?>
-																				<td class="relative w-1/<?php echo esc_attr( $total_col + 1 ); ?> px-4 py-0 text-center"> <!-- Dynamic width -->
+																				<td class="relative w-1/<?php echo esc_attr( $total_col + 1 ); ?> px-4 py-0 text-center"> 
 																					<span class="relative h-full w-full py-3">
 																						<?php if ( get_sub_field( 'checkmark' ) ) : ?>
 																							<?php if ( get_sub_field( 'enabled' ) ) : ?>
-																								<svg class="mx-auto h-5 w-5 <?php echo esc_attr( $text_color_label ); ?>" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+																								<svg class="mx-auto h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 																									<path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
 																								</svg>
 																								<span class="sr-only">Yes</span>
@@ -651,8 +640,6 @@ if ( 'is-style-dark' === $style ) {
 															<?php endif; ?>
 														</tbody>
 													</table>
-
-													<!-- Fake card borders -->
 													<div class="pointer-events-none absolute inset-x-8 inset-y-0 grid grid-cols-<?php echo esc_attr( $total_col + 1 ); ?> gap-x-8 before:block" aria-hidden="true"> <!-- Dynamic grid cols -->
 														<?php
 														for ( $i = 0; $i < $total_col; $i++ ) :
@@ -665,7 +652,6 @@ if ( 'is-style-dark' === $style ) {
 										<?php endwhile; ?>
 									<?php else : ?>
 									<?php endif; ?>
-									<!-- Repeater Ends Here -->
 								</div>
 						</section>
 					<?php endwhile; ?>

@@ -215,7 +215,6 @@ $pricing
 		)
 	)
 	->conditional( 'pricing_style', '==', 'with-toggle' )
-	->and( 'with_toggle_type', '==', 'four-tiers-toggle' )
 	->addText( 'pricing_subscription' )
 	->addRepeater(
 		'with_toggle_repeater',
