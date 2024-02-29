@@ -67,10 +67,13 @@ $pricing
 	->addTextArea( 'description' )
 	->addText( 'price_title' )
 	->conditional( 'pricing_style', '==', 'without-tiers' )
+	->and( 'without_tiers_type', '==', 'simple' )
 	->addText( 'price_description' )
 	->conditional( 'pricing_style', '==', 'without-tiers' )
+	->and( 'without_tiers_type', '==', 'simple' )
 	->addText( 'price_list_title' )
 	->conditional( 'pricing_style', '==', 'without-tiers' )
+	->and( 'without_tiers_type', '==', 'simple' )
 	->addRepeater(
 		'price_features_list',
 		array(
@@ -79,6 +82,7 @@ $pricing
 		)
 	)
 	->conditional( 'pricing_style', '==', 'without-tiers' )
+	->and( 'without_tiers_type', '==', 'simple' )
 	->addText( 'price_features' )
 	->endRepeater()
 
@@ -90,6 +94,7 @@ $pricing
 		)
 	)
 	->conditional( 'pricing_style', '==', 'without-tiers' )
+	->and( 'without_tiers_type', '==', 'simple' )
 	->addText( 'price_label' )
 	->addText( 'price' )
 	->addText( 'price_button_text' )
@@ -131,7 +136,6 @@ $pricing
 		)
 	)
 	->conditional( 'with_tiers_type', '==', 'three-tiers' )
-	->or( 'with_tiers_type', '==', 'two-tiers-emp' )
 	->addCheckbox(
 		'checkbox_highlight',
 		array(
@@ -211,6 +215,7 @@ $pricing
 		)
 	)
 	->conditional( 'pricing_style', '==', 'with-toggle' )
+	->and( 'with_toggle_type', '==', 'four-tiers-toggle' )
 	->addText( 'pricing_subscription' )
 	->addRepeater(
 		'with_toggle_repeater',
@@ -266,6 +271,8 @@ $pricing
 			'max'    => '1',
 		)
 	)
+	->conditional( 'pricing_style', '==', 'without-tiers' )
+	->and( 'without_tiers_type', '==', 'comparison' )
 
 	->addRepeater(
 		'price_list_repeater',
@@ -346,6 +353,8 @@ $pricing
 			'layout' => 'block',
 		)
 	)
+	->conditional( 'pricing_style', '==', 'without-tiers' )
+	->and( 'without_tiers_type', '==', 'comparison' )
 	->addCheckbox(
 		'checkbox_highlight',
 		array(
@@ -456,7 +465,6 @@ $pricing
 		'toggle_comparison_mb_repeater',
 		array(
 			'layout' => 'block',
-			'label'  => 'Card',
 		)
 	)
 	->conditional( 'pricing_style', '==', 'with-toggle' )
