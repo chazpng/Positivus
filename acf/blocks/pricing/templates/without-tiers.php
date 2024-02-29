@@ -129,6 +129,11 @@ if ( 'is-style-dark' === $style ) {
 			<!-- lg+ -->
 			<div class="isolate mt-20 hidden lg:block">
 				<div class="relative -mx-8">
+					<div class="absolute inset-x-4 inset-y-0 -z-10 flex">
+						<div class="flex w-1/4 px-4" style="margin-left: 50%" aria-hidden="true">
+							<div class="w-full rounded-t-xl border-x border-t border-gray-900/10 bg-gray-400/5"></div>
+						</div>
+					</div> 
 					<table class="w-full table-fixed border-separate border-spacing-x-8 text-left">
 						<caption class="sr-only">
 							Pricing plan comparison
@@ -196,7 +201,7 @@ if ( 'is-style-dark' === $style ) {
 												the_row();
 												$product_price  = get_sub_field( 'tier_price' ) ?: '$9';
 												$product_date   = get_sub_field( 'tier_price_subscription' ) ?: '/month';
-												$product_button = get_sub_field( 'price_button_text' ) ?: 'hello';
+												$product_button = get_sub_field( 'price_button_text' ) ?: 'Buy plan';
 												?>
 												<td class="px-6 pt-2 xl:px-8">
 													<div class="flex items-baseline gap-x-1 <?php echo esc_attr( $text_color_primary ); ?>">
@@ -240,8 +245,9 @@ if ( 'is-style-dark' === $style ) {
 													$specs_name = get_sub_field( 'spec_name' ) ?: 'Feature Title';
 													?>
 													<tr>
-														<th scope="row" class="py-4 text-sm font-normal leading-6 <?php echo esc_attr( $text_color_primary ); ?> border-b-<?php echo esc_html( $divider_comparison_1 ); ?> border-b">
+														<th scope="row" class="py-4 text-sm font-normal leading-6 <?php echo esc_attr( $text_color_primary ); ?>">
 															<?php echo esc_html( $specs_name ); ?>
+															<div class="absolute inset-x-8 mt-4 h-px bg-<?php echo esc_html( $divider_comparison_1 ); ?>"></div>
 															<?php if ( have_rows( 'tier_specs' ) ) : ?>
 																<?php
 																while ( have_rows( 'tier_specs' ) ) :
@@ -363,7 +369,7 @@ if ( 'is-style-dark' === $style ) {
 									while ( have_rows( 'featured_list_repeater' ) ) :
 										the_row();
 										$features = get_sub_field( 'features' ) ?: 'Features';
-										$label    = get_sub_field( 'features_label' ) ?: '(Optional)';
+										$label    = get_sub_field( 'features_label' ) ?: '';
 
 										?>
 										<li>
