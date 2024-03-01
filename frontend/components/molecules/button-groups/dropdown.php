@@ -42,16 +42,17 @@ $btn_second_class = sprintf( '%s %s %s %s', $gl_bg_color, $gl_text_color, $defau
 $btn_class = 'relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10';
 
 if ( $gl_has_checkbox ) {
-	$btn_class = '-ml-px block w-full rounded-l-none rounded-r-none border-0 bg-white py-1.5 pl-3 pr-9 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 sm:text-sm sm:leading-6 font-semibold text-sm';
+	$btn_class = '-ml-px block w-full rounded-l-none rounded-r-none border-0 bg-white py-1.5 pl-3 pr-9 text-gray-900 ring-1 ring-inset ring-gray-300 sm:text-sm sm:leading-6 font-semibold text-sm';
 }
 ?>
 <div class="inline-flex rounded-md shadow-sm">
 	<?php if ( $gl_has_checkbox ) : ?>
 		<span class="inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2">
 			<label for="select-all" class="sr-only">Select all</label>
-			<input id="select-all" type="checkbox" name="select-all" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+			<input id="select-all" type="checkbox" name="select-all" class="h-4 w-4 rounded border-gray-300">
 		</span>
 	<?php endif; ?>
+
 	<button type="button" class="<?php echo esc_attr( $btn_class ); ?>">
 		<?php echo esc_html( $gl_btn_label ); ?>
 	</button>
