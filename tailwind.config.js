@@ -207,28 +207,6 @@ module.exports = {
       colors: {
         ...colors,
       },
-      fontSize: {
-        'fluid-1': 'clamp(20px, calc(1.48rem + 2.03vw), 60px)',
-        'fluid-2': 'clamp(3.27rem, calc(2.31rem + 4.79vw), 5.72rem)',
-        'main' : '36px',
-        '5xl' : '60px',
-      },
-      spacing: {
-        ...rem2px(defaultTheme.spacing),
-        '600': '600px',
-        '8xl': '96rem',
-        '9xl': '128rem',
-      },
-      margin: {
-        ...rem2px(defaultTheme.spacing),
-        '160px': '160px',
-      },
-      borderRadius: {
-        '4xl': '2rem',
-      },
-      minHeight: (theme) => ({
-        ...theme('spacing'),
-      }),
       flexBasis: {
         'unset': 'unset'
       }
