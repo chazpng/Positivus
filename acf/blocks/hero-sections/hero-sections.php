@@ -11,7 +11,7 @@ $align      = $block['align'];
 ?>
 
 
-<div class="gl-b-hero-section">
+<div class="gl-b-hero-section  overflow-hidden">
 	<?php if ( 'simple' === $hero_style ) : ?>
 		<?php require gl_get_custom_block_template( 'hero-sections', 'simple.php' ); ?>
 	<?php endif; ?>
