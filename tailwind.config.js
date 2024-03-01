@@ -74,6 +74,7 @@ module.exports = {
         'fluid-1': 'clamp(20px, calc(1.48rem + 2.03vw), 60px)',
         'fluid-2': 'clamp(3.27rem, calc(2.31rem + 4.79vw), 5.72rem)',
         'main' : '36px',
+        '5xl' : '60px',
       },
       spacing: {
         ...rem2px(defaultTheme.spacing),

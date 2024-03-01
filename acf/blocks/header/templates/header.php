@@ -13,6 +13,7 @@ $grid_align           = '';
 $container_size       = '';
 $header_class         = 'text-4xl font-bold tracking-tight text-white sm:text-6xl';
 $text_color_primary   = '';
+$text_color_label     = 'text-indigo-600';
 $text_color_secondary = '';
 $gradient_background  = '';
 $bg_color             = '';
@@ -39,6 +40,7 @@ if ( get_field( 'background_image' ) || 'is-style-dark' === $style ) {
 	$text_color_secondary = 'text-gray-300';
 	$gradient_background  = 'from-[#ff4694] to-[#776fff]';
 	$bg_color             = 'bg-gray-900';
+	$text_color_label     = 'text-indigo-500';
 }
 ?>
 <div class="<?php echo esc_attr( $bg_color ); ?> relative isolate overflow-hidden py-24 sm:py-32">
@@ -71,10 +73,10 @@ if ( get_field( 'background_image' ) || 'is-style-dark' === $style ) {
 		<div class="<?php echo esc_attr( $header_container ); ?>">
 
 			<?php if ( get_field( 'subtitle' ) ) : ?>
-				<p class="<?php echo esc_attr( $text_color_primary ); ?> text-base font-semibold leading-7"><?php the_field( 'subtitle' ); ?></p>
+				<p class="<?php echo esc_attr( $text_color_label ); ?> text-base font-semibold leading-7"><?php the_field( 'subtitle' ); ?></p>
 			<?php endif; ?>
 
-			<h2 class="<?php echo esc_attr( $text_color_primary ); ?> lg:text-fluid-desktop md:text-fluid-tablet text-fluid-mobile font-bold tracking-tight <?php echo esc_attr( $container_size ); ?>">
+			<h2 class="<?php echo esc_attr( $text_color_primary ); ?> text-5xl font-bold tracking-tight <?php echo esc_attr( $container_size ); ?>">
 				<?php echo esc_html( $header_title ); ?>
 			</h2>
 
