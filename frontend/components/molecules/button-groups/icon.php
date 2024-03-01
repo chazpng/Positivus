@@ -22,7 +22,7 @@ $btn_second_class = sprintf( '%s %s %s %s', $gl_bg_color, $gl_text_color, $defau
 ?>
 <span class="isolate inline-flex rounded-md shadow-sm">
 	<button type="button" class="<?php echo esc_attr( $btn_first_class ); ?>">
-		<a href="<?php echo esc_url( $gl_left_link ); ?>">
+		<a class="text-gray-400" href="<?php echo esc_url( $gl_left_link ); ?>">
 			<span class="sr-only">Previous</span>
 			<svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 				<path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
@@ -31,7 +31,7 @@ $btn_second_class = sprintf( '%s %s %s %s', $gl_bg_color, $gl_text_color, $defau
 	</button>
 
 	<button type="button" class="<?php echo esc_attr( $btn_second_class ); ?>">
-		<a href="<?php echo esc_url( $gl_right_link ); ?>">
+		<a class="text-gray-400" href="<?php echo esc_url( $gl_right_link ); ?>">
 			<span class="sr-only">Next</span>
 			<svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 				<path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
