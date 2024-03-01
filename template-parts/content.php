@@ -31,7 +31,7 @@
 
 	<?php greydientlab_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry-content max-w-screen-xl mx-auto">
 		<?php
 		the_content(
 			sprintf(

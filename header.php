@@ -51,8 +51,8 @@
 					array(
 						'theme_location' => 'menu-1',
 						'menu_id'        => 'primary-menu',
-						'menu_class'     => 'flex justify-between',
-						'add_li_class'   => 'mx-2',
+						'menu_class'     => 'flex justify-between px-12 gap-x-6',
+						'add_li_class'   => '',
 					)
 				);
 				?>

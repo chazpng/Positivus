@@ -12,7 +12,11 @@ $uniqid = uniqid();
 		<div class="flex">
 			<div class="grow">
 				<p class="screen-size"></p>
-				<p class="label"><span class="font-bold mr-2.5"><?php the_field('number_id');?></span><?php the_title(); ?> <?php the_field( 'label' ); ?></p>
+				<p class="label">
+				<?php 
+				if ( the_field( 'number_id' ) ) :
+					?>
+					<span class="font-bold mr-2.5"><?php the_field( 'number_id' ); ?></span><?php endif; ?><?php the_title(); ?> <?php the_field( 'label' ); ?></p>
 			</div>
 
 			<div class="flex items-center">
@@ -24,7 +28,7 @@ $uniqid = uniqid();
 			</div>
 		</div>
 
-		<div class="max-w-full resize-x overflow-auto m-auto" data-id="<?php echo esc_attr( $uniqid ); ?>">
+		<div class="max-w-full resize-x overflow-auto m-auto pt-5" data-id="<?php echo esc_attr( $uniqid ); ?>">
 			<iframe src="<?php the_field( 'page' ); ?>" frameborder="0" data-id="<?php echo esc_attr( $uniqid ); ?>"></iframe>
 		</div>
 	</div>
