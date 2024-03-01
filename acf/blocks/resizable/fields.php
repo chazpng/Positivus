@@ -13,6 +13,7 @@ $resizable = new StoutLogic\AcfBuilder\FieldsBuilder( 'resizable' );
 $resizable
 	->addPageLink( 'page' )
 	->addText( 'label' )
+	->addText( 'number_id' )
 	->setLocation( 'block', '==', 'acf/resizable' );
 
 return $resizable;
