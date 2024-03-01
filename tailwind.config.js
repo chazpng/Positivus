@@ -41,6 +41,7 @@ module.exports = {
 	],
 	mode: 'jit',
 	safelist: [
+    '-mx-3',
     'basis-full',
     'bg-blue-50',
     'bg-blue-100',
@@ -80,6 +81,8 @@ module.exports = {
     'bg-red-700',
     'bg-transparent',
     'bg-white',
+    'divide-gray-500/25',
+    'divide-gray-500/10',
     'bg-yellow-100',
     'fill-blue-500',
     'fill-green-500',
