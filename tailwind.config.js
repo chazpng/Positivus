@@ -59,9 +59,6 @@ module.exports = {
     'sm:ring-gray-900/10',
     'sm:ring-white/10',
     'lg:justify-normal',
-		{
-      pattern: /(bg|text|border|m|p|font|underline|hover|justify|space|h)-./
-    }
 	],
 	theme: {
 		fontFamily: {

@@ -12,11 +12,7 @@ $uniqid = uniqid();
 		<div class="flex">
 			<div class="grow">
 				<p class="screen-size"></p>
-				<p class="label">
-				<?php 
-				if ( the_field( 'number_id' ) ) :
-					?>
-					<span class="font-bold mr-2.5"><?php the_field( 'number_id' ); ?></span><?php endif; ?><?php the_title(); ?> <?php the_field( 'label' ); ?></p>
+				<p class="label"><span class="font-bold mr-2.5"><?php the_field( 'number_id' ); ?></span><?php the_title(); ?> <?php the_field( 'label' ); ?></p>
 			</div>
 
 			<div class="flex items-center">
