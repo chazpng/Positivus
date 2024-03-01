@@ -62,7 +62,7 @@
 
 		.light input[type="radio"] {
 
-			@apply mt-1 h-4 w-4 border-gray-700 border text-indigo-600 shadow-sm appearance-none rounded-full;
+			@apply mt-0 mb-[3px] h-4 w-4 border-gray-700 border text-indigo-600 shadow-sm appearance-none rounded-full mr-2.5 align-middle;
 		}
 
 		.light input[type="radio"]:checked {
@@ -72,7 +72,7 @@
 
 		.dark input[type="radio"] {
 
-			@apply mt-1 h-4 w-4 border-white text-indigo-400 shadow-sm appearance-none rounded-full;
+			@apply mt-0 mb-[3px] h-4 w-4 border-white text-indigo-400 shadow-sm appearance-none rounded-full mr-2.5 align-middle;
 		}
 
 		.dark input[type="radio"]:checked {
