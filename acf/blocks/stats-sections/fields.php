@@ -99,6 +99,7 @@ $stats
 			'label' => 'Stat',
 		)
 	)
+	->conditional( 'stats_style', '!=', 'stepped' )
 	->addDatePicker(
 		'event_date',
 		array(
@@ -114,10 +115,14 @@ $stats
 	->addRepeater(
 		'stepped_stats_1',
 		array(
-			'max'   => '1',
+			'max'   => '3',
 			'label' => 'Stat',
 		)
 	)
+	->addText( 'stat_value' )
+	->addText( 'stat_heading' )
+	->addTextarea( 'stat_description' )
+	->endRepeater()
 
 	->setLocation( 'block', '==', 'acf/stats' );
 
