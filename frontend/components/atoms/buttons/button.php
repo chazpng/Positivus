@@ -48,7 +48,7 @@ switch ( $gl_btn_size ) {
 	case 'btn-xl':
 		$btn_class .= $gl_is_rounded ? 'rounded-full' : 'rounded-md';
 		$btn_class .= $gl_is_rounded ? ' px-4 py-2.5' : ' px-3.5 py-2.5';
-		$btn_class .= ' px-3.5 py-2.5 text-sm';
+		$btn_class .= ' gap-x-2  px-3.5 py-2.5 text-sm';
 		break;
 
 	default:
@@ -87,12 +87,12 @@ if ( $gl_leading_icon || $gl_trailing_icon ) {
 ?>
 <button type="button" class="font-semibold shadow-sm mt-0 <?php echo esc_attr( $btn_class ); ?>">
 	<?php if ( $gl_leading_icon ) : ?>
-		<img width="20" height="20" src="<?php echo esc_url( $gl_leading_icon ); ?>" alt="icon">
+		<img class="-ml-0.5 h-5 w-5" width="20" height="20" src="<?php echo esc_url( $gl_leading_icon ); ?>" alt="icon">
 	<?php endif; ?>
 
 	<?php echo esc_html( $gl_btn_text ); ?>
 
 	<?php if ( $gl_trailing_icon ) : ?>
-		<img width="20" height="20" src="<?php echo esc_url( $gl_trailing_icon ); ?>" alt="icon">
+		<img class="-mr-0.5 h-5 w-5" width="20" height="20" src="<?php echo esc_url( $gl_trailing_icon ); ?>" alt="icon">
 	<?php endif; ?>
 </button>
