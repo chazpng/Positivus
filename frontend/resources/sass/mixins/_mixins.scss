@@ -511,6 +511,14 @@
 			.menu-image-title-hide.menu-image-title {
 				display: none;
 			}
+
+			img {
+				filter: brightness(1.4);
+			}
+
+			&:hover img {
+				filter: brightness(1);
+			}
 		}
 	}
 
@@ -526,6 +534,11 @@
 
 			a {
 				font-size: 0.875rem;
+				color: $gray-600;
+
+				&:hover {
+					color: $gray-900;
+				}
 			}
 		}
 	}
@@ -543,7 +556,11 @@
 		.footer-menu li {
 
 			a {
-				color: $white;
+				color: $gray-300;
+
+				&:hover {
+					color: $white;
+				}
 			}
 		}
 	}
