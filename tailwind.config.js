@@ -196,6 +196,11 @@ module.exports = {
     'text-red-700',
     'text-yellow-500',
     'text-yellow-800',
+    'space-y-4',
+    'sm:flex-row',
+    'sm:items-end',
+    'sm:justify-around',
+    'sm:space-y-0',
 	],
 	theme: {
 		fontFamily: {
