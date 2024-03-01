@@ -208,5 +208,4 @@ if ( 'testimonial' === get_field( 'with_form_type' ) ) :
 		</div>
 		<?php echo do_shortcode( get_field( 'shortcode' ) ); ?>
 	</div>
-
 <?php endif; ?>
