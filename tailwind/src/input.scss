@@ -16,7 +16,8 @@
 	h4,
 	h5,
 	h6 {
-		font-family: Inter, san-serif; /* stylelint-disable-line */
+		font-family: "Inter var", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+		font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 		font-weight: 600;
 		line-height: 1;
 	}
