@@ -136,6 +136,7 @@ module.exports = {
     'ring-red-600/10',
     'ring-yellow-400/20',
     'ring-yellow-600/20',
+    'rounded-full',
     'sm:ring-1',
     'sm:ring-gray-900/10',
     'sm:ring-violet-600/75',

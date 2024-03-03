@@ -84,15 +84,47 @@ if ( $gl_leading_icon || $gl_trailing_icon ) {
 	$btn_class .= ' inline-flex items-center gap-x-1.5';
 }
 
+if ( 'btn-circular' === $gl_btn_type ) {
+
+	switch ( $gl_btn_size ) {
+		case 'btn-md':
+			$btn_class = 'p-1';
+			break;
+
+		case 'btn-lg':
+			$btn_class = 'p-1.5';
+			break;
+
+		case 'btn-xl':
+			$btn_class = 'p-2';
+			break;
+
+		default:
+			break;
+	}
+}
+
 ?>
-<button type="button" class="font-semibold shadow-sm mt-0 <?php echo esc_attr( $btn_class ); ?>">
-	<?php if ( $gl_leading_icon ) : ?>
-		<img class="-ml-0.5 h-5 w-5" width="20" height="20" src="<?php echo esc_url( $gl_leading_icon ); ?>" alt="icon">
-	<?php endif; ?>
+<?php if ( 'btn-circular' === $gl_btn_type ) : ?>
+	<button type="button" class="rounded-full bg-indigo-600 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 <?php echo esc_attr( $btn_class ); ?>">
+		<?php if ( $gl_leading_icon ) : ?>
+			<img class="h-5 w-5" src="<?php echo esc_url( $gl_leading_icon ); ?>" alt="icon">
+		<?php endif; ?>
 
-	<?php echo esc_html( $gl_btn_text ); ?>
+		<?php if ( $gl_trailing_icon ) : ?>
+			<img class="h-5 w-5" src="<?php echo esc_url( $gl_trailing_icon ); ?>" alt="icon">
+		<?php endif; ?>
+	</button>
+<?php else : ?>
+	<button type="button" class="font-semibold shadow-sm mt-0 <?php echo esc_attr( $btn_class ); ?>">
+		<?php if ( $gl_leading_icon ) : ?>
+			<img class="-ml-0.5 h-5 w-5" width="20" height="20" src="<?php echo esc_url( $gl_leading_icon ); ?>" alt="icon">
+		<?php endif; ?>
 
-	<?php if ( $gl_trailing_icon ) : ?>
-		<img class="-mr-0.5 h-5 w-5" width="20" height="20" src="<?php echo esc_url( $gl_trailing_icon ); ?>" alt="icon">
-	<?php endif; ?>
-</button>
+		<?php echo esc_html( $gl_btn_text ); ?>
+
+		<?php if ( $gl_trailing_icon ) : ?>
+			<img class="-mr-0.5 h-5 w-5" width="20" height="20" src="<?php echo esc_url( $gl_trailing_icon ); ?>" alt="icon">
+		<?php endif; ?>
+	</button>
+<?php endif; ?>
