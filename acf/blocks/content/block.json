@@ -1,0 +1,22 @@
+{
+	"name": "acf/content",
+	"title": "Content Sections",
+	"description": "Content Sections Block",
+	"style": [ "file:./css/style.min.css" ],
+	"script": "",
+	"category": "gl-blocks",
+	"icon": "block-default",
+	"keywords": ["content"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "content.php",
+		"supports": "jsx"
+	},
+	"supports": {
+		"jsx": false
+	},
+	"styles": [
+		{ "name": "light", "label": "light", "isDefault": true },
+		{ "name": "dark", "label": "dark" }
+	  ]
+}
