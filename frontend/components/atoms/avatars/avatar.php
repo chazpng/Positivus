@@ -13,7 +13,7 @@
 
 $gl_avatar_size  = $args['gl_avatar_size'] ?? 'avatar-sm';
 $gl_avatar_shape = $args['gl_avatar_shape'] ?? 'rounded-full';
-$gl_avatar_url   = $args['gl_avatar_url'] ?? get_template_directory_uri() . '/frontend/components/atoms/avatars/images/placeholder.png';
+$gl_avatar_url   = $args['gl_avatar_url'] ?? get_template_directory_uri() . '/frontend/components/atoms/avatars/images/placeholder.svg';
 
 $gl_stacked_order = $args['gl_stacked_order'] ?? 'top';
 
@@ -32,35 +32,49 @@ $gl_notification_class    = $gl_notification_color;
 
 $gl_avatar_class = $gl_avatar_shape;
 
+$gl_stacked_avatar_class = '-space-x-1';
+
 switch ( $gl_avatar_size ) {
 	case 'avatar-xs':
-		$gl_avatar_class       .= ' h-6 w-6';
-		$gl_notification_class .= ' h-1.5 w-1.5';
-		$gl_avatar_intials_size = 'text-xs';
+		$gl_avatar_class        .= ' h-6 w-6';
+		$gl_notification_class  .= ' h-1.5 w-1.5';
+		$gl_avatar_intials_size  = 'text-xs';
+		$gl_stacked_avatar_class = '-space-x-1';
 		break;
 
 	case 'avatar-sm':
-		$gl_avatar_class       .= ' h-8 w-8';
-		$gl_notification_class .= ' h-2 w-2';
-		$gl_avatar_intials_size = 'text-sm';
+		$gl_avatar_class        .= ' h-8 w-8';
+		$gl_notification_class  .= ' h-2 w-2';
+		$gl_avatar_intials_size  = 'text-sm';
+		$gl_stacked_avatar_class = '-space-x-2';
 		break;
 
 	case 'avatar-md':
-		$gl_avatar_class       .= ' h-10 w-10';
-		$gl_notification_class .= ' h-2.5 w-2.5';
-		$gl_avatar_intials_size = '';
+		$gl_avatar_class        .= ' h-10 w-10';
+		$gl_notification_class  .= ' h-2.5 w-2.5';
+		$gl_avatar_intials_size  = '';
+		$gl_stacked_avatar_class = '-space-x-2';
 		break;
 
 	case 'avatar-lg':
-		$gl_avatar_class       .= ' h-12 w-12';
-		$gl_notification_class .= ' h-3 w-3';
-		$gl_avatar_intials_size = 'text-lg';
+		$gl_avatar_class        .= ' h-12 w-12';
+		$gl_notification_class  .= ' h-3 w-3';
+		$gl_avatar_intials_size  = 'text-lg';
+		$gl_stacked_avatar_class = '-space-x-2';
 		break;
 
 	case 'avatar-xl':
-		$gl_avatar_class       .= ' h-14 w-14';
-		$gl_notification_class .= ' h-3.5 w-3.5';
-		$gl_avatar_intials_size = 'text-xl';
+		$gl_avatar_class        .= ' h-14 w-14';
+		$gl_notification_class  .= ' h-3.5 w-3.5';
+		$gl_avatar_intials_size  = 'text-xl';
+		$gl_stacked_avatar_class = '-space-x-2';
+		break;
+
+	case 'avatar-2xl':
+		$gl_avatar_class        .= ' h-16 w-16';
+		$gl_notification_class  .= ' h-4 w-4';
+		$gl_avatar_intials_size  = 'text-2xl';
+		$gl_stacked_avatar_class = '-space-x-2';
 		break;
 
 	default:
@@ -116,7 +130,7 @@ if ( $gl_avatar_intials ) {
 <?php else : ?>
 	<!-- Stacked Avatars -->
 	<?php if ( is_array( $gl_avatar_url ) ) : ?>
-		<div class="isolate flex -space-x-1 overflow-hidden">
+		<div class="isolate flex overflow-hidden <?php echo esc_attr( $gl_stacked_avatar_class ); ?>">
 			<?php
 			$total = count( $gl_avatar_url );
 			foreach ( $gl_avatar_url as $url ) :
@@ -143,7 +157,7 @@ if ( $gl_avatar_intials ) {
 				</span>
 			<?php else : ?>
 				<img
-					class="<?php echo esc_attr( $gl_avatar_class ); ?>"
+					class="bg-gray-100 <?php echo esc_attr( $gl_avatar_class ); ?>"
 					src="<?php echo esc_url( $gl_avatar_url ); ?>"
 					alt="Avatar"
 				>

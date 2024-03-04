@@ -30,7 +30,7 @@ $dummy = [
 	],
 ];
 
-$gl_dropdown_label = $args['gl_dropdown_label'] ?? 'Option';
+$gl_dropdown_label = $args['gl_dropdown_label'] ?? 'Options';
 $gl_dropdown_items = $args['gl_dropdown_items'] ?? $dummy;
 $gl_is_minimal     = $args['gl_is_minimal'] ?? false;
 
@@ -89,7 +89,7 @@ $gl_custom_html_dropdown = $args['gl_custom_html_dropdown'] ?? false;
 			<?php foreach ( $gl_dropdown_items as $value ) : ?>
 				<a
 					href="<?php echo esc_attr( $value['link'] ); ?>"
-					class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 group flex items-center"
+					class="hover:bg-gray-100 hover:text-gray-900 text-gray-700 px-4 py-2 text-sm group flex items-center"
 					role="menuitem"
 					tabindex="-1"
 					@click="open = !open"
