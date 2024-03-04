@@ -15,9 +15,9 @@ $text_color_primary   = 'text-gray-900';
 $text_color_secondary = 'text-gray-600';
 $text_color_label     = 'text-indigo-600';
 $text_color_caption   = 'text-gray-700';
-$main_label           = get_field( 'eyebrow_text' ) ?: 'Testimonials';
-$main_title           = get_field( 'title' ) ?: 'We have worked with thousands of amazing people';
-$main_description     = get_field( 'description' ) ?: 'We have worked with thousands of amazing people';
+$main_label           = get_field( 'eyebrow_text' ) ?: 'Deploy Faster';
+$main_title           = get_field( 'title' ) ?: 'A better workflow';
+$main_description     = get_field( 'description' ) ?: 'Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget. Eleifend egestas fringilla sapien.';
 $stroke_color         = 'stroke-gray-200';
 $stroke_color_2       = 'stroke-gray-900/10';
 $bg_fill              = 'fill-gray-50';
@@ -49,8 +49,8 @@ if ( 'is-style-dark' === $style ) {
 			<h1 class="mt-2 text-3xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> sm:text-4xl"><?php echo esc_html( $main_title ); ?></h1>
 			<p class="mt-6 text-xl leading-8 <?php echo esc_attr( $text_color_caption ); ?>"><?php echo esc_html( $main_description ); ?></p>
 		</div>
-		<div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:mt-10 lg:max-w-none lg:grid-cols-12">
-			<div class="relative lg:order-last lg:col-span-5">
+		<div class="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:mt-2 lg:max-w-none lg:grid-cols-12">
+			<div class="relative lg:order-last lg:col-span-5 mt-16 lg:mt-10">
 				<svg class="absolute -top-[40rem] left-1 -z-10 h-[64rem] w-[175.5rem] -translate-x-1/2 <?php echo esc_attr( $stroke_color_2 ); ?> [mask-image:radial-gradient(64rem_64rem_at_111.5rem_0%,white,transparent)]" aria-hidden="true">
 					<defs>
 						<pattern id="e87443c8-56e4-4c20-9111-55b82fa704e3" width="200" height="200" patternUnits="userSpaceOnUse">

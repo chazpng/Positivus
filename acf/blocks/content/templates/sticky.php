@@ -15,9 +15,9 @@ $text_color_primary   = 'text-gray-900';
 $text_color_secondary = 'text-gray-600';
 $text_color_label     = 'text-indigo-600';
 $text_color_caption   = 'text-gray-700';
-$main_label           = get_field( 'eyebrow_text' ) ?: 'Testimonials';
-$main_title           = get_field( 'title' ) ?: 'We have worked with thousands of amazing people';
-$main_description     = get_field( 'description' ) ?: 'We have worked with thousands of amazing people';
+$main_label           = get_field( 'eyebrow_text' ) ?: 'Deploy Faster';
+$main_title           = get_field( 'title' ) ?: 'A better workflow';
+$main_description     = get_field( 'description' ) ?: 'Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget. Eleifend egestas fringilla sapien.';
 $stroke_color         = 'stroke-gray-200';
 $bg_fill              = 'fill-gray-50';
 
@@ -47,7 +47,7 @@ if ( 'is-style-dark' === $style ) {
 			<rect width="100%" height="100%" stroke-width="0" fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)" />
 		</svg>
 	</div>
-	<div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+	<div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-0">
 		<div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
 			<div class="lg:pr-4">
 				<div class="lg:max-w-lg">
