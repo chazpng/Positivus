@@ -22,16 +22,85 @@ $testimonial = new StoutLogic\AcfBuilder\FieldsBuilder( 'testimonial' );
 			array( 'simple' => 'Simple' ),
 			array( 'large_avatar' => 'Large Avatar' ),
 			array( 'overlapping_image' => 'Overlapping' ),
-			array( 'background_image' => 'With Background Image' )
+			array( 'background_image' => 'With Background Image' ),
+			array( 'side' => 'Side-by-side' ),
+			array( 'offwhite' => 'Off-white grid' ),
+			array( 'stars' => 'With star rating' )
+		)
+
+		->addNumber(
+			'stars', 
+			array(
+				'label'         => 'How many stars?',
+				'default_value' => '1',
+				'max'           => '5',
+			)
+		)
+		->addImage(
+			'star_image',
+			array(
+				'preview_size'  => 'medium',
+				'return_format' => 'id',
+			)
 		)
 		
 		->addImage( 'background_image' )
 			->conditional( 'testimonial_style', '==', 'background_image' )
 		->addImage( 'company_logo' )
+		->conditional( 'testimonial_style', '!=', 'side' )
+		->and( 'testimonial_style', '!=', 'offwhite' )
+		->and( 'testimonial_style', '!=', 'stars' )
+		->addText( 'quote' )
+		->conditional( 'testimonial_style', '!=', 'side' )
+		->and( 'testimonial_style', '!=', 'offwhite' )
+		->addText( 'quotee' )
+		->conditional( 'testimonial_style', '!=', 'side' )
+		->and( 'testimonial_style', '!=', 'offwhite' )
+		->addImage( 'avatar' )
+		->conditional( 'testimonial_style', '!=', 'side' )
+		->and( 'testimonial_style', '!=', 'offwhite' )
+		->addText( 'position' )
+		->conditional( 'testimonial_style', '!=', 'side' )
+		->and( 'testimonial_style', '!=', 'offwhite' )
+
+		->addText( 'eyebrow_text' )
+		->conditional( 'testimonial_style', '==', 'offwhite' )
+		->addText( 'title' )
+		->conditional( 'testimonial_style', '==', 'offwhite' )
+
+
+		->addRepeater(
+			'testimonial_repeater',
+			array(
+				'label' => 'Qoute',
+			)
+		)
+		->conditional( 'testimonial_style', '==', 'side' )
+		->or( 'testimonial_style', '==', 'offwhite' )
+		->addImage(
+			'company_logo',
+			array(
+				'preview_size'  => 'medium',
+				'return_format' => 'id',
+			)
+		)
+		->conditional( 'testimonial_style', '==', 'side' )
 		->addText( 'quote' )
 		->addText( 'quotee' )
-		->addImage( 'avatar' )
+		->addImage(
+			'avatar',
+			array(
+				'preview_size'  => 'medium',
+				'return_format' => 'id',
+			)
+		)
 		->addText( 'position' )
+		->conditional( 'testimonial_style', '==', 'side' )
+		->addText( 'social_name' )
+		->conditional( 'testimonial_style', '==', 'side' )
+		->endRepeater()
+
+
 
 	->setLocation( 'block', '==', 'acf/testimonials' );
 

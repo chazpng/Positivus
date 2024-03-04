@@ -21,4 +21,13 @@ $testimonial_style = get_field( 'testimonial_style' );
 	<?php if ( 'background_image' === $testimonial_style ) : ?>
 		<?php require gl_get_custom_block_template( 'testimonials', 'bg-image.php' ); ?>
 	<?php endif; ?>
+	<?php if ( 'side' === $testimonial_style ) : ?>
+		<?php require gl_get_custom_block_template( 'testimonials', 'side.php' ); ?>
+	<?php endif; ?>
+	<?php if ( 'offwhite' === $testimonial_style ) : ?>
+		<?php require gl_get_custom_block_template( 'testimonials', 'offwhite.php' ); ?>
+	<?php endif; ?>
+	<?php if ( 'stars' === $testimonial_style ) : ?>
+		<?php require gl_get_custom_block_template( 'testimonials', 'stars.php' ); ?>
+	<?php endif; ?>
 </div>
