@@ -205,6 +205,7 @@ module.exports = {
     'sm:justify-around',
     'sm:space-y-0',
     'min-h-[256px]',
+    'min-h-[360px]',
 	],
 	theme: {
 		fontFamily: {
