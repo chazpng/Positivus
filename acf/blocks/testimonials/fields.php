@@ -25,7 +25,8 @@ $testimonial = new StoutLogic\AcfBuilder\FieldsBuilder( 'testimonial' );
 			array( 'background_image' => 'With Background Image' ),
 			array( 'side' => 'Side-by-side' ),
 			array( 'offwhite' => 'Off-white grid' ),
-			array( 'stars' => 'With star rating' )
+			array( 'stars' => 'With star rating' ),
+			array( 'grid' => 'Grid' )
 		)
 
 		->addNumber(
@@ -36,6 +37,7 @@ $testimonial = new StoutLogic\AcfBuilder\FieldsBuilder( 'testimonial' );
 				'max'           => '5',
 			)
 		)
+			->conditional( 'testimonial_style', '==', 'stars' )
 		->addImage(
 			'star_image',
 			array(
@@ -43,30 +45,44 @@ $testimonial = new StoutLogic\AcfBuilder\FieldsBuilder( 'testimonial' );
 				'return_format' => 'id',
 			)
 		)
+		->conditional( 'testimonial_style', '==', 'stars' )
 		
+		->addText( 'eyebrow_text' )
+			->conditional( 'testimonial_style', '==', 'offwhite' )
+		->or( 'testimonial_style', '==', 'grid' )
+
+		->addText( 'title' )
+			->conditional( 'testimonial_style', '==', 'offwhite' )
+		->or( 'testimonial_style', '==', 'grid' )
+
 		->addImage( 'background_image' )
 			->conditional( 'testimonial_style', '==', 'background_image' )
+
 		->addImage( 'company_logo' )
-		->conditional( 'testimonial_style', '!=', 'side' )
-		->and( 'testimonial_style', '!=', 'offwhite' )
-		->and( 'testimonial_style', '!=', 'stars' )
+			->conditional( 'testimonial_style', '!=', 'side' )
+			->and( 'testimonial_style', '!=', 'offwhite' )
+			->and( 'testimonial_style', '!=', 'stars' )
+	
 		->addText( 'quote' )
-		->conditional( 'testimonial_style', '!=', 'side' )
-		->and( 'testimonial_style', '!=', 'offwhite' )
+			->conditional( 'testimonial_style', '!=', 'side' )
+			->and( 'testimonial_style', '!=', 'offwhite' )
+	
 		->addText( 'quotee' )
-		->conditional( 'testimonial_style', '!=', 'side' )
-		->and( 'testimonial_style', '!=', 'offwhite' )
+			->conditional( 'testimonial_style', '!=', 'side' )
+			->and( 'testimonial_style', '!=', 'offwhite' )
+	
 		->addImage( 'avatar' )
-		->conditional( 'testimonial_style', '!=', 'side' )
-		->and( 'testimonial_style', '!=', 'offwhite' )
+			->conditional( 'testimonial_style', '!=', 'side' )
+			->and( 'testimonial_style', '!=', 'offwhite' )
+	
 		->addText( 'position' )
 		->conditional( 'testimonial_style', '!=', 'side' )
-		->and( 'testimonial_style', '!=', 'offwhite' )
+			->and( 'testimonial_style', '!=', 'offwhite' )
+			->and( 'testimonial_style', '!=', 'grid' )
 
-		->addText( 'eyebrow_text' )
-		->conditional( 'testimonial_style', '==', 'offwhite' )
-		->addText( 'title' )
-		->conditional( 'testimonial_style', '==', 'offwhite' )
+		->addText( 'social_name' )
+			->conditional( 'testimonial_style', '==', 'grid' )
+
 
 
 		->addRepeater(
@@ -75,8 +91,8 @@ $testimonial = new StoutLogic\AcfBuilder\FieldsBuilder( 'testimonial' );
 				'label' => 'Qoute',
 			)
 		)
-		->conditional( 'testimonial_style', '==', 'side' )
-		->or( 'testimonial_style', '==', 'offwhite' )
+			->conditional( 'testimonial_style', '==', 'side' )
+			->or( 'testimonial_style', '==', 'offwhite' )
 		->addImage(
 			'company_logo',
 			array(
@@ -84,7 +100,7 @@ $testimonial = new StoutLogic\AcfBuilder\FieldsBuilder( 'testimonial' );
 				'return_format' => 'id',
 			)
 		)
-		->conditional( 'testimonial_style', '==', 'side' )
+			->conditional( 'testimonial_style', '==', 'side' )
 		->addText( 'quote' )
 		->addText( 'quotee' )
 		->addImage(
@@ -95,9 +111,85 @@ $testimonial = new StoutLogic\AcfBuilder\FieldsBuilder( 'testimonial' );
 			)
 		)
 		->addText( 'position' )
-		->conditional( 'testimonial_style', '==', 'side' )
+			->conditional( 'testimonial_style', '==', 'side' )
 		->addText( 'social_name' )
-		->conditional( 'testimonial_style', '==', 'side' )
+			->conditional( 'testimonial_style', '!=', 'side' )
+		->endRepeater()
+
+		->addRepeater(
+			'testimonial_left_repeater',
+			array(
+				'label' => 'Left Repeater',
+			)
+		)
+			->conditional( 'testimonial_style', '==', 'grid' )
+		->addText( 'quote' )
+		->addText( 'quotee' )
+		->addImage(
+			'avatar',
+			array(
+				'preview_size'  => 'medium',
+				'return_format' => 'id',
+			)
+		)
+		->addText( 'social_name' )
+		->endRepeater()
+
+		->addRepeater(
+			'testimonial_right_repeater',
+			array(
+				'label' => 'Right Repeater',
+			)
+		)
+			->conditional( 'testimonial_style', '==', 'grid' )
+		->addText( 'quote' )
+		->addText( 'quotee' )
+		->addImage(
+			'avatar',
+			array(
+				'preview_size'  => 'medium',
+				'return_format' => 'id',
+			)
+		)
+		->addText( 'social_name' )
+		->endRepeater()
+
+		->addRepeater(
+			'testimonial_middle_right_repeater',
+			array(
+				'label' => 'Middle Right Repeater',
+			)
+		)
+			->conditional( 'testimonial_style', '==', 'grid' )
+		->addText( 'quote' )
+		->addText( 'quotee' )
+		->addImage(
+			'avatar',
+			array(
+				'preview_size'  => 'medium',
+				'return_format' => 'id',
+			)
+		)
+		->addText( 'social_name' )
+		->endRepeater()
+
+		->addRepeater(
+			'testimonial_middle_left_repeater',
+			array(
+				'label' => 'Middle Left Repeater',
+			)
+		)
+			->conditional( 'testimonial_style', '==', 'grid' )
+		->addText( 'quote' )
+		->addText( 'quotee' )
+		->addImage(
+			'avatar',
+			array(
+				'preview_size'  => 'medium',
+				'return_format' => 'id',
+			)
+		)
+		->addText( 'social_name' )
 		->endRepeater()
 
 

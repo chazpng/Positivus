@@ -30,4 +30,7 @@ $testimonial_style = get_field( 'testimonial_style' );
 	<?php if ( 'stars' === $testimonial_style ) : ?>
 		<?php require gl_get_custom_block_template( 'testimonials', 'stars.php' ); ?>
 	<?php endif; ?>
+	<?php if ( 'grid' === $testimonial_style ) : ?>
+		<?php require gl_get_custom_block_template( 'testimonials', 'grid.php' ); ?>
+	<?php endif; ?>
 </div>
