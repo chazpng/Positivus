@@ -1,0 +1,23 @@
+{
+    "name": "acf/blog",
+    "title": "Blog Sections",
+    "description": "Blog Sections block.",
+    "style": [ "file:./css/style.min.css" ],
+    "script": "blog",
+    "category": "gl-blocks",
+    "icon": "block-default",
+    "keywords": ["blog"],
+    "acf": {
+      "mode": "preview",
+      "renderTemplate": "blog.php",
+      "supports": "jsx"
+    },
+    "supports": {
+      "jsx": false
+    },
+    "styles": [
+      { "name": "light", "label": "light", "isDefault": true },
+      { "name": "dark", "label": "dark" }
+    ]
+  }
+  
