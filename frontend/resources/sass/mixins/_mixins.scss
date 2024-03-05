@@ -32,9 +32,14 @@
 				display: flex;
 			}
 
-			&.menu-item img {
-				width: 25px;
-				padding: 0;
+			&.menu-item {
+				font-weight: 600;
+				font-size: 0.875rem;
+
+				img {
+					width: 25px;
+					padding: 0;
+				}
 			}
 
 			&.small-sub-menu .sub-menu {
@@ -97,6 +102,7 @@
 					color: rgb(75 85 99 / var(--tw-text-opacity));
 					margin-top: 0.25rem;
 					display: block;
+					font-weight: 400;
 				}
 
 				&.footer {

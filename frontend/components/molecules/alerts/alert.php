@@ -61,7 +61,7 @@ if ( $gl_border_color ) {
 
 			<div class="ml-3 <?php echo esc_attr( $gl_link_right_class ); ?>">
 				<?php if ( $gl_title ) : ?>
-					<h3 class="text-sm !m-0 <?php echo esc_attr( $title_class ); ?>">
+					<h3 class="text-sm font-medium <?php echo esc_attr( $title_class ); ?>">
 						<?php echo esc_html( $gl_title ); ?>
 					</h3>
 				<?php endif; ?>
