@@ -10,31 +10,51 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main ">
+<main id="primary" class="site-main ">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+	<div class="single-article-container">
+		<div class="entry-content">
+			<?php
+			$blocks       = parse_blocks( $post->post_content );
+			$block_length = count( $blocks );
+			$count        = 1;
+			$loop_count   = 1;
+			?>
 
-			get_template_part( 'template-parts/content', get_post_type() );
+			<?php foreach ( $blocks as $block ) : ?>
+				<?php if ( 2 === $count ) : ?>
+					<div class="container mx-auto py-16">
+						<div class="grid lg:grid-cols-12 mx-auto lg:gap-x-8 ">
+							<div class="hidden lg:block lg:col-span-3  relative">
+								<div class="table-wrapper sticky top-10 px-4 py-6 bg-gray-100/50 rounded-md text-lg">
+								<p class="label text-lg font-semibold">Table of contents</p>
+								<ul class="text-gray-600 gap-y-2 flex flex-col text-base mt-6">
+									<li><a href="#">Animation easing</a></li>
+									<li><a href="#">Colour guidelines</a></li>
+									<li><a href="#">Fluid typography</a></li>
+									<li><a href="#">Other resources</a></li>
+									<li><a href="#">Other resources</a></li>
+									<li><a href="#">Conclusion</a></li>
+								</ul>
+								</div>
+							</div>
+							<div class="lg:col-span-9 post-content">
+							<?php endif ?>
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'greydientlab' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'greydientlab' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
+							<?php echo wp_kses_post( render_block( $block ) ); ?>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+							<?php if ( $count >= $block_length ) : ?>
+							</div>
+						</div>
+					</div>
+				<?php endif ?>
 
-		endwhile; // End of the loop.
-		?>
-
-	</main><!-- #main -->
-
+				<?php $count++; ?>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</main><!-- #main -->
+</div>
 <?php
 get_sidebar();
 get_footer();

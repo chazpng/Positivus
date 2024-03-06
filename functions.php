@@ -470,7 +470,7 @@ add_filter( 'tiny_mce_before_init', 'gl_remove_acf_preformatting' );
  */
 function gl_allow_acf_blocks_starting_with_acf( $allowed_blocks ) {
 	// Disable all native blocks.
-	$allowed_blocks = array( 'core/paragraph' );
+	$allowed_blocks = array( 'core/paragraph', 'core/heading', 'core/image' );
 
 	// Get all ACF blocks and add them to the allowed blocks list.
 	$acf_blocks = WP_Block_Type_Registry::get_instance()->get_all_registered();
