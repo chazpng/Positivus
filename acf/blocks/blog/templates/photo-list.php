@@ -1,93 +1,518 @@
-<?php
-/**
- * Single Column Template.
- *
- * @package circles_x
- */
+<footer class="bg-white" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">Footer</h2>
+    <div class="mx-auto max-w-7xl px-6 pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32">
+        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+            <div class="grid grid-cols-2 gap-8 xl:col-span-2">
+                <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold leading-6 text-gray-900">Solutions</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'solutions',
+                                'menu_id'        => 'solutions-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
 
-?>
-<div class="bg-white py-32">
-	<div class="mx-auto max-w-7xl px-6 lg:px-8">
-		<div class="mx-auto flex max-w-2xl flex-col items-end justify-between gap-16 lg:mx-0 lg:max-w-none lg:flex-row">
-			<div class="w-full lg:max-w-lg lg:flex-auto">
-				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Were always looking for awesome people to join us</h2>
-				<p class="mt-6 text-xl leading-8 text-gray-600">Diam nunc lacus lacus aliquam turpis enim. Eget hac velit est euismod lacus. Est non placerat nam arcu. Cras purus nibh cursus sit eu in id.</p>
-				<img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1344&h=1104&q=80" alt="" class="mt-16 aspect-[6/5] w-full rounded-2xl bg-gray-50 object-cover lg:aspect-auto lg:h-[34.5rem]">
-			</div>
-			<div class="w-full lg:max-w-xl lg:flex-auto">
-				<h3 class="sr-only">Job openings</h3>
-				<ul class="-my-8 divide-y divide-gray-100">
-					<li class="py-8">
-						<dl class="relative flex flex-wrap gap-x-3">
-							<dt class="sr-only">Role</dt>
-							<dd class="w-full flex-none text-lg font-semibold tracking-tight text-gray-900">
-								<a href="#">
-									Full-time designer
-									<span class="absolute inset-0" aria-hidden="true"></span>
-								</a>
-							</dd>
-							<dt class="sr-only">Description</dt>
-							<dd class="mt-2 w-full flex-none text-base leading-7 text-gray-600">Quos sunt ad dolore ullam qui. Enim et quisquam dicta molestias. Corrupti quo voluptatum eligendi autem labore.</dd>
-							<dt class="sr-only">Salary</dt>
-							<dd class="mt-4 text-base font-semibold leading-7 text-gray-900">$75,000 USD</dd>
-							<dt class="sr-only">Location</dt>
-							<dd class="mt-4 flex items-center gap-x-3 text-base leading-7 text-gray-500">
-								<svg viewBox="0 0 2 2" class="h-0.5 w-0.5 flex-none fill-gray-300" aria-hidden="true">
-									<circle cx="1" cy="1" r="1" />
-								</svg>
-								San Francisco, CA
-							</dd>
-						</dl>
-					</li>
-					<li class="py-8">
-						<dl class="relative flex flex-wrap gap-x-3">
-							<dt class="sr-only">Role</dt>
-							<dd class="w-full flex-none text-lg font-semibold tracking-tight text-gray-900">
-								<a href="#">
-									Laravel developer
-									<span class="absolute inset-0" aria-hidden="true"></span>
-								</a>
-							</dd>
-							<dt class="sr-only">Description</dt>
-							<dd class="mt-2 w-full flex-none text-base leading-7 text-gray-600">Et veniam et officia dolorum rerum. Et voluptas consequatur magni sapiente amet voluptates dolorum. Ut porro aut eveniet.</dd>
-							<dt class="sr-only">Salary</dt>
-							<dd class="mt-4 text-base font-semibold leading-7 text-gray-900">$125,000 USD</dd>
-							<dt class="sr-only">Location</dt>
-							<dd class="mt-4 flex items-center gap-x-3 text-base leading-7 text-gray-500">
-								<svg viewBox="0 0 2 2" class="h-0.5 w-0.5 flex-none fill-gray-300" aria-hidden="true">
-									<circle cx="1" cy="1" r="1" />
-								</svg>
-								San Francisco, CA
-							</dd>
-						</dl>
-					</li>
-					<li class="py-8">
-						<dl class="relative flex flex-wrap gap-x-3">
-							<dt class="sr-only">Role</dt>
-							<dd class="w-full flex-none text-lg font-semibold tracking-tight text-gray-900">
-								<a href="#">
-									React Native developer
-									<span class="absolute inset-0" aria-hidden="true"></span>
-								</a>
-							</dd>
-							<dt class="sr-only">Description</dt>
-							<dd class="mt-2 w-full flex-none text-base leading-7 text-gray-600">Veniam ipsam nisi quas architecto eos non voluptatem in nemo. Est occaecati nihil omnis delectus illum est.</dd>
-							<dt class="sr-only">Salary</dt>
-							<dd class="mt-4 text-base font-semibold leading-7 text-gray-900">$105,000 USD</dd>
-							<dt class="sr-only">Location</dt>
-							<dd class="mt-4 flex items-center gap-x-3 text-base leading-7 text-gray-500">
-								<svg viewBox="0 0 2 2" class="h-0.5 w-0.5 flex-none fill-gray-300" aria-hidden="true">
-									<circle cx="1" cy="1" r="1" />
-								</svg>
-								San Francisco, CA
-							</dd>
-						</dl>
-					</li>
-				</ul>
-				<div class="mt-8 flex border-t border-gray-100 pt-8">
-					<a href="#" class="text-sm font-semibold leading-6 text-indigo-600 hover:text-indigo-500">View all openings <span aria-hidden="true">&rarr;</span></a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+                    <div class="mt-10 md:mt-0">
+                        <h3 class="text-sm font-semibold leading-6 text-gray-900">Support</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'support',
+                                'menu_id'        => 'support-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+                </div>
+                <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold leading-6 text-gray-900">Company</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'company',
+                                'menu_id'        => 'company-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+                    <div class="mt-10 md:mt-0">
+                        <h3 class="text-sm font-semibold leading-6 text-gray-900">Legal</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'legal',
+                                'menu_id'        => 'legal-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mt-10 xl:mt-0 default">
+                <h3 class="text-sm font-semibold leading-6 text-gray-900">Subscribe to our newsletter</h3>
+                <p class="mt-2 text-sm leading-6 text-gray-600">The latest news, articles, and resources, sent to your inbox weekly.</p>
+                <div class="mt-6 sm:flex sm:max-w-md">
+                    <?php echo do_shortcode('[contact-form-7 id="5adf8bb" title="Newsletter"]'); ?>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
+            <div class="flex space-x-6 md:order-2">
+                <?php
+                wp_nav_menu(
+                    array(
+                        'theme_location' => 'footer-social-menu',
+                        'menu_id'        => 'footer-social-menu',
+                        'menu_class'     => '',
+                        'add_li_class'   => '',
+                    )
+                );
+                ?>
+            </div>
+            <p class="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">&copy; 2020 Your Company, Inc. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<!-- Footer 1-->
+<footer class="bg-white">
+    <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
+        <nav class="" aria-label="Footer">
+            <?php
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'company',
+                    'menu_id'        => 'company-menu',
+                    'menu_class'     => 'footer-menu -mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12',
+                    'add_li_class'   => 'pb-6  !mt-0',
+                )
+            );
+            ?>
+        </nav>
+        <div class="mt-10 flex justify-center space-x-10">
+
+            <?php
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'footer-social-menu',
+                    'menu_id'        => 'footer-social-menu',
+                    'menu_class'     => '',
+                    'add_li_class'   => '',
+                )
+            );
+            ?>
+
+        </div>
+        <p class="mt-10 text-center text-xs leading-5 text-gray-500">&copy; 2020 Your Company, Inc. All rights reserved.</p>
+    </div>
+</footer>
+<!-- Footer 2-->
+<footer class="bg-gray-900 dark" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">Footer</h2>
+    <div class="mx-auto max-w-7xl px-6 pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32">
+        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+            <div class="grid grid-cols-2 gap-8 xl:col-span-2">
+                <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold leading-6 text-white">Solutions</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'solutions',
+                                'menu_id'        => 'solutions-menu',
+                                'menu_class'     => 'footer-menu ',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+
+                    <div class="mt-10 md:mt-0">
+                        <h3 class="text-sm font-semibold leading-6 text-white">Support</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'support',
+                                'menu_id'        => 'support-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+                </div>
+                <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold leading-6 text-white">Company</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'company',
+                                'menu_id'        => 'company-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+                    <div class="mt-10 md:mt-0">
+                        <h3 class="text-sm font-semibold leading-6 text-white">Legal</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'legal',
+                                'menu_id'        => 'legal-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mt-10 xl:mt-0">
+                <h3 class="text-sm font-semibold leading-6 text-white">Subscribe to our newsletter</h3>
+                <p class="mt-2 text-sm leading-6 text-gray-300">The latest news, articles, and resources, sent to your inbox weekly.</p>
+                <div class="mt-6 sm:flex sm:max-w-md dark2">
+                    <?php echo do_shortcode('[contact-form-7 id="5adf8bb" title="Newsletter"]'); ?>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
+            <div class="flex space-x-6 md:order-2">
+                <?php
+                wp_nav_menu(
+                    array(
+                        'theme_location' => 'footer-social-menu',
+                        'menu_id'        => 'footer-social-menu',
+                        'menu_class'     => '',
+                        'add_li_class'   => '',
+                    )
+                );
+                ?>
+            </div>
+            <p class="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">&copy; 2020 Your Company, Inc. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<!-- Footer 3-->
+<footer class="site-footer bg-gray-900 dark">
+    <div class="site-info">
+        <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
+            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                <div class="space-y-8">
+                    <?php the_custom_logo(); ?>
+                </div>
+
+                <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold leading-6 text-white">Solutions</h3>
+                            <?php
+                            wp_nav_menu(
+                                array(
+                                    'theme_location' => 'solutions',
+                                    'menu_id'        => 'solutions-menu',
+                                    'menu_class'     => 'footer-menu',
+                                    'add_li_class'   => '',
+                                )
+                            );
+                            ?>
+                        </div>
+
+                        <div class="mt-10 md:mt-0">
+                            <h3 class="text-sm font-semibold leading-6 text-white">Support</h3>
+                            <?php
+                            wp_nav_menu(
+                                array(
+                                    'theme_location' => 'support',
+                                    'menu_id'        => 'support-menu',
+                                    'menu_class'     => 'footer-menu',
+                                    'add_li_class'   => '',
+                                )
+                            );
+                            ?>
+                        </div>
+                    </div>
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold leading-6 text-white">Company</h3>
+                            <?php
+                            wp_nav_menu(
+                                array(
+                                    'theme_location' => 'company',
+                                    'menu_id'        => 'company-menu',
+                                    'menu_class'     => 'footer-menu',
+                                    'add_li_class'   => '',
+                                )
+                            );
+                            ?>
+                        </div>
+                        <div class="mt-10 md:mt-0">
+                            <h3 class="text-sm font-semibold leading-6 text-white">Legal</h3>
+                            <?php
+                            wp_nav_menu(
+                                array(
+                                    'theme_location' => 'legal',
+                                    'menu_id'        => 'legal-menu',
+                                    'menu_class'     => 'footer-menu',
+                                    'add_li_class'   => '',
+                                )
+                            );
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .site-info -->
+</footer>
+
+<!--
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<footer class="bg-gray-900 dark h-full" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">Footer</h2>
+    <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+            <?php the_custom_logo(); ?>
+            <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+
+                <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold leading-6 text-white">Solutions</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'solutions',
+                                'menu_id'        => 'solutions-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+
+                    <div class="mt-10 md:mt-0">
+                        <h3 class="text-sm font-semibold leading-6 text-white">Support</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'support',
+                                'menu_id'        => 'support-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+                </div>
+                <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold leading-6 text-white">Company</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'company',
+                                'menu_id'        => 'company-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+                    <div class="mt-10 md:mt-0">
+                        <h3 class="text-sm font-semibold leading-6 text-white">Legal</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'legal',
+                                'menu_id'        => 'legal-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24 lg:flex lg:items-center lg:justify-between">
+            <div>
+                <h3 class="text-sm font-semibold leading-6 text-white">Subscribe to our newsletter</h3>
+                <p class="mt-2 text-sm leading-6 text-gray-300">The latest news, articles, and resources, sent to your inbox weekly.</p>
+            </div>
+            <div class="mt-6 sm:flex sm:max-w-md dark2">
+                <?php echo do_shortcode('[contact-form-7 id="5adf8bb" title="Newsletter"]'); ?>
+            </div>
+        </div>
+        <div class="mt-8 border-t border-white/10 pt-8 md:flex md:items-center md:justify-between">
+            <div class="flex space-x-6 md:order-2">
+                <?php
+                wp_nav_menu(
+                    array(
+                        'theme_location' => 'footer-social-menu',
+                        'menu_id'        => 'footer-social-menu',
+                        'menu_class'     => '',
+                        'add_li_class'   => '',
+                    )
+                );
+                ?>
+            </div>
+            <p class="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">&copy; 2020 Your Company, Inc. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!--
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<footer class="bg-white" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">Footer</h2>
+    <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+            <?php the_custom_logo(); ?>
+            <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+                <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold leading-6">Solutions</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'solutions',
+                                'menu_id'        => 'solutions-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+
+                    <div class="mt-10 md:mt-0">
+                        <h3 class="text-sm font-semibold leading-6">Support</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'support',
+                                'menu_id'        => 'support-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+                </div>
+                <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold leading-6">Company</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'company',
+                                'menu_id'        => 'company-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+                    <div class="mt-10 md:mt-0">
+                        <h3 class="text-sm font-semibold leading-6">Legal</h3>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'legal',
+                                'menu_id'        => 'legal-menu',
+                                'menu_class'     => 'footer-menu',
+                                'add_li_class'   => '',
+                            )
+                        );
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24 lg:flex lg:items-center lg:justify-between">
+            <div>
+                <h3 class="text-sm font-semibold leading-6 text-gray-900">Subscribe to our newsletter</h3>
+                <p class="mt-2 text-sm leading-6 text-gray-600">The latest news, articles, and resources, sent to your inbox weekly.</p>
+            </div>
+            <div class="mt-6 sm:flex sm:max-w-md default">
+                <?php echo do_shortcode('[contact-form-7 id="5adf8bb" title="Newsletter"]'); ?>
+            </div>
+        </div>
+        <div class="mt-8 border-t border-gray-900/10 pt-8 md:flex md:items-center md:justify-between">
+            <div class="flex space-x-6 md:order-2">
+                <?php
+                wp_nav_menu(
+                    array(
+                        'theme_location' => 'footer-social-menu',
+                        'menu_id'        => 'footer-social-menu',
+                        'menu_class'     => '',
+                        'add_li_class'   => '',
+                    )
+                );
+                ?>
+            </div>
+            <p class="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">&copy; 2020 Your Company, Inc. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Footer 5-->
+
+<footer class="bg-white">
+    <div class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+        <div class="flex justify-center space-x-6 md:order-2">
+            <?php
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'footer-social-menu',
+                    'menu_id'        => 'footer-social-menu',
+                    'menu_class'     => '',
+                    'add_li_class'   => '',
+                )
+            );
+            ?>
+        </div>
+        <div class="mt-8 md:order-1 md:mt-0">
+            <p class="text-center text-xs leading-5 text-gray-500">&copy; 2020 Your Company, Inc. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
