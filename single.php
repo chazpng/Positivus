@@ -30,12 +30,13 @@ get_header();
 									<div class="table-wrapper sticky top-10 px-4 py-6 bg-gray-100/50 rounded-xl text-lg">
 										<p class="label text-lg font-semibold">Table of contents</p>
 										<ul class="text-gray-600 gap-y-2 flex flex-col text-base mt-6">
-											<li><a href="#">Animation easing</a></li>
-											<li><a href="#">Colour guidelines</a></li>
-											<li><a href="#">Fluid typography</a></li>
-											<li><a href="#">Other resources</a></li>
-											<li><a href="#">Other resources</a></li>
-											<li><a href="#">Conclusion</a></li>
+											
+											<?php foreach ( $blocks as $header ) : ?>
+											<?php if ( 'core/heading' === $header['blockName'] ) : ?>
+												<li><a class="<?php echo esc_attr( 1 === $loop_count ? 'text-gray-900 font-medium' : '' ); ?>" href="#<?php echo esc_html( wp_strip_all_tags( $header['innerContent'][0]  ) ); ?>"><?php echo esc_html(wp_strip_all_tags($header['innerContent'][0]));?></a></li>
+												<?php $loop_count++; ?>
+											<?php endif ?>
+										<?php endforeach; ?>
 										</ul>
 									</div>
 								</div>
