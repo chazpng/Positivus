@@ -15,7 +15,7 @@ $features_style = get_field( 'features_style' );
 				<h2 class="text-black text-xl font-semibold"><?php the_field( 'label' ); ?></h2>
 			</div>
 			<?php $acf_pages = get_field( 'pages' ); ?>
-			<ul class="col-span-3 lg:col-span-2 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-3 xl:gap-x-8">
+			<ul class="col-span-3 lg:col-span-2 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-3 xl:gap-x-3">
 
 				<?php if ( $acf_pages ) : ?>
 					<?php foreach ( $acf_pages as $acf_page ) : ?>
@@ -28,10 +28,10 @@ $features_style = get_field( 'features_style' );
 							)
 						);
 						$subpage_count = count( $subpages );
-						$count_text    = $subpage_count > 1 ? 'Components' : 'Component';
+						$count_text    = $subpage_count > 1 ? 'components' : 'component';
 						?>
-						<li>
-							<a href="<?php echo esc_url( $permalink ); ?>">
+						<li class="p-2 group hover:bg-gray-200/20 rounded-lg">
+							<a href="<?php echo esc_url( $permalink ); ?>" class="features-block-img">
 								<?php
 								echo get_the_post_thumbnail(
 									$acf_page->ID,
@@ -43,8 +43,8 @@ $features_style = get_field( 'features_style' );
 									)
 								);
 								?>
-								<p class="title pt-2 font-medium leading-5"><?php echo esc_html( $post_title ); ?></p>
-								<p class="count pt-0.5 text-black/50"><?php echo esc_html( $subpage_count . ' ' . $count_text ); ?></p>
+								<p class="title pt-2 font-medium leading-5 text-sm  group-hover:text-indigo-600"><?php echo esc_html( $post_title ); ?></p>
+								<p class="count relative mt-1.5 text-xs font-medium text-slate-500 "><?php echo esc_html( $subpage_count . ' ' . $count_text ); ?></p>
 							</a>
 						</li>
 					<?php endforeach; ?>

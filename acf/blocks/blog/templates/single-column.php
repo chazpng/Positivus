@@ -20,7 +20,7 @@ $simple_style         = get_field( 'single_style' );
 $container_color      = 'bg-gray-50 hover:bg-gray-100';
 $border_color         = 'border-gray-200';
 $border_color_2       = 'border-gray-900/5';
-$post_number          = get_field( 'post' ) ?: 3;
+$post_number          = get_field( 'post' ) ?: 1;
 
 
 if ( 'is-style-dark' === $style ) {
@@ -45,7 +45,7 @@ $query      = new WP_Query(
 		'post_status'    => 'publish',
 		'posts_per_page' => $post_number,
 		'paged'          => 1,
-		'orderby'        => 'title',
+		'orderby'        => 'date',
 		'order'          => 'DESC',
 	)
 );

@@ -8,15 +8,16 @@
 ?>
 
 <?php
-$article_id = 'post' === get_post_type() ? array( $post->ID ) : '';
-$query      = new WP_Query(
+$article_id  = 'post' === get_post_type() ? array( $post->ID ) : '';
+$post_number = get_field( 'post' ) ?: 1;
+$query       = new WP_Query(
 	array(
 		'post__not_in'   => $article_id,
 		'post_type'      => 'post',
 		'post_status'    => 'publish',
-		'posts_per_page' => 3,
+		'posts_per_page' => $post_number,
 		'paged'          => 1,
-		'orderby'        => 'title',
+		'orderby'        => 'date',
 		'order'          => 'DESC',
 	)
 );

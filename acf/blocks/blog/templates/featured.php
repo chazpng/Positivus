@@ -43,7 +43,7 @@ $query      = new WP_Query(
 		'post_status'    => 'publish',
 		'posts_per_page' => $post_number,
 		'paged'          => 1,
-		'orderby'        => 'title',
+		'orderby'        => 'date',
 		'order'          => 'DESC',
 	)
 );
@@ -138,7 +138,6 @@ $query      = new WP_Query(
 				endwhile;
 				wp_reset_postdata(); 
 				?>
-				<!-- More posts... -->
 			</div>
 		</div>
 	</div>
