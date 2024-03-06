@@ -19,7 +19,4 @@ $align       = $block['align'];
 	<?php if ( 'featured' === $logos_style ) : ?>
 		<?php require gl_get_custom_block_template( 'blog', 'featured.php' ); ?>
 	<?php endif; ?>
-	<?php if ( 'photo-list' === $logos_style ) : ?>
-		<?php require gl_get_custom_block_template( 'blog', 'photo-list.php' ); ?>
-	<?php endif; ?>
 </div>
