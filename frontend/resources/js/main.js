@@ -32,11 +32,9 @@ jQuery( function( $ ) {
 	} );
 
 	$( '.single-article-container .table-wrapper ul li' ).each( function() {
-	
-		const headingId = $(this).find('a').attr('href').toLowerCase().replace( /[^a-zA-Z0-9\s-]+/g, '' ).replace( /\s+/g, '-' );
-		$( this ).find('a').attr( 'href', '#' + headingId );
+		const headingId = $( this ).find( 'a' ).attr( 'href' ).toLowerCase().replace( /[^a-zA-Z0-9\s-]+/g, '' ).replace( /\s+/g, '-' );
+		$( this ).find( 'a' ).attr( 'href', '#' + headingId );
 	} );
-
 
 	$( '.single-article-container .table-wrapper ul li a' ).click( function( e ) {
 		e.preventDefault();
@@ -62,5 +60,4 @@ jQuery( function( $ ) {
 			}
 		} );
 	} );
-
 } );
