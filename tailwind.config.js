@@ -32,6 +32,7 @@ function rem2px(input, fontSize = 16) {
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  
 	content: [
 		"./*.{php,html,js}",
 		"./acf/**/*.{php,html,js}",
@@ -241,5 +242,6 @@ module.exports = {
 	plugins: [
     'postcss-import',
     'tailwindcss',
+
   ],
 }
