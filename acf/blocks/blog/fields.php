@@ -70,6 +70,31 @@ $blog->addSelect(
 				'max'           => 10,
 			)
 		)
+		->conditional( 'blog_type', '!=', 'photo-list' )
+		->addImage(
+			'featured_image',
+			array(
+				'preview_size'  => 'medium',
+				'return_format' => 'id',
+			)
+		)
+		->addRepeater(
+			'blog_repeater',
+			array(
+				'label' => 'Blog',
+			)
+		)
+		->conditional( 'blog_type', '==', 'photo-list' )
+		->addText( 'blog_title' )
+		->addTextArea( 'blog_description' )
+		->addText( 'value' )
+		->addText( 'address' )
+		->addUrl( 'blog_url' )
+		->endRepeater()
+		->addtext( 'button_text' )
+		->conditional( 'blog_type', '==', 'photo-list' )
+		->addUrl( 'button_url' )
+		->conditional( 'blog_type', '==', 'photo-list' )
 
 
 ->setLocation( 'block', '==', 'acf/blog' );
