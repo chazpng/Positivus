@@ -17,6 +17,7 @@ $bg_color           = 'bg-white';
 $text_color_primary = '';
 $text_color1        = 'text-gray-900';
 $text_color2        = 'text-gray-600';
+$text_color3        = 'text-indigo-600';
 $code               = get_field( 'html_code' ) ?: 'Your Code Here';
 $language           = get_field( 'language' );
 $geshi              = new GeSHi( $code, $language );
@@ -30,6 +31,7 @@ if ( 'is-style-dark' === $style ) {
 	$bg_color           = 'bg-gray-900';
 	$text_color1        = 'text-white';
 	$text_color2        = 'text-gray-300';
+	$text_color3        = 'text-indigo-400';
 }
 
 $inner_container = 'mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2';
@@ -53,7 +55,9 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 				<?php if ( get_field( 'panel_type' ) === 'featured-panel' ) : ?>
 					<div class="lg:pr-8 lg:pt-4">
 						<div class="lg:max-w-lg">
-							<h2 class="<?php echo esc_attr( $text_color_primary ); ?> text-base font-semibold leading-7"><?php echo esc_html( $label ); ?></h2>
+							<?php if ( get_field( 'label' ) ) : ?>
+								<h2 class="<?php echo esc_attr( $text_color3 ); ?> text-base font-semibold leading-7"><?php echo esc_html( $label ); ?></h2>
+							<?php endif; ?>
 							<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-2 text-3xl font-bold tracking-tight sm:text-4xl"><?php echo esc_html( $main_title ); ?></p>
 							<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-6 text-lg leading-8"><?php echo esc_html( $description ); ?></p>
 
@@ -69,9 +73,9 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 							<?php endif; ?>
 							<?php if ( get_field( 'testimonial' ) ) : ?>
 								<?php if ( have_rows( 'testimonial' ) ) : ?>
-									<?php 
+									<?php
 									while ( have_rows( 'testimonial' ) ) :
-										the_row(); 
+										the_row();
 										?>
 										<figure class="mt-16 border-l border-gray-200 pl-8 <?php echo esc_attr( $text_color2 ); ?>">
 											<blockquote class="text-base leading-7">
@@ -124,8 +128,6 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 							<div class="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-inset ring-white" aria-hidden="true"></div>
 
 							<div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
-								<?php echo wp_get_attachment_image( get_field( 'featured_image' ), 'full', '', array( 'class' => '' ) ); ?>
-
 								<?php if ( get_field( 'use_wysiwyg' ) ) : ?>
 									<div class="w-screen overflow-hidden rounded-tl-xl bg-gray-900 ring-1 ring-white/10">
 										<div class="flex bg-gray-800/40 ring-1 ring-white/5">
@@ -157,7 +159,9 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 				<?php if ( get_field( 'panel_type' ) === 'contained-panel' ) : ?>
 					<div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center lg:gap-y-0">
 						<div class="lg:row-start-2 lg:max-w-md">
-							<h2 class="<?php echo esc_attr( $text_color_primary ); ?> text-base font-semibold leading-7"><?php echo esc_html( $label ); ?></h2>
+							<?php if ( get_field( 'label' ) ) : ?>
+								<h2 class="<?php echo esc_attr( $text_color3 ); ?> text-base font-semibold leading-7"><?php echo esc_html( $label ); ?></h2>
+							<?php endif; ?>
 							<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-2 text-3xl font-bold tracking-tight sm:text-4xl"><?php echo esc_html( $main_title ); ?></p>
 							<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-6 text-lg leading-8"><?php echo esc_html( $description ); ?></p>
 
@@ -186,9 +190,9 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 						</div>
 						<?php if ( get_field( 'testimonial' ) ) : ?>
 							<?php if ( have_rows( 'testimonial' ) ) : ?>
-								<?php 
+								<?php
 								while ( have_rows( 'testimonial' ) ) :
-									the_row(); 
+									the_row();
 									?>
 									<figure class="mt-16 border-l border-gray-200 pl-8 <?php echo esc_attr( $text_color2 ); ?>">
 										<blockquote class="text-base leading-7">
@@ -237,10 +241,11 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 				<?php endif; ?>
 
 			<?php else : ?>
-
 				<div class="lg:pr-8 lg:pt-4">
 					<div class="lg:max-w-lg">
-						<h2 class="<?php echo esc_attr( $text_color_primary ); ?> text-base font-semibold leading-7"><?php echo esc_html( $label ); ?></h2>
+						<?php if ( get_field( 'label' ) ) : ?>
+							<h2 class="<?php echo esc_attr( $text_color3 ); ?> text-base font-semibold leading-7"><?php echo esc_html( $label ); ?></h2>
+						<?php endif; ?>
 						<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-2 text-3xl font-bold tracking-tight sm:text-4xl"><?php echo esc_html( $main_title ); ?></p>
 						<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-6 text-lg leading-8"><?php echo esc_html( $description ); ?></p>
 
@@ -256,9 +261,9 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 						<?php endif; ?>
 						<?php if ( get_field( 'testimonial' ) ) : ?>
 							<?php if ( have_rows( 'testimonial' ) ) : ?>
-								<?php 
+								<?php
 								while ( have_rows( 'testimonial' ) ) :
-									the_row(); 
+									the_row();
 									?>
 									<figure class="mt-16 border-l border-gray-200 pl-8 <?php echo esc_attr( $text_color2 ); ?>">
 										<blockquote class="text-base leading-7">

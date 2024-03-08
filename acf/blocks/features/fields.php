@@ -61,9 +61,7 @@ $features
 			'return_format' => 'id',
 		)
 	)
-		->conditional( 'features_style', '==', 'product' )
-			->and( 'use_wysiwyg', '==', 0 )
-		->or( 'features_style', '==', 'simple' )
+
 
 	->addSelect(
 		'list_column_style',

@@ -85,7 +85,7 @@ if ( 'six-icon-block' === get_field( 'list_column_style' ) ) {
 	$max_width            = 'mx-auto max-w-7xl px-6 lg:px-8';
 	$header_container     = 'mx-auto max-w-2xl lg:mx-0';
 	$list_container_class = '';
-	$list_class           = 'col-span-2 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2';
+	$list_class           = 'mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 text-gray-300 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16';
 	$list_item_class      = 'relative pl-9';
 	$list_dt_class        = 'inline font-semibold ' . $text_color_primary;
 	$list_dd_class        = 'inline';
