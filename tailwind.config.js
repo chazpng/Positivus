@@ -197,6 +197,10 @@ module.exports = {
     'pt-24',
     'pt-32',
     'px-3',
+    'lg:px-8',
+    'md:grid',
+    'md:grid-cols-2',
+    'md:gap-8',
     'px-4',
     'px-6',
     'px-8',
@@ -320,11 +324,25 @@ module.exports = {
     'text-yellow-500',
     'text-yellow-800',
     'underline',
+    'space-y-4',
+    'sm:flex-row',
+    'sm:items-end',
+    'sm:justify-around',
+    'sm:space-y-0',
+    'min-h-[256px]',
+    'min-h-[360px]',
+    'min-h-[460px]',
+    'min-h-[448px]',
+    'min-h-[640px]',
+    'xl:grid',
+    'xl:grid-cols-3',
+    'xl:gap-8',
+    'xl:mt-0',
     'z-10',
     'z-20',
     'z-30',
     'z-40'
-    
+
   ],
   theme: {
     fontFamily: {
