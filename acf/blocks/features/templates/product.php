@@ -15,11 +15,21 @@ $bg_image           = get_field( 'featured_image' ) ?: gl_get_block_asset_url( '
 $align_image        = get_field( 'align_image_to_the_left' ) ? 'flex items-start justify-end lg:order-first' : 'w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 overflow-hidden';
 $bg_color           = 'bg-white';
 $text_color_primary = '';
+$text_color1        = 'text-gray-900';
+$text_color2        = 'text-gray-600';
+$code               = get_field( 'html_code' ) ?: 'Your Code Here';
+$language           = get_field( 'language' );
+$geshi              = new GeSHi( $code, $language );
+$geshi->enable_classes( true );
+$geshi->set_overall_class( 'geshi' );
+$geshi->enable_line_numbers( GESHI_FANCY_LINE_NUMBERS );
 
 // Config: Colors.
 if ( 'is-style-dark' === $style ) {
 	$text_color_primary = 'text-white';
 	$bg_color           = 'bg-gray-900';
+	$text_color1        = 'text-white';
+	$text_color2        = 'text-gray-300';
 }
 
 $inner_container = 'mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2';
@@ -49,7 +59,7 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 
 							<?php if ( get_field( 'add_link' ) ) : ?>
 								<?php
-									$link_text = get_field( 'page' ) ?: 'Your Link Text';
+								$link_text = get_field( 'page' ) ?: 'Your Link Text';
 								?>
 								<div class="mt-8">
 									<a href="<?php the_field( 'page_link' ); ?>" target="_blank" class="inline-flex rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
@@ -57,7 +67,211 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 									</a>
 								</div>
 							<?php endif; ?>
+							<?php if ( get_field( 'testimonial' ) ) : ?>
+								<?php if ( have_rows( 'testimonial' ) ) : ?>
+									<?php 
+									while ( have_rows( 'testimonial' ) ) :
+										the_row(); 
+										?>
+										<figure class="mt-16 border-l border-gray-200 pl-8 <?php echo esc_attr( $text_color2 ); ?>">
+											<blockquote class="text-base leading-7">
+												<p>“<?php echo esc_html( get_sub_field( 'quote' ) ); ?>”</p>
+											</blockquote>
+											<figcaption class="mt-6 flex gap-x-4 text-sm leading-6">
+												<?php echo wp_get_attachment_image( get_sub_field( 'avatar' ), 'full', '', array( 'class' => 'h-6 w-6 flex-none rounded-full' ) ); ?>
+												<div><span class="font-semibold <?php echo esc_attr( $text_color1 ); ?>"><?php echo esc_html( get_sub_field( 'name' ) ); ?></span> &#x2013; <?php echo esc_html( get_sub_field( 'position' ) ); ?></div>
+											</figcaption>
+										</figure>
+									<?php endwhile; ?>
+								<?php endif; ?>
+							<?php elseif ( get_field( 'list' ) ) : ?>
+								<?php if ( have_rows( 'list' ) ) : ?>
+									<dl class="mt-10 max-w-xl space-y-8 text-base leading-7 lg:max-w-none">
+										<?php
+										while ( have_rows( 'list' ) ) :
+											the_row();
+											$icon             = empty( get_sub_field( 'list_icon' ) ) ? gl_get_block_asset_url( 'features', 'icon-placeholder.svg' ) : get_sub_field( 'list_icon' );
+											$list_title       = empty( get_sub_field( 'list_title' ) ) ? 'Your Title Here' : get_sub_field( 'list_title' );
+											$list_description = empty( get_sub_field( 'list_description' ) ) ? 'Your Description Here' : get_sub_field( 'list_description' );
+											?>
+											<div class="relative pl-9">
+												<dt class="<?php echo esc_attr( $text_color_primary ); ?> inline font-semibold">
+													<?php if ( get_sub_field( 'list_icon' ) ) : ?>
+														<?php echo wp_get_attachment_image( get_sub_field( 'list_icon' ), 'full', '', array( 'class' => 'absolute left-1 top-1 h-5 w-5' ) ); ?>
+													<?php else : ?>
+														<img class="absolute left-1 top-1 h-5 w-5" src="<?php gl_get_block_asset( 'features', 'icon-placeholder.svg' ); ?>" alt="Placeholder">
+													<?php endif; ?>
+													<?php echo esc_html( $list_title ); ?>
+												</dt>
+												<dd class="<?php echo esc_attr( $text_color_primary ); ?> inline"><?php echo esc_html( $list_description ); ?></dd>
 
+												<?php if ( get_sub_field( 'link_text' ) ) : ?>
+													<?php $page_link = get_sub_field( 'page_link' ) ?: get_sub_field( 'url' ); ?>
+													<p class="mt-6">
+														<a href="<?php echo esc_url( $page_link ); ?>" class="text-sm font-semibold leading-6 text-indigo-400" target="_blank"><?php the_sub_field( 'link_text' ); ?> <span aria-hidden="true">→</span></a>
+													</p>
+												<?php endif; ?>
+											</div>
+										<?php endwhile; ?>
+									</dl>
+								<?php endif; ?>
+							<?php endif; ?>
+						</div>
+					</div>
+
+					<div class="sm:px-6 lg:px-0">
+						<div class="relative isolate overflow-hidden bg-indigo-500 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pl-16 sm:pr-0 sm:pt-16 lg:mx-0 lg:max-w-none">
+							<div class="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-inset ring-white" aria-hidden="true"></div>
+
+							<div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
+								<?php echo wp_get_attachment_image( get_field( 'featured_image' ), 'full', '', array( 'class' => '' ) ); ?>
+
+								<?php if ( get_field( 'use_wysiwyg' ) ) : ?>
+									<div class="w-screen overflow-hidden rounded-tl-xl bg-gray-900 ring-1 ring-white/10">
+										<div class="flex bg-gray-800/40 ring-1 ring-white/5">
+											<div class="-mb-px flex text-sm font-medium leading-6 text-gray-400">
+												<div class="border-b border-r border-b-white/20 border-r-white/10 bg-white/5 px-4 py-2 text-white">NotificationSetting.jsx</div>
+												<div class="border-r border-gray-600/10 px-4 py-2">App.jsx</div>
+											</div>
+										</div>
+										<div class="px-6 pb-14 pt-6 text-white">
+											<?php echo wp_kses_post( $geshi->parse_code() ); ?>
+										</div>
+									</div>
+								<?php else : ?>
+									<div class="<?php echo esc_attr( $align_image ); ?>">
+										<?php if ( get_field( 'featured_image' ) ) : ?>
+											<?php echo wp_get_attachment_image( get_field( 'featured_image' ), 'full', '', array( 'class' => '-mb-12 w-[57rem] max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10' ) ); ?>
+										<?php else : ?>
+											<img class="-mb-12 w-[57rem] max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10" src="<?php gl_get_block_asset( 'features', '2432x1442.svg' ); ?>" alt="Placeholder">
+										<?php endif; ?>
+									</div>
+								<?php endif; ?>
+							</div>
+
+							<div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl" aria-hidden="true"></div>
+						</div>
+					</div>
+				<?php endif; ?>
+
+				<?php if ( get_field( 'panel_type' ) === 'contained-panel' ) : ?>
+					<div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center lg:gap-y-0">
+						<div class="lg:row-start-2 lg:max-w-md">
+							<h2 class="<?php echo esc_attr( $text_color_primary ); ?> text-base font-semibold leading-7"><?php echo esc_html( $label ); ?></h2>
+							<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-2 text-3xl font-bold tracking-tight sm:text-4xl"><?php echo esc_html( $main_title ); ?></p>
+							<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-6 text-lg leading-8"><?php echo esc_html( $description ); ?></p>
+
+							<?php if ( get_field( 'add_link' ) ) : ?>
+								<?php
+								$link_text = get_field( 'page' ) ?: 'Your Link Text';
+								?>
+								<div class="mt-8">
+									<a href="<?php the_field( 'page_link' ); ?>" target="_blank" class="inline-flex rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+										<?php echo esc_html( $link_text ); ?>
+									</a>
+								</div>
+							<?php endif; ?>
+						</div>
+
+						<div class="relative -z-20 min-w-full max-w-xl rounded-xl shadow-xl ring-1 ring-white/10 lg:row-span-4 lg:w-[64rem] lg:max-w-none">
+							<?php if ( get_field( 'use_wysiwyg' ) ) : ?>
+								<?php echo wp_kses_post( get_field( 'html_code' ) ); ?>
+							<?php else : ?>
+								<?php if ( get_field( 'featured_image' ) ) : ?>
+									<?php echo wp_get_attachment_image( get_field( 'featured_image' ), 'full', '', array( 'class' => 'relative -z-20 min-w-full max-w-xl rounded-xl shadow-xl ring-1 ring-white/10 lg:row-span-4 lg:w-[64rem] lg:max-w-none' ) ); ?>
+								<?php else : ?>
+									<img class="relative -z-20 min-w-full max-w-xl rounded-xl shadow-xl ring-1 ring-white/10 lg:row-span-4 lg:w-[64rem] lg:max-w-none" src="<?php gl_get_block_asset( 'features', '2432x1442.svg' ); ?>" alt="Placeholder">
+								<?php endif; ?>
+							<?php endif; ?>
+						</div>
+						<?php if ( get_field( 'testimonial' ) ) : ?>
+							<?php if ( have_rows( 'testimonial' ) ) : ?>
+								<?php 
+								while ( have_rows( 'testimonial' ) ) :
+									the_row(); 
+									?>
+									<figure class="mt-16 border-l border-gray-200 pl-8 <?php echo esc_attr( $text_color2 ); ?>">
+										<blockquote class="text-base leading-7">
+											<p>“<?php echo esc_html( get_sub_field( 'quote' ) ); ?>”</p>
+										</blockquote>
+										<figcaption class="mt-6 flex gap-x-4 text-sm leading-6">
+											<?php echo wp_get_attachment_image( get_sub_field( 'avatar' ), 'full', '', array( 'class' => 'h-6 w-6 flex-none rounded-full' ) ); ?>
+											<div><span class="font-semibold <?php echo esc_attr( $text_color1 ); ?>"><?php echo esc_html( get_sub_field( 'name' ) ); ?></span> &#x2013; <?php echo esc_html( get_sub_field( 'position' ) ); ?></div>
+										</figcaption>
+									</figure>
+								<?php endwhile; ?>
+							<?php endif; ?>
+						<?php elseif ( get_field( 'list' ) ) : ?>
+							<?php if ( have_rows( 'list' ) ) : ?>
+								<div class="max-w-xl lg:row-start-3 lg:mt-10 lg:max-w-md lg:border-t lg:border-white/10 lg:pt-10">
+									<dl class="max-w-xl space-y-8 text-base leading-7 text-gray-300 lg:max-w-none">
+										<?php
+										while ( have_rows( 'list' ) ) :
+											the_row();
+											$icon             = empty( get_sub_field( 'list_icon' ) ) ? gl_get_block_asset_url( 'features', 'icon-placeholder.svg' ) : get_sub_field( 'list_icon' );
+											$list_title       = empty( get_sub_field( 'list_title' ) ) ? 'Your Title Here' : get_sub_field( 'list_title' );
+											$list_description = empty( get_sub_field( 'list_description' ) ) ? 'Your Description Here' : get_sub_field( 'list_description' );
+											?>
+											<div class="relative">
+												<dt class="ml-9 inline-block font-semibold text-white">
+													<?php if ( get_sub_field( 'list_icon' ) ) : ?>
+														<?php echo wp_get_attachment_image( get_sub_field( 'list_icon' ), 'full', '', array( 'class' => 'absolute left-1 top-1 h-5 w-5 text-indigo-500' ) ); ?>
+													<?php else : ?>
+														<img class="absolute left-1 top-1 h-5 w-5 text-indigo-500" src="<?php gl_get_block_asset( 'features', 'icon-placeholder.svg' ); ?>" alt="Placeholder">
+													<?php endif; ?>
+													<?php echo esc_html( $list_title ); ?>
+												</dt>
+												<!-- space -->
+												<dd class="<?php echo esc_attr( $text_color_primary ); ?> inline"><?php echo esc_html( $list_description ); ?></dd>
+											</div>
+										<?php endwhile; ?>
+									</dl>
+								</div>
+							<?php endif; ?>
+						<?php endif; ?>
+
+						<div class="pointer-events-none absolute left-12 top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-3xl lg:bottom-[-12rem] lg:top-auto lg:translate-y-0 lg:transform-gpu" aria-hidden="true">
+							<div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-25" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+						</div>
+					</div>
+				<?php endif; ?>
+
+			<?php else : ?>
+
+				<div class="lg:pr-8 lg:pt-4">
+					<div class="lg:max-w-lg">
+						<h2 class="<?php echo esc_attr( $text_color_primary ); ?> text-base font-semibold leading-7"><?php echo esc_html( $label ); ?></h2>
+						<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-2 text-3xl font-bold tracking-tight sm:text-4xl"><?php echo esc_html( $main_title ); ?></p>
+						<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-6 text-lg leading-8"><?php echo esc_html( $description ); ?></p>
+
+						<?php if ( get_field( 'add_link' ) ) : ?>
+							<?php
+							$link_text = get_field( 'page' ) ?: 'Your Link Text';
+							?>
+							<div class="mt-8">
+								<a href="<?php the_field( 'page_link' ); ?>" target="_blank" class="inline-flex rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+									<?php echo esc_html( $link_text ); ?>
+								</a>
+							</div>
+						<?php endif; ?>
+						<?php if ( get_field( 'testimonial' ) ) : ?>
+							<?php if ( have_rows( 'testimonial' ) ) : ?>
+								<?php 
+								while ( have_rows( 'testimonial' ) ) :
+									the_row(); 
+									?>
+									<figure class="mt-16 border-l border-gray-200 pl-8 <?php echo esc_attr( $text_color2 ); ?>">
+										<blockquote class="text-base leading-7">
+											<p>“<?php echo esc_html( get_sub_field( 'quote' ) ); ?>”</p>
+										</blockquote>
+										<figcaption class="mt-6 flex gap-x-4 text-sm leading-6">
+											<?php echo wp_get_attachment_image( get_sub_field( 'avatar' ), 'full', '', array( 'class' => 'h-6 w-6 flex-none rounded-full' ) ); ?>
+											<div><span class="font-semibold <?php echo esc_attr( $text_color1 ); ?>"><?php echo esc_html( get_sub_field( 'name' ) ); ?></span> &#x2013; <?php echo esc_html( get_sub_field( 'position' ) ); ?></div>
+										</figcaption>
+									</figure>
+								<?php endwhile; ?>
+							<?php endif; ?>
+						<?php elseif ( get_field( 'list' ) ) : ?>
 							<?php if ( have_rows( 'list' ) ) : ?>
 								<dl class="mt-10 max-w-xl space-y-8 text-base leading-7 lg:max-w-none">
 									<?php
@@ -88,134 +302,6 @@ $container_class = $bg_color . ' overflow-hidden py-24 sm:py-32';
 									<?php endwhile; ?>
 								</dl>
 							<?php endif; ?>
-						</div>
-					</div>
-
-					<div class="sm:px-6 lg:px-0">
-						<div class="relative isolate overflow-hidden bg-indigo-500 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pl-16 sm:pr-0 sm:pt-16 lg:mx-0 lg:max-w-none">
-							<div class="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-inset ring-white" aria-hidden="true"></div>
-
-							<div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
-								<?php echo wp_get_attachment_image( get_field( 'featured_image' ), 'full', '', array( 'class' => '-mb-12 w-[57rem] max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10' ) ); ?>
-							</div>
-
-							<div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl" aria-hidden="true"></div>
-						</div>
-					</div>
-				<?php endif; ?>
-
-				<?php if ( get_field( 'panel_type' ) === 'contained-panel' ) : ?>
-					<div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center lg:gap-y-0">
-						<div class="lg:row-start-2 lg:max-w-md">
-							<h2 class="<?php echo esc_attr( $text_color_primary ); ?> text-base font-semibold leading-7"><?php echo esc_html( $label ); ?></h2>
-							<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-2 text-3xl font-bold tracking-tight sm:text-4xl"><?php echo esc_html( $main_title ); ?></p>
-							<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-6 text-lg leading-8"><?php echo esc_html( $description ); ?></p>
-
-							<?php if ( get_field( 'add_link' ) ) : ?>
-								<?php
-									$link_text = get_field( 'page' ) ?: 'Your Link Text';
-								?>
-								<div class="mt-8">
-									<a href="<?php the_field( 'page_link' ); ?>" target="_blank" class="inline-flex rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-										<?php echo esc_html( $link_text ); ?>
-									</a>
-								</div>
-							<?php endif; ?>
-						</div>
-
-						<div class="relative -z-20 min-w-full max-w-xl rounded-xl shadow-xl ring-1 ring-white/10 lg:row-span-4 lg:w-[64rem] lg:max-w-none">
-							<?php if ( get_field( 'use_wysiwyg' ) ) : ?>
-								<?php echo wp_kses_post( get_field( 'html_code' ) ); ?>
-							<?php else : ?>
-								<?php if ( get_field( 'featured_image' ) ) : ?>
-									<?php echo wp_get_attachment_image( get_field( 'featured_image' ), 'full', '', array( 'class' => 'relative -z-20 min-w-full max-w-xl rounded-xl shadow-xl ring-1 ring-white/10 lg:row-span-4 lg:w-[64rem] lg:max-w-none' ) ); ?>
-								<?php else : ?>
-									<img class="relative -z-20 min-w-full max-w-xl rounded-xl shadow-xl ring-1 ring-white/10 lg:row-span-4 lg:w-[64rem] lg:max-w-none" src="<?php gl_get_block_asset( 'features', '2432x1442.svg' ); ?>" alt="Placeholder">
-								<?php endif; ?>
-							<?php endif; ?>
-						</div>
-
-						<?php if ( have_rows( 'list' ) ) : ?>
-							<div class="max-w-xl lg:row-start-3 lg:mt-10 lg:max-w-md lg:border-t lg:border-white/10 lg:pt-10">
-								<dl class="max-w-xl space-y-8 text-base leading-7 text-gray-300 lg:max-w-none">
-									<?php
-									while ( have_rows( 'list' ) ) :
-										the_row();
-										$icon             = empty( get_sub_field( 'list_icon' ) ) ? gl_get_block_asset_url( 'features', 'icon-placeholder.svg' ) : get_sub_field( 'list_icon' );
-										$list_title       = empty( get_sub_field( 'list_title' ) ) ? 'Your Title Here' : get_sub_field( 'list_title' );
-										$list_description = empty( get_sub_field( 'list_description' ) ) ? 'Your Description Here' : get_sub_field( 'list_description' );
-										?>
-										<div class="relative">
-											<dt class="ml-9 inline-block font-semibold text-white">
-												<?php if ( get_sub_field( 'list_icon' ) ) : ?>
-													<?php echo wp_get_attachment_image( get_sub_field( 'list_icon' ), 'full', '', array( 'class' => 'absolute left-1 top-1 h-5 w-5 text-indigo-500' ) ); ?>
-												<?php else : ?>
-													<img class="absolute left-1 top-1 h-5 w-5 text-indigo-500" src="<?php gl_get_block_asset( 'features', 'icon-placeholder.svg' ); ?>" alt="Placeholder">
-												<?php endif; ?>
-												<?php echo esc_html( $list_title ); ?>
-											</dt>
-											<!-- space -->
-											<dd class="<?php echo esc_attr( $text_color_primary ); ?> inline"><?php echo esc_html( $list_description ); ?></dd>
-										</div>
-									<?php endwhile; ?>
-								</dl>
-							</div>
-						<?php endif; ?>
-
-						<div class="pointer-events-none absolute left-12 top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-3xl lg:bottom-[-12rem] lg:top-auto lg:translate-y-0 lg:transform-gpu" aria-hidden="true">
-							<div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-25" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-						</div>
-					</div>
-				<?php endif; ?>
-
-			<?php else : ?>
-
-				<div class="lg:pr-8 lg:pt-4">
-					<div class="lg:max-w-lg">
-						<h2 class="<?php echo esc_attr( $text_color_primary ); ?> text-base font-semibold leading-7"><?php echo esc_html( $label ); ?></h2>
-						<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-2 text-3xl font-bold tracking-tight sm:text-4xl"><?php echo esc_html( $main_title ); ?></p>
-						<p class="<?php echo esc_attr( $text_color_primary ); ?> mt-6 text-lg leading-8"><?php echo esc_html( $description ); ?></p>
-
-						<?php if ( get_field( 'add_link' ) ) : ?>
-							<?php
-								$link_text = get_field( 'page' ) ?: 'Your Link Text';
-							?>
-							<div class="mt-8">
-								<a href="<?php the_field( 'page_link' ); ?>" target="_blank" class="inline-flex rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-									<?php echo esc_html( $link_text ); ?>
-								</a>
-							</div>
-						<?php endif; ?>
-
-						<?php if ( have_rows( 'list' ) ) : ?>
-							<dl class="mt-10 max-w-xl space-y-8 text-base leading-7 lg:max-w-none">
-								<?php
-								while ( have_rows( 'list' ) ) :
-									the_row();
-									$icon             = empty( get_sub_field( 'list_icon' ) ) ? gl_get_block_asset_url( 'features', 'icon-placeholder.svg' ) : get_sub_field( 'list_icon' );
-									$list_title       = empty( get_sub_field( 'list_title' ) ) ? 'Your Title Here' : get_sub_field( 'list_title' );
-									$list_description = empty( get_sub_field( 'list_description' ) ) ? 'Your Description Here' : get_sub_field( 'list_description' );
-									?>
-									<div class="relative pl-9">
-										<dt class="<?php echo esc_attr( $text_color_primary ); ?> inline font-semibold">
-											<?php if ( get_sub_field( 'list_icon' ) ) : ?>
-												<?php echo wp_get_attachment_image( get_sub_field( 'list_icon' ), 'full', '', array( 'class' => 'absolute left-1 top-1 h-5 w-5' ) ); ?>
-											<?php else : ?>
-												<img class="absolute left-1 top-1 h-5 w-5" src="<?php gl_get_block_asset( 'features', 'icon-placeholder.svg' ); ?>" alt="Placeholder">
-											<?php endif; ?>
-											<?php echo esc_html( $list_title ); ?>
-										</dt>
-										<dd class="<?php echo esc_attr( $text_color_primary ); ?> inline"><?php echo esc_html( $list_description ); ?></dd>
-
-										<?php if ( get_sub_field( 'link_text' ) ) : ?>
-											<?php $page_link = get_sub_field( 'page_link' ) ?: get_sub_field( 'url' ); ?>
-											<p class="mt-6">
-												<a href="<?php echo esc_url( $page_link ); ?>" class="text-sm font-semibold leading-6 text-indigo-400" target="_blank"><?php the_sub_field( 'link_text' ); ?> <span aria-hidden="true">→</span></a>
-											</p>
-										<?php endif; ?>
-									</div>
-								<?php endwhile; ?>
-							</dl>
 						<?php endif; ?>
 					</div>
 				</div>
