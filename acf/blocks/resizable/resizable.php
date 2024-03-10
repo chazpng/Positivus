@@ -47,8 +47,7 @@ $uniqid = uniqid();
 					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M14.1667 14.1667L18.3334 10L14.1667 5.83333M5.83341 5.83333L1.66675 10L5.83341 14.1667M11.6667 2.5L8.33342 17.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
 					</svg>
-					Copy Code
-					<span class="transition-opacity bg-gray-800 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto">Tooltip</span>
+					<span class="copy-code-label">Copy Code</span>
 				</button>
 			</div>
 		</div>

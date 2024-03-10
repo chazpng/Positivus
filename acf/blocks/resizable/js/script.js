@@ -1,18 +1,20 @@
-/* global jQuery ResizeSensor */
+/* global jQuery ResizeSensor*/
 ( function( $ ) {
 	const initializeResizableBlock = function( $block ) {
 		let $resizable = $( '.gl-b-resizable' );
 		let $preview = $( '.gl-b-resizable .preview-button' );
 		let $code = $( '.gl-b-resizable .code-button' );
-		let $label = $( '.copy-label' );
-		// let $copyCode = $( '.copy-code' );
+		let $html = $( '.gl-b-resizable' );
+		let $label = $( '.gl-b-resizable .copy-label' );
+		let $copyCode = $( '.copy-code' );
 
 		if ( $block ) {
 			$resizable = $block.find( '.gl-b-resizable' );
 			$preview = $block.find( '.gl-b-resizable .preview-button' );
 			$code = $block.find( '.gl-b-resizable .code-button' );
-			$label = $block.find( '.copy-label' );
-			// $copyCode = $block.find( '.copy-code' );
+			$label = $block.find( '.gl-b-resizable .copy-label' );
+			$html = $block.find( '.gl-b-resizable' );
+			$copyCode = $block.find( '.copy-code' );
 		}
 
 		$resizable.each( function() {
@@ -30,12 +32,27 @@
 			} );
 		} );
 
-		// $copyCode.on( 'click', function() {
-		// 	const id = $( this ).data( 'id' );
-		// 	const el = $( '#' + id + ' iframe' ).contents().find( '.gl-b-header' ).html();
-		// 	$( 'svg g', this ).removeClass( 'opacity-0' );
-		// 	console.log( el );
-		// } );
+		$html.each( function() {
+			$( this ).find( 'iframe' ).on( 'load', function() {
+				const id = $( this ).data( 'id' );
+				const hello = $( '#' + id ).find( 'iframe' ).contents().find( 'html .entry-content' ).html();
+				const content = $( '#' + id ).find( '.code-content p' );
+				content.css( 'white-space', 'pre-wrap' );
+				$( content ).text( ( hello ) );
+			} );
+		} );
+
+		$copyCode.on( 'click', function() {
+			const id = $( this ).data( 'id' );
+			const el = $( '#' + id + ' .code-content' ).html();
+			const copyButton = $( '#' + id ).find( '.copy-code-label' );
+			navigator.clipboard.writeText( el ).then( function() {
+				$( copyButton ).text( 'Copied' );
+				setTimeout( function() {
+					$( copyButton ).text( 'Copy Code' );
+				}, 3000 );
+			} );
+		} );
 
 		// copy label of the block
 		$( $label ).click( function() {
