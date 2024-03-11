@@ -57,7 +57,7 @@ $uniqid = uniqid();
 		</div>
 
 		<div class="code-content content max-w-full resize-x overflow-auto m-auto mt-5 hidden min-h-80 bg-[#1E293B] rounded-lg p-5" data-id="<?php echo esc_attr( $uniqid ); ?>">
-			<p class="text-white">Exciting codes coming soon</p>
+			<p class="text-white">Loading...</p>
 		</div>
 	</div>
 
