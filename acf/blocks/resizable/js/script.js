@@ -4,7 +4,6 @@
 		let $resizable = $( '.gl-b-resizable' );
 		let $preview = $( '.gl-b-resizable .preview-button' );
 		let $code = $( '.gl-b-resizable .code-button' );
-		let $html = $( '.gl-b-resizable' );
 		let $label = $( '.gl-b-resizable .copy-label' );
 		let $copyCode = $( '.copy-code' );
 
@@ -13,7 +12,6 @@
 			$preview = $block.find( '.gl-b-resizable .preview-button' );
 			$code = $block.find( '.gl-b-resizable .code-button' );
 			$label = $block.find( '.gl-b-resizable .copy-label' );
-			$html = $block.find( '.gl-b-resizable' );
 			$copyCode = $block.find( '.copy-code' );
 		}
 

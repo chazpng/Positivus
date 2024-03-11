@@ -1,16 +1,15 @@
 <?php
-
 /**
  * Header Template.
  *
  * @package circles_x
  */
 
-$code    = get_field( 'code_editor' );
-$search  = array( '&lt;', '&quot;', '&gt;' );
-$replace = array( '<', '"', '>' );
-$code    = str_replace( $search, $replace, $code );
-$geshi   = new GeSHi( $code, 'HTML5' );
+$code       = get_field( 'code_editor' );
+$var_arrays = array( '&lt;', '&quot;', '&gt;' );
+$replace    = array( '<', '"', '>' );
+$code       = str_replace( $var_arrays, $replace, $code );
+$geshi      = new GeSHi( $code, 'HTML5' );
 $geshi->enable_classes( true );
 $geshi->set_overall_class( 'geshi' );
 $geshi->enable_line_numbers( GESHI_FANCY_LINE_NUMBERS );

@@ -618,7 +618,7 @@ add_filter( 'walker_nav_menu_start_el', 'add_menu_description', 10, 4 );
 
 add_action(
 	'acf/include_fields',
-	function() {
+	function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
 		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 			return;
 		}
