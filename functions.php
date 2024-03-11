@@ -299,6 +299,7 @@ require get_template_directory() . '/acf/blocks/register-fields.php';
  */
 require get_template_directory() . '/acf/global-fields/fields.php';
 
+
 /**
  * Enable SVG and json file upload
  *
@@ -614,3 +615,45 @@ function add_menu_description( $item_output, $item, $depth, $args ) {
 	return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'add_menu_description', 10, 4 );
+
+add_action(
+	'acf/include_fields',
+	function() {
+		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+			return;
+		}
+
+		acf_add_local_field_group(
+			array(
+				'key'      => 'group_65ee94d9b88b3',
+				'title'    => 'Code',
+				'fields'   => array(
+					array(
+						'key'           => 'field_65ee94dad3d4e',
+						'label'         => 'Code Editor',
+						'name'          => 'code_editor',
+						'type'          => 'acfe_code_editor',
+						'mode'          => 'text/html',
+						'lines'         => 1,
+						'indent_unit'   => 4,
+						'maxlength'     => '',
+						'rows'          => 4,
+						'max_rows'      => '',
+						'return_format' => array(
+							0 => 'htmlentities',
+						),
+					),
+				),
+				'location' => array(
+					array(
+						array(
+							'param'    => 'block',
+							'operator' => '==',
+							'value'    => 'acf/resizable',
+						),
+					),
+				),
+			) 
+		);
+	} 
+);

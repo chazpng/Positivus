@@ -32,16 +32,6 @@
 			} );
 		} );
 
-		$html.each( function() {
-			$( this ).find( 'iframe' ).on( 'load', function() {
-				const id = $( this ).data( 'id' );
-				const hello = $( '#' + id ).find( 'iframe' ).contents().find( 'html .entry-content' ).html();
-				const content = $( '#' + id ).find( '.code-content p' );
-				content.css( 'white-space', 'pre-wrap' );
-				$( content ).text( ( hello ) );
-			} );
-		} );
-
 		$copyCode.on( 'click', function() {
 			const id = $( this ).data( 'id' );
 			const el = $( '#' + id + ' .code-content' ).html();

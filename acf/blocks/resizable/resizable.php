@@ -1,16 +1,24 @@
 <?php
+
 /**
  * Header Template.
  *
  * @package circles_x
  */
 
+$code    = get_field( 'code_editor' );
+$search  = array( '&lt;', '&quot;', '&gt;' );
+$replace = array( '<', '"', '>' );
+$code    = str_replace( $search, $replace, $code );
+$geshi   = new GeSHi( $code, 'HTML5' );
+$geshi->enable_classes( true );
+$geshi->set_overall_class( 'geshi' );
+$geshi->enable_line_numbers( GESHI_FANCY_LINE_NUMBERS );
 $uniqid = uniqid();
 ?>
 <div class="gl-b-resizable" id="<?php echo esc_attr( $uniqid ); ?>">
 	<div class="items-center justify-center max-w-screen-2xl m-auto">
 		<div class="flex justify-between">
-
 			<div class="flex gap-x-2.5 ">
 				<div class="grow my-auto">
 					<!-- <p class="screen-size"></p> -->
@@ -57,9 +65,7 @@ $uniqid = uniqid();
 		</div>
 
 		<div class="code-content content max-w-full resize-x overflow-auto m-auto mt-5 hidden min-h-80 bg-[#1E293B] rounded-lg p-5" data-id="<?php echo esc_attr( $uniqid ); ?>">
-			<p class="text-white">Loading...</p>
+			<div><?php echo wp_kses_post( $geshi->parse_code() ); ?></div>
 		</div>
 	</div>
-
-</div>
 </div>
