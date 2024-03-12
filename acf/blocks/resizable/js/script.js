@@ -32,7 +32,7 @@
 
 		$copyCode.on( 'click', function() {
 			const id = $( this ).data( 'id' );
-			const el = $( '#' + id + ' .code-content' ).html();
+			const el = $( '#' + id + ' .code-content' ).text();
 			const copyButton = $( '#' + id ).find( '.copy-code-label' );
 			navigator.clipboard.writeText( el ).then( function() {
 				$( copyButton ).text( 'Copied' );
