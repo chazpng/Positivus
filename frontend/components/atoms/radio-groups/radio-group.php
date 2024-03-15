@@ -83,8 +83,9 @@ switch ( $gl_radio_type ) {
 <fieldset class="<?php echo esc_attr( $fieldset_class ); ?>">
 	<legend class="<?php echo esc_attr( $legend_class ); ?>"><?php echo esc_attr( $gl_legend_label ); ?></legend>
 	<div class="<?php echo esc_attr( $container_class ); ?>">
-		<?php 
+		<?php
 		echo $gl_custom_radio; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 		?>
 	</div>
 </fieldset>
+
