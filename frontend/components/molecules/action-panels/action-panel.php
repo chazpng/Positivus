@@ -22,7 +22,7 @@ $gl_action_panel_container = $args['gl_action_panel_container'] ?? '';
 $gl_action_outer_container = $args['gl_action_outer_container'] ?? '';
 $gl_action_panel_button    = $args['gl_action_panel_button'] ?? '';
 ?>
-<div class="<?php echo esc_attr( $gl_action_panel_outer_container ); ?>">
+<div class="<?php echo esc_attr( $gl_action_outer_container ); ?>">
 	<div class="<?php echo esc_attr( $gl_action_panel_container ); ?>">
 		<?php
 
@@ -54,6 +54,3 @@ $gl_action_panel_button    = $args['gl_action_panel_button'] ?? '';
 		</div>
 	</div>
 </div>
-
-
-
