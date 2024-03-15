@@ -171,6 +171,7 @@ module.exports = {
     'md:mt-0',
     'md:order-1',
     'md:order-2',
+    'md:text-end',
     'md:py-32',
     'md:space-x-10',
     'md:space-x-12',
