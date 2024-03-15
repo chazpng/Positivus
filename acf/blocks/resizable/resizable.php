@@ -15,7 +15,7 @@ $geshi->set_overall_class( 'geshi' );
 $geshi->enable_line_numbers( GESHI_FANCY_LINE_NUMBERS );
 $uniqid = uniqid();
 ?>
-<div class="gl-b-resizable" id="<?php echo esc_attr( $uniqid ); ?>">
+<div class="gl-b-resizable container mx-auto" id="<?php echo esc_attr( $uniqid ); ?>">
 	<div class="items-center justify-center max-w-screen-2xl m-auto">
 		<div class="flex justify-between">
 			<div class="flex gap-x-2.5 ">
@@ -68,3 +68,5 @@ $uniqid = uniqid();
 		</div>
 	</div>
 </div>
+
+
