@@ -21,6 +21,9 @@ $gl_btn_text               = $args['gl_btn_text'] ?? '';
 $gl_action_panel_container = $args['gl_action_panel_container'] ?? '';
 $gl_action_outer_container = $args['gl_action_outer_container'] ?? '';
 $gl_action_panel_button    = $args['gl_action_panel_button'] ?? '';
+$gl_action_panel_type      = $args['gl_action_panel_type'] ?? '';
+$gl_link                   = $args['gl_link'] ?? '#';
+$gl_link_label             = $args['gl_link_label'] ?? 'Link Text';
 ?>
 <div class="<?php echo esc_attr( $gl_action_outer_container ); ?>">
 	<div class="<?php echo esc_attr( $gl_action_panel_container ); ?>">
@@ -38,19 +41,26 @@ $gl_action_panel_button    = $args['gl_action_panel_button'] ?? '';
 				'gl_description_class' => $gl_text_description_class,
 				'gl_class'             => $gl_text_container_class,
 			]
-		); 
+		);
 		?>
 		<div class="<?php echo esc_attr( $gl_action_panel_button ); ?>">
-			<?php 
-			Load::atom(
-				'buttons/button',
-				[
-					'gl_btn_type' => $gl_btn_type,
-					'gl_btn_size' => $gl_btn_size,
-					'gl_btn_text' => $gl_btn_text,
-				]
-			); 
-			?>
+			<?php if ( 'link' === $gl_action_panel_type ) : ?>
+				<a href="<?php echo esc_url( $gl_link ); ?>" class="font-semibold text-indigo-600 hover:text-indigo-500">
+					<?php echo esc_html( $gl_link_label ); ?>
+					<span aria-hidden="true"> &rarr;</span>
+				</a>
+			<?php else : ?>
+				<?php
+				Load::atom(
+					'buttons/button',
+					[
+						'gl_btn_type' => $gl_btn_type,
+						'gl_btn_size' => $gl_btn_size,
+						'gl_btn_text' => $gl_btn_text,
+					]
+				);
+				?>
+			<?php endif; ?>
 		</div>
 	</div>
 </div>
