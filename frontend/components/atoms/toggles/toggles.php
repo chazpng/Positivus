@@ -16,6 +16,7 @@
 $gl_toggle_type        = $args['gl_toggle_type'] ?? '';
 $gl_toggle_label       = $args['gl_toggle_label'] ?? '';
 $gl_toggle_description = $args['gl_toggle_description'] ?? '';
+$gl_toggle_code        = $args['gl_toggle_code'] ?? '';
 
 
 ?>
@@ -26,13 +27,13 @@ $gl_toggle_description = $args['gl_toggle_description'] ?? '';
 			<span class="text-sm text-gray-500" id="availability-description"><?php echo esc_html( $gl_toggle_description ); ?></span>
 		</span>
 		<div class="<?php echo esc_attr( $gl_toggle_type ); ?>">
-			<?php echo do_shortcode( '[contact-form-7 id="8ebab60" title="Toggle"]' ); ?>
+			<?php echo do_shortcode( $gl_toggle_code ); ?>
 		</div>
 	</div>
 <?php elseif ( 'toggle-right' === $gl_toggle_type ) : ?>
 	<div class="flex items-center">
 		<div class="<?php echo esc_attr( $gl_toggle_type ); ?>">
-			<?php echo do_shortcode( '[contact-form-7 id="8ebab60" title="Toggle"]' ); ?>
+			<?php echo do_shortcode( $gl_toggle_code ); ?>
 		</div>
 		<span class="ml-3 text-sm mb-1" id="annual-billing-label">
 			<span class="font-medium text-gray-900"><?php echo esc_html( $gl_toggle_label ); ?></span>
@@ -41,6 +42,6 @@ $gl_toggle_description = $args['gl_toggle_description'] ?? '';
 	</div>
 <?php else : ?>
 	<div class="<?php echo esc_attr( $gl_toggle_type ); ?>">
-		<?php echo do_shortcode( '[contact-form-7 id="8ebab60" title="Toggle"]' ); ?>
+		<?php echo do_shortcode( $gl_toggle_code ); ?>
 	</div>
 <?php endif; ?>

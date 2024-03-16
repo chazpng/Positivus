@@ -24,6 +24,8 @@ $gl_action_panel_button    = $args['gl_action_panel_button'] ?? '';
 $gl_action_panel_type      = $args['gl_action_panel_type'] ?? '';
 $gl_link                   = $args['gl_link'] ?? '#';
 $gl_link_label             = $args['gl_link_label'] ?? 'Link Text';
+$gl_toggle_type            = $args['gl_toggle_type'] ?? '';
+$gl_toggle_code            = $args['gl_toggle_code'] ?? '';
 ?>
 <div class="<?php echo esc_attr( $gl_action_outer_container ); ?>">
 	<div class="<?php echo esc_attr( $gl_action_panel_container ); ?>">
@@ -49,6 +51,16 @@ $gl_link_label             = $args['gl_link_label'] ?? 'Link Text';
 					<?php echo esc_html( $gl_link_label ); ?>
 					<span aria-hidden="true"> &rarr;</span>
 				</a>
+			<?php elseif ( 'toggle' === $gl_action_panel_type ) : ?>
+				<?php
+				Load::atom(
+					'toggles/toggles',
+					[
+						'gl_toggle_type' => $gl_toggle_type,
+						'gl_toggle_code' => $gl_toggle_code,
+					]
+				); 
+				?>
 			<?php else : ?>
 				<?php
 				Load::atom(
@@ -64,4 +76,3 @@ $gl_link_label             = $args['gl_link_label'] ?? 'Link Text';
 		</div>
 	</div>
 </div>
-
