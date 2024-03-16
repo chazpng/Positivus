@@ -1,45 +1,46 @@
 <?php
 /**
- * Toggle
+ * Toggles
  *
- * This is an example of how to a toggle element.
+ * This is an example of how to a toggles element.
  *
  * Usage:
  * add use Lean\Load; at the start of the php file then
- * Load::atom( 'toggles/toggle', array('key' => 'value') );
+ * Load::atom( 'toggles/toggles', array('key' => 'value') );
+ * 
+ * Types: toggle-simple, toggle-icon, toggle-short, toggle-description, toggle-right
  *
  * @package greydientlab
  */
 
-$gl_toggle_type = $args['gl_toggle_type'] ?? '';
-$btn_class      = '';
+$gl_toggle_type        = $args['gl_toggle_type'] ?? '';
+$gl_toggle_label       = $args['gl_toggle_label'] ?? '';
+$gl_toggle_description = $args['gl_toggle_description'] ?? '';
 
-switch ( $gl_toggle_type ) {
-	case 'toggle-simple':
-		$btn_class .= 'bg-gray-200 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2';
-		break;
-
-	case 'toggle-short':
-		$btn_class .= ' bg-white text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50';
-		break;
-
-	case 'toggle-icon':
-		$btn_class .= ' bg-indigo-500 text-white hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500';
-		break;
-
-	case 'toggle-left-label':
-		$btn_class .= ' bg-white/10 text-white hover:bg-white/20';
-		break;
-
-	case 'toggle-right-label':
-		$btn_class .= ' bg-indigo-50 text-indigo-600 hover:bg-indigo-100';
-		break;
-
-	default:
-		break;
-}
 
 ?>
-<div class="test">
-	<?php echo do_shortcode( '[contact-form-7 id="8ebab60" title="Toggle"]' ); ?>
-</div>
+<?php if ( 'toggle-description' === $gl_toggle_type ) : ?>
+	<div class="flex items-center justify-between">
+		<span class="flex flex-grow flex-col">
+			<span class="text-sm font-medium leading-6 text-gray-900" id="availability-label"><?php echo esc_html( $gl_toggle_label ); ?></span>
+			<span class="text-sm text-gray-500" id="availability-description"><?php echo esc_html( $gl_toggle_description ); ?></span>
+		</span>
+		<div class="<?php echo esc_attr( $gl_toggle_type ); ?>">
+			<?php echo do_shortcode( '[contact-form-7 id="8ebab60" title="Toggle"]' ); ?>
+		</div>
+	</div>
+<?php elseif ( 'toggle-right' === $gl_toggle_type ) : ?>
+	<div class="flex items-center">
+		<div class="<?php echo esc_attr( $gl_toggle_type ); ?>">
+			<?php echo do_shortcode( '[contact-form-7 id="8ebab60" title="Toggle"]' ); ?>
+		</div>
+		<span class="ml-3 text-sm mb-1" id="annual-billing-label">
+			<span class="font-medium text-gray-900"><?php echo esc_html( $gl_toggle_label ); ?></span>
+			<span class="text-gray-500"><?php echo esc_html( $gl_toggle_description ); ?></span>
+		</span>
+	</div>
+<?php else : ?>
+	<div class="<?php echo esc_attr( $gl_toggle_type ); ?>">
+		<?php echo do_shortcode( '[contact-form-7 id="8ebab60" title="Toggle"]' ); ?>
+	</div>
+<?php endif; ?>

@@ -64,3 +64,4 @@ $gl_link_label             = $args['gl_link_label'] ?? 'Link Text';
 		</div>
 	</div>
 </div>
+
