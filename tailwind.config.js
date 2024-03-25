@@ -90,6 +90,7 @@ module.exports = {
     'bg-purple-600',
     'bg-purple-500',
     'bg-purple-700',
+    'bg-red-50',
     'bg-red-100',
     'bg-red-400',
     'bg-red-400/10',
@@ -365,8 +366,9 @@ module.exports = {
     'z-10',
     'z-20',
     'z-30',
-    'z-40'
-
+    'z-40',
+    '-mx-3',
+    '-my-6'
   ],
   theme: {
     fontFamily: {
