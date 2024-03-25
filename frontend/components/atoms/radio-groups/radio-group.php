@@ -88,4 +88,3 @@ switch ( $gl_radio_type ) {
 		?>
 	</div>
 </fieldset>
-

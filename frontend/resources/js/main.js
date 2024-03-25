@@ -60,4 +60,57 @@ jQuery( function( $ ) {
 			}
 		} );
 	} );
+
+	$( '.radio-stacked' ).each( function( ) {
+		$( this ).click( function( ) {
+			$( '.radio-stacked' ).removeClass( 'border-indigo-600 ring-2 ring-indigo-600' );
+			$( this ).addClass( 'border-indigo-600 ring-2 ring-indigo-600' );
+		} );
+	} );
+
+	$( '.radio-cards svg' ).addClass( 'invisible' );
+	$( '.radio-cards' ).each( function( ) {
+		$( this ).click( function( ) {
+			$( '.radio-cards' ).removeClass( 'border-indigo-600 ring-2 ring-indigo-600' );
+			$( 'svg' ).addClass( 'invisible' );
+			$( this ).addClass( 'border-indigo-600 ring-2 ring-indigo-600' );
+			$( this ).find( 'svg' ).removeClass( 'invisible' );
+		} );
+	} );
+
+	$( '.radio-table' ).each( function( ) {
+		$( this ).click( function( ) {
+			$( '.radio-table' ).removeClass( 'bg-indigo-50' );
+			$( '.radio-table' ).removeClass( 'text-white' );
+			$( '.yr-color' ).removeClass( 'text-indigo-700' );
+			$( this ).removeClass( 'bg-indigo-600' );
+			$( this ).removeClass( 'text-white' );
+			$( this ).addClass( 'bg-indigo-50' );
+			$( this ).addClass( 'text-gray-900' );
+			$( this ).find( '.yr-color' ).addClass( 'text-indigo-700' );
+		} );
+	} );
+
+	$( '.radio-panel' ).each( function( ) {
+		$( this ).click( function( ) {
+			$( '.radio-panel' ).removeClass( 'bg-indigo-50' );
+			$( '.radio-panel' ).removeClass( 'text-white' );
+			$( '.title-color' ).removeClass( 'text-indigo-900' );
+			$( '.description-color' ).removeClass( 'text-indigo-700' );
+			$( this ).removeClass( 'bg-indigo-600' );
+			$( this ).removeClass( 'text-white' );
+			$( this ).addClass( 'bg-indigo-50' );
+			$( this ).addClass( 'text-gray-900' );
+			$( this ).find( '.title-color' ).addClass( 'text-indigo-900' );
+			$( this ).find( '.description-color' ).addClass( 'text-indigo-700' );
+		} );
+	} );
+
+	$( '.radio-color' ).each( function( ) {
+		$( this ).click( function( ) {
+			$( '.radio-color' ).removeClass( 'bg-indigo-600' );
+			$( '.radio-color' ).removeClass( 'ring-2 ring-offset-3' );
+			$( this ).addClass( 'ring-2 ring-offset-3' );
+		} );
+	} );
 } );
