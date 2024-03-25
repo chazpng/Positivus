@@ -11,23 +11,34 @@
 
 $forms = new StoutLogic\AcfBuilder\FieldsBuilder( 'forms' );
 $forms
-->addSelect(
-	'form_type',
-	array(
-		'default_value' => 'simple',
+	->addSelect(
+		'form_type',
+		array(
+			'default_value' => 'simple',
+		)
 	)
-)
-->addChoices(
-	array( 'simple' => 'Simple' ),
-	array( 'two-column' => 'Two Column' ),
-	array( 'two-column-card' => 'Two Columns Card' ),
-	array( 'labels' => 'Labels on left' )
-)
-->addRepeater( 'form_repeater' )
+	->addChoices(
+		array( 'simple' => 'Simple' ),
+		array( 'two-column' => 'Two Column' ),
+		array( 'two-column-card' => 'Two Columns Card' ),
+		array( 'labels' => 'Labels on left' )
+	)
+	->addRepeater( 'form_repeater' )
+	->addSelect(
+		'repeater_type',
+		array(
+			'default_value' => 'simple',
+		)
+	)
+	->addChoices(
+		array( 'profile' => 'Profile' ),
+		array( 'information' => 'Personal Information' ),
+		array( 'notification' => 'Notification' )
+	)
 	->addText( 'title' )
 	->addTextarea( 'description' )
 	->addTextarea( 'forms' )
-->endRepeater()
+	->endRepeater()
 	->setLocation( 'block', '==', 'acf/forms' );
 
 return $forms;
