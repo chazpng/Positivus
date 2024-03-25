@@ -614,7 +614,7 @@ if ( 'is-style-dark' === $style ) {
 																	<tr>
 																		<th scope="row" class="w-1/<?php echo esc_attr( $total_col + 1 ); ?> py-3 pr-4 text-left text-sm font-normal leading-6 <?php echo esc_attr( $text_color_primary ); ?>"> <!-- Dynamic grid cols -->
 																			<?php echo esc_html( $main_feature ); ?>
-																			<div class="absolute inset-x-8 mt-3 h-px <?php echo esc_attr( $bg_divider ); ?>"></div>
+																			<div class="bd-separate absolute inset-x-8 mt-3 h-px <?php echo esc_attr( $bg_divider ); ?>"></div>
 																		</th>
 																		<?php if ( have_rows( 'checkmark_list' ) ) : ?>
 																			<?php

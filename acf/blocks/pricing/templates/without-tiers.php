@@ -260,7 +260,7 @@ if ( 'is-style-dark' === $style ) {
 																			the_row();
 																			$layout = get_row_layout( 'content' );
 																			?>
-														<td class="px-6 py-4 xl:px-8 text-center mx-auto <?php echo esc_attr( $text_color_primary ); ?> border-b-<?php echo esc_html( $divider_comparison_1 ); ?> border-b">
+														<td class="px-6 py-4 xl:px-8 text-center mx-auto <?php echo esc_attr( $text_color_primary ); ?>">
 																			<?php if ( 'text' === $layout ) : ?>
 																				<?php echo esc_html( get_sub_field( 'spec' ) ); ?>
 															<?php endif; ?>

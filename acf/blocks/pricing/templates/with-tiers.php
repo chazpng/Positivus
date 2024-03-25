@@ -341,7 +341,7 @@ if ( 'is-style-dark' === $style ) {
 							if ( 2 === get_row_index() ) {
 								$container = 'lg:rounded-b-none lg:rounded-t-none';
 								if ( get_sub_field( 'checkbox_highlight' ) ) {
-									$container = '';
+									$container = 'lg:rounded-b-none';
 								}
 							}
 							if ( 3 === get_row_index() ) {

@@ -129,34 +129,39 @@ if ( have_rows( 'list' ) ) {
 <?php endif; ?>
 
 <?php if ( 'image' === $error_style ) : ?>
-	<main class="gl-b-404-error <?php echo esc_attr( $bg_color ); ?> relative isolate min-h-full">
-		<?php echo wp_get_attachment_image( get_field( 'background_image' ), 'full', '', array( 'class' => 'absolute inset-0 -z-10 h-full w-full object-cover object-top' ) ); ?>
-		<div class="mx-auto max-w-7xl px-6 py-32 text-center sm:py-40 lg:px-8">
-			<p class="text-base font-semibold leading-8 <?php echo esc_attr( $text_color_label ); ?>"><?php echo esc_html( $main_label ); ?></p>
-			<h1 class="mt-4 text-3xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> sm:text-5xl <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $main_title ); ?></h1>
-			<p class="mt-4 text-base <?php echo esc_attr( $text_color_secondary ); ?> sm:mt-6"><?php echo esc_html( $main_description ); ?></p>
-			<div class="mt-10 flex justify-center">
-				<a href="<?php echo esc_attr( $link_url ); ?>" class="text-sm font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>"><span aria-hidden="true">&larr;</span> <?php echo esc_html( $link_text ); ?></a>
+
+	<main class="gl-b-404-error h-full <?php echo esc_attr( $bg_color ); ?> ">
+		<div class="relative isolate min-h-full">
+			<?php echo wp_get_attachment_image( get_field( 'background_image' ), 'full', '', array( 'class' => 'absolute top-0 left-0 -z-10 h-full w-full object-cover' ) ); ?>
+			<div class="mx-auto max-w-7xl px-6 py-32 text-center sm:py-40 lg:px-8">
+				<p class="text-base font-semibold leading-8 <?php echo esc_attr( $text_color_label ); ?>"><?php echo esc_html( $main_label ); ?></p>
+				<h1 class="mt-4 text-3xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> sm:text-5xl <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $main_title ); ?></h1>
+				<p class="mt-4 text-base <?php echo esc_attr( $text_color_secondary ); ?> sm:mt-6"><?php echo esc_html( $main_description ); ?></p>
+				<div class="mt-10 flex justify-center">
+					<a href="<?php echo esc_attr( $link_url ); ?>" class="text-sm font-semibold leading-7 <?php echo esc_attr( $text_color_primary ); ?>"><span aria-hidden="true">&larr;</span> <?php echo esc_html( $link_text ); ?></a>
+				</div>
 			</div>
 		</div>
 	</main>
 <?php endif; ?>
 
 <?php if ( 'split' === $error_style ) : ?>
-	<div class="grid min-h-full grid-cols-1 grid-rows-[1fr,auto,1fr] <?php echo esc_attr( $bg_color ); ?> lg:grid-cols-[max(50%,36rem),1fr]">
-		<main class="mx-auto w-full max-w-7xl px-6 py-24 sm:py-32 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:px-8">
-			<div class="max-w-lg">
-				<p class="text-base font-semibold leading-8 <?php echo esc_attr( $text_color_label ); ?>"><?php echo esc_html( $main_label ); ?></p>
-				<h1 class="mt-4 text-3xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> sm:text-5xl"><?php echo esc_html( $main_title ); ?></h1>
-				<p class="mt-6 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $main_description ); ?></p>
-				<div class="mt-10">
-					<a href="<?php echo esc_attr( $link_url ); ?>" class="text-sm font-semibold leading-7 <?php echo esc_attr( $text_color_label ); ?>"><span aria-hidden="true">&larr;</span> <?php echo esc_html( $link_text ); ?></a>
+	<div class="h-screen">
+		<div class="grid min-h-full grid-cols-1 grid-rows-[1fr,auto,1fr] <?php echo esc_attr( $bg_color ); ?> lg:grid-cols-[max(50%,36rem),1fr]">
+			<main class="mx-auto w-full max-w-7xl px-6 py-24 sm:py-32 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:px-8">
+				<div class="max-w-lg">
+					<p class="text-base font-semibold leading-8 <?php echo esc_attr( $text_color_label ); ?>"><?php echo esc_html( $main_label ); ?></p>
+					<h1 class="mt-4 text-3xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> sm:text-5xl"><?php echo esc_html( $main_title ); ?></h1>
+					<p class="mt-6 text-base leading-7 <?php echo esc_attr( $text_color_secondary ); ?>"><?php echo esc_html( $main_description ); ?></p>
+					<div class="mt-10">
+						<a href="<?php echo esc_attr( $link_url ); ?>" class="text-sm font-semibold leading-7 <?php echo esc_attr( $text_color_label ); ?>"><span aria-hidden="true">&larr;</span> <?php echo esc_html( $link_text ); ?></a>
+					</div>
 				</div>
-			</div>
-		</main>
+			</main>
 
-		<div class="hidden lg:relative lg:col-start-2 lg:row-start-1 lg:row-end-4 lg:block">
-			<?php echo wp_get_attachment_image( get_field( 'background_image' ), 'full', '', array( 'class' => 'absolute inset-0 h-full w-full object-cover' ) ); ?>
+			<div class="hidden lg:relative lg:col-start-2 lg:row-start-1 lg:row-end-4 lg:block">
+				<?php echo wp_get_attachment_image( get_field( 'background_image' ), 'full', '', array( 'class' => 'absolute inset-0 h-full w-full object-cover' ) ); ?>
+			</div>
 		</div>
 	</div>
 

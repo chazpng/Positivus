@@ -160,4 +160,9 @@
 
 	}
 
+	tr:last-child .bd-separate {
+
+		@apply hidden;
+	}
+
 }

@@ -8,7 +8,7 @@
 ?>
 <?php
 $style                = $block['className'] ?? '';
-$bg_color             = '';
+$bg_color             = 'bg-white';
 $container_color      = 'bg-gray-50';
 $text_color_primary   = 'text-gray-900';
 $text_color_secondary = 'text-gray-500';
