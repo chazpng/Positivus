@@ -77,15 +77,26 @@ jQuery( function( $ ) {
 			$( this ).find( 'svg' ).removeClass( 'invisible' );
 		} );
 	} );
+	$( '.radio-sm-card' ).addClass( 'text-gray-900' );
+	$( '.radio-sm-card' ).each( function( ) {
+		$( this ).click( function( ) {
+			$( '.radio-sm-card' ).removeClass( 'border-indigo-600 ring-2 ring-indigo-600' );
+			$( '.radio-sm-card' ).removeClass( 'hover:bg-indigo-500' );
+			$( '.radio-sm-card' ).addClass( 'hover:bg-gray-50', 'text-gray-900' );
+			$( this ).addClass( 'border-indigo-600 ring-2 ring-indigo-600 ring-offset-2' );
+			$( this ).removeClass( 'hover:bg-gray-50' ).addClass( 'hover:bg-indigo-500' );
+			$( '.radio-sm-card' ).find( '.cursor-not-allowed' ).removeClass( 'border-indigo-600 ring-2 ring-indigo-600' );
+		} );
+	} );
 
 	$( '.radio-table' ).each( function( ) {
 		$( this ).click( function( ) {
-			$( '.radio-table' ).removeClass( 'bg-indigo-50' );
+			$( '.radio-table' ).removeClass( 'bg-indigo-50 border-indigo-200 z-10' );
 			$( '.radio-table' ).removeClass( 'text-white' );
 			$( '.yr-color' ).removeClass( 'text-indigo-700' );
 			$( this ).removeClass( 'bg-indigo-600' );
 			$( this ).removeClass( 'text-white' );
-			$( this ).addClass( 'bg-indigo-50' );
+			$( this ).addClass( 'bg-indigo-50 border-indigo-200 z-10' );
 			$( this ).addClass( 'text-gray-900' );
 			$( this ).find( '.yr-color' ).addClass( 'text-indigo-700' );
 		} );
@@ -93,13 +104,13 @@ jQuery( function( $ ) {
 
 	$( '.radio-panel' ).each( function( ) {
 		$( this ).click( function( ) {
-			$( '.radio-panel' ).removeClass( 'bg-indigo-50' );
+			$( '.radio-panel' ).removeClass( 'bg-indigo-50 border-indigo-200 z-10' );
 			$( '.radio-panel' ).removeClass( 'text-white' );
 			$( '.title-color' ).removeClass( 'text-indigo-900' );
 			$( '.description-color' ).removeClass( 'text-indigo-700' );
 			$( this ).removeClass( 'bg-indigo-600' );
 			$( this ).removeClass( 'text-white' );
-			$( this ).addClass( 'bg-indigo-50' );
+			$( this ).addClass( 'bg-indigo-50 border-indigo-200 z-10' );
 			$( this ).addClass( 'text-gray-900' );
 			$( this ).find( '.title-color' ).addClass( 'text-indigo-900' );
 			$( this ).find( '.description-color' ).addClass( 'text-indigo-700' );

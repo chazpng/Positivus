@@ -98,7 +98,7 @@
 
 .toggle-short form .wpcf7-list-item.first.last input[type="checkbox"]::before {
 
-	@apply w-5 h-5 bg-white rounded-full transition-all absolute shadow-md;
+	@apply w-5 h-5 bg-white rounded-full transition-all absolute border border-gray-200 shadow;
 	content: "";
 	left: -2px;
 	top: -3px;
@@ -106,7 +106,7 @@
 
 .toggle-short form .wpcf7-list-item.first.last input[type="checkbox"]:checked::before {
 
-	@apply w-5 h-5 bg-white rounded-full transition-all shadow-md;
+	@apply w-5 h-5 bg-white rounded-full transition-all border border-gray-200 shadow;
 	left: 18px;
 	top: -3px;
 }
@@ -119,7 +119,7 @@
 
 .toggle-icon form .wpcf7-checkbox input[type="checkbox"] {
 
-	@apply appearance-none w-11 h-6 border-0 bg-gray-200 hover:ring-indigo-600 rounded-full transition-all cursor-pointer;
+	@apply appearance-none w-11 h-6 border-0 bg-gray-200 text-gray-400 hover:ring-indigo-600 rounded-full transition-all cursor-pointer;
 }
 
 .toggle-icon form .wpcf7-list-item.first.last {
@@ -130,7 +130,7 @@
 .toggle-icon form .wpcf7-list-item.first.last input[type="checkbox"]::before {
 
 	@apply w-5 h-5 bg-white rounded-full transition-all mt-0.5 absolute ;
-	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-12 w-12' fill='rgb(156, 163, 175)' viewBox='0 0 12 12'%3E%3Cpath d='M4 8l2-2m0 0l2-2M6 6L4 4m2 2l2 2' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E"); /* stylelint-disable-line */
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' fill='rgb(156, 163, 175)' viewBox='-3.5 -1.5 15 15'%3E%3Cpath d='M4 8l2-2m0 0l2-2M6 6L4 4m2 2l2 2' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='%239CA3AF' /%3E%3C/svg%3E"); /* stylelint-disable-line */
 	left: 2px;
 }
 

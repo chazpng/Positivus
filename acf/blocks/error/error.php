@@ -134,7 +134,7 @@ if ( have_rows( 'list' ) ) {
 		<div class="relative isolate min-h-full">
 			<?php echo wp_get_attachment_image( get_field( 'background_image' ), 'full', '', array( 'class' => 'absolute top-0 left-0 -z-10 h-full w-full object-cover' ) ); ?>
 			<div class="mx-auto max-w-7xl px-6 py-32 text-center sm:py-40 lg:px-8">
-				<p class="text-base font-semibold leading-8 <?php echo esc_attr( $text_color_label ); ?>"><?php echo esc_html( $main_label ); ?></p>
+				<p class="text-base font-semibold leading-8 text-white"><?php echo esc_html( $main_label ); ?></p>
 				<h1 class="mt-4 text-3xl font-bold tracking-tight <?php echo esc_attr( $text_color_primary ); ?> sm:text-5xl <?php echo esc_attr( $text_color_primary ); ?>"><?php echo esc_html( $main_title ); ?></h1>
 				<p class="mt-4 text-base <?php echo esc_attr( $text_color_secondary ); ?> sm:mt-6"><?php echo esc_html( $main_description ); ?></p>
 				<div class="mt-10 flex justify-center">

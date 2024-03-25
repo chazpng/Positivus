@@ -266,6 +266,7 @@ module.exports = {
     'sm:space-x-12',
     'sm:space-x-10',
     'sm:space-y-0',
+    'sm:inline',
     'sm:stroke-blue-600/50',
     'sm:stroke-blue-700/75',
     'sm:stroke-gray-600/50',
