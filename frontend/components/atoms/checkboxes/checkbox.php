@@ -54,10 +54,10 @@ switch ( $gl_field_type ) {
 ?>
 <div class="<?php echo esc_attr( $container_class ); ?>">
 	<div class="<?php echo esc_attr( $input_wrapper_class ); ?>">
-		<input id="comments" aria-describedby="comments-description" name="comments" type="checkbox" class="h-4 w-4 apperance-none rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+		<input aria-describedby="comments-description" type="checkbox" class="h-4 w-4 apperance-none rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
 	</div>
 	<div class="<?php echo esc_attr( $text_wrapper_class ); ?>">
-		<label for="comments" class="font-medium text-gray-900"><?php echo esc_html( $gl_field_label ); ?></label>
+		<label  class="font-medium text-gray-900"><?php echo esc_html( $gl_field_label ); ?></label>
 		<?php if ( 'inline' === $gl_field_type ) : ?>
 			<?php if ( $gl_field_description ) : ?>
 				<span class="text-gray-500"><?php echo esc_html( $gl_field_description ); ?></span>
