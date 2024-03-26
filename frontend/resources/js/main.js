@@ -125,18 +125,17 @@ jQuery( function( $ ) {
 		} );
 	} );
 
-	$( '#tabs-1-tab-2' ).click( function( ) {
-		$( '#tabs-1-panel-2' ).removeClass( 'hidden', 'bg-white' );
-		$( '#tabs-1-panel-1' ).addClass( 'hidden' );
-		$( this ).addClass( 'bg-gray-100' ).removeClass( 'bg-white' );
-		$( '#tabs-1-tab-1' ).removeClass( 'bg-gray-100' ).addClass( 'bg-white' );
+	function switchTab( tabIdToShow, tabIdToHide, tabToShowClass, tabToHideClass ) {
+		$( tabIdToShow ).removeClass( 'hidden' ).addClass( tabToShowClass ).removeClass( tabToHideClass );
+		$( tabIdToHide ).addClass( 'hidden' ).removeClass( tabToShowClass ).addClass( tabToHideClass );
+	}
+
+	$( '#tabs-1-tab-2' ).click( function() {
+		switchTab( '#tabs-1-panel-2', '#tabs-1-panel-1', 'bg-white', 'bg-gray-100' );
 	} );
 
-	$( '#tabs-1-tab-1' ).click( function( ) {
-		$( '#tabs-1-panel-2' ).addClass( 'hidden' );
-		$( '#tabs-1-panel-1' ).removeClass( 'hidden' );
-		$( this ).addClass( 'bg-gray-100' ).removeClass( 'bg-white' );
-		$( '#tabs-1-tab-2' ).removeClass( 'bg-gray-100' ).addClass( 'bg-white' );
+	$( '#tabs-1-tab-1' ).click( function() {
+		switchTab( '#tabs-1-panel-1', '#tabs-1-panel-2', 'bg-gray-100', 'bg-white' );
 	} );
 
 	$( '.default-mood-option' ).click( function() {
@@ -173,25 +172,31 @@ jQuery( function( $ ) {
 		} );
 	} );
 
-	$( '.button-1' ).click( function() {
-		$( '.pill-item1' ).toggleClass( 'opacity-0 -z-10 opacity-100 z-10' );
-		if ( $( '.pill-item2' ).hasClass( 'opacity-100 z-10' ) || $( '.pill-item3' ).hasClass( 'opacity-100 z-10' ) ) {
-			$( '.pill-item2' ).removeClass( 'opacity-100 z-10' ).addClass( 'opacity-0 -z-10' );
-			$( '.pill-item3' ).removeClass( 'opacity-100 z-10' ).addClass( 'opacity-0 -z-10' );
-		}
-	} );
-	$( '.button-2' ).click( function() {
-		$( '.pill-item2' ).toggleClass( 'opacity-0 -z-10 opacity-100 z-10' );
-		if ( $( '.pill-item1' ).hasClass( 'opacity-100 z-10' ) || $( '.pill-item3' ).hasClass( 'opacity-100 z-10' ) ) {
-			$( '.pill-item1' ).removeClass( 'opacity-100 z-10' ).addClass( 'opacity-0 -z-10' );
-			$( '.pill-item3' ).removeClass( 'opacity-100 z-10' ).addClass( 'opacity-0 -z-10' );
-		}
-	} );
-	$( '.button-3' ).click( function() {
-		$( '.pill-item3' ).toggleClass( 'opacity-0 -z-10 opacity-100 z-10' );
-		if ( $( '.pill-item1' ).hasClass( 'opacity-100 z-10' ) || $( '.pill-item2' ).hasClass( 'opacity-100 z-10' ) ) {
-			$( '.pill-item1' ).removeClass( 'opacity-100 z-10' ).addClass( 'opacity-0 -z-10' );
-			$( '.pill-item2' ).removeClass( 'opacity-100 z-10' ).addClass( 'opacity-0 -z-10' );
-		}
-	} );
+	function togglePillItem( buttonClass, pillItemClass ) {
+		$( buttonClass ).click( function() {
+			const $pillItem = $( pillItemClass );
+			$pillItem.toggleClass( 'opacity-0 -z-10 opacity-100 z-10' );
+			if ( $pillItem.hasClass( 'opacity-100 z-10' ) ) {
+				$( pillItemClass ).not( $pillItem ).removeClass( 'opacity-100 z-10' ).addClass( 'opacity-0 -z-10' );
+			}
+		} );
+	}
+	togglePillItem( '.button-1', '.pill-item1' );
+	togglePillItem( '.button-2', '.pill-item2' );
+	togglePillItem( '.button-3', '.pill-item3' );
+
+	function handlePillItemClick( pillClass, showId, hideId, hideClass ) {
+		$( pillClass ).click( function() {
+			$( showId ).removeClass( 'hidden' ).addClass( 'flex' );
+			$( hideId ).addClass( 'hidden' ).removeClass( 'flex' );
+			$( hideClass ).removeClass( 'opacity-100 z-10' ).addClass( 'opacity-0 -z-10' );
+		} );
+	}
+
+	handlePillItemClick( '.pill1-list-item1', '#assignItem1', '#assignItem2', '.pill-item1' );
+	handlePillItemClick( '.pill1-list-item2', '#assignItem2', '#assignItem1', '.pill-item1' );
+	handlePillItemClick( '.pill2-list-item1', '#labelItem1', '#labelItem2', '.pill-item2' );
+	handlePillItemClick( '.pill2-list-item2', '#labelItem2', '#labelItem1', '.pill-item2' );
+	handlePillItemClick( '.pill3-list-item1', '#dateItem1', '#dateItem2', '.pill-item3' );
+	handlePillItemClick( '.pill3-list-item2', '#dateItem2', '#dateItem1', '.pill-item3' );
 } );

@@ -11,7 +11,7 @@
  * @package greydientlab
  */
 
-$gl_textarea_type = $args['gl_textarea_type'] ?? 'avatar';
+$gl_textarea_type = $args['gl_textarea_type'] ?? '';
 $legend_class     = 'sr-only';
 $fieldset_class   = '';
 $container_class  = '';
@@ -361,15 +361,21 @@ $container_class  = '';
 				<div class="flex-shrink-0">
 					<label id="listbox-label" class="sr-only">Assign</label>
 					<div class="relative">
-						<button type="button" class="button-1 relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 sm:px-3" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
-							<svg class="h-5 w-5 flex-shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-								<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-5.5-2.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zM10 12a5.99 5.99 0 00-4.793 2.39A6.483 6.483 0 0010 16.5a6.483 6.483 0 004.793-2.11A5.99 5.99 0 0010 12z" clip-rule="evenodd" />
-							</svg>
-							<img src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="  hidden h-5 w-5 flex-shrink-0 rounded-full">
-							<span class="hidden truncate sm:ml-2 sm:block">Assign</span>
+						<button type="button" class="button-1 relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 px-2 py-2 text-sm font-medium  hover:bg-gray-100 sm:px-3" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
+							<span class="flex text-gray-500" id="assignItem1">
+								<svg class="h-5 w-5 flex-shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+									<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-5.5-2.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zM10 12a5.99 5.99 0 00-4.793 2.39A6.483 6.483 0 0010 16.5a6.483 6.483 0 004.793-2.11A5.99 5.99 0 0010 12z" clip-rule="evenodd" />
+								</svg>
+								<img src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="  hidden h-5 w-5 flex-shrink-0 rounded-full">
+								<span class="truncate sm:ml-2 sm:block">Assign</span>
+							</span>
+							<span class="hidden items-center " id="assignItem2">
+								<img src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-5 w-5 flex-shrink-0 rounded-full">
+								<span class="ml-3 block truncate font-medium">Wade Cooper</span>
+							</span>
 						</button>
 						<ul class="pill-item1 opacity-0 -z-10 transition ease-in duration-100 absolute right-0 mt-1 max-h-56 w-52 overflow-auto rounded-lg bg-white py-3 text-base shadow ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-0">
-							<li class="bg-white relative cursor-default select-none px-3 py-2 hover:bg-gray-100" id="listbox-option-0" role="option">
+							<li class="pill1-list-item1 bg-white relative cursor-default select-none px-3 py-2 hover:bg-gray-100" id="listbox-option-0" role="option">
 								<div class="flex items-center">
 									<svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 										<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-5.5-2.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zM10 12a5.99 5.99 0 00-4.793 2.39A6.483 6.483 0 0010 16.5a6.483 6.483 0 004.793-2.11A5.99 5.99 0 0010 12z" clip-rule="evenodd" />
@@ -377,7 +383,7 @@ $container_class  = '';
 									<span class="ml-3 block truncate font-medium">Unassigned</span>
 								</div>
 							</li>
-							<li class="bg-white relative cursor-default select-none px-3 py-2 hover:bg-gray-100" id="listbox-option-1" role="option">
+							<li class="pill1-list-item2 bg-white relative cursor-default select-none px-3 py-2 hover:bg-gray-100" id="listbox-option-1" role="option">
 								<div class="flex items-center">
 									<img src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-5 w-5 flex-shrink-0 rounded-full">
 									<span class="ml-3 block truncate font-medium">Wade Cooper</span>
@@ -391,18 +397,26 @@ $container_class  = '';
 					<label id="listbox-label" class="sr-only">Add a label</label>
 					<div class="relative">
 						<button type="button" class="button-2 relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 sm:px-3" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
-							<svg class="h-5 w-5 flex-shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-								<path fill-rule="evenodd" d="M5.5 3A2.5 2.5 0 003 5.5v2.879a2.5 2.5 0 00.732 1.767l6.5 6.5a2.5 2.5 0 003.536 0l2.878-2.878a2.5 2.5 0 000-3.536l-6.5-6.5A2.5 2.5 0 008.38 3H5.5zM6 7a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
-							</svg>
-							<span class="hidden truncate sm:ml-2 sm:block">Label</span>
+							<span class="flex text-gray-500" id="labelItem1">
+								<svg class="h-5 w-5 flex-shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+									<path fill-rule="evenodd" d="M5.5 3A2.5 2.5 0 003 5.5v2.879a2.5 2.5 0 00.732 1.767l6.5 6.5a2.5 2.5 0 003.536 0l2.878-2.878a2.5 2.5 0 000-3.536l-6.5-6.5A2.5 2.5 0 008.38 3H5.5zM6 7a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+								</svg>
+								<span class="hidden truncate sm:ml-2 sm:block">Label</span>
+							</span>
+							<span class="hidden text-gray-900" id="labelItem2">
+								<svg class="h-5 w-5 flex-shrink-0 text-gray-600 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+									<path fill-rule="evenodd" d="M5.5 3A2.5 2.5 0 003 5.5v2.879a2.5 2.5 0 00.732 1.767l6.5 6.5a2.5 2.5 0 003.536 0l2.878-2.878a2.5 2.5 0 000-3.536l-6.5-6.5A2.5 2.5 0 008.38 3H5.5zM6 7a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+								</svg>
+								<span class="block truncate font-medium">Engineering</span>
+							</span>
 						</button>
 						<ul class="pill-item2 opacity-0 -z-10 transition ease-in duration-100 absolute right-0 mt-1 max-h-56 w-52 overflow-auto rounded-lg bg-white py-3 text-base shadow ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-0">
-							<li class="bg-white relative cursor-default select-none px-3 py-2 hover:bg-gray-100" id="listbox-option-0" role="option">
+							<li class="pill2-list-item1 bg-white relative cursor-default select-none px-3 py-2 hover:bg-gray-100" id="listbox-option-0" role="option">
 								<div class="flex items-center">
 									<span class="block truncate font-medium">Unlabelled</span>
 								</div>
 							</li>
-							<li class="bg-white relative cursor-default select-none px-3 py-2 hover:bg-gray-100" id="listbox-option-1" role="option">
+							<li class="pill2-list-item2 bg-white relative cursor-default select-none px-3 py-2 hover:bg-gray-100" id="listbox-option-1" role="option">
 								<div class="flex items-center">
 									<span class="block truncate font-medium">Engineering</span>
 								</div>
@@ -415,18 +429,26 @@ $container_class  = '';
 					<label id="listbox-label" class="sr-only">Add a due date</label>
 					<div class="relative">
 						<button type="button" class="button-3 relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 sm:px-3" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
-							<svg class="h-5 w-5 flex-shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-								<path fill-rule="evenodd" d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75z" clip-rule="evenodd" />
-							</svg>
-							<span class="hidden truncate sm:ml-2 sm:block">Due date</span>
+							<span class="flex text-gray-500" id="dateItem1">
+								<svg class="h-5 w-5 flex-shrink-0 text-gray-300 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+									<path fill-rule="evenodd" d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75z" clip-rule="evenodd" />
+								</svg>
+								<span class="hidden truncate sm:ml-2 sm:block">Due date</span>
+							</span>
+							<span class="hidden text-gray-900" id="dateItem2">
+								<svg class="h-5 w-5 flex-shrink-0 text-gray-600 sm:-ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+									<path fill-rule="evenodd" d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75z" clip-rule="evenodd" />
+								</svg>
+								<span class="block truncate font-medium">Today</span>
+							</span>
 						</button>
 						<ul class="pill-item3 opacity-0 -z-10 transition ease-in duration-100 absolute right-0 mt-1 max-h-56 w-52 overflow-auto rounded-lg bg-white py-3 text-base shadow ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-0">
-							<li class="bg-white relative cursor-default hover:bg-gray-100 px-3 py-2" id="listbox-option-0" role="option">
+							<li class="pill3-list-item1 bg-white relative cursor-default hover:bg-gray-100 px-3 py-2" id="listbox-option-0" role="option">
 								<div class="flex items-center ">
 									<span class="block truncate font-medium">No due date</span>
 								</div>
 							</li>
-							<li class="bg-white relative cursor-default hover:bg-gray-100 px-3 py-2" id="listbox-option-1" role="option">
+							<li class="pill3-list-item2 bg-white relative cursor-default hover:bg-gray-100 px-3 py-2" id="listbox-option-1" role="option">
 								<div class="flex items-center ">
 									<span class="block truncate font-medium">Today</span>
 								</div>
