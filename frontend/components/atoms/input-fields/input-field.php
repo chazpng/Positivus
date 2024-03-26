@@ -11,11 +11,10 @@
  * @package greydientlab
  */
 
-$gl_input_type        = $args['gl_input_type'] ?? 'shared-borders';
+$gl_input_type        = $args['gl_input_type'] ?? '';
 $gl_input_label       = $args['gl_input_label'] ?? '';
 $gl_input_help_text   = $args['gl_input_help_text'] ?? '';
 $gl_input_description = $args['gl_input_title'] ?? '';
-$gl_input_code        = $args['gl_input_code'] ?? '';
 $gl_corner_hint       = $args['gl_input_corner_hint'] ?? '';
 $gl_input_placeholder = $args['gl_input_placeholder'] ?? 'you@example.com';
 $gl_input_field_type  = $args['gl_input_field_type'] ?? 'email';
@@ -262,3 +261,6 @@ switch ( $gl_input_type ) {
 		</fieldset>
 	</div>
 <?php endif; ?>
+
+<div class="px-4 py-8  max-w-sm mx-auto">
+

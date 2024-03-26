@@ -124,4 +124,74 @@ jQuery( function( $ ) {
 			$( this ).addClass( 'ring-2 ring-offset-3' );
 		} );
 	} );
+
+	$( '#tabs-1-tab-2' ).click( function( ) {
+		$( '#tabs-1-panel-2' ).removeClass( 'hidden', 'bg-white' );
+		$( '#tabs-1-panel-1' ).addClass( 'hidden' );
+		$( this ).addClass( 'bg-gray-100' ).removeClass( 'bg-white' );
+		$( '#tabs-1-tab-1' ).removeClass( 'bg-gray-100' ).addClass( 'bg-white' );
+	} );
+
+	$( '#tabs-1-tab-1' ).click( function( ) {
+		$( '#tabs-1-panel-2' ).addClass( 'hidden' );
+		$( '#tabs-1-panel-1' ).removeClass( 'hidden' );
+		$( this ).addClass( 'bg-gray-100' ).removeClass( 'bg-white' );
+		$( '#tabs-1-tab-2' ).removeClass( 'bg-gray-100' ).addClass( 'bg-white' );
+	} );
+
+	$( '.default-mood-option' ).click( function() {
+		$( '.list-items' ).toggleClass( 'opacity-0 -z-10 opacity-100 z-10' );
+	} );
+
+	$( '.emotions' ).each( function( ) {
+		$( '.list-items li' ).mouseenter( function( ) {
+			$( '.list-items li' ).addClass( 'bg-white' ).removeClass( 'bg-gray-100' );
+		} );
+		$( this ).click( function( ) {
+			$( this ).addClass( 'bg-gray-100' ).removeClass( 'bg-white' );
+			$( '.list-items' ).toggleClass( 'opacity-0 -z-10 opacity-100 z-10' );
+			const index = $( this ).index() + 1;
+			$( '.default-mood-option' ).addClass( 'hidden' );
+			$( '#icon' + index ).removeClass( 'hidden' );
+		} );
+	} );
+
+	$( '.default-mood-options' ).click( function() {
+		$( '.list-itemss' ).toggleClass( 'opacity-0 -z-10 opacity-100 z-10' );
+	} );
+
+	$( '.emotionss' ).each( function( ) {
+		$( '.list-itemss li' ).mouseenter( function( ) {
+			$( '.list-itemss li' ).addClass( 'bg-white' ).removeClass( 'bg-gray-100' );
+		} );
+		$( this ).click( function( ) {
+			$( this ).addClass( 'bg-gray-100' ).removeClass( 'bg-white' );
+			$( '.list-itemss' ).toggleClass( 'opacity-0 -z-10 opacity-100 z-10' );
+			const index = $( this ).index() + 1;
+			$( '.default-mood-options' ).addClass( 'hidden' );
+			$( '#icons' + index ).removeClass( 'hidden' );
+		} );
+	} );
+
+	$( '.button-1' ).click( function() {
+		$( '.pill-item1' ).toggleClass( 'opacity-0 -z-10 opacity-100 z-10' );
+		if ( $( '.pill-item2' ).hasClass( 'opacity-100 z-10' ) || $( '.pill-item3' ).hasClass( 'opacity-100 z-10' ) ) {
+			$( '.pill-item2' ).removeClass( 'opacity-100 z-10' ).addClass( 'opacity-0 -z-10' );
+			$( '.pill-item3' ).removeClass( 'opacity-100 z-10' ).addClass( 'opacity-0 -z-10' );
+		}
+	} );
+	$( '.button-2' ).click( function() {
+		$( '.pill-item2' ).toggleClass( 'opacity-0 -z-10 opacity-100 z-10' );
+		if ( $( '.pill-item1' ).hasClass( 'opacity-100 z-10' ) || $( '.pill-item3' ).hasClass( 'opacity-100 z-10' ) ) {
+			$( '.pill-item1' ).removeClass( 'opacity-100 z-10' ).addClass( 'opacity-0 -z-10' );
+			$( '.pill-item3' ).removeClass( 'opacity-100 z-10' ).addClass( 'opacity-0 -z-10' );
+		}
+	} );
+	$( '.button-3' ).click( function() {
+		$( '.pill-item3' ).toggleClass( 'opacity-0 -z-10 opacity-100 z-10' );
+		if ( $( '.pill-item1' ).hasClass( 'opacity-100 z-10' ) || $( '.pill-item2' ).hasClass( 'opacity-100 z-10' ) ) {
+			$( '.pill-item1' ).removeClass( 'opacity-100 z-10' ).addClass( 'opacity-0 -z-10' );
+			$( '.pill-item2' ).removeClass( 'opacity-100 z-10' ).addClass( 'opacity-0 -z-10' );
+		}
+	} );
 } );
