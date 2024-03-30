@@ -199,4 +199,33 @@ jQuery( function( $ ) {
 	handlePillItemClick( '.pill2-list-item2', '#labelItem2', '#labelItem1', '.pill-item2' );
 	handlePillItemClick( '.pill3-list-item1', '#dateItem1', '#dateItem2', '.pill-item3' );
 	handlePillItemClick( '.pill3-list-item2', '#dateItem2', '#dateItem1', '.pill-item3' );
+
+	$( '#dropdown-button' ).click( function() {
+		$( '#dropdown-menu' ).toggleClass( 'hidden' );
+	} );
+
+	$( '#dropdown-menu a' ).click( function() {
+		const value = $( this ).attr( 'data-value' );
+		$( '#selected-option' ).text( value );
+		$( '#dropdown-menu a' ).removeClass( 'bg-indigo-600 text-white font-bold' );
+		$( this ).addClass( 'bg-indigo-600 text-white font-bold' );
+		$( '#dropdown-menu a svg' ).addClass( 'hidden' );
+		$( this ).find( 'svg' ).removeClass( 'hidden' );
+		$( '#dropdown-menu' ).addClass( 'hidden' );
+	} );
+
+	$( '#dropdown-menu a' ).hover(
+		function() {
+			$( '#dropdown-menu a svg' )
+				.not( $( this ).find( 'svg' ) )
+				.addClass( 'text-indigo-600' )
+				.removeClass( 'text-white' );
+			$( this ).find( 'svg' ).addClass( 'text-white' ).removeClass( 'text-indigo-600' );
+			$( '#dropdown-menu a' ).not( this ).removeClass( 'bg-indigo-600 text-white' );
+			$( this ).addClass( 'hover:bg-indigo-600' );
+		},
+		function() {
+			$( this ).removeClass( 'hover:bg-indigo-600' );
+		}
+	);
 } );
