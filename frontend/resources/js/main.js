@@ -204,24 +204,39 @@ jQuery( function( $ ) {
 		$( '#dropdown-menu' ).toggleClass( 'hidden' );
 	} );
 
-	$( '#dropdown-menu a' ).click( function() {
+	$( '#dropdown-menu li' ).each( function() {
+		const status = $( this ).attr( 'data-status' );
+		if ( status === 'offline' ) {
+			$( this ).find( '.status' ).removeClass( 'bg-green-400' ).addClass( 'bg-gray-200' );
+		}
+	} );
+	$( '#dropdown-menu li' ).click( function() {
 		const value = $( this ).attr( 'data-value' );
+		const status = $( this ).attr( 'data-status' );
+		if ( status ) {
+			if ( status === 'offline' ) {
+				$( '#statusColor' ).removeClass( 'bg-green-400' ).addClass( 'bg-gray-200' );
+			}
+			if ( status === 'online' ) {
+				$( '#statusColor' ).addClass( 'bg-green-400' ).removeClass( 'bg-gray-200' );
+			}
+		}
 		$( '#selected-option' ).text( value );
-		$( '#dropdown-menu a' ).removeClass( 'bg-indigo-600 text-white font-bold' );
+		$( '#dropdown-menu li' ).removeClass( 'bg-indigo-600 text-white font-bold' );
 		$( this ).addClass( 'bg-indigo-600 text-white font-bold' );
-		$( '#dropdown-menu a svg' ).addClass( 'hidden' );
+		$( '#dropdown-menu li svg' ).addClass( 'hidden' );
 		$( this ).find( 'svg' ).removeClass( 'hidden' );
 		$( '#dropdown-menu' ).addClass( 'hidden' );
 	} );
 
-	$( '#dropdown-menu a' ).hover(
+	$( '#dropdown-menu li' ).hover(
 		function() {
-			$( '#dropdown-menu a svg' )
+			$( '#dropdown-menu li svg' )
 				.not( $( this ).find( 'svg' ) )
 				.addClass( 'text-indigo-600' )
 				.removeClass( 'text-white' );
 			$( this ).find( 'svg' ).addClass( 'text-white' ).removeClass( 'text-indigo-600' );
-			$( '#dropdown-menu a' ).not( this ).removeClass( 'bg-indigo-600 text-white' );
+			$( '#dropdown-menu li' ).not( this ).removeClass( 'bg-indigo-600 text-white' );
 			$( this ).addClass( 'hover:bg-indigo-600' );
 		},
 		function() {
