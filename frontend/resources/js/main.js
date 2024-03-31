@@ -213,6 +213,8 @@ jQuery( function( $ ) {
 	$( '#dropdown-menu li' ).click( function() {
 		const value = $( this ).attr( 'data-value' );
 		const status = $( this ).attr( 'data-status' );
+		const avatar = $( this ).attr( 'data-src' );
+		const secondary = $( this ).attr( 'data-secondary' );
 		if ( status ) {
 			if ( status === 'offline' ) {
 				$( '#statusColor' ).removeClass( 'bg-green-400' ).addClass( 'bg-gray-200' );
@@ -221,9 +223,15 @@ jQuery( function( $ ) {
 				$( '#statusColor' ).addClass( 'bg-green-400' ).removeClass( 'bg-gray-200' );
 			}
 		}
+		if ( avatar ) {
+			$( '#avatarImg' ).attr( 'src', avatar );
+		}
 		$( '#selected-option' ).text( value );
+		$( '#secondaryText' ).text( secondary );
 		$( '#dropdown-menu li' ).removeClass( 'bg-indigo-600 text-white font-bold' );
 		$( this ).addClass( 'bg-indigo-600 text-white font-bold' );
+		$( this ).find( '.secondary-label' ).removeClass( 'text-gray-500' ).addClass( 'text-gray-200' );
+		$( this ).find( '.branded-text' ).removeClass( 'text-gray-500' ).addClass( 'text-gray-200' );
 		$( '#dropdown-menu li svg' ).addClass( 'hidden' );
 		$( this ).find( 'svg' ).removeClass( 'hidden' );
 		$( '#dropdown-menu' ).addClass( 'hidden' );
@@ -237,6 +245,8 @@ jQuery( function( $ ) {
 				.removeClass( 'text-white' );
 			$( this ).find( 'svg' ).addClass( 'text-white' ).removeClass( 'text-indigo-600' );
 			$( '#dropdown-menu li' ).not( this ).removeClass( 'bg-indigo-600 text-white' );
+			$( '#dropdown-menu li' ).not( this ).find( '.branded-text' ).removeClass( 'text-gray-200' ).addClass( 'text-gray-500' );
+			$( '#dropdown-menu li' ).not( this ).find( '.secondary-label' ).removeClass( 'text-gray-200' ).addClass( 'text-gray-500' );
 			$( this ).addClass( 'hover:bg-indigo-600' );
 		},
 		function() {
