@@ -1,6 +1,6 @@
 <?php
 /**
- * Simple Feature Template.
+ * With Expanding Image Templates.
  *
  * @package greydientlab
  */
@@ -41,9 +41,9 @@ if ( 'is-style-dark' === $style ) {
 				<p class="mt-3 text-lg leading-8 md:mt-7"><?php echo wp_kses_post( $description ); ?></p>
 			</div>
 		</div>
-		<div class="image-container hidden flex-row pt-8 md:flex md:gap-x-4 lg:gap-x-5">
+		<div class="image-container hidden flex-row pt-8 text-gray-200 text-gray-500 md:flex md:gap-x-4 lg:gap-x-5">
 			<?php if ( have_rows( 'with_expanding_image_repeater' ) ) : ?>
-				<?php 
+				<?php
 				while ( have_rows( 'with_expanding_image_repeater' ) ) :
 					the_row();
 					$images       = get_sub_field( 'image' );
@@ -57,15 +57,28 @@ if ( 'is-style-dark' === $style ) {
 			<div class="swiper relative">
 				<div class="swiper-wrapper">
 					<?php if ( have_rows( 'with_expanding_image_repeater' ) ) : ?>
-						<?php 
+						<?php
 						while ( have_rows( 'with_expanding_image_repeater' ) ) :
 							the_row();
 							$images = get_sub_field( 'image' );
 							?>
-							<div class="swiper-slide overflow-hidden rounded-md"><?php echo wp_get_attachment_image( $images, 'full', '', array( 'class' => 'object-cover w-full h-full object-center' ) ); ?></div>
+							<div class="swiper-slide overflow-hidden rounded-md" data-id="<?php echo esc_attr( get_row_index() ); ?>"><?php echo wp_get_attachment_image( $images, 'full', '', array( 'class' => 'object-cover w-full h-full object-center' ) ); ?></div>
 						<?php endwhile; ?>
 					<?php endif; ?>
 				</div>
+			</div>
+			<div class="button-container mx-auto flex flex-row gap-x-10">
+				<button class="button-prev">
+					<img src="<?php echo esc_url( gl_get_block_asset_url( 'gl-features', 'gl-c-arrow-left.svg' ) ); ?>">
+				</button>
+				<ul class="li-button-container my-auto flex flex-row gap-x-4">
+					<li class="h-2.5 w-2.5 cursor-pointer rounded-full bg-indigo-500" data-id="0"></li>
+					<li class="h-2.5 w-2.5 cursor-pointer rounded-full bg-gray-200" data-id="1"></li>
+					<li class="h-2.5 w-2.5 cursor-pointer rounded-full bg-gray-200" data-id="2"></li>
+				</ul>
+				<button class="button-next">
+					<img src="<?php echo esc_url( gl_get_block_asset_url( 'gl-features', 'gl-c-arrow-right.svg' ) ); ?>">
+				</button>
 			</div>
 		</div>
 	</div>

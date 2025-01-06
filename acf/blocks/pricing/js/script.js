@@ -2,9 +2,9 @@
 ( function( $ ) {
 	const initializePricing = function() {
 		$( '.card-1' ).removeClass( 'hidden' );
-		$( '.cursor-pointer' ).click( function() {
-			$( '.cursor-pointer' ).removeClass( 'bg-indigo-600 text-white' );
-			$( '.cursor-pointer' ).addClass( 'text-gray-500' );
+		$( '.gl-b-pricing-section .cursor-pointer' ).click( function() {
+			$( '.gl-b-pricing-section .cursor-pointer' ).removeClass( 'bg-indigo-600 text-white' );
+			$( '.gl-b-pricing-section .cursor-pointer' ).addClass( 'text-gray-500' );
 			$( this ).addClass( 'bg-indigo-600 text-white' );
 			const radioButton = $( this ).find( '.subscription-input' );
 			radioButton.prop( 'checked', true );
