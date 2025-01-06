@@ -161,6 +161,8 @@ function greydientlab_scripts() {
 
 	wp_enqueue_script( 'greydientlab-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/frontend/static/js/main.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/libraries/swiper/swiper-bundle.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_style( 'swiper', get_template_directory_uri() . '/libraries/swiper/swiper-bundle.min.css', array(), _GL_VERSION );
 
 	wp_localize_script(
 		'main',

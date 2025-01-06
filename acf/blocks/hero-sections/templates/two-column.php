@@ -210,7 +210,7 @@ if ( 'image' === get_field( 'two_column_type' ) ) {
 												<div class="border-r border-gray-600/10 px-4 py-2">App.jsx</div>
 											</div>
 										</div>
-										<div class="px-6 pb-14 pt-6 text-white">
+										<div class="px-6 pb-14 pt-6 text-white overflow-scroll">
 											<?php echo wp_kses_post( $geshi->parse_code() ); ?>
 										</div>
 									</div>
