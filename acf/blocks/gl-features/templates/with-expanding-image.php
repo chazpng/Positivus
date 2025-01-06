@@ -49,7 +49,7 @@ if ( 'is-style-dark' === $style ) {
 					$images       = get_sub_field( 'image' );
 					$custom_class = 1 === get_row_index() ? 'flex-[50%]' : 'flex-[25%]';
 					?>
-					<div class="wei-repeater-images transition-all duration-300 md:h-[250px] lg:h-[300px] xl:h-[400px] <?php echo esc_attr( $custom_class ); ?>"><?php echo wp_get_attachment_image( $images, 'full', '', array( 'class' => 'object-cover w-full h-full object-center rounded-md ' ) ); ?></div>
+					<div class="wei-repeater-images rounded-md overflow-hidden transition-all duration-300 md:h-[250px] lg:h-[300px] xl:h-[400px] <?php echo esc_attr( $custom_class ); ?>"><?php echo wp_get_attachment_image( $images, 'full', '', array( 'class' => 'object-cover w-full h-full object-center ' ) ); ?></div>
 				<?php endwhile; ?>
 			<?php endif; ?>
 		</div>
@@ -62,7 +62,7 @@ if ( 'is-style-dark' === $style ) {
 							the_row();
 							$images = get_sub_field( 'image' );
 							?>
-							<div class="swiper-slide"><?php echo wp_get_attachment_image( $images, 'full', '', array( 'class' => 'object-cover w-full h-full object-center rounded-md ' ) ); ?></div>
+							<div class="swiper-slide overflow-hidden rounded-md"><?php echo wp_get_attachment_image( $images, 'full', '', array( 'class' => 'object-cover w-full h-full object-center' ) ); ?></div>
 						<?php endwhile; ?>
 					<?php endif; ?>
 				</div>
