@@ -15,4 +15,7 @@ $style       = $block['className'] ?? '';
 	<?php if ( 'with-expanding-image' === $gl_features ) : ?>
 		<?php require gl_get_custom_block_template( 'gl-features', 'with-expanding-image.php' ); ?>
 	<?php endif; ?>
+	<?php if ( 'with-stats' === $gl_features ) : ?>
+		<?php require gl_get_custom_block_template( 'gl-features', 'with-stats.php' ); ?>
+	<?php endif; ?>
 </div>

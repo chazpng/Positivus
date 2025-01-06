@@ -18,6 +18,7 @@ $gl_features
 	->addChoices(
 		[
 			'with-expanding-image' => 'With Expanding Image',
+			'with-stats'           => 'With Stats',
 		]
 	)
 	/* -- With Expanding Image Fields -- */
@@ -52,6 +53,7 @@ $gl_features
 			'min'          => 3,
 		] 
 	)
+	->conditional( 'features_style', '==', 'with-expanding-image' )
 	->addImage(
 		'image',
 		[
@@ -61,10 +63,62 @@ $gl_features
 			'instructions'  => 'Recommended Dimension : ',
 		] 
 	)
-	->conditional( 'features_style', '==', 'with-expanding-image' )
 	->endRepeater()
 	/* -- With Expanding Image Fields -- */
-	
+
+	/* -- With Stats -- */
+	->addText(
+		'with_stats_subtext',
+		[
+			'label' => 'Subtext',
+		] 
+	)
+	->conditional( 'features_style', '==', 'with-stats' )
+	->addText(
+		'with_stats_title',
+		[
+			'label' => 'Title',
+		] 
+	)
+	->conditional( 'features_style', '==', 'with-stats' )
+	->addTextarea(
+		'with_stats_description',
+		[
+			'label'     => 'Description',
+			'new_lines' => 'br',
+		] 
+	)
+	->conditional( 'features_style', '==', 'with-stats' )
+	->addImage(
+		'with_stats_image',
+		[
+			'preview_size'  => 'medium',
+			'label'         => __( 'Featured Image', 'greydientlab' ),
+			'return_format' => 'id',
+			'instructions'  => 'Recommended Dimension : ',
+		] 
+	)
+	->conditional( 'features_style', '==', 'with-stats' )
+	->addRepeater(
+		'with_stats_repeater',
+		[
+			'label'        => 'Stats',
+			'button_label' => 'Add Stats',
+			'max'          => 2,
+		] 
+	)
+	->conditional( 'features_style', '==', 'with-stats' )
+	->addText( 'value' )
+	->addText( 'suffix' )
+	->addText(
+		'description',
+		[
+			'new_lines' => 'br',
+		] 
+	)
+	->endRepeater()
+	/* -- With Stats -- */
+
 	->setLocation( 'block', '==', 'acf/gl-features' );
 
 return $gl_features;

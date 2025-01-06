@@ -41,7 +41,7 @@ if ( 'is-style-dark' === $style ) {
 				<p class="mt-3 text-lg leading-8 md:mt-7"><?php echo wp_kses_post( $description ); ?></p>
 			</div>
 		</div>
-		<div class="image-container hidden flex-row pt-8 text-gray-200 text-gray-500 md:flex md:gap-x-4 lg:gap-x-5">
+		<div class="image-container hidden flex-row pt-8 md:flex md:gap-x-4 lg:gap-x-5">
 			<?php if ( have_rows( 'with_expanding_image_repeater' ) ) : ?>
 				<?php
 				while ( have_rows( 'with_expanding_image_repeater' ) ) :
