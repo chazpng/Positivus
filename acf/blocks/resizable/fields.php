@@ -14,6 +14,18 @@ $resizable
 	->addPageLink( 'page' )
 	->addText( 'label' )
 	->addText( 'number_id' )
+	->addTrueFalse(
+		'disable_resize',
+		[
+			'label' => 'Disable Resize?',
+		] 
+	)
+	->addTrueFalse(
+		'hide_code',
+		[
+			'label' => 'Hide Dev Code?',
+		] 
+	)
 	->setLocation( 'block', '==', 'acf/resizable' );
 
 return $resizable;

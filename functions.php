@@ -163,6 +163,9 @@ function greydientlab_scripts() {
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/frontend/static/js/main.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/libraries/swiper/swiper-bundle.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_style( 'swiper', get_template_directory_uri() . '/libraries/swiper/swiper-bundle.min.css', array(), _GL_VERSION );
+	wp_enqueue_script( 'split-type', get_stylesheet_directory_uri() . '/libraries/split-type/index.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'gsap', get_stylesheet_directory_uri() . '/libraries/gsap/gsap.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'gsap-scroll', get_stylesheet_directory_uri() . '/libraries/gsap/ScrollTrigger.min.js', array(), _GL_VERSION, true );
 
 	wp_localize_script(
 		'main',

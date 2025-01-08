@@ -1,0 +1,22 @@
+{
+	"name": "acf/text-transition",
+	"title": "Text Transition",
+	"description": "Text Transition.",
+	"style": [ "file:./css/style.min.css" ],
+	"script": "text-transition",
+	"category": "gl-blocks",
+	"icon": "block-default",
+	"keywords": ["text-transition"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "text-transition.php",
+		"supports": "jsx"
+	},
+	"supports": {
+		"jsx": false
+	},
+	"styles": [
+		{ "name": "light", "label": "light", "isDefault": true },
+		{ "name": "dark", "label": "dark" }
+	  ]
+}
