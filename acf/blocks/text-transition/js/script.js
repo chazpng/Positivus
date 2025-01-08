@@ -13,16 +13,42 @@
 			}
 		} );
 	};
+	const initializeSimpleFade = function() {
+		$( '.gl-a-simple-fade' ).each( function() {
+			const element = $( this );
+			gsap.from( element, {
+				opacity: 0,
+				duration: 1,
+				ease: 'power2.in',
+			} );
+		} );
+	};
+	const initializeSimpleFadeBottom = function() {
+		$( '.gl-a-simple-fade-bottom' ).each( function() {
+			const element = $( this );
+			gsap.from( element, {
+				opacity: 0,
+				y: 20,
+				duration: 1,
+			} );
+		} );
+	};
 
 	$( '.gl-b-text-transition button' ).on( 'click', function() {
 		initializeTrailing();
+		initializeSimpleFade();
+		initializeSimpleFadeBottom();
 	} );
 
 	$( document ).ready( function() {
 		initializeTrailing();
+		initializeSimpleFade();
+		initializeSimpleFadeBottom();
 	} );
 
 	if ( window.acf ) {
 		window.acf.addAction( 'render_block_preview/type=text_transition', initializeTrailing );
+		window.acf.addAction( 'render_block_preview/type=text_transition', initializeSimpleFade );
+		window.acf.addAction( 'render_block_preview/type=text_transition', initializeSimpleFadeBottom );
 	}
 }( jQuery ) );
