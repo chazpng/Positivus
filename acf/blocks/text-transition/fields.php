@@ -24,15 +24,14 @@ $text_transition = new StoutLogic\AcfBuilder\FieldsBuilder( 'text_transition' );
 	->addText( 'custom_class' )
 	->addTextarea( 'body' )
 	->conditional( 'field_style', '==', 'textarea' )
-	->addRepeater(
-		'items_list',
-		array(
-			'label' => 'List Items',
-		)
+	->addTrueFalse(
+		'hide_refresh',
+		[
+			'label'         => 'Hide Refresh Button?',
+			'default_value' => 0,
+		] 
 	)
 	->conditional( 'field_style', '==', 'list-items' )
-	->addText( 'text' )
-	->endRepeater()
 	->setLocation( 'block', '==', 'acf/text-transition' );
 
 	return $text_transition;

@@ -16,11 +16,31 @@
 	};
 
 	const initializeSimpleFade = function() {
-		$( '.gl-a-simple-fade, .gl-a-simple-fade-bottom, .gl-a-simple-fade-top' ).each( function() {
+		$( '.gl-a-simple-fade' ).each( function() {
+			const element = $( this );
+			gsap.from( element, {
+				opacity: 0,
+				y: 0,
+				duration: 1,
+				ease: 'power2.in',
+			} );
+		} );
+
+		$( '.gl-a-simple-fade-bottom' ).each( function() {
 			const element = $( this );
 			gsap.from( element, {
 				opacity: 0,
 				y: 40,
+				duration: 1,
+				ease: 'power2.in',
+			} );
+		} );
+
+		$( '.gl-a-simple-fade-top' ).each( function() {
+			const element = $( this );
+			gsap.from( element, {
+				opacity: 0,
+				y: -40,
 				duration: 1,
 				ease: 'power2.in',
 			} );
@@ -83,6 +103,17 @@
 		} );
 	};
 
+	const initializeTextCarousel = function() {
+		// note for this animation you need to consider the width of the li, the gap between text. The x position should be based on the length of the li.
+		const list = document.querySelector( '.gl-a-text-carousel ul' );
+		gsap.to( list, {
+			duration: 30,
+			x: '-2980px',
+			repeat: -1,
+			ease: 'linear',
+		} );
+	};
+
 	$( '.gl-b-text-transition button' ).on( 'click', function() {
 		initializeTrailing();
 		initializeSimpleFade();
@@ -90,6 +121,7 @@
 		initializeRevealFast();
 		initializeRevealSkew();
 		initializeRevealScale();
+		initializeTextCarousel();
 	} );
 
 	$( document ).ready( function() {
@@ -99,6 +131,7 @@
 		initializeRevealFast();
 		initializeRevealSkew();
 		initializeRevealScale();
+		initializeTextCarousel();
 	} );
 
 	if ( window.acf ) {
@@ -108,5 +141,6 @@
 		window.acf.addAction( 'render_block_preview/type=text_transition', initializeRevealFast );
 		window.acf.addAction( 'render_block_preview/type=text_transition', initializeRevealSkew );
 		window.acf.addAction( 'render_block_preview/type=text_transition', initializeRevealScale );
+		window.acf.addAction( 'render_block_preview/type=text_transition', initializeTextCarousel );
 	}
 }( jQuery ) );
