@@ -1,3 +1,37 @@
 .gl-animated .char {
 	opacity: 0;
 }
+
+.gl-a-list .char {
+	opacity: 1;
+}
+
+.gl-a-trailing-top .char {
+	opacity: 0;
+	transform: translateY(-30px);
+}
+
+.gl-a-trailing-bottom .char {
+	opacity: 0;
+	transform: translateY(30px);
+}
+
+.gl-a-reveal-slow,
+.gl-a-reveal-fast,
+.gl-a-reveal-skew {
+
+	.line {
+		overflow: hidden;
+		height: 45px;
+	}
+
+	.char {
+		opacity: 1;
+		overflow: visible;
+	}
+}
+
+.gl-a-reveal-scale .char {
+	opacity: 1;
+	transform: translate(-7.41px, -9px);
+}
