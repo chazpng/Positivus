@@ -114,6 +114,116 @@
 		} );
 	};
 
+	const initializeTextFall = function() {
+		const titleList = gsap.utils.toArray( '.gl-a-text-fall ul li h1' );
+		const titlesTl = gsap.timeline( { repeat: -1 } );
+		gsap.registerEffect( {
+			name: 'rotateIn',
+			extendTimeline: true,
+			defaults: {
+				duration: 1,
+				rotationY: 0,
+				rotationX: 0,
+				transformOrigin: '50% 50%',
+				ease: 'back',
+				parent: '.wrap',
+			},
+			effect: ( targets, config ) => {
+				gsap.set( config.parent, { perspective: 800 } );
+				const tl = gsap.timeline();
+				tl.from( targets, {
+					duration: config.duration,
+					rotationY: config.rotationY,
+					rotationX: config.rotationX,
+					transformOrigin: config.transformOrigin,
+					ease: config.ease,
+					stagger: {
+						each: 0.06,
+					},
+				} );
+
+				tl.from(
+					targets,
+					{
+						duration: 0.4,
+						autoAlpha: 0,
+						ease: 'none',
+						stagger: {
+							each: 0.05,
+						},
+					},
+					0
+				);
+				return tl;
+			},
+		} );
+		gsap.registerEffect( {
+			name: 'rotateOut',
+			extendTimeline: true,
+			defaults: {
+				duration: 0.5,
+				x: 0,
+				y: 0,
+				rotationY: 0,
+				rotationX: 0,
+				rotationZ: 0,
+				transformOrigin: '50% 50%',
+				ease: 'power1.in',
+				parent: '.wrap',
+			},
+			effect: ( targets, config ) => {
+				gsap.set( config.parent, { perspective: 800 } );
+				const tl = gsap.timeline();
+				tl.to( targets, {
+					x: config.x,
+					y: config.y,
+					rotationY: config.rotationY,
+					rotationX: config.rotationX,
+					rotationZ: config.rotationZ,
+					transformOrigin: config.transformOrigin,
+					ease: config.ease,
+					stagger: {
+						each: 0.04,
+					},
+				} );
+
+				tl.to(
+					targets,
+					{
+						duration: 0.45,
+						opacity: 0,
+						ease: 'none',
+						stagger: {
+							amount: 0.02,
+						},
+					},
+					0
+				);
+				return tl;
+			},
+		} );
+
+		function splitElements() {
+			gsap.set( titleList, { autoAlpha: 1 } );
+			$( '.gl-a-text-fall ul' ).removeClass( 'invisible' );
+			new SplitType( '.gl-a-text-fall ul li h1', { types: 'lines, words, chars' } );
+			titleList.forEach( ( element, dex ) => {
+				titlesTl
+					.rotateIn( $( element ).find( '.word' ), {
+						rotationX: 90,
+						transformOrigin: '100% 0',
+						ease: 'back(2.3)',
+					}, dex > 0 ? '-=0.38' : 0 )
+					.rotateOut( $( element ).find( '.word' ), {
+						y: 20,
+						rotationX: -100,
+						transformOrigin: '100% 100%',
+					} );
+			} );
+		}
+		splitElements();
+	};
+
 	$( '.gl-b-text-transition button' ).on( 'click', function() {
 		initializeTrailing();
 		initializeSimpleFade();
@@ -122,6 +232,7 @@
 		initializeRevealSkew();
 		initializeRevealScale();
 		initializeTextCarousel();
+		initializeTextFall();
 	} );
 
 	$( document ).ready( function() {
@@ -132,6 +243,7 @@
 		initializeRevealSkew();
 		initializeRevealScale();
 		initializeTextCarousel();
+		initializeTextFall();
 	} );
 
 	if ( window.acf ) {
@@ -142,5 +254,6 @@
 		window.acf.addAction( 'render_block_preview/type=text_transition', initializeRevealSkew );
 		window.acf.addAction( 'render_block_preview/type=text_transition', initializeRevealScale );
 		window.acf.addAction( 'render_block_preview/type=text_transition', initializeTextCarousel );
+		window.acf.addAction( 'render_block_preview/type=text_transition', initializeTextFall );
 	}
 }( jQuery ) );

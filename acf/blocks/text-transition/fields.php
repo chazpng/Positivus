@@ -32,6 +32,9 @@ $text_transition = new StoutLogic\AcfBuilder\FieldsBuilder( 'text_transition' );
 		] 
 	)
 	->conditional( 'field_style', '==', 'list-items' )
+	->addRepeater( 'list' )
+	->addText( 'text' )
+	->endRepeater()
 	->setLocation( 'block', '==', 'acf/text-transition' );
 
 	return $text_transition;

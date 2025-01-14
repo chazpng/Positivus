@@ -3,7 +3,7 @@
  * Text Transition.
  * 
  * You can use the following class for text transition.
- * 1. trailing.
+ * 1. gl-a-simple-fade.
  *
  * @package greydientlab
  */
