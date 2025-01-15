@@ -1,0 +1,23 @@
+{
+    "name": "acf/image-transition",
+    "title": "Image Transition",
+    "description": "Image Transition block.",
+    "style": [ "file:./css/style.min.css" ],
+    "script": "image-transition",
+    "category": "gl-blocks",
+    "icon": "block-default",
+    "keywords": ["image-transition"],
+    "acf": {
+      "mode": "preview",
+      "renderTemplate": "image-transition.php",
+      "supports": "jsx"
+    },
+    "supports": {
+      "jsx": false
+    },
+    "styles": [
+      { "name": "light", "label": "Light", "isDefault": true },
+      { "name": "dark", "label": "Dark" }
+    ]
+  }
+  
