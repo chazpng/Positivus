@@ -25,4 +25,19 @@ $align       = $block['align'];
 	<?php if ( 'full-parallax' === $image_style ) : ?>
 		<?php require gl_get_custom_block_template( 'image-transition', 'full-parallax.php' ); ?>
 	<?php endif; ?>
+	<?php if ( 'with-background-two' === $image_style ) : ?>
+		<?php require gl_get_custom_block_template( 'image-transition', 'with-background-two.php' ); ?>
+	<?php endif; ?>
+	<?php if ( 'reverse-auto-scroll' === $image_style ) : ?>
+		<?php require gl_get_custom_block_template( 'image-transition', 'reverse-auto-scroll.php' ); ?>
+	<?php endif; ?>
+	<?php if ( 'image-comparison' === $image_style ) : ?>
+		<?php require gl_get_custom_block_template( 'image-transition', 'image-comparison.php' ); ?>
+	<?php endif; ?>
+	<?php if ( 'pixelated' === $image_style ) : ?>
+		<?php require gl_get_custom_block_template( 'image-transition', 'pixelated.php' ); ?>
+	<?php endif; ?>
+	<?php if ( 'tiled' === $image_style ) : ?>
+		<?php require gl_get_custom_block_template( 'image-transition', 'tiled.php' ); ?>
+	<?php endif; ?>
 </div>

@@ -1,23 +1,19 @@
 <?php
 /**
- * With Full height Backgorund Image.
+ * Full Parallax Transition.
  *
  * @package greydientlab
  */
 
 ?>
 <div class="full-parallax relative mx-auto flex flex-col pb-20">
-	<div class="relative">
-		<?php if ( have_rows( 'image_repeater' ) ) : ?>
-			<?php 
-			while ( have_rows( 'image_repeater' ) ) :
-				the_row(); 
+	<div class="image-wrapper relative h-full">
+		<?php if ( have_rows( 'image_repeater_url' ) ) : ?>
+			<?php
+			while ( have_rows( 'image_repeater_url' ) ) :
+				the_row();
 				?>
-				<div class="sticky top-0">
-					<div class="image-container relative h-screen w-full overflow-hidden">
-						<?php echo wp_get_attachment_image( get_sub_field( 'image' ), 'full', '', array( 'class' => 'featured-image w-full h-[200%] absolute bottom-0 left-0 object-cover object-center' ) ); ?>
-					</div>
-				</div>
+				<div class="top-0 m-auto table h-screen w-full bg-cover bg-fixed bg-center transition-all"  style="background: url('<?php echo esc_url( get_sub_field( 'image_url' ) ); ?>') no-repeat 50% 50%; background-attachment: fixed; background-size: cover;" ></div>
 			<?php endwhile; ?>
 		<?php endif; ?>
 	</div>

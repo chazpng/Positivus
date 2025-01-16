@@ -7,3 +7,7 @@ body {
 .swiper-button-disabled {
 	opacity: 50%;
 }
+
+.tiled-image {
+	image-rendering: pixelated !important;
+}

@@ -1,6 +1,6 @@
 <?php
 /**
- * With Full height Backgorund Image.
+ * Image Reveal Parallax.
  *
  * @package greydientlab
  */
@@ -11,7 +11,7 @@
 		<?php if ( have_rows( 'image_repeater' ) ) : ?>
 			<?php 
 			while ( have_rows( 'image_repeater' ) ) :
-				the_row(); 
+				the_row();
 				?>
 				<div class="image-container relative h-[30vw] overflow-hidden">
 					<?php echo wp_get_attachment_image( get_sub_field( 'image' ), 'full', '', array( 'class' => 'featured-image w-full h-[120%] absolute bottom-0 left-0 object-cover object-center' ) ); ?>
