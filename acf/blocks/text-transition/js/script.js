@@ -1,6 +1,7 @@
 /* global jQuery gsap SplitType*/
 ( function( $ ) {
 	// all functions is equivalent to each class. You can just copy the specific function based on your needs.
+	//note that all functions dont have scrollTrigger yet.
 	const initializeTrailing = function() {
 		new SplitType( '.gl-a-trailing, .gl-a-trailing-top, .gl-a-trailing-bottom', { types: 'lines, chars' } );
 		$( '.gl-a-trailing, .gl-a-trailing-top, .gl-a-trailing-bottom' ).each( function() {
@@ -12,6 +13,32 @@
 					stagger: 0.0125,
 				} );
 			}
+		} );
+	};
+
+	const initializeBurnIn = function() {
+		new SplitType( '.gl-a-burn-in', { types: 'lines, chars' } );
+		$( '.gl-a-burn-in' ).each( function() {
+			const characters = $( this ).find( '.char' );
+			const shuffledChar = Array.from( characters ).sort( () => Math.random() - 0.5 );
+			const tl = gsap.timeline();
+			tl.addLabel( 'frame1' )
+				.to( shuffledChar, { duration: 0, stagger: 0, autoAlpha: 0, y: 5, textShadow: '0px 0px 16px rgb(0, 0, 0)', color: 'transparent' }, 'frame1' )
+				.addLabel( 'frame2' )
+				.to( shuffledChar, { duration: 0.5, stagger: 0.015, autoAlpha: 1, y: 0, textShadow: '0px 0px 0px rgb(0, 0, 0)', color: '000' } );
+		} );
+	};
+
+	const initializeRandomSkew = function() {
+		new SplitType( '.gl-a-random-skew', { types: 'lines, chars' } );
+		$( '.gl-a-random-skew' ).each( function() {
+			const characters = $( this ).find( '.char' );
+			const shuffledChar = Array.from( characters ).sort( () => Math.random() - 0.5 );
+			const tl = gsap.timeline();
+			tl.addLabel( 'frame3' )
+				.to( shuffledChar, { duration: 0, stagger: 0, autoAlpha: 0, rotationX: '-60px', color: '000' }, 'frame3' )
+				.addLabel( 'frame4' )
+				.to( shuffledChar, { duration: 0.5, stagger: 0.015, autoAlpha: 1, rotationX: 0, color: '000' } );
 		} );
 	};
 
@@ -233,6 +260,8 @@
 		initializeRevealScale();
 		initializeTextCarousel();
 		initializeTextFall();
+		initializeBurnIn();
+		initializeRandomSkew();
 	} );
 
 	$( document ).ready( function() {
@@ -244,6 +273,8 @@
 		initializeRevealScale();
 		initializeTextCarousel();
 		initializeTextFall();
+		initializeBurnIn();
+		initializeRandomSkew();
 	} );
 
 	if ( window.acf ) {
@@ -255,5 +286,7 @@
 		window.acf.addAction( 'render_block_preview/type=text_transition', initializeRevealScale );
 		window.acf.addAction( 'render_block_preview/type=text_transition', initializeTextCarousel );
 		window.acf.addAction( 'render_block_preview/type=text_transition', initializeTextFall );
+		window.acf.addAction( 'render_block_preview/type=text_transition', initializeBurnIn );
+		window.acf.addAction( 'render_block_preview/type=text_transition', initializeRandomSkew );
 	}
 }( jQuery ) );
