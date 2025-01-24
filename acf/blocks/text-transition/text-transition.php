@@ -12,7 +12,7 @@ $style       = $block['className'] ?? '';
 $field_style = get_field( 'field_style' );
 $repeater    = get_field( 'list_repeater' );
 ?>
-<div class="gl-b-text-transition">
+<div class="gl-b-text-transition relative rounded-xl border px-8">
 	<?php if ( 'textarea' === $field_style ) : ?>
 		<?php require gl_get_custom_block_template( 'text-transition', 'textarea.php' ); ?>
 	<?php endif; ?>

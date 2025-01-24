@@ -1,0 +1,22 @@
+{
+	"name": "acf/text-transition-generator",
+	"title": "Text Transition Generator",
+	"description": "Text Transition Generator.",
+	"style": [ "file:./css/style.min.css" ],
+	"script": "text-transition-generator",
+	"category": "gl-blocks",
+	"icon": "block-default",
+	"keywords": ["text-transition-generator"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "text-transition-generator.php",
+		"supports": "jsx"
+	},
+	"supports": {
+		"jsx": false
+	},
+	"styles": [
+		{ "name": "light", "label": "light", "isDefault": true },
+		{ "name": "dark", "label": "dark" }
+	  ]
+}

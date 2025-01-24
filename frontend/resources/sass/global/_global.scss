@@ -11,3 +11,52 @@ body {
 .tiled-image {
 	image-rendering: pixelated !important;
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+.slidecontainer {
+	width: 100%;
+}
+
+.slider {
+	-webkit-appearance: none;
+	appearance: none;
+	height: 8px;
+	background: $gray-200;
+	border-radius: 4px;
+	outline: none;
+	opacity: 1;
+	-webkit-transition: 0.2s;
+	transition: opacity 0.2s;
+}
+
+.slider:hover {
+	opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: $brand-color;
+	cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+	width: 16px;
+	height: 16px;
+	background: $brand-color;
+	cursor: pointer;
+}
