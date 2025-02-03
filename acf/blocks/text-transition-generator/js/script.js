@@ -1,25 +1,53 @@
 /* global jQuery gsap SplitType*/
 ( function( $ ) {
 	const initializeTextTransition = function() {
-		const textTransition = document.querySelector( '.gl-text-transition-generator' );
+		const textTransition = document.querySelector( '.gl-b-text-transition-generator' );
 		const textTarget = document.querySelector( '.text-transition-outcome' );
-		let isAnimating = false;
-		let xValue = 0;
-		let yValue = 0;
-		let skewXValue = 0;
-		let skewYValue = 0;
-		let rotateX = 0;
-		let rotateY = 0;
-		let opacityValue = 1;
-		let scaleValue = '1';
-		let durationValue = 1;
-		let staggerValue = 0.02;
-		let easingValue1 = 'power0';
-		let easingValue2 = 'in';
+		const defaultXValue = $( textTransition ).find( '.input-values' ).data( 'x-value' );
+		const defaultYValue = $( textTransition ).find( '.input-values' ).data( 'y-value' );
+		const defaultSkewXValue = $( textTransition ).find( '.input-values' ).data( 'skew-x' );
+		const defaultSkewYValue = $( textTransition ).find( '.input-values' ).data( 'skew-y' );
+		const defaultRotateXValue = $( textTransition ).find( '.input-values' ).data( 'rotate-x' );
+		const defaultRotateYValue = $( textTransition ).find( '.input-values' ).data( 'rotate-y' );
+		const defaultOpacity = $( textTransition ).find( '.input-values' ).data( 'opacity' );
+		const defaultScale = $( textTransition ).find( '.input-values' ).data( 'scale' );
+		const defaultDuration = $( textTransition ).find( '.input-values' ).data( 'duration' );
+		const defaultStagger = $( textTransition ).find( '.input-values' ).data( 'stagger' );
+		const defaultEase = $( textTransition ).find( '.input-values' ).data( 'ease' );
+		const defaultTiming = $( textTransition ).find( '.input-values' ).data( 'timing' );
+		const defaultSplit = $( textTransition ).find( '.input-values' ).data( 'split' );
+		const defaultCustomEase = $( textTransition ).find( '.input-values' ).data( 'custom-ease' );
+		let xValue = defaultXValue;
+		let yValue = defaultYValue;
+		let skewXValue = defaultSkewXValue;
+		let skewYValue = defaultSkewYValue;
+		let rotateX = defaultRotateXValue;
+		let rotateY = defaultRotateYValue;
+		let opacityValue = defaultOpacity;
+		let scaleValue = defaultScale;
+		let durationValue = defaultDuration;
+		let staggerValue = defaultStagger;
+		let easingValue1 = defaultEase;
+		let easingValue2 = defaultTiming;
 		let easingValue = `${ easingValue1 }.${ easingValue2 }`;
-		let splitTextType = 'none';
+		let splitTextType = defaultSplit;
 		let splitInstance;
+		$( '#easingOptions1' ).val( defaultEase );
+		$( '#easingOptions2' ).val( defaultTiming );
 		splitInstance = new SplitType( textTarget, { types: 'lines, words, chars' } );
+
+		$( '#editTransition' ).click( function() {
+			$( '.custom-menu' ).toggleClass( 'w-0 w-1/3 border-r' );
+		} );
+
+		$( '#advanceOptions' ).click( function() {
+			const $menu = $( '.advance-settings-container' );
+			if ( $menu.is( ':visible' ) ) {
+				$menu.slideUp();
+			} else {
+				$menu.slideDown().css( 'display', 'flex' );
+			}
+		} );
 
 		if ( $( textTransition ).length > 0 ) {
 			$( '#textareaBody' ).on( 'keyup', function() {
@@ -40,7 +68,6 @@
 				const value = $( this ).val().trim();
 				if ( value === '' ) {
 					xValue = 0;
-					$( this ).val( 0 );
 				} else {
 					xValue = value;
 				}
@@ -51,7 +78,6 @@
 				const value = $( this ).val().trim();
 				if ( value === '' ) {
 					yValue = 0;
-					$( this ).val( 0 );
 				} else {
 					yValue = value;
 				}
@@ -62,7 +88,6 @@
 				const value = $( this ).val().trim();
 				if ( value === '' ) {
 					skewXValue = 0;
-					$( this ).val( 0 );
 				} else {
 					skewXValue = value;
 				}
@@ -73,7 +98,6 @@
 				const value = $( this ).val().trim();
 				if ( value === '' ) {
 					skewYValue = 0;
-					$( this ).val( 0 );
 				} else {
 					skewYValue = value;
 				}
@@ -84,7 +108,6 @@
 				const value = $( this ).val().trim();
 				if ( value === '' ) {
 					rotateX = 0;
-					$( this ).val( 0 );
 				} else {
 					rotateX = value;
 				}
@@ -95,7 +118,6 @@
 				const value = $( this ).val().trim();
 				if ( value === '' ) {
 					rotateY = 0;
-					$( this ).val( 0 );
 				} else {
 					rotateY = value;
 				}
@@ -149,7 +171,7 @@
 			$( '#customEase' ).on( 'keyup', function() {
 				const value = $( this ).val().trim();
 				if ( value === '' ) {
-					easingValue = 'linear';
+					easingValue = defaultCustomEase;
 				} else {
 					easingValue = value;
 				}
@@ -163,6 +185,7 @@
 				} else {
 					staggerValue = value;
 				}
+				setTarget();
 			} );
 
 			$( '#splitTextType' ).change( function() {
@@ -212,6 +235,27 @@
 			} );
 
 			const setTarget = function() {
+				const resetAll = $( textTarget ).find( '.char, .line, .word' );
+				gsap.set( resetAll, {
+					opacity: 1,
+					scale: 1,
+					y: 0,
+					x: 0,
+					rotateX: 0,
+					rotateY: 0,
+					skewX: 0,
+					skewY: 0,
+				} );
+				gsap.set( textTarget, {
+					opacity: 1,
+					scale: 1,
+					y: 0,
+					x: 0,
+					rotateX: 0,
+					rotateY: 0,
+					skewX: 0,
+					skewY: 0,
+				} );
 				if ( splitTextType === 'none' ) {
 					gsap.set( textTarget, {
 						opacity: opacityValue,
@@ -224,17 +268,6 @@
 						skewY: skewYValue,
 					} );
 				} else {
-					const resetAll = $( textTarget ).find( '.char, .line, .word' );
-					gsap.set( resetAll, {
-						opacity: 1,
-						scale: 1,
-						y: 0,
-						x: 0,
-						rotateX: 0,
-						rotateY: 0,
-						skewX: 0,
-						skewY: 0,
-					} );
 					const characters = $( textTarget ).find( `.${ splitTextType }` );
 					if ( characters.length > 0 ) {
 						gsap.set( characters, {
@@ -253,10 +286,6 @@
 
 			const runTransition = function() {
 				if ( splitTextType === 'none' ) {
-					if ( isAnimating ) {
-						return;
-					}
-					isAnimating = true;
 					gsap.from( textTarget, {
 						opacity: opacityValue,
 						scale: scaleValue,
@@ -266,6 +295,7 @@
 						rotateY,
 						skewX: skewXValue,
 						skewY: skewYValue,
+						ease: `${ easingValue }`,
 					} );
 					gsap.to( textTarget, {
 						duration: durationValue,
@@ -280,30 +310,9 @@
 						transformOrigin: '50% 50%',
 						ease: `${ easingValue }`,
 					} );
-					setTimeout( function() {
-						gsap.to( textTarget, {
-							duration: durationValue,
-							opacity: opacityValue,
-							scale: scaleValue,
-							x: xValue,
-							y: yValue,
-							rotateX,
-							rotateY,
-							skewX: skewXValue,
-							skewY: skewYValue,
-							ease: `${ easingValue }`,
-							onComplete: () => {
-								isAnimating = false;
-							},
-						} );
-					}, 2000 + ( durationValue * 1000 ) );
 				} else {
 					const characters = $( textTarget ).find( `.${ splitTextType }` );
 					if ( characters.length > 0 ) {
-						if ( isAnimating ) {
-							return;
-						}
-						isAnimating = true;
 						gsap.from( characters, {
 							opacity: opacityValue,
 							scale: scaleValue,
@@ -313,6 +322,7 @@
 							rotateY,
 							skewX: skewXValue,
 							skewY: skewYValue,
+							stagger: staggerValue,
 						} );
 						gsap.to( characters, {
 							duration: durationValue,
@@ -328,55 +338,45 @@
 							ease: `${ easingValue }`,
 							stagger: staggerValue,
 						} );
-						setTimeout( function() {
-							gsap.to( characters, {
-								duration: durationValue,
-								opacity: opacityValue,
-								scale: scaleValue,
-								x: xValue,
-								y: yValue,
-								rotateX,
-								rotateY,
-								skewX: skewXValue,
-								skewY: skewYValue,
-								ease: `${ easingValue }`,
-								stagger: staggerValue,
-								onComplete: () => {
-									isAnimating = false;
-								},
-							} );
-						}, 2000 + ( durationValue * 1000 ) + ( staggerValue * characters.length * 1000 ) );
 					}
 				}
 			};
 
 			const resetTransition = function() {
-				isAnimating = false;
-				xValue = 0;
-				yValue = 0;
-				skewXValue = 0;
-				skewYValue = 0;
-				rotateX = 0;
-				rotateY = 0;
-				opacityValue = 1;
-				scaleValue = 1;
-				durationValue = 0.5;
-				staggerValue = 0.02;
-				easingValue1 = 'power0';
-				easingValue2 = 'in';
+				xValue = defaultXValue;
+				yValue = defaultYValue;
+				skewXValue = defaultSkewXValue;
+				skewYValue = defaultSkewYValue;
+				rotateX = defaultRotateXValue;
+				rotateY = defaultRotateYValue;
+				opacityValue = defaultOpacity;
+				scaleValue = defaultScale;
+				durationValue = defaultDuration;
+				staggerValue = defaultStagger;
+				easingValue1 = defaultEase;
+				easingValue2 = defaultTiming;
 				easingValue = `${ easingValue1 }.${ easingValue2 }`;
+				splitTextType = defaultSplit;
 				$( '#overflowHidden, #isCustomEase' ).prop( 'checked', false );
-				$( '#xValue, #yValue, #zValue, #rotateY, #rotateX, #skewY, #skewX' ).val( 0 );
-				$( '#opacityValue, #scaleValue' ).val( 1 );
-				$( '#durationValue' ).val( 1 );
-				$( '#staggerValue' ).val( 0.02 );
-				$( '#easingOptions1' ).val( 'power0' );
-				$( '#easingOptions2' ).val( 'in' );
+				$( '#xValue' ).val( defaultXValue );
+				$( '#yValue' ).val( defaultYValue );
+				$( '#rotateY' ).val( defaultRotateXValue );
+				$( '#rotateX' ).val( defaultRotateYValue );
+				$( '#skewY' ).val( defaultSkewXValue );
+				$( '#skewX' ).val( defaultSkewYValue );
+				$( '#OpacityValue' ).val( defaultOpacity );
+				$( '#scaleValue' ).val( defaultScale );
+				$( '#durationValue' ).val( defaultDuration );
+				$( '#staggerValue' ).val( defaultStagger );
+				$( '#easingOptions1' ).val( defaultEase );
+				$( '#easingOptions2' ).val( defaultTiming );
 				$( '.stagger-function, .overflow-hide-function' ).removeClass( 'flex' ).addClass( 'hidden' );
 				$( '.custom-ease-function' ).addClass( 'hidden' ).removeClass( 'flex' );
 				$( '.select-ease-function' ).removeClass( 'hidden' ).addClass( 'flex' );
 				$( '.scale-value, .opacity-value' ).html( 1 );
-				$( '.duration-value' ).html( 0.5 );
+				$( '.scale-value' ).html( defaultScale );
+				$( '.opacity-value' ).html( defaultOpacity );
+				$( '.duration-value' ).html( defaultDuration );
 				if ( splitTextType === 'none' ) {
 					$( '.stagger-function, .overflow-hide-function' ).addClass( 'hidden' ).removeClass( 'flex' );
 				} else {
