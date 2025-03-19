@@ -26,6 +26,7 @@ $resizable
 			'label' => 'Hide Dev Code?',
 		] 
 	)
+	->addText( 'block_id' )
 	->setLocation( 'block', '==', 'acf/resizable' );
 
 return $resizable;

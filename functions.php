@@ -67,6 +67,7 @@ function greydientlab_setup() {
 			'company'                => esc_html__( 'Company Menu', 'greydientlab' ),
 			'legal'                  => esc_html__( 'Legal Menu', 'greydientlab' ),
 			'simple-footer'          => esc_html__( 'Simple Footer Menu', 'greydientlab' ),
+			'page-transition-nav'    => esc_html__( 'Page Transition Nav', 'greydientlab' ),
 		)
 	);
 
@@ -161,11 +162,13 @@ function greydientlab_scripts() {
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'greydientlab-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/frontend/static/js/main.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'transition', get_template_directory_uri() . '/frontend/static/js/transition.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/libraries/swiper/swiper-bundle.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_style( 'swiper', get_template_directory_uri() . '/libraries/swiper/swiper-bundle.min.css', array(), _GL_VERSION );
 	wp_enqueue_script( 'split-type', get_stylesheet_directory_uri() . '/libraries/split-type/index.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'gsap', get_stylesheet_directory_uri() . '/libraries/gsap/gsap.min.js', array(), _GL_VERSION, true );
 	wp_enqueue_script( 'gsap-scroll', get_stylesheet_directory_uri() . '/libraries/gsap/ScrollTrigger.min.js', array(), _GL_VERSION, true );
+	wp_enqueue_script( 'barba', 'https://cdn.jsdelivr.net/npm/@barba/core', array(), _GL_VERSION, true );
 
 	wp_localize_script(
 		'main',

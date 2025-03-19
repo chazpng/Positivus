@@ -30,7 +30,7 @@ if ( 'is-style-dark' === $style ) {
 
 ?>
 
-<div class="<?php echo esc_attr( $bg_color ); ?> py-12 sm:py-12 with-expanding-images max-w-7xl mx-auto">
+<div class="<?php echo esc_attr( $bg_color ); ?> py-6 with-expanding-images max-w-7xl mx-auto">
 	<div class="mx-auto px-6 lg:px-8">
 		<div class="header-container grid grid-cols-12 gap-x-5 lg:pb-8">
 			<div class="title-container col-span-12 flex flex-col justify-between md:col-span-6 lg:justify-normal">

@@ -369,7 +369,14 @@ module.exports = {
     'z-30',
     'z-40',
     '-mx-3',
-    '-my-6'
+    '-my-6',
+    'scale-[0.95]',
+    'h-[400vw]',
+    'w-[400vw]',
+    'top-[-360%]',
+    'bottom-[-360%]',
+    'scale-150',
+    'grid-cols-7'
   ],
   theme: {
     fontFamily: {

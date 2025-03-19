@@ -87,6 +87,8 @@ $text_transition_generator = new StoutLogic\AcfBuilder\FieldsBuilder( 'text_tran
 			'label'         => 'Hide Overflow Text?',
 		]
 	)
+	->conditional( 'split_text', '==', 'word' )
+	->or( 'split_text', '==', 'char' )
 	->setLocation( 'block', '==', 'acf/text-transition-generator' );
 
 	return $text_transition_generator;

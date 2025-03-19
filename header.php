@@ -20,12 +20,12 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-barba="wrapper">
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'greydientlab' ); ?></a>
 
-	<header id="masthead" class="site-header py-8 border-b">
+	<header id="masthead" class="site-header border-b py-8">
 		<div class="container m-auto flex items-center">
 			<div class="site-branding">
 				<?php

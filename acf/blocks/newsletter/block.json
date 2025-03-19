@@ -1,15 +1,15 @@
 {
-    "name": "acf/newsletter",
-    "title": "Newsletter Sections",
-    "description": "Newsletter block.",
+    "name": "acf/page-transition",
+    "title": "Page Transition",
+    "description": "Page Transition block.",
     "style": [ "file:./css/style.min.css" ],
-    "script": "newsletter",
+    "script": "page-transition",
     "category": "gl-blocks",
     "icon": "block-default",
-    "keywords": ["news","newsletter"],
+    "keywords": ["news","page-transition"],
     "acf": {
       "mode": "preview",
-      "renderTemplate": "newsletter.php",
+      "renderTemplate": "page-transition.php",
       "supports": "jsx"
     },
     "supports": {

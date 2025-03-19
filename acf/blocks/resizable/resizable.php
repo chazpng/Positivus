@@ -23,9 +23,9 @@ $hide_code      = get_field( 'hide_code' ) ? 'hidden' : '';
 			<div class="flex gap-x-2.5">
 				<div class="my-auto grow">
 					<!-- <p class="screen-size"></p> -->
-					<p class="label" data-id="<?php echo esc_attr( $uniqid ); ?>"><span class="mr-2.5 font-bold"><?php the_field( 'number_id' ); ?></span> <?php the_title(); ?> <?php the_field( 'label' ); ?></p>
+					<p class="label" data-id="<?php echo esc_attr( $uniqid ); ?>"><span class="mr-2.5 font-bold"><?php the_field( 'number_id' ); ?></span> <?php the_field( 'label' ); ?></p>
 				</div>
-				<div class="flex items-center">
+				<div class="hidden items-center">
 					<button class="copy-label group relative hidden items-center justify-center gap-x-2 rounded-lg px-4 py-2.5 text-sm font-medium leading-[22px] text-gray-700 shadow-sm ring-1 ring-gray-200 hover:bg-slate-200/20 sm:flex" data-id="<?php echo esc_attr( $uniqid ); ?>">
 						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g id="copy-01" clip-path="url(#clip0_1314_466)">
@@ -62,7 +62,7 @@ $hide_code      = get_field( 'hide_code' ) ? 'hidden' : '';
 		</div>
 
 		<div class="preview-content content m-auto max-w-full <?php echo esc_attr( $disable_resize ); ?> overflow-auto pt-5" data-id="<?php echo esc_attr( $uniqid ); ?>">
-			<iframe src="<?php the_field( 'page' ); ?>" frameborder="0" data-id="<?php echo esc_attr( $uniqid ); ?>"></iframe>
+			<iframe src="<?php the_field( 'page' ); ?>" frameborder="0" data-id="<?php echo esc_attr( $uniqid ); ?>" data-transition="<?php echo esc_attr( get_field( 'block_id' ) ); ?>"></iframe>
 		</div>
 
 		<div class="code-content content m-auto mt-5 hidden min-h-80 max-w-full <?php echo esc_attr( $disable_resize ); ?> overflow-auto rounded-lg bg-[#1E293B] p-5" data-id="<?php echo esc_attr( $uniqid ); ?>">

@@ -22,3 +22,17 @@
 		border: none !important;
 	}
 }
+
+.page-template-page-transition {
+
+	#masthead,
+	#colophon,
+	#secondary,
+	#wpadminbar {
+		display: none;
+	}
+
+	.nav-in-hero {
+		border: none !important;
+	}
+}

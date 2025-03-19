@@ -12,7 +12,7 @@ $rotate_y_value   = get_field( 'rotate_y_value' ) ?: 0;
 $skew_x_value     = get_field( 'skew_x_value' ) ?: 0;
 $skew_y_value     = get_field( 'skew_y_value' ) ?: 0;
 $duration_value   = get_field( 'duration_value' ) ?: 0.5;
-$opacity_value    = get_field( 'opacity_value' ) ?: 1;
+$opacity_value    = get_field( 'opacity_value' );
 $scale_value      = get_field( 'scale_value' ) ?: 1;
 $ease_style       = get_field( 'ease_style' );
 $ease_timing      = get_field( 'ease_timing' );
@@ -138,6 +138,7 @@ $stagger          = get_field( 'stagger' ) ?: 0.03;
 							</div>
 							<div class="select flex flex-col gap-y-2">
 								<label for="points" class="my-auto block whitespace-nowrap text-sm/6 font-medium text-gray-900">Split text by:</label>
+								<p class="text-xs">If selected, all changes will revert and will automatically reset.</p>
 								<select class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" id="splitTextType">
 									<option value="none">None</option>
 									<option value="line">Line</option>
@@ -146,7 +147,7 @@ $stagger          = get_field( 'stagger' ) ?: 0.03;
 								</select>
 							</div>
 
-							<div class="stagger-function hidden gap-x-2">
+							<div class="stagger-function gap-x-2">
 								<label class="my-auto block whitespace-nowrap text-sm/6 font-medium text-gray-900">Stagger</label>
 								<input class="!focus:outline-0 peer block w-full rounded-md border-b bg-gray-50 px-3 py-1.5 text-gray-900 placeholder:text-gray-500 focus:border-b focus:border-indigo-600 focus:outline focus:ring-indigo-600 sm:text-sm/6" type="number" min="0" value='<?php echo esc_attr( $stagger ); ?>' id="staggerValue" />
 							</div>
@@ -171,7 +172,7 @@ $stagger          = get_field( 'stagger' ) ?: 0.03;
 				</div>
 			</div>
 			<div class="body-container my-auto flex h-full items-center align-middle">
-				<h1 class="text-transition-outcome mx-auto text-balance text-center text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">Your Text Here</h1>
+				<h1 class="text-transition-outcome text-balance font-semibold leading-[150%] tracking-tight text-gray-900">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis</h1>
 			</div>
 		</div>
 	</div>

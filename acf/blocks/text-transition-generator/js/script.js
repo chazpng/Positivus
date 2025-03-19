@@ -17,6 +17,7 @@
 		const defaultTiming = $( textTransition ).find( '.input-values' ).data( 'timing' );
 		const defaultSplit = $( textTransition ).find( '.input-values' ).data( 'split' );
 		const defaultCustomEase = $( textTransition ).find( '.input-values' ).data( 'custom-ease' );
+		const defaultOverflow = $( textTransition ).find( '.input-values' ).data( 'overflow' );
 		let xValue = defaultXValue;
 		let yValue = defaultYValue;
 		let skewXValue = defaultSkewXValue;
@@ -34,10 +35,44 @@
 		let splitInstance;
 		$( '#easingOptions1' ).val( defaultEase );
 		$( '#easingOptions2' ).val( defaultTiming );
+		$( '#splitTextType' ).val( defaultSplit );
 		splitInstance = new SplitType( textTarget, { types: 'lines, words, chars' } );
+		if ( defaultOverflow === 1 ) {
+			$( '#overflowHidden' ).prop( 'checked', true );
+			setTimeout( () => {
+				if ( splitTextType === 'word' ) {
+					const line = $( textTarget ).find( '.line' );
+					$( line ).addClass( 'overflow-hidden' );
+				} else if ( splitTextType === 'char' ) {
+					const word = $( textTarget ).find( '.word' );
+					$( word ).addClass( 'overflow-hidden' );
+				}
+			}, 500 );
+		} else {
+			$( '.line, word' ).removeClass( 'overflow-hidden' );
+			$( '#overflowHidden' ).prop( 'checked', false );
+		}
+		if ( splitTextType === 'none' || splitTextType === 'line' ) {
+			$( '.overflow-hide-function' ).addClass( 'hidden' );
+		} else {
+			$( '.overflow-hide-function' ).removeClass( 'hidden' );
+		}
 
 		$( '#editTransition' ).click( function() {
 			$( '.custom-menu' ).toggleClass( 'w-0 w-1/3 border-r' );
+			if ( splitInstance ) {
+				splitInstance.revert();
+			}
+			setTimeout( () => {
+				splitInstance = new SplitType( textTarget, { types: 'lines, words, chars' } );
+				if ( splitTextType === 'word' ) {
+					const line = $( textTarget ).find( '.line' );
+					$( line ).addClass( 'overflow-hidden' );
+				} else if ( splitTextType === 'char' ) {
+					const word = $( textTarget ).find( '.word' );
+					$( word ).addClass( 'overflow-hidden' );
+				}
+			}, 500 );
 		} );
 
 		$( '#advanceOptions' ).click( function() {
@@ -191,12 +226,12 @@
 			$( '#splitTextType' ).change( function() {
 				resetTransition();
 				splitTextType = $( this ).val();
-				if ( splitTextType === 'none' ) {
-					$( '.stagger-function, .overflow-hide-function' ).addClass( 'hidden' ).removeClass( 'flex' );
-				} else {
-					$( '.stagger-function, .overflow-hide-function' ).removeClass( 'hidden' ).addClass( 'flex' );
-				}
 				setTarget();
+				if ( splitTextType === 'none' || splitTextType === 'line' ) {
+					$( '.overflow-hide-function' ).addClass( 'hidden' );
+				} else {
+					$( '.overflow-hide-function' ).removeClass( 'hidden' );
+				}
 			} );
 
 			$( '#isCustomEase' ).change( function() {
@@ -357,30 +392,39 @@
 				easingValue2 = defaultTiming;
 				easingValue = `${ easingValue1 }.${ easingValue2 }`;
 				splitTextType = defaultSplit;
-				$( '#overflowHidden, #isCustomEase' ).prop( 'checked', false );
+				$( ' #isCustomEase' ).prop( 'checked', false );
 				$( '#xValue' ).val( defaultXValue );
 				$( '#yValue' ).val( defaultYValue );
 				$( '#rotateY' ).val( defaultRotateXValue );
 				$( '#rotateX' ).val( defaultRotateYValue );
 				$( '#skewY' ).val( defaultSkewXValue );
 				$( '#skewX' ).val( defaultSkewYValue );
-				$( '#OpacityValue' ).val( defaultOpacity );
+				$( '#opacityValue' ).val( defaultOpacity );
 				$( '#scaleValue' ).val( defaultScale );
 				$( '#durationValue' ).val( defaultDuration );
 				$( '#staggerValue' ).val( defaultStagger );
 				$( '#easingOptions1' ).val( defaultEase );
 				$( '#easingOptions2' ).val( defaultTiming );
-				$( '.stagger-function, .overflow-hide-function' ).removeClass( 'flex' ).addClass( 'hidden' );
 				$( '.custom-ease-function' ).addClass( 'hidden' ).removeClass( 'flex' );
 				$( '.select-ease-function' ).removeClass( 'hidden' ).addClass( 'flex' );
 				$( '.scale-value, .opacity-value' ).html( 1 );
 				$( '.scale-value' ).html( defaultScale );
 				$( '.opacity-value' ).html( defaultOpacity );
 				$( '.duration-value' ).html( defaultDuration );
-				if ( splitTextType === 'none' ) {
-					$( '.stagger-function, .overflow-hide-function' ).addClass( 'hidden' ).removeClass( 'flex' );
+				if ( defaultOverflow === 1 ) {
+					$( '#overflowHidden' ).prop( 'checked', true );
+					setTimeout( () => {
+						if ( splitTextType === 'word' ) {
+							const line = $( textTarget ).find( '.line' );
+							$( line ).addClass( 'overflow-hidden' );
+						} else if ( splitTextType === 'char' ) {
+							const word = $( textTarget ).find( '.word' );
+							$( word ).addClass( 'overflow-hidden' );
+						}
+					}, 500 );
 				} else {
-					$( '.stagger-function, .overflow-hide-function' ).removeClass( 'hidden' ).addClass( 'flex' );
+					$( '.line, word' ).removeClass( 'overflow-hidden' );
+					$( '#overflowHidden' ).prop( 'checked', false );
 				}
 			};
 		}

@@ -5,3 +5,4 @@ gulpfile.js
 *.config.js
 tailwind/src/*.css
 **/libraries/
+frontend/resources/js/transition.js
