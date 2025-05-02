@@ -25,7 +25,7 @@
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
-	<div id="page" class="site w-[1300px] max-w-[1300px] pt-[20px] mx-auto">
+	<div id="page" class="site container pt-[20px] mx-auto">
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'custom-theme'); ?></a>
 
 		<header id="masthead" class="site-heade">
